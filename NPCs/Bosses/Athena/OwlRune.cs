@@ -1,0 +1,114 @@
+using System;
+using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.ModLoader;
+
+using Microsoft.Xna.Framework.Graphics;
+using AAMod.NPCs.Enemies.Sky;
+
+namespace AAMod.NPCs.Bosses.Athena
+{
+    public class OwlRune : ModNPC
+    {
+        public override void SetDefaults()
+        {
+            npc.alpha = 255;
+            npc.dontTakeDamage = true;
+            npc.lifeMax = 1;
+            npc.aiStyle = 0;
+            npc.damage = 0;
+            npc.defense = 1;
+            npc.knockBackResist = 0f;
+            npc.width = 82;
+            npc.height = 82;
+            npc.value = Item.buyPrice(0, 0, 0, 0);
+            npc.lavaImmune = true;
+            npc.noTileCollide = true;
+            npc.noGravity = true;
+            npc.scale = .001f;
+            npc.friendly = false;
+            npc.damage = 50;
+        }
+
+        public override void AI()
+        {
+            if (npc.ai[1] == 0)
+            {
+                npc.alpha -= 5;
+                npc.scale += .019f;
+                if (Main.netMode != 1)
+                {
+                    npc.ai[0]++;
+                    if (npc.ai[0] >= 51)
+                    {
+                        npc.alpha = 0;
+                        npc.scale = 1;
+                        npc.ai[0] = 0;
+                        npc.ai[1] = 1;
+                        npc.netUpdate = true;
+                    }
+                }
+            }
+            else if (npc.ai[1] == 1)
+            {
+                if (npc.alpha <= 0)
+                {
+                    npc.alpha = 0;
+                }
+                if (npc.scale > 1)
+                {
+                    npc.scale = 1;
+                }
+                if (Main.netMode != 1)
+                {
+                    npc.ai[0]++;
+                    if (npc.ai[0] >= 300)
+                    {
+                        npc.ai[0] = 0;
+                        npc.ai[1] = 2;
+                        npc.netUpdate = true;
+                    }
+                }
+                npc.TargetClosest();
+                int damage = 160 / (Main.expertMode ? 4 : 2);
+                if (npc.ai[2] == 15 || npc.ai[2] == 45)
+                {
+                    Main.projectile[Projectile.NewProjectile(npc.position, new Vector2(0f, 8f), ModContent.ProjectileType<SeraphFeather>(), damage, 2, Main.myPlayer)].tileCollide = false;
+                    Main.projectile[Projectile.NewProjectile(npc.position, new Vector2(-8f, 0f), ModContent.ProjectileType<SeraphFeather>(), damage, 2, Main.myPlayer)].tileCollide = false;
+                    Main.projectile[Projectile.NewProjectile(npc.position, new Vector2(0f, -8f), ModContent.ProjectileType<SeraphFeather>(), damage, 2, Main.myPlayer)].tileCollide = false;
+                    Main.projectile[Projectile.NewProjectile(npc.position, new Vector2(8f, 0f), ModContent.ProjectileType<SeraphFeather>(), damage, 2, Main.myPlayer)].tileCollide = false;
+                }
+                else if (npc.ai[2] >= 60)
+                {
+                    float vel = (float)Math.Sqrt(32);
+                    Main.projectile[Projectile.NewProjectile(npc.position, new Vector2(vel, vel), ModContent.ProjectileType<SeraphFeather>(), damage, 2, Main.myPlayer)].tileCollide = false;
+                    Main.projectile[Projectile.NewProjectile(npc.position, new Vector2(-vel, vel), ModContent.ProjectileType<SeraphFeather>(), damage, 2, Main.myPlayer)].tileCollide = false;
+                    Main.projectile[Projectile.NewProjectile(npc.position, new Vector2(-vel, -vel), ModContent.ProjectileType<SeraphFeather>(), damage, 2, Main.myPlayer)].tileCollide = false;
+                    Main.projectile[Projectile.NewProjectile(npc.position, new Vector2(vel, -vel), ModContent.ProjectileType<SeraphFeather>(), damage, 2, Main.myPlayer)].tileCollide = false;
+                    npc.ai[2] = 0;
+                }
+                npc.ai[2]++;
+            }
+            else
+            {
+                if (Main.netMode != 1)
+                {
+                    npc.ai[0]++;
+                    if (npc.ai[0] >= 51)
+                    {
+                        npc.active = false;
+                        npc.netUpdate = true;
+                    }
+                }
+                npc.alpha += 5;
+                npc.scale -= .019f;
+            }
+        }
+
+        public override bool PreDraw(SpriteBatch sb, Color drawColor)
+        {
+            BaseDrawing.DrawTexture(sb, Main.npcTexture[npc.type], 0, npc.position, npc.width, npc.height, npc.scale, npc.rotation, npc.direction, 1, npc.frame, npc.GetAlpha(ColorUtils.COLOR_GLOWPULSE), true);
+            return false;
+        }
+    }
+}
