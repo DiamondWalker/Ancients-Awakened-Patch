@@ -1641,7 +1641,7 @@ namespace AAMod
                 }
             }
 
-            int biomesToGenerate = Main.rand.Next(3, 6);
+            int biomesToGenerate = Main.rand.Next(GetWorldSize(), GetWorldSize() * 2);
             for (int i = 0; i < biomesToGenerate; i++) {
                 if (possiblePositions.Count == 0) break;
 
