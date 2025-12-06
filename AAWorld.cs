@@ -630,6 +630,11 @@ namespace AAMod
                 {
                     MireAndInferno(progress);
                 }));
+
+                tasks.Insert(ChaosIndex + 2, new PassLegacy("Red Mushroom Biome", delegate (GenerationProgress progress) 
+                {
+                    RedMush(progress);
+                }));
             }
 
 
@@ -1565,6 +1570,66 @@ namespace AAMod
                 MireBiome biome = new MireBiome();
                 delete.Place(origin, WorldGen.structures);
                 biome.Place(origin, WorldGen.structures);
+            }
+        }
+
+        private void RedMush(GenerationProgress progress) {
+            progress.Message = Language.GetTextValue("Mods.AAMod.Common.AAWorldBuildRedMush");
+
+            byte[] placement = new byte[Main.maxTilesX];
+            int leftSide = Main.maxTilesX / 3;
+            int rightSide = Main.maxTilesX - 1 - leftSide;
+
+            int mushSize = 0;
+
+            for (int x = 0; x < Main.maxTilesX; x++) {
+                bool validX = false;
+
+                if (x <= leftSide || x >= rightSide) {
+                    for (int y = 0; y < Main.worldSurface; y++) {
+                        if (Main.tile[x, y] != null && Main.tile[x, y].active() && Main.tile[x, y].type == TileID.Grass) {
+                            validX = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (validX) {
+                    placement[x] = 1;
+                    mushSize++;
+                } else {
+                    /*if (mushSize > 0 && mushSize <= 20) { // mush biome must be at least 20 tiles wide. Otherwise, remove it.
+                        int mushRemoveX = x - 1;
+                        while (placement[mushRemoveX] > 0) {
+                            placement[mushRemoveX] = 0;
+                            mushRemoveX--;
+                        }
+                    }*/
+                    mushSize = 0;
+                }
+            }
+
+            for (int x = 0; x < Main.maxTilesX; x++) {
+                if (placement[x] > 0) {
+                    for (int y = 0; y < Main.worldSurface; y++) {
+                        if (Main.tile[x, y] != null && Main.tile[x, y].active()) {
+                            ushort type = Main.tile[x, y].type;
+
+                            if (type == TileID.Grass) {
+                                Main.tile[x, y].type = (ushort)ModContent.TileType<Mycelium>();
+                            }
+                            /*if (WallID.Sets.Conversion.Grass[type]) {
+                                Main.tile[x, y].type = (ushort)ModContent.WallType<Mushwall>();
+                                //WorldGen.SquareTileFrame(x, y, true);
+                                //NetMessage.SendTileSquare(-1, x, y, 1);
+                            } else if (TileID.Sets.Conversion.Grass[type]) {
+                                Main.tile[x, y].type = (ushort)ModContent.TileType<Mycelium>();
+                                //WorldGen.SquareTileFrame(k, l, true);
+                                //NetMessage.SendTileSquare(-1, k, l, 1);
+                            }*/
+                        }
+                    }
+                }
             }
         }
 
