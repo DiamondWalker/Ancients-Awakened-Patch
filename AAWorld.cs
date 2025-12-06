@@ -1613,20 +1613,20 @@ namespace AAMod
                 if (placement[x] > 0) {
                     for (int y = 0; y < Main.worldSurface; y++) {
                         if (Main.tile[x, y] != null && Main.tile[x, y].active()) {
-                            ushort type = Main.tile[x, y].type;
+                            int type = Main.tile[x, y].type;
+                            int wall = Main.tile[x, y].wall;
 
-                            if (type == TileID.Grass) {
-                                Main.tile[x, y].type = (ushort)ModContent.TileType<Mycelium>();
-                            }
-                            /*if (WallID.Sets.Conversion.Grass[type]) {
-                                Main.tile[x, y].type = (ushort)ModContent.WallType<Mushwall>();
-                                //WorldGen.SquareTileFrame(x, y, true);
-                                //NetMessage.SendTileSquare(-1, x, y, 1);
-                            } else if (TileID.Sets.Conversion.Grass[type]) {
-                                Main.tile[x, y].type = (ushort)ModContent.TileType<Mycelium>();
-                                //WorldGen.SquareTileFrame(k, l, true);
+                            if (WallID.Sets.Conversion.Grass[wall]) {
+                                Main.tile[x, y].wall = (ushort)ModContent.WallType<Mushwall>();
+                                WorldGen.SquareWallFrame(x, y);
                                 //NetMessage.SendTileSquare(-1, k, l, 1);
-                            }*/
+                            }
+
+                            if (TileID.Sets.Conversion.Grass[type] && type != TileID.JungleGrass) {
+                                Main.tile[x, y].type = (ushort)ModContent.TileType<Mycelium>();
+                                WorldGen.SquareTileFrame(x, y, true);
+                                //NetMessage.SendTileSquare(-1, k, l, 1);
+                            }
                         }
                     }
                 }
@@ -1759,7 +1759,7 @@ namespace AAMod
                             }
                             else if (WallID.Sets.Conversion.Grass[wall])
                             {
-                                Main.tile[k, l].type = (ushort)ModContent.WallType<InfernoGrassWall>();
+                                Main.tile[k, l].wall = (ushort)ModContent.WallType<InfernoGrassWall>();
                                 WorldGen.SquareWallFrame(k, l);
                                 sendNet = true;
                             }
@@ -1914,13 +1914,14 @@ namespace AAMod
                         }
                         else if (conversionType == 4) //Mushroom
                         {
-                            if (WallID.Sets.Conversion.Grass[type])
+                            if (WallID.Sets.Conversion.Grass[wall])
                             {
-                                Main.tile[k, l].type = (ushort)ModContent.WallType<Mushwall>();
-                                WorldGen.SquareTileFrame(k, l, true);
+                                Main.tile[k, l].wall = (ushort)ModContent.WallType<Mushwall>();
+                                WorldGen.SquareWallFrame(k, l);
                                 NetMessage.SendTileSquare(-1, k, l, 1);
                             }
-                            else if (TileID.Sets.Conversion.Grass[type])
+                            
+                            if (TileID.Sets.Conversion.Grass[type] && type != TileID.JungleGrass)
                             {
                                 Main.tile[k, l].type = (ushort)ModContent.TileType<Mycelium>();
                                 WorldGen.SquareTileFrame(k, l, true);
@@ -1931,20 +1932,20 @@ namespace AAMod
                         {
                             if (wall == WallID.Mushroom)
                             {
-                                Main.tile[k, l].type = WallID.Jungle;
-                                WorldGen.SquareTileFrame(k, l, true);
+                                Main.tile[k, l].wall = WallID.Jungle;
+                                WorldGen.SquareWallFrame(k, l);
                                 NetMessage.SendTileSquare(-1, k, l, 1);
                             }
                             else if (wall == WallID.MushroomUnsafe)
                             {
-                                Main.tile[k, l].type = WallID.JungleUnsafe;
-                                WorldGen.SquareTileFrame(k, l, true);
+                                Main.tile[k, l].wall = WallID.JungleUnsafe;
+                                WorldGen.SquareWallFrame(k, l);
                                 NetMessage.SendTileSquare(-1, k, l, 1);
                             }
                             else if (wall == ModContent.WallType<Mushwall>())
                             {
-                                Main.tile[k, l].type = WallID.Grass;
-                                WorldGen.SquareTileFrame(k, l, true);
+                                Main.tile[k, l].wall = WallID.Grass;
+                                WorldGen.SquareWallFrame(k, l);
                                 NetMessage.SendTileSquare(-1, k, l, 1);
                             }
 

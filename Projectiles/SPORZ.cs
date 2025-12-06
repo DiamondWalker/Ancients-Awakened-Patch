@@ -5,6 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using AAMod.Dusts;
 using AAMod.Tiles;
+using AAMod.Walls;
 
 namespace AAMod.Projectiles
 {
@@ -86,8 +87,15 @@ namespace AAMod.Projectiles
                     if (WorldGen.InWorld(k, l, 1) && Math.Abs(k - i) + Math.Abs(l - j) < Math.Sqrt(Size * Size + Size * Size))
                     {
                         int type = Main.tile[k, l].type;
-                        if (TileID.Sets.Conversion.Grass[type])
-                        {
+                        int wall = Main.tile[k, l].wall;
+
+                        if (WallID.Sets.Conversion.Grass[wall]) {
+                            Main.tile[k, l].wall = (ushort)ModContent.WallType<Mushwall>();
+                            WorldGen.SquareWallFrame(k, l);
+                            NetMessage.SendTileSquare(-1, k, l, 1);
+                        }
+
+                        if (TileID.Sets.Conversion.Grass[type] && type != TileID.JungleGrass) {
                             Main.tile[k, l].type = (ushort)ModContent.TileType<Mycelium>();
                             WorldGen.SquareTileFrame(k, l, true);
                             NetMessage.SendTileSquare(-1, k, l, 1);
