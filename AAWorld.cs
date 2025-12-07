@@ -601,26 +601,26 @@ namespace AAMod
             int shiniesIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Shinies"));
             if(shiniesIndex > -1)
             {
-                /*tasks.Insert(shiniesIndex + 1, new PassLegacy("Prisms", delegate (GenerationProgress progress)
-                {
-                    GenPrisms(progress);
-                }));*/
-                tasks.Insert(shiniesIndex + 2, new PassLegacy("Abyssium", delegate (GenerationProgress progress)
+                tasks.Insert(shiniesIndex + 1, new PassLegacy("Abyssium", delegate (GenerationProgress progress)
                 {
                     GenAbyssium();
                 }));
-                tasks.Insert(shiniesIndex + 3, new PassLegacy("Incinerite", delegate (GenerationProgress progress)
+                tasks.Insert(shiniesIndex + 2, new PassLegacy("Incinerite", delegate (GenerationProgress progress)
                 {
                     GenIncinerite();
                 }));
-                tasks.Insert(shiniesIndex + 4, new PassLegacy("Everleaf", delegate (GenerationProgress progress)
+                tasks.Insert(shiniesIndex + 3, new PassLegacy("Everleaf", delegate (GenerationProgress progress)
                 {
                     GenEverleaf();
                 }));
-                tasks.Insert(shiniesIndex + 5, new PassLegacy("Relic", delegate (GenerationProgress progress)
+                tasks.Insert(shiniesIndex + 4, new PassLegacy("Relic", delegate (GenerationProgress progress)
                 {
                     GenRelicOre();
                 }));
+                /*tasks.Insert(shiniesIndex + 5, new PassLegacy("Prisms", delegate (GenerationProgress progress)
+                {
+                    GenPrisms(progress);
+                }));*/
             }
 
             int ChaosIndex = tasks.FindIndex(genpass => genpass.Name.Equals("Micro Biomes"));
@@ -1496,6 +1496,8 @@ namespace AAMod
 
         private void MireAndInferno(GenerationProgress progress)
         {
+            progress.Message = Language.GetTextValue("Mods.AAMod.Common.AAWorldBuildChaos");
+
             infernoSide = (Main.dungeonX > Main.maxTilesX / 2) ? (-1) : 1;
             infernoPos.X = (Main.maxTilesX >= 8000) ? (infernoSide == 1 ? WorldGen.genRand.Next(2000, 2300) : (Main.maxTilesX - WorldGen.genRand.Next(2000, 2300))) : (infernoSide == 1 ? WorldGen.genRand.Next(1500, 1700) : (Main.maxTilesX - WorldGen.genRand.Next(1500, 1700)));
             mirePos.X = (Main.maxTilesX >= 8000) ? (infernoSide != 1 ? WorldGen.genRand.Next(2000, 2300) : (Main.maxTilesX - WorldGen.genRand.Next(2000, 2300))) : (infernoSide != 1 ? WorldGen.genRand.Next(1500, 1700) : (Main.maxTilesX - WorldGen.genRand.Next(1500, 1700)));
@@ -1547,8 +1549,6 @@ namespace AAMod
             InfernoCenter = infernoPos;
 
             MireCenter = mirePos;
-
-            progress.Message = Language.GetTextValue("Mods.AAMod.Common.AAWorldBuildChaos");
 
             progress.Message = Language.GetTextValue("Mods.AAMod.Common.AAWorldBuildInferno");
 
