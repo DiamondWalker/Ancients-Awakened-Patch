@@ -73,6 +73,9 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch
 
         public static int AISTATE_WALK = 0, AISTATE_JUMP = 1, AISTATE_CHARGE = 2, AISTATE_FLY = 3;
 		public float[] internalAI = new float[4];
+        private int despawnTimer = 0;
+
+        private int flyFrame = 0;
 		
         public override void AI()
         {
@@ -80,6 +83,7 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch
 
             Player player = Main.player[npc.target];
 
+            bool despawn = false;
             if (player == null)
             {
                 npc.TargetClosest();
@@ -91,10 +95,22 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch
 
                 if (player.dead || !player.active || Vector2.Distance(player.Center, npc.Center) > 5000)
                 {
-                    Projectile.NewProjectile(npc.Center, new Vector2(0f, 0f), mod.ProjectileType("MonarchRUNAWAY"), 0, 0);
-                    npc.active = false;
-                    return;
+                    despawn = true;
                 }
+            }
+
+            if (Main.netMode != 1 && !despawn && !player.GetModPlayer<AAPlayer>().ZoneMush) {
+                if (despawnTimer++ > 300) {
+                    despawn = true;
+                } 
+            } else {
+                despawnTimer = 0;
+            }
+
+            if (despawn) {
+                Projectile.NewProjectile(npc.Center, new Vector2(0f, 0f), mod.ProjectileType("MonarchRUNAWAY"), 0, 0);
+                npc.active = false;
+                return;
             }
 
             float dist = npc.Distance(player.Center);
@@ -132,13 +148,13 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch
             }
             else if (internalAI[1] == AISTATE_FLY)
             {
-                npc.frameCounter = 0;
-                npc.frame.Y += 108;
-                if (npc.frame.Y > (108 * 11) || npc.frame.Y < (108 * 8))
-                {
+                if (npc.frameCounter >= 2) {
                     npc.frameCounter = 0;
-                    npc.frame.Y = 108 * 8;
+                    if (++flyFrame >= 4) {
+                        flyFrame = 0;
+                    }
                 }
+                npc.frame.Y = (flyFrame + 8) * 108;
 
             }
             else //jump
@@ -233,7 +249,7 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch
                     }
                     internalAI[2] = 0;
                 }
-                AAAI.InfernoFighterAI(npc, ref npc.ai, true, false, 0, 0.07f, 3f, 3, 4, 60, true, 10, 60, true, null, false);	
+                AAAI.InfernoFighterAI(npc, ref npc.ai, false, false, 0, 0.07f, 3f, 3, 4, 60, true, 10, 60, true, null, false);	
 			}else
 			if(internalAI[1] == AISTATE_JUMP)//jumper
 			{

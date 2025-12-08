@@ -37,12 +37,11 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch
         }
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            bool biomeCorrect = spawnInfo.player.InZone("Surface") && spawnInfo.player.InZone("Purity") || spawnInfo.player.GetModPlayer<AAPlayer>().ZoneMush;
             if (spawnInfo.playerSafe || NPC.AnyNPCs(mod.NPCType("MonarchSlep")) || NPC.AnyNPCs(mod.NPCType("MonarchWake")) || NPC.AnyNPCs(mod.NPCType("MushroomMonarch")))
             {
                 return 0f;
             }
-            if (biomeCorrect || Main.dayTime)
+            if (spawnInfo.player.GetModPlayer<AAPlayer>().ZoneMush && Main.dayTime)
             {
                 return SpawnCondition.OverworldDaySlime.Chance * 0.001f;
             }

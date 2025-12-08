@@ -15,7 +15,8 @@ namespace AAMod.Items.BossSummons
         {
             DisplayName.SetDefault("Intimidating Looking Mushroom");
             ItemID.Sets.SortingPriorityBossSpawns[item.type] = 13; // This helps sort inventory know this is a boss summoning item.
-            Tooltip.SetDefault(@"Summons the Mushroom Monarch");
+            Tooltip.SetDefault(@"Summons the Mushroom Monarch
+Can only be used in a red mushroom biome");
         }
 
         public override void SetDefaults()
@@ -40,6 +41,10 @@ namespace AAMod.Items.BossSummons
 
         public override bool CanUseItem(Player player)
         {
+            if (!player.GetModPlayer<AAPlayer>().ZoneMush) {
+                if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.IntimidatingMushroomFalse1"), new Color(216, 110, 40), false);
+                return false;
+            }
             if (NPC.AnyNPCs(ModContent.NPCType<MushroomMonarch>()))
             {
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.IntimidatingMushroomFalse2"), new Color(216, 110, 40), false);
