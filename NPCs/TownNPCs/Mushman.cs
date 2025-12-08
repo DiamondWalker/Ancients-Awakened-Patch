@@ -95,7 +95,7 @@ namespace AAMod.NPCs.TownNPCs
                     Player player = Main.player[k];
                     if (player.active)
                     {
-                        if (AAWorld.downedMonarch == true)
+                        if (AAWorld.downedToad == true)
                         {
                             return true;
                         }
@@ -481,18 +481,10 @@ namespace AAMod.NPCs.TownNPCs
             nextSlot++;
             shop.item[nextSlot].SetDefaults(ItemID.MushroomGrassSeeds);
             nextSlot++;
-            shop.item[nextSlot].SetDefaults(ItemID.LesserHealingPotion);
+            shop.item[nextSlot].SetDefaults(ItemID.HealingPotion);
             nextSlot++;
-            shop.item[nextSlot].SetDefaults(ItemID.LesserManaPotion);
+            shop.item[nextSlot].SetDefaults(ItemID.ManaPotion);
             nextSlot++;
-
-            if (NPC.downedBoss3 == true)
-            {
-                shop.item[nextSlot].SetDefaults(ItemID.HealingPotion);
-                nextSlot++;
-                shop.item[nextSlot].SetDefaults(ItemID.ManaPotion);
-                nextSlot++;
-            }
 
             if (Main.hardMode == true)
             {
