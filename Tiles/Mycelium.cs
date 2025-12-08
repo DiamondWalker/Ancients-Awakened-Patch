@@ -20,7 +20,7 @@ namespace AAMod.Tiles
             Main.tileBlockLight[Type] = true;
             TileID.Sets.NeedsGrassFraming[Type] = true;
             dustType = mod.DustType("Mushdust");
-			AddMapEntry(new Color(100, 100, 0));
+			AddMapEntry(new Color(180, 102, 35));
             drop = ItemID.DirtBlock;
 		}
         
