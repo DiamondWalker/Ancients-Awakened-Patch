@@ -15,21 +15,33 @@ Returning to your previous rift location will trigger a 10-second cooldown on th
 
 		public override void SetDefaults()
         {
+            // for reference, here are the original magic mirror defaults:
+            /* useTurn = true;
+            width = 20;
+            height = 20;
+            useStyle = 4;
+            useTime = 90;
+            UseSound = SoundID.Item6;
+            useAnimation = 90;
+            rare = 1;
+            value = 50000;
+            */
+
             item.CloneDefaults(ItemID.MagicMirror);
             item.maxStack = 1;
-			item.useAnimation = 15;
+            item.useAnimation = 15;
             item.useTime = 15;
             item.consumable = false;
         }
 
         public override void AddRecipes()
         {
-			ModRecipe recipe = new ModRecipe(mod);
+            ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.MagicMirror);
             recipe.AddIngredient(ItemID.IceMirror);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
-			recipe.AddRecipe();
-		}
+            recipe.AddRecipe();
+        }
     }
 }

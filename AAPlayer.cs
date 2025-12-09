@@ -257,6 +257,8 @@ namespace AAMod
         public bool OldOneCharm = false;
         public bool SpellBookofRagnarok;
         public bool CursedEyeofSoulBinder;
+
+        public bool MegaMush = false;
         #endregion
 
         #region debuffs
@@ -358,6 +360,7 @@ namespace AAMod
             if (AnubisBook) saved.Add("Book");
             if (GivenAnuSummon) saved.Add("Stick");
             if (GivenWormIdol) saved.Add("Idol");
+            if (MegaMush) saved.Add("MegaMush");
             return new TagCompound
             {
                 { "saved", saved }
@@ -366,10 +369,11 @@ namespace AAMod
 
         public override void Load(TagCompound tag)
         {
-            var downed = tag.GetList<string>("saved");
-            AnubisBook = downed.Contains("Book");
-            GivenAnuSummon = downed.Contains("Stick");
-            GivenWormIdol = downed.Contains("Idol");
+            var saved = tag.GetList<string>("saved");
+            AnubisBook = saved.Contains("Book");
+            GivenAnuSummon = saved.Contains("Stick");
+            GivenWormIdol = saved.Contains("Idol");
+            MegaMush = saved.Contains("MegaMush");
         }
 
         #endregion
@@ -1299,6 +1303,12 @@ namespace AAMod
         }
 
         #endregion
+
+        public override void OnRespawn(Player player) {
+            base.OnRespawn(player);
+
+            if (MegaMush && player.statLife < player.statLifeMax2) player.statLife = player.statLifeMax2;
+        }
 
         public override void CatchFish(Item fishingRod, Item bait, int power, int liquidType, int poolSize, int worldLayer, int questFish, ref int caughtType, ref bool junk)
         {
