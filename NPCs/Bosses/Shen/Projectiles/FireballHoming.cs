@@ -93,7 +93,7 @@ namespace AAMod.NPCs.Bosses.Shen.Projectiles
 
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.HydraToxin>(), 180);
+            target.AddBuff(ModContent.BuffType<Buffs.DragonFire>(), 180);
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
@@ -190,7 +190,7 @@ namespace AAMod.NPCs.Bosses.Shen.Projectiles
 
         public override void OnHitPlayer(Player target, int damage, bool crit)
         {
-            target.AddBuff(ModContent.BuffType<Buffs.DragonFire>(), 180);
+            target.AddBuff(ModContent.BuffType<Buffs.HydraToxin>(), 180);
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
