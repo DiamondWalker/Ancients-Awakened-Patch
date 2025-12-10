@@ -28,6 +28,7 @@ namespace AAMod
         public bool infinityOverload = false;
         public bool terraBlaze = false;
         public bool Hydratoxin = false;
+        public int HydratoxinTime = 0;
         public bool Moonraze = false;
         public bool Electrified = false;
         public bool InfinityScorch = false;
@@ -100,16 +101,28 @@ namespace AAMod
                 ApplyDPSDebuff(npc.onFire, 20, ref npc.lifeRegen);
             }
 
+            if (Hydratoxin) {
+                HydratoxinTime++;
+
+                if (npc.lifeRegen > 0) {
+                    npc.lifeRegen = 0;
+                }
+
+                npc.lifeRegen -= (int)(HydratoxinTime / 50 + 4) * 13;
+            } else if (HydratoxinTime > 0) {
+                HydratoxinTime--;
+            }
+
             if (DiscordInferno)
             {
-                npc.damage -= 10;
+                //npc.damage -= 10;
 
                 if (npc.lifeRegen > 0)
                 {
                     npc.lifeRegen = 0;
                 }
 
-                npc.lifeRegen -= (int)npc.velocity.X * (npc.velocity.X > 0?  1 : -1)  + 52;
+                npc.lifeRegen -= (int)(npc.velocity.Length() / 2 + 4) * 13;
             }
 
             if (BrokenArmor)
@@ -131,7 +144,6 @@ namespace AAMod
 
             ApplyDPSDebuff(CursedHellfire, 30, ref npc.lifeRegen);
             ApplyDPSDebuff(Moonraze, 100, ref npc.lifeRegen);
-            ApplyDPSDebuff(Hydratoxin, (int)npc.velocity.X * (npc.velocity.X > 0?  1 : -1) / 2, ref npc.lifeRegen);
             ApplyDPSDebuff(Electrified, 40, ref npc.lifeRegen);
             if(npc.lifeMax > 0) ApplyDPSDebuff(FFlames, 40 * (npc.life / npc.lifeMax), ref npc.lifeRegen);
         }
@@ -765,7 +777,8 @@ namespace AAMod
 
             if (DiscordInferno)
             {
-                for (int i = 0; i < 8; i++)
+                int particles = Math.Min((int)npc.velocity.Length() * 2 + 1, 25);
+                for (int i = 0; i < particles; i++)
                 {
                     int num4 = Dust.NewDust(hitbox.TopLeft(), npc.width, npc.height, ModContent.DustType<Dusts.Discord>(), 0f, -2.5f, 0);
                     Main.dust[num4].alpha = 100;

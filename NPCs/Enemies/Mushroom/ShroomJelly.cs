@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
+using AAMod.Items.Usable;
 
 namespace AAMod.NPCs.Enemies.Mushroom
 {
@@ -53,6 +54,8 @@ namespace AAMod.NPCs.Enemies.Mushroom
         public override void NPCLoot()
 		{
             Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ItemID.Mushroom);
+
+            if (Main.rand.Next(50) == 0) Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, ModContent.ItemType<MegaMush>());
         }
 	}
 }

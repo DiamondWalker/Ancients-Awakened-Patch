@@ -113,7 +113,7 @@ namespace AAMod.NPCs.Enemies.Mushroom
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.player.ZoneGlowshroom && AAWorld.downedFungus ? .3f : 0f;
+            return spawnInfo.player.ZoneGlowshroom && AAWorld.downedToad ? .3f : 0f;
         }
 
         public override void NPCLoot()

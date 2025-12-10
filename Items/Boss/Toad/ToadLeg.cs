@@ -29,7 +29,7 @@ Increased jump height");
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             player.autoJump = true;
-            Player.jumpHeight = 20;
+            Player.jumpHeight += 5;
             player.jumpSpeedBoost += 1.5f;
             player.noFallDmg = true;
         }

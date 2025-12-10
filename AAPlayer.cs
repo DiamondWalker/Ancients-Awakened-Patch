@@ -267,6 +267,7 @@ namespace AAMod
         public bool discordInferno = false;
         public bool dragonFire = false;
         public bool hydraToxin = false;
+        public int hydraToxinTime = 0;
         public bool terraBlaze = false;
         public bool Snagged = false;
         public bool Snagged1 = false;
@@ -3467,7 +3468,10 @@ namespace AAMod
                     player.lifeRegen = 0;
                 }
 
-                player.lifeRegen -= Math.Abs((int)player.velocity.X);
+                hydraToxinTime++;
+                player.lifeRegen -= (hydraToxinTime / 50 + 4);
+            } else if (hydraToxinTime > 0) {
+                hydraToxinTime--P;
             }
 
 
@@ -3479,8 +3483,8 @@ namespace AAMod
                 }
 
                 player.lifeRegenTime = 0;
-                player.lifeRegen -= Math.Abs((int)player.velocity.X) + 4;
-                player.allDamage *= 0.8f;
+                player.lifeRegen -= (int)player.velocity.Length() / 2 + 4;
+                //player.allDamage *= 0.8f;
             }
 
             if (AkumaPain)
@@ -3757,9 +3761,11 @@ namespace AAMod
                 fullBright = true;
             }
 
+            //Main.NewText(player.velocity.Length());
             if (discordInferno)
             {
-                for (int i = 0; i < 2; i++)
+                int particles = Math.Min((int)player.velocity.Length() * 2 + 1, 25);
+                for (int i = 0; i < particles; i++)
                 {
                     int dust = Dust.NewDust(drawInfo.position - new Vector2(2f, 2f), player.width, player.height, ModContent.DustType<Dusts.Discord>(), 0f, -2.5f, 0);
 
