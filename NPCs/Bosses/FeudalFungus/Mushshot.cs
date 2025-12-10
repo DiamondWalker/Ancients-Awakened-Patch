@@ -19,6 +19,7 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
             projectile.friendly = false;
             projectile.hostile = true;
             projectile.ignoreWater = true;
+            projectile.tileCollide = false;
             projectile.penetrate = 1;
             projectile.alpha = 60;
             projectile.timeLeft = 180;

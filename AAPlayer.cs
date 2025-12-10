@@ -3471,7 +3471,7 @@ namespace AAMod
                 hydraToxinTime++;
                 player.lifeRegen -= (hydraToxinTime / 50 + 4);
             } else if (hydraToxinTime > 0) {
-                hydraToxinTime--P;
+                hydraToxinTime--;
             }
 
 

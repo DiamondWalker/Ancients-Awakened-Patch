@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -26,6 +27,7 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
             projectile.extraUpdates = 1;
             projectile.scale = 1.1f;
             projectile.aiStyle = -1;
+            projectile.timeLeft = 470;
         }
 
         public override Color? GetAlpha(Color lightColor)
@@ -39,7 +41,9 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
 
         public override void AI()
         {
-            if(projectile.ai[1] == 1f)
+            projectile.velocity *= 0.99f;
+            projectile.alpha = Math.Max(255 - projectile.timeLeft, 0);
+            /*if(projectile.ai[1] == 1f)
             {
                 projectile.velocity *= 0.98f;
                 projectile.alpha += 2;
@@ -62,7 +66,7 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
                 {
                     projectile.alpha -= 5;
                 }
-            }
+            }*/
         }
 
         public override bool PreDraw(SpriteBatch sb, Color lightColor)
