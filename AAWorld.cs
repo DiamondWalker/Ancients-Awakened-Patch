@@ -1626,7 +1626,7 @@ namespace AAMod
                     mushBiomeSize++;
                 } else if (currMask == 0) {
                     if (mushBiomeSize >= MIN_MUSH_SIZE) { // we want mush biomes to be at least 30 tiles wide
-                        for (int x2 = lastMushStart; x2 <= x; x2++) {
+                        for (int x2 = lastMushStart; x2 < x; x2++) {
                             mushMask[x2] = mushBiomeSize;
 
                             possiblePositions.Add(x2);

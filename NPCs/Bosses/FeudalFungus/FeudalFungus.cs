@@ -14,33 +14,7 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
     {
         public int damage = 0;
 
-		/*public override void SendExtraAI(BinaryWriter writer)
-		{
-			base.SendExtraAI(writer);
-			if(Main.netMode == NetmodeID.Server || Main.dedServ)
-			{
-				writer.Write(internalAI[0]);
-				writer.Write(internalAI[1]);
-                writer.Write(internalAI[2]);
-                writer.Write(internalAI[3]);
-                writer.Write(internalAI[4]);
-            }
-		}
-
-		public override void ReceiveExtraAI(BinaryReader reader)
-		{
-			base.ReceiveExtraAI(reader);
-			if(Main.netMode == NetmodeID.MultiplayerClient)
-			{
-				internalAI[0] = reader.ReadFloat();
-				internalAI[1] = reader.ReadFloat();
-                internalAI[2] = reader.ReadFloat();
-                internalAI[3] = reader.ReadFloat();
-                internalAI[4] = reader.ReadFloat();
-            }	
-		}*/	
-
-        public override void SetStaticDefaults()
+		public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Feudal Fungus");
             Main.npcFrameCount[npc.type] = 8;
@@ -77,20 +51,14 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
             return null;
         }
 
-        //public static int AISTATE_HOVER = 0, AISTATE_FLIER = 1, AISTATE_SHOOT = 2;
         public const int AISTATE_RAIN = 0, AISTATE_CHASE = 1, AISTATE_HORIZONTAL = 2, AISTATE_DROP = 3;
         private int Stage { get => (int)npc.ai[0]; set => npc.ai[0] = value; }
-        private int TimeLeft { get => (int)npc.ai[1]; set => npc.ai[1] = value; }
-        private int Cooldown { get => (int)npc.ai[2]; set => npc.ai[2] = value; }
-        private int HorizontalDir {
-            get => (int)npc.ai[2]; 
-            set => npc.ai[2] = value >= 0 ? 1 : -1; 
-        }
-
-        private static readonly int[] AttackDurations = new int[] { 300, 300, 300, 300 };
+        private int AttackTime { get => (int)npc.ai[1]; set => npc.ai[1] = value; }
+        private int AttackParameter { get => (int)npc.ai[2]; set => npc.ai[2] = value; }
 
         public override void AI()
         {
+            // animation
             npc.frameCounter++;
             if (npc.frameCounter >= 10)
             {
@@ -104,12 +72,14 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
             }
             npc.rotation = npc.velocity.X * 0.15f;
 
+            // expert damage scaling
             if (Main.expertMode) {
                 damage = npc.damage / 4;
             } else {
                 damage = npc.damage / 2;
             }
 
+            // target (or despawn)
             npc.TargetClosest(false);
             if (!npc.HasValidTarget || !Main.player[npc.target].ZoneGlowshroom) {
                 npc.velocity.Y -= 0.02f;
@@ -132,30 +102,33 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
             }
             Player player = Main.player[npc.target];
 
-
+            // select new attack every 5 seconds
             if (Main.netMode != 1) {
-                if (TimeLeft > 0) {
-                    TimeLeft--;
-                } else {
-                    if (Stage == AISTATE_RAIN && Main.rand.NextBool()) {
-                        Stage = AISTATE_DROP;
-                        npc.velocity = new Vector2(0, -8);
-                        npc.rotation = 0;
-                    } else {
-                        Stage = Main.rand.Next(3);
-                        if (Stage == AISTATE_HORIZONTAL) {
-                            float offset = player.Center.X - npc.Center.X;
-                            HorizontalDir = (int)-(offset / Math.Abs(offset));
+                if (AttackTime++ > 300) {
+                    int prevStage = Stage;
+                    do {
+                        // if we're in expert mode he may choose to end the rain attack with a dive
+                        if (Stage == AISTATE_RAIN && Main.expertMode && Main.rand.NextBool()) {
+                            Stage = AISTATE_DROP;
+                            npc.velocity = new Vector2(0, -8);
+                            npc.rotation = 0;
+                        } else {
+                            Stage = Main.rand.Next(3);
                         }
-                    }
-                    TimeLeft = 300;//AttackDurations[Stage];
+                    } while (prevStage == Stage); // loop if we're repeating the same attack because that's boring
+                    
+                    //
+                    AttackTime = 0;
+                    AttackParameter = 0;
                     npc.netUpdate = true;
                 }
             }
 
+            // attack AIs
             Vector2 moveVec;
             switch (Stage) {
                 case AISTATE_RAIN:
+                    // move above player
                     moveVec = player.Center + new Vector2(0, -300.0f);
                     moveVec = (moveVec - npc.Center);
                     moveVec.Normalize();
@@ -167,15 +140,17 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
                         npc.velocity.Normalize();
                         npc.velocity *= 6;
                     }
-                    
-                    if (Main.netMode != 1 && TimeLeft % (Main.expertMode ? 25 : 40) == 0) {
+                    npc.rotation = 0;
+
+                    // drop projectiles
+                    if (Main.netMode != 1 && AttackTime > 0 && AttackTime % (Main.expertMode ? 25 : 40) == 0) {
                         Projectile.NewProjectile((npc.Bottom + npc.Center) / 2, new Vector2(0, 8), ModContent.ProjectileType<Mushshot>(), damage, 0, Main.myPlayer);
                     }
-
-                    npc.rotation = 0;
+                    
                     break;
 
                 case AISTATE_CHASE:
+                    // move towards player
                     moveVec = player.Center - npc.Center;
                     moveVec.Normalize();
                     if (moveVec.HasNaNs()) moveVec = Vector2.Zero;
@@ -185,16 +160,29 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
                         npc.velocity *= 3;
                     }
 
-                    if (Main.netMode != 1 && Main.rand.Next(20) == 0) {
-                        float angle = Main.rand.NextFloat() * (float)Math.PI * 2;
-                        float magnitude = 0.6f + Main.rand.NextFloat() * (2.1f - 0.6f);
-                        Vector2 vel = new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle)) * magnitude;
-                        Projectile.NewProjectile(npc.Center, vel, ModContent.ProjectileType<FungusCloud>(), damage, 0, Main.myPlayer);
+                    // summon clouds
+                    if (Main.netMode != 1) {
+                        if (Main.expertMode) {
+                            if (AttackTime > 30 && Main.rand.Next(20) == 0) {
+                                float angle = Main.rand.NextFloat() * (float)Math.PI * 2;
+                                float magnitude = 0.6f + Main.rand.NextFloat() * (2.1f - 0.6f);
+                                Vector2 vel = new Vector2((float)Math.Cos(angle), (float)Math.Sin(angle)) * magnitude;
+                                Projectile.NewProjectile(npc.Center, vel, ModContent.ProjectileType<FungusCloud>(), damage, 0, Main.myPlayer);
+                            }
+                        } else {
+                            if (AttackTime > 0 && AttackTime % 50 == 0) {
+                                Vector2 vel = player.Center - npc.Center;
+                                vel.Normalize();
+                                vel *= 1.2f;
+                                Projectile.NewProjectile(npc.Center, vel, ModContent.ProjectileType<FungusCloud>(), damage, 0, Main.myPlayer);
+                            }
+                        }
                     }
 
                     break;
 
                 case AISTATE_HORIZONTAL:
+                    // vertical movement
                     npc.velocity.Y *= 0.9f;
                     if (player.Center.Y > npc.Center.Y) {
                         npc.velocity.Y += 0.1f;
@@ -202,84 +190,55 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
                         npc.velocity.Y -= 0.1f;
                     }
 
-                    npc.velocity.X += HorizontalDir * 0.23f;
-                    npc.velocity.X = Math.Min(npc.velocity.X, 6);
-                    npc.velocity.X = Math.Max(npc.velocity.X, -6);
-                    if (Math.Abs(npc.Center.X - player.Center.X) > 350) {
-                        float offset = player.Center.X - npc.Center.X;
-                        int newDir = (int)(offset / Math.Abs(offset));
-                        if (newDir != HorizontalDir) {
-                            HorizontalDir = newDir;
+                    // if the attack just started we need to set up AttackParameter. We will accelerate in the direction we're currently going
+                    if (Main.netMode != 1 && AttackParameter == 0) {
+                        if (npc.velocity.X >= 0) {
+                            AttackParameter = 1;
+                        } else {
+                            AttackParameter = -1;
+                        }
+                        npc.netUpdate = true;
+                    }
+
+                    // loop back if we've passed the player
+                    float offset = player.Center.X - npc.Center.X;
+                    if (Math.Abs(offset) > 350) {
+                        int newDir = 0;
+                        if (offset > 0) newDir = (int)Math.Ceiling(offset);
+                        if (offset < 0) newDir = (int)Math.Floor(offset);
+                        newDir = newDir / Math.Abs(newDir); // normalize it
+                        if (newDir != AttackParameter) {
+                            AttackParameter = newDir;
                             npc.netUpdate = true;
                         }
                     }
 
+                    // accelerate in desired direction
+                    npc.velocity.X += AttackParameter * 0.23f;
+                    npc.velocity.X = Math.Min(npc.velocity.X, 6);
+                    npc.velocity.X = Math.Max(npc.velocity.X, -6);
+
                     break;
 
                 case AISTATE_DROP:
-                    //npc.velocity.X = 0;
+                    // fall
                     npc.velocity.Y += 0.12f;
+
+                    // summon clouds if we've gained enough speed
                     if (Main.netMode != 1 && npc.velocity.Y > 3) {
-                        if (TimeLeft % 4 == 0) {
+                        if (AttackTime % 4 == 0) {
                             float x = (Main.rand.NextFloat() - 0.5f) * 3;
                             float y = (Main.rand.NextFloat() - 0.5f) * 0.5f;
                             int proj = Projectile.NewProjectile(npc.Center, new Vector2(x, y), ModContent.ProjectileType<FungusCloud>(), damage, 0, Main.myPlayer);
                             Main.projectile[proj].timeLeft = 1200;
                         }
                     }
-                    if (npc.position.Y > player.position.Y + 150) TimeLeft = 0;
+
+                    // force the attack to end if we've passed the player
+                    if (npc.position.Y > player.position.Y + 150) AttackTime = 1000;
                     break;
 
             }
-
-
-            /*if (Main.netMode != 1 && internalAI[1] != AISTATE_SHOOT)
-			{
-                internalAI[0]++;
-                if (internalAI[0] >= 180)
-                {
-                    internalAI[0] = 0;
-                    internalAI[1] = Main.rand.Next(3);
-                    npc.ai = new float[4];
-                    npc.netUpdate = true;
-                }
-            }
-			if(internalAI[1] == AISTATE_HOVER) 
-            {
-                BaseAI.AISpaceOctopus(npc, ref npc.ai, player.Center, 0.15f, 4f, 170, 56f, FireMagic);
-            }
-            else if (internalAI[1] == AISTATE_FLIER) 
-            {
-                BaseAI.AIFlier(npc, ref npc.ai, true, 0.1f,0.04f, 5f, 3f, false, 1);
-            }
-            else if (internalAI[1] == AISTATE_SHOOT)
-            {
-                BaseAI.AISpaceOctopus(npc, ref npc.ai, player.Center, 0.15f, 4f, 170, 56f, null);
-                if (Main.netMode != 1)
-                {
-                    internalAI[0]++;
-                }
-                if (internalAI[0] >= 60)
-                {
-                    int attack = Main.rand.Next(4);
-                    internalAI[1] = Main.rand.Next(3);
-                    internalAI[0] = 0;
-                    FungusAttack(attack);
-                    npc.netUpdate = true;
-                }
-            }
-
-            npc.rotation = 0;
-
-            if (internalAI[4] ++ > 90 && Main.expertMode && Main.netMode != 1)
-            {
-                internalAI[4] = 0;
-                Vector2 pos = new Vector2(player.Center.X + Main.rand.Next(70, 150) * (Main.rand.Next(2) == 0? 1: -1), player.Center.Y + Main.rand.Next(70, 150) * (Main.rand.Next(2) == 0? 1: -1));
-                Vector2 velocity = Vector2.Normalize(player.Center - pos) * .1f;
-                int proj = Projectile.NewProjectile(pos.X, pos.Y, velocity.X, velocity.Y, mod.ProjectileType("FungusCloud"), damage, 0, Main.myPlayer, 0f, 0f);
-                Main.projectile[proj].timeLeft = 720;
-                Main.projectile[proj].alpha = 255;
-            }*/
         }
 
         public override void BossLoot(ref string name, ref int potionType)
