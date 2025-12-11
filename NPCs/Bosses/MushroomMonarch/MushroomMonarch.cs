@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -182,6 +183,13 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch
                 npc.spriteDirection = 1;
             }
 
+            float move = player.Center.X - npc.Center.X;
+            move /= Math.Abs(move);
+            move *= 4;
+            Walk(0.17f, move, true, 3, 4, true, null, false);
+
+            return;
+
             if (npc.collideX && npc.velocity.Y <= 0)
             {
                 npc.velocity.Y = -4f;
@@ -249,6 +257,7 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch
                     }
                     internalAI[2] = 0;
                 }
+                //Walk(0.07f, 3f, 3, 4, true, null, false);
                 AAAI.InfernoFighterAI(npc, ref npc.ai, false, false, 0, 0.07f, 3f, 3, 4, 60, true, 10, 60, true, null, false);	
 			}else
 			if(internalAI[1] == AISTATE_JUMP)//jumper
@@ -298,6 +307,70 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch
 			{
                 BaseAI.AICharger(npc, ref npc.ai, 0.07f, 10f, false, 30);				
 			}
+        }
+
+        private void Walk(float acceleration, float desiredMovement, bool jump, int maxJumpTilesX = 3, int maxJumpTilesY = 4, bool jumpUpPlatforms = false, Action<bool, bool, Vector2, Vector2> onTileCollide = null, bool ignoreJumpTiles = false) {
+            //bool xVelocityChanged = false;
+            //This block of code checks for major X velocity/directional changes as well as periodically updates the npc.
+            //if (npc.velocity.Y == 0f && ((npc.velocity.X > 0f && npc.direction < 0) || (npc.velocity.X < 0f && npc.direction > 0))) {
+                //xVelocityChanged = true;
+            //}
+
+            npc.TargetClosest(true);
+
+            //if velocity is less than -1 or greater than 1...
+            /*if (npc.velocity.X < -velMax || npc.velocity.X > velMax) {
+                //...and npc is not falling or jumping, slow down x velocity.
+                if (npc.velocity.Y == 0f) { npc.velocity *= 0.8f; }
+            } else if (npc.velocity.X < velMax && npc.direction == 1) //handles movement to the right. Clamps at velMaxX.
+            {
+                npc.velocity.X += moveInterval;
+                if (npc.velocity.X > velMax) { npc.velocity.X = velMax; }
+            } else if (npc.velocity.X > -velMax && npc.direction == -1) //handles movement to the left. Clamps at -velMaxX.
+            {
+                npc.velocity.X -= moveInterval;
+                if (npc.velocity.X < -velMax) { 
+                    npc.velocity.X = -velMax; 
+                }
+            }*/
+            if (acceleration < 0) throw new ArgumentOutOfRangeException("Acceleration is " + acceleration + ". It should not be negative!");
+            if (acceleration == float.MaxValue) {
+                npc.velocity.X = desiredMovement;
+            } else {
+                if (npc.velocity.X > desiredMovement) {
+                    npc.velocity.X -= acceleration;
+                    if (npc.velocity.X < desiredMovement) npc.velocity.X = desiredMovement;
+                }
+                if (npc.velocity.X < desiredMovement) {
+                    npc.velocity.X += acceleration;
+                    if (npc.velocity.X > desiredMovement) npc.velocity.X = desiredMovement;
+                }
+            }
+            /*if (npc.velocity.X > velMax && moveInterval > 0) {
+                npc.velocity.X *= 0.95f;
+            } else if (npc.velocity.X < -velMax && moveInterval < 0) {
+                npc.velocity.X *= 0.95f;
+            } else {
+                npc.velocity.X += moveInterval;
+            }*/
+            BaseAI.WalkupHalfBricks(npc);
+            
+            if (BaseAI.HitTileOnSide(npc, 3)) {
+                //if the npc's velocity is going in the same direction as the npc's direction...
+                if ((npc.velocity.X < 0f && npc.direction == -1) || (npc.velocity.X > 0f && npc.direction == 1)) {
+                    //...attempt to jump if needed.
+                    Vector2 newVec = jump ? BaseAI.AttemptJump(npc.position, npc.velocity, npc.width, npc.height, npc.direction, npc.directionY, maxJumpTilesX, maxJumpTilesY, Math.Abs(npc.velocity.X), jumpUpPlatforms, npc.HasValidTarget ? Main.player[npc.target] : null, ignoreJumpTiles) : npc.velocity;
+                    if (!npc.noTileCollide) {
+                        newVec = Collision.TileCollision(npc.position, newVec, npc.width, npc.height);
+                        Vector4 slopeVec = Collision.SlopeCollision(npc.position, newVec, npc.width, npc.height);
+                        Vector2 slopeVel = new Vector2(slopeVec.Z, slopeVec.W);
+                        if (onTileCollide != null && npc.velocity != slopeVel) onTileCollide(npc.velocity.X != slopeVel.X, npc.velocity.Y != slopeVel.Y, npc.velocity, slopeVel);
+                        npc.position = new Vector2(slopeVec.X, slopeVec.Y);
+                        npc.velocity = slopeVel;
+                    }
+                    if (npc.velocity != newVec) { npc.velocity = newVec; npc.netUpdate = true; }
+                }
+            }
         }
 
         public override void ModifyHitByProjectile(Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
