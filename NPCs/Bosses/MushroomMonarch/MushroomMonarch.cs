@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using AAMod.Util;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -39,7 +40,7 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Mushroom Monarch");
-            Main.npcFrameCount[npc.type] = 12;
+            Main.npcFrameCount[npc.type] = 18;
         }
 
         public override void SetDefaults()
@@ -50,7 +51,7 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch
             npc.knockBackResist = 0f;   //this boss will behavior like the DemonEye  //boss frame/animation 
             npc.value = Item.sellPrice(0, 0, 50, 0);
             npc.aiStyle = -1;
-            npc.width = 74;
+            npc.width = 78;
             npc.height = 108;
             npc.npcSlots = 1f;
             npc.boss = true;
@@ -93,6 +94,14 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch
         private int despawnTimer = 0;
 
         private int flyFrame = 0;
+
+
+        private readonly int[] ANIM_IDLE = new int[] { 0, 1 };
+        private readonly int[] ANIM_WALK = new int[] { 2, 3, 4, 5 };
+        private readonly int[] ANIM_JUMP = new int[] { 6, 7, 8 };
+        private readonly int[] ANIM_SPAWN = new int[] { 9, 10, 11, 12 };
+        private readonly int SPAWN_FRAME = 13;
+        private readonly int[] ANIM_FLY = new int[] { 14, 15, 16, 17 };
 		
         public override void AI()
         {
@@ -134,7 +143,59 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch
             //float dist = npc.Distance(player.Center);
 
             // animation
-            if (State != AISTATE_JUMP && State != AISTATE_FLY) //walk or charge
+            if (State == AISTATE_SPAWN && TimeInState <= 90 + 30) {
+                if (TimeInState >= 90) {
+                    npc.frame.Y = SPAWN_FRAME * 108;
+                    npc.frameCounter = 0;
+                } else {
+                    AnimationHelper.UpdateAnimation(npc, ANIM_SPAWN, 4);
+                }
+            } else if (State != AISTATE_JUMP && State != AISTATE_FLY) //walk or charge
+            {
+                if (npc.velocity.X != 0) {
+                    AnimationHelper.UpdateAnimation(npc, ANIM_WALK, 15, (int)Math.Ceiling(Math.Abs(npc.velocity.X)), 108);
+                }
+
+                if (npc.velocity.Y != 0 || npc.velocity.X == 0) {
+                    if (npc.velocity.Y < 0) {
+                        npc.frame.Y = ANIM_JUMP[1] * 108;
+                    } else if (npc.velocity.Y > 0) {
+                        npc.frame.Y = ANIM_JUMP[2] * 108;
+                    } else {
+                        AnimationHelper.UpdateAnimation(npc, ANIM_IDLE, 15);
+                    }
+                }
+            } else if (State == AISTATE_FLY) {
+                AnimationHelper.UpdateAnimation(npc, ANIM_FLY, 4);
+
+            } else //jump
+              {
+                int jumpFrame;
+                if (npc.velocity.Y > 0) {
+                    jumpFrame = 2;
+                } else if (npc.velocity.Y < 0) {
+                    jumpFrame = 1;
+                } else {
+                    jumpFrame = 0;
+                }
+                npc.frame.Y = ANIM_JUMP[jumpFrame] * 108;
+            }
+            /*if (State == AISTATE_SPAWN && TimeInState <= 60 + 30) {
+                if (TimeInState >= 60) {
+                    npc.frame.Y = 1404;
+                    npc.frameCounter = 0;
+                } else {
+                    //npc.frame.Y = 972;
+                    npc.frameCounter++;
+                    if (npc.frameCounter >= 15) {
+                        npc.frameCounter = 0;
+                        npc.frame.Y += 108;
+                    }
+                    if (npc.frame.Y < 972 || npc.frame.Y > 1296) {
+                        npc.frame.Y = 972;
+                    }
+                }
+            } else if (State != AISTATE_JUMP && State != AISTATE_FLY) //walk or charge
             {
                 npc.frameCounter += (int)Math.Ceiling(Math.Abs(npc.velocity.X));
 
@@ -153,10 +214,24 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch
                     if (npc.velocity.Y < 0)
                     {
                         npc.frame.Y = 648;
-                    }else
-                    if (npc.velocity.Y >= 0)
+                    } else if (npc.velocity.Y > 0)
                     {
                         npc.frame.Y = 756;
+                    } else {
+                        //npc.frame.Y = 756;
+                        if (npc.frame.Y > 108) {
+                            npc.frame.Y = 108;
+                            npc.frameCounter = 0;
+                        }
+                        npc.frameCounter++;
+                        if (npc.frameCounter >= 15) {
+                            if (npc.frame.Y == 108) {
+                                npc.frame.Y -= 108;
+                            } else {
+                                npc.frame.Y = 108;
+                            }
+                            npc.frameCounter = 0;
+                        }
                     }
                 }
             }
@@ -169,7 +244,7 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch
                         flyFrame = 0;
                     }
                 }
-                npc.frame.Y = (flyFrame + 8) * 108;
+                npc.frame.Y = (flyFrame + 14) * 108;
 
             }
             else //jump
@@ -188,7 +263,7 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch
                         npc.frame.Y = 756;
                     }
                 }
-            }
+            }*/
             if (State != AISTATE_CHARGE && State != AISTATE_JUMP) {
                 if (npc.velocity.X > 0) {
                     npc.spriteDirection = -1;
@@ -216,7 +291,6 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch
                     Walk(0.17f, move, true, 3, 4, true, null, false);
 
                     if (TimeInState > 120 && Main.rand.Next(200) == 0) {
-                        //State = Main.rand.Next(1, 4);
                         ChangeState(Main.rand.Next(1, 4));
                         npc.velocity.X = 0;
                     }
@@ -305,8 +379,10 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch
                         break;
                     }
                 case AISTATE_SPAWN: {
+                        Main.NewText(TimeInState);
+                        npc.velocity.X = 0;
                         if (AttackParameterI == 0) {
-                            if (npc.velocity.Y == 0 && TimeInState >= 60) {
+                            if (npc.velocity.Y == 0 && TimeInState >= 90) {
                                 AttackParameterI = 1;
                                 int Minion1 = NPC.NewNPC((int)npc.Center.X + 20, (int)npc.Center.Y, ModContent.NPCType<RedMushling>(), 0);
                                 int Minion2 = NPC.NewNPC((int)npc.Center.X - 20, (int)npc.Center.Y, ModContent.NPCType<RedMushling>(), 0);
@@ -314,7 +390,7 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch
                                 Main.npc[Minion2].netUpdate = true;
                             }
                         } else {
-                            if (TimeInState >= 100) {
+                            if (TimeInState >= 130) {
                                 ChangeState(0);
                             }
                         }
