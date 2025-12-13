@@ -8,6 +8,7 @@ using Terraria.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using AAMod.Util;
 
 namespace AAMod.NPCs.Bosses.Toad
 {

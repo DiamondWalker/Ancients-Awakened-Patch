@@ -1,14 +1,8 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Terraria;
 
-namespace AAMod
+namespace AAMod.Util
 {
-    public class ColorUtils
-    {
-        public static Color COLOR_GLOWPULSE => Color.White * (Main.mouseTextColor / 255f);
-    }
-
-    public static class ItemUtils
+    public static class ItemUtil
     {
         public static void DropLoot(this Entity ent, int type, int stack = 1)
         {

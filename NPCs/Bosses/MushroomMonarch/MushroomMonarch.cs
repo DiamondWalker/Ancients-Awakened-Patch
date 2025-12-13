@@ -1,5 +1,8 @@
+using System;
 using System.IO;
+using AAMod.Util;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -10,34 +13,11 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch
     [AutoloadBossHead]
     public class MushroomMonarch : ModNPC
     {
-		public override void SendExtraAI(BinaryWriter writer)
-		{
-			base.SendExtraAI(writer);
-			if(Main.netMode == NetmodeID.Server || Main.dedServ)
-			{
-				writer.Write(internalAI[0]);
-				writer.Write(internalAI[1]);
-                writer.Write(internalAI[2]);
-                writer.Write(internalAI[3]);
-            }
-		}
-
-		public override void ReceiveExtraAI(BinaryReader reader)
-		{
-			base.ReceiveExtraAI(reader);
-			if(Main.netMode == NetmodeID.MultiplayerClient)
-			{
-				internalAI[0] = reader.ReadFloat();
-				internalAI[1] = reader.ReadFloat();
-                internalAI[2] = reader.ReadFloat();
-                internalAI[3] = reader.ReadFloat();
-            }	
-		}	
 
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Mushroom Monarch");
-            Main.npcFrameCount[npc.type] = 12;
+            Main.npcFrameCount[npc.type] = 18;
         }
 
         public override void SetDefaults()
@@ -48,7 +28,7 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch
             npc.knockBackResist = 0f;   //this boss will behavior like the DemonEye  //boss frame/animation 
             npc.value = Item.sellPrice(0, 0, 50, 0);
             npc.aiStyle = -1;
-            npc.width = 74;
+            npc.width = 78;
             npc.height = 108;
             npc.npcSlots = 1f;
             npc.boss = true;
@@ -71,14 +51,37 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch
             return null;
         }
 
-        public static int AISTATE_WALK = 0, AISTATE_JUMP = 1, AISTATE_CHARGE = 2, AISTATE_FLY = 3;
-		public float[] internalAI = new float[4];
+        public const int AISTATE_DEFAULT = 0, AISTATE_CHARGE = 1, AISTATE_JUMP = 2, AISTATE_SPAWN = 3, AISTATE_FLY = 4;
+        private int State { get => (int)npc.ai[0]; set => npc.ai[0] = value; }
+        private int TimeInState { get => (int)npc.ai[1]; set => npc.ai[1] = value; }
+        private float AttackParameterF { get => npc.ai[2]; set => npc.ai[2] = value; }
+        private int AttackParameterI { get => (int)npc.ai[2]; set => npc.ai[2] = value; }
+        private float AttackParameter2F { get => npc.ai[3]; set => npc.ai[3] = value; }
+        private int AttackParameter2I { get => (int)npc.ai[3]; set => npc.ai[3] = value; }
+        private Vector2 FlyTo { 
+            get { 
+                return new Vector2(npc.ai[2], npc.ai[3]); 
+            } set {
+                npc.ai[2] = value.X;
+                npc.ai[3] = value.Y;
+            } 
+        }
+
+        private bool longJump = Main.expertMode;
         private int despawnTimer = 0;
 
-        private int flyFrame = 0;
+        private int stuckTime = 0;
+
+        private static readonly int[] ANIM_IDLE = new int[] { 0, 1 };
+        private static readonly int[] ANIM_WALK = new int[] { 2, 3, 4, 5 };
+        private static readonly int[] ANIM_JUMP = new int[] { 6, 7, 8 };
+        private static readonly int[] ANIM_SPAWN = new int[] { 9, 10, 11, 12 };
+        private const int SPAWN_FRAME = 13;
+        private static readonly int[] ANIM_FLY = new int[] { 14, 15, 16, 17 };
 		
         public override void AI()
         {
+            //targetting/despawning
             npc.TargetClosest();
 
             Player player = Main.player[npc.target];
@@ -113,261 +116,276 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch
                 return;
             }
 
-            float dist = npc.Distance(player.Center);
 
-            npc.frameCounter++;
-            if (internalAI[1] != AISTATE_JUMP && internalAI[1] != AISTATE_FLY) //walk or charge
+            // animations
+            if (State == AISTATE_SPAWN && TimeInState <= 90 + 30) { // spawning mushlings
+                if (TimeInState >= 90) {
+                    AnimationHelper.SetFrame(npc, SPAWN_FRAME);
+                } else {
+                    AnimationHelper.UpdateAnimation(npc, ANIM_SPAWN, 4);
+                }
+            } else if (State != AISTATE_JUMP && State != AISTATE_FLY) //walk or charge
             {
-                int FrameSpeed = 10;
-                if (internalAI[1] == AISTATE_CHARGE)
-                {
-                    FrameSpeed = 6;
+                if (npc.velocity.X != 0) {
+                    AnimationHelper.UpdateAnimation(npc, ANIM_WALK, 15, (int)Math.Ceiling(Math.Abs(npc.velocity.X)));
                 }
 
-                if (npc.frameCounter >= FrameSpeed)
-				{
-					npc.frameCounter = 0;
-					npc.frame.Y += 108;
-					if (npc.frame.Y > (108 * 4))
-					{
-						npc.frameCounter = 0;
-						npc.frame.Y = 0;
-					}
-				}
-                if(npc.velocity.Y != 0)
-                {
-                    if (npc.velocity.Y < 0)
-                    {
-                        npc.frame.Y = 648;
-                    }else
-                    if (npc.velocity.Y > 0)
-                    {
-                        npc.frame.Y = 756;
+                if (npc.velocity.Y != 0 || npc.velocity.X == 0) {
+                    if (npc.velocity.Y < 0) {
+                        AnimationHelper.SetFrame(npc, ANIM_JUMP[1]);
+                    } else if (npc.velocity.Y > 0) {
+                        AnimationHelper.SetFrame(npc, ANIM_JUMP[2]);
+                    } else {
+                        AnimationHelper.UpdateAnimation(npc, ANIM_IDLE, 15);
                     }
                 }
-            }
-            else if (internalAI[1] == AISTATE_FLY)
-            {
-                if (npc.frameCounter >= 2) {
-                    npc.frameCounter = 0;
-                    if (++flyFrame >= 4) {
-                        flyFrame = 0;
-                    }
+            } else if (State == AISTATE_FLY) { // flying
+                AnimationHelper.UpdateAnimation(npc, ANIM_FLY, 4);
+
+            } else //jump
+              {
+                int jumpFrame;
+                if (npc.velocity.Y > 0) {
+                    jumpFrame = 2;
+                } else if (npc.velocity.Y < 0) {
+                    jumpFrame = 1;
+                } else {
+                    jumpFrame = 0;
                 }
-                npc.frame.Y = (flyFrame + 8) * 108;
-
+                AnimationHelper.SetFrame(npc, ANIM_JUMP[jumpFrame]);
             }
-            else //jump
-            {
-                if (npc.velocity.Y == 0)
-                {
-                    npc.frame.Y = 540;
-                }else
-                {
-                    if (npc.velocity.Y < 0)
-                    {
-                        npc.frame.Y = 648;
-                    }else
-                    if (npc.velocity.Y > 0)
-                    {
-                        npc.frame.Y = 756;
-                    }
-                }
-            }
-            if (player.Center.X > npc.Center.X) // so it faces the player
-            {
-                npc.spriteDirection = -1;
-            }else
-            {
-                npc.spriteDirection = 1;
-            }
-
-            if (npc.collideX && npc.velocity.Y <= 0)
-            {
-                npc.velocity.Y = -4f;
-                internalAI[1] = AISTATE_CHARGE;
-            }
-            else if (((player.Center.Y - npc.Center.Y) < -150f && (internalAI[1] == AISTATE_WALK || internalAI[1] == AISTATE_CHARGE)) || Collision.SolidCollision(new Vector2(npc.Center.X, npc.position.Y - npc.height/2 + 10), npc.width, npc.height))
-            {
-                internalAI[1] = AISTATE_FLY;
-                npc.ai = new float[4];
-                npc.netUpdate = true;
-            }
-            else if ((player.Center.Y - npc.Center.Y) > 100f && internalAI[1] != AISTATE_FLY) // player is below the npc.
-            {
-                internalAI[3] = internalAI[1]; //record the action
-                internalAI[1] = AISTATE_WALK;
-                npc.ai = new float[4];
-                npc.netUpdate = true;
-            }
-            else if(internalAI[1] != AISTATE_WALK)
-            {
-                internalAI[3] = internalAI[1];
-            }
-            else
-            {
-                internalAI[1] = internalAI[3];
-            }
-
             
-			if(Main.netMode != 1)
-			{
-                if (internalAI[1] != AISTATE_FLY)
-                {
-                    internalAI[0]++;
+            if (State != AISTATE_CHARGE && State != AISTATE_JUMP) {
+                if (npc.velocity.X > 0) {
+                    npc.spriteDirection = -1;
+                } else if (npc.velocity.X < 0) {
+                    npc.spriteDirection = 1;
                 }
-                if (internalAI[0] >= 180)
-                {
-                    internalAI[0] = 0;
-                    internalAI[1] = Main.rand.Next(3);
-                    npc.ai = new float[4];
-                    npc.netUpdate = true;
-                }
-			}
-			if(internalAI[1] == AISTATE_WALK) //fighter
-			{
-                npc.noGravity = false;
-                if (Main.netMode != 1)
-                {
-                    internalAI[2]++;
-                }
-                if ((player.Center.Y - npc.Center.Y) > 60f) // player is below the npc.
-                {
-                    npc.noTileCollide = true;
-                }
-                else
-                {
-                    npc.noTileCollide = false;
-                }
+            }
 
-                if (NPC.CountNPCS(ModContent.NPCType<RedMushling>()) < 4)
-                {
-                    for (int i = 0; i < 2; i++)
-                    {
-                        int Minion = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<RedMushling>(), 0);
-                        Main.npc[Minion].netUpdate = true;
-                    }
-                    internalAI[2] = 0;
-                }
-                AAAI.InfernoFighterAI(npc, ref npc.ai, false, false, 0, 0.07f, 3f, 3, 4, 60, true, 10, 60, true, null, false);	
-			}else
-			if(internalAI[1] == AISTATE_JUMP)//jumper
-			{
-                npc.noGravity = false;
-                npc.noTileCollide = false;
-                if(npc.ai[0] < -10) npc.ai[0] = -10; //force rapid jumping
-                BaseAI.AISlime(npc, ref npc.ai, true, 30, 6f, -8f, 6f, -10f);
-								
-			}
-            else if (internalAI[1] == AISTATE_FLY)//fly
-            {
-                npc.noTileCollide = true;
-                npc.noGravity = true;
-                if((player.Center.Y - npc.Center.Y) > 60f)
-                {  
-                    if (NPC.CountNPCS(ModContent.NPCType<RedMushling>()) < 6)
-                    {
-                        for (int i = 0; i < 2; i++)
-                        {
-                            int Minion = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, ModContent.NPCType<RedMushling>(), 0);
-                            Main.npc[Minion].netUpdate = true;
+            // for the afterimage
+            for (int m = npc.oldPos.Length - 1; m > 0; m--) {
+                npc.oldPos[m] = npc.oldPos[m - 1];
+            }
+            npc.oldPos[0] = (State == AISTATE_CHARGE) ? npc.position : Vector2.Zero;
+
+
+            // AI
+            switch (State) {
+                case AISTATE_DEFAULT:
+                    if (flyIfOutOfRange(player)) break; // if the player is above or below, enter flying mode
+
+                    float move = player.Center.X - npc.Center.X;
+                    move /= Math.Abs(move);
+                    move *= 3.0f;
+                    if (!Walk(0.17f, move, true, 3, 4, true, null, false)) {
+                        stuckTime++;
+                        if (stuckTime > 30) { // if I am stuck, enter flying mode
+                            flyTo(player);
                         }
                     }
-                    MoveToPoint(player.Center);
-                    
-                }
-                else
-                {
-                    BaseAI.AISpaceOctopus(npc, ref npc.ai, .05f, 8, 250, 0, null);
-                }
-                
-                
+
+                    // use special attack
+                    if (TimeInState > 120 && Main.rand.Next(200) == 0) {
+                        ChangeState(Main.rand.Next(1, 4));
+                        npc.velocity.X = 0;
+                    }
+
+                    break;
+
+                case AISTATE_CHARGE:
+                    // we've gone past the player (or the attack has gone on too long). Return to default behavior
+                    if (TimeInState > 300 || (npc.spriteDirection == -1 && npc.Center.X > player.Center.X + 300) || (npc.spriteDirection == 1 && npc.Center.X < player.Center.X - 300)) {
+                        ChangeState(0);
+                    } else if (TimeInState > (Main.expertMode ? 10 : 30)) {
+                        if (!Walk(Main.expertMode ? 0.14f : 0.07f, 10 * -npc.spriteDirection, false, 3, 4, false, null, true)) { // we hit a wall. Return to default behavior
+                            ChangeState(0);
+                            // TODO: screen shake
+                        }
+                    } else {
+                        // we are facing the player to prepare for the charge
+                        if (npc.Center.X < player.Center.X) {
+                            npc.spriteDirection = -1;
+                        } else {
+                            npc.spriteDirection = 1;
+                        }
+                    }
+
+                    break;
+
+                case AISTATE_JUMP: {
+                      if (npc.velocity.Y == 0) { // we are on the ground so we run the jumping AI
+                            if (flyIfOutOfRange(player)) break; // before every jump, we want to check if player is in range, otherwise enter flying mode
+
+                            // if the previous jump put us on the other side of the player (i.e. we caught up to them), our next jump will be smaller and more precise (so we don't just jump over them again)
+                            int newDirection;
+                            if (npc.Center.X < player.Center.X) {
+                                newDirection = -1;
+                            } else {
+                                newDirection = 1;
+                            }
+                            if (newDirection != npc.spriteDirection) {
+                                npc.spriteDirection = newDirection;
+                                if (AttackParameter2I > 0) longJump = false; // we only want to do short jumps AFTER our first attack. Otherwise it'll be easy to dodge since player can just walk away
+                            }
+
+                            // we've done 6 jumps so we switch to default behavior
+                            if (AttackParameter2I >= 6) {
+                                ChangeState(0);
+                                longJump = Main.expertMode; // we want to set this flag so next time we do the attack we'll start with a long jump again
+                                break;
+                            }
+
+                            npc.velocity.X = 0; // let's make sure we aren't walking while preparing to jump
+
+                            int jumpChargeupTime;
+                            float speed;
+                            if (longJump) {
+                                // for long jumps, we move a fixed distance. We do this to try and cut off the player if they're running away from us
+                                jumpChargeupTime = AttackParameter2I == 0 ? 15 : 5;
+                                speed = 5;
+                            } else {
+                                // for short jumps, we will try to land directly on the player
+                                jumpChargeupTime = Main.expertMode ? 10 : 40;
+                                speed = Math.Abs(player.Center.X -  npc.Center.X);
+                                speed = Math.Min(speed / 53, 8); // 53 ticks is the airtime for a jump on flat ground
+                            }
+                            // now actually perform the jump based on chosen parameters
+                            AttackParameterI++;
+                            if (AttackParameterI >= jumpChargeupTime) {
+                                npc.velocity.Y = -8;
+                                npc.velocity.X = -speed * npc.spriteDirection;
+                                npc.noTileCollide = true; // we do this so our jump doesn't get stopped by any obstacles in our way
+                                AttackParameterI = 0;
+                                AttackParameter2I++;
+                                if (Main.expertMode) longJump = true;
+                            }
+                        }
+
+                        if (npc.velocity.Y >= 0) npc.noTileCollide = false; // we are falling and want to land on the ground, so lets turn tile collide back on
+
+                        break;
+                    }
+                case AISTATE_SPAWN: {
+                        npc.velocity.X = 0; // we don't want to move while we're spawning minions
+
+                        if (AttackParameterI == 0) {
+                            if (npc.velocity.Y == 0 && TimeInState >= 90) {
+                                AttackParameterI = 1;
+                                int Minion1 = NPC.NewNPC((int)npc.Center.X + 20, (int)npc.Center.Y, ModContent.NPCType<RedMushling>(), 0);
+                                int Minion2 = NPC.NewNPC((int)npc.Center.X - 20, (int)npc.Center.Y, ModContent.NPCType<RedMushling>(), 0);
+                                Main.npc[Minion1].netUpdate = true;
+                                Main.npc[Minion2].netUpdate = true;
+                            }
+                        } else {
+                            if (TimeInState >= 130) {
+                                ChangeState(0);
+                            }
+                        }
+
+                        break;
+                    }
+                case AISTATE_FLY: {
+                        Vector2 desiredMovement = (FlyTo - npc.Bottom) / 5; // the desired velocity, scaled with distance to the player
+
+                        // accelerate such that our velocity approaches the desired
+                        Vector2 acceleration = desiredMovement - npc.velocity;
+                        acceleration.Normalize();
+
+                        // apply the acceleration but limit our velocity
+                        npc.velocity += acceleration;
+                        if (npc.velocity.Length() > 15) {
+                            npc.velocity.Normalize();
+                            npc.velocity *= 15;
+                        }
+                        npc.rotation = npc.velocity.X / 50;
+
+                        // have we reached our target? If so, change back to standard melee AI
+                        if (Vector2.Distance(FlyTo, npc.Bottom) < 20) ChangeState(0);
+
+                        break;
+                    }
+            }
+            TimeInState++;
+
+            return;
+        }
+
+        private bool flyIfOutOfRange(Player player) {
+            if (npc.velocity.Y == 0 && player.velocity.Y == 0 && Math.Abs(player.Center.Y - npc.Center.Y) > player.height + npc.height) {
+                flyTo(player);
+                return true;
+            }
+            return false;
+        }
+
+        private void flyTo(Player player) {
+            ChangeState(AISTATE_FLY);
+            FlyTo = player.Center;
+        }
+
+        private void ChangeState(int newState) {
+            if (State != AISTATE_FLY && newState != AISTATE_FLY) { // we don't want to reset TimeInState when we enter flying mode. Otherwise, players can repeatedly trigger flying mode and prevent us from ever using other attacks
+                TimeInState = 0;
+            }
+            if (State == AISTATE_FLY) {
+                // flying mode change some parameters ofc, so if we were in a flying mode we want to set everything back to normal
+                if (Main.expertMode) npc.damage = npc.defDamage;
+                npc.noTileCollide = false;
+                npc.noGravity = false;
                 npc.rotation = 0;
-                if ((player.Center.Y - npc.Center.Y) > 30f && !Collision.SolidCollision(new Vector2(npc.Center.X, npc.position.Y - npc.height/2 + 10), npc.width, npc.height))
-                {
-                    npc.rotation = 0;
-                    npc.noGravity = false;
-                    internalAI[0] = 0;
-                    internalAI[1] = Main.rand.Next(3);
-                    npc.ai = new float[4];
-                    npc.netUpdate = true;
-                    npc.noTileCollide = false;
-                }
+            } else if (newState == AISTATE_FLY) {
+                if (Main.expertMode) npc.damage *= 2; // flying mode will double our contact damage in expert mode
+                npc.noTileCollide = true;
+                npc.noGravity = true;
             }
-            else //charger
-			{
-                BaseAI.AICharger(npc, ref npc.ai, 0.07f, 10f, false, 30);				
-			}
+            
+            State = newState;
+            AttackParameterF = 0;
+            AttackParameter2F = 0;
+            npc.netUpdate = true;
         }
 
-        public override void ModifyHitByProjectile(Projectile projectile, ref int damage, ref float knockback, ref bool crit, ref int hitDirection)
-        {
-            if(Main.rand.Next(5) == 0)
-            {
-                if(Main.rand.Next(10) == 0)
-                {
-                    int i = Item.NewItem((int)npc.Center.X, (int)npc.Center.Y, 16, 16, 5, 1, false, 0, false, false);
-                    if (Main.netMode == 1 && i > 0)
-                    {
-                        NetMessage.SendData(21, -1, -1, null, i, 1f, 0f, 0f, 0, 0, 0);
-                    }
-                }
-                else
-                {
-                    Projectile.NewProjectile(npc.Center, new Vector2(0f, 0f), mod.ProjectileType("FakeMonarchMushroom"), 0, 0);
-                }
-            }
-        }
+        private bool Walk(float acceleration, float desiredVelocity, bool jump, int maxJumpTilesX = 3, int maxJumpTilesY = 4, bool jumpUpPlatforms = false, Action<bool, bool, Vector2, Vector2> onTileCollide = null, bool ignoreJumpTiles = false) {
+            npc.TargetClosest(true);
 
-        public override void ModifyHitByItem(Player player, Item item, ref int damage, ref float knockback, ref bool crit)
-        {
-            if(Main.rand.Next(5) == 0)
-            {
-                if(Main.rand.Next(10) == 0)
-                {
-                    int i = Item.NewItem((int)npc.Center.X, (int)npc.Center.Y, 16, 16, 5, 1, false, 0, false, false);
-                    if (Main.netMode == 1 && i > 0)
-                    {
-                        NetMessage.SendData(21, -1, -1, null, i, 1f, 0f, 0f, 0, 0, 0);
-                    }
+            bool wasStopped = npc.velocity.X == 0;
+            if (acceleration < 0) throw new ArgumentOutOfRangeException("Acceleration is " + acceleration + ". It should not be negative!");
+            if (acceleration == float.MaxValue) {
+                npc.velocity.X = desiredVelocity;
+            } else {
+                if (npc.velocity.X > desiredVelocity) {
+                    npc.velocity.X -= acceleration;
+                    if (npc.velocity.X < desiredVelocity) npc.velocity.X = desiredVelocity;
                 }
-                else
-                {
-                    Projectile.NewProjectile(npc.Center, new Vector2(0f, 0f), mod.ProjectileType("FakeMonarchMushroom"), 0, 0);
+                if (npc.velocity.X < desiredVelocity) {
+                    npc.velocity.X += acceleration;
+                    if (npc.velocity.X > desiredVelocity) npc.velocity.X = desiredVelocity;
                 }
             }
+            BaseAI.WalkupHalfBricks(npc);
+            
+            if (BaseAI.HitTileOnSide(npc, 3)) {
+                //if the npc's velocity is going in the same direction as the npc's direction...
+                if ((npc.velocity.X < 0f && npc.direction == -1) || (npc.velocity.X > 0f && npc.direction == 1)) {
+                    //...attempt to jump if needed.
+                    Vector2 newVec = jump ? BaseAI.AttemptJump(npc.position, npc.velocity, npc.width, npc.height, npc.direction, npc.directionY, maxJumpTilesX, maxJumpTilesY, Math.Abs(npc.velocity.X), jumpUpPlatforms, npc.HasValidTarget ? Main.player[npc.target] : null, ignoreJumpTiles) : npc.velocity;
+                    if (!npc.noTileCollide) {
+                        newVec = Collision.TileCollision(npc.position, newVec, npc.width, npc.height);
+                        Vector4 slopeVec = Collision.SlopeCollision(npc.position, newVec, npc.width, npc.height);
+                        Vector2 slopeVel = new Vector2(slopeVec.Z, slopeVec.W);
+                        if (onTileCollide != null && npc.velocity != slopeVel) onTileCollide(npc.velocity.X != slopeVel.X, npc.velocity.Y != slopeVel.Y, npc.velocity, slopeVel);
+                        npc.position = new Vector2(slopeVec.X, slopeVec.Y);
+                        npc.velocity = slopeVel;
+                    }
+                    if (npc.velocity != newVec) { npc.velocity = newVec; npc.netUpdate = true; }
+                }
+            }
+
+            if (wasStopped && desiredVelocity != 0 && npc.velocity.X == 0) return false;
+            return true;
         }
         
-        public void MoveToPoint(Vector2 point)
-        {
-            float moveSpeed = 8f;
-            if (Vector2.Distance(npc.Center, point) > 500)
-            {
-                moveSpeed = 12f;
-            }
-            float velMultiplier = 1f;
-            Vector2 dist = point - npc.Center;
-            float length = dist == Vector2.Zero ? 0f : dist.Length();
-            if (length < moveSpeed)
-            {
-                velMultiplier = MathHelper.Lerp(0f, 1f, length / moveSpeed);
-            }
-            if (length < 200f)
-            {
-                moveSpeed *= 0.5f;
-            }
-            if (length < 100f)
-            {
-                moveSpeed *= 0.5f;
-            }
-            if (length < 50f)
-            {
-                moveSpeed *= 0.5f;
-            }
-            npc.velocity = length == 0f ? Vector2.Zero : Vector2.Normalize(dist);
-            npc.velocity *= moveSpeed;
-            npc.velocity *= velMultiplier;
-        }
         public override void BossLoot(ref string name, ref int potionType)
         {
             potionType = ItemID.LesserHealingPotion;
@@ -391,6 +409,19 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch
 
                 Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Mushium"), Main.rand.Next(25, 35));
             }
+        }
+
+        public override bool PreDraw(SpriteBatch sb, Color dColor) {
+            Texture2D bodyTex = Main.npcTexture[npc.type];
+            Color lightColor = BaseDrawing.GetNPCColor(npc, null);
+            Color trailColor = lightColor;
+            trailColor.R = (byte)(0.3 * trailColor.R);
+            trailColor.G = (byte)(0.3 * trailColor.G);
+            trailColor.B = (byte)(0.3 * trailColor.B);
+            trailColor.A = (byte)(0.3 * trailColor.A);
+            BaseDrawing.DrawAfterimage(sb, bodyTex, 0, npc, 1f, 1.0f, 10, true, 0f, 0f, trailColor/*Color.DarkRed*/);
+            BaseDrawing.DrawTexture(sb, bodyTex, 0, npc, lightColor);
+            return false;
         }
 
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale)

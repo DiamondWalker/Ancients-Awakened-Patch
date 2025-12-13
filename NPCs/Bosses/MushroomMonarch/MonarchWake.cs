@@ -58,7 +58,8 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch
 
             if (npc.ai[0] == 160 && Main.netMode != 1)
             {
-                NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, ModContent.NPCType<MushroomMonarch>());
+                int id = NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, ModContent.NPCType<MushroomMonarch>());
+                Main.npc[id].Bottom = npc.Bottom;
                 npc.active = false;
                 npc.netUpdate = true;
             }

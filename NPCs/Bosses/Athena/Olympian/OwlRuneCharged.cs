@@ -4,10 +4,11 @@ using Terraria.ModLoader;
 
 using Terraria.ID;
 using Microsoft.Xna.Framework.Graphics;
+using AAMod.Util;
 
 namespace AAMod.NPCs.Bosses.Athena.Olympian
 {
-	public class OwlRuneCharged : ModNPC
+    public class OwlRuneCharged : ModNPC
     {
         public override void SetStaticDefaults()
         {

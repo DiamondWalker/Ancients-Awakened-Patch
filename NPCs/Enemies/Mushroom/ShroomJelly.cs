@@ -34,17 +34,13 @@ namespace AAMod.NPCs.Enemies.Mushroom
 			bannerItem = mod.ItemType("ShroomJellyBanner");
         }
 
-        public override void HitEffect(int hitDirection, double damage)
-		{
-
-            int dust1 = ModContent.DustType<Dusts.MushDust>();
-            if (npc.life <= 0)
-			{
-                Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, dust1, 0f, 0f, 0);
-                Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, dust1, 0f, 0f, 0);
-                Dust.NewDust(new Vector2(npc.position.X, npc.position.Y), npc.width, npc.height, dust1, 0f, 0f, 0);
+        public override void HitEffect(int hitDirection, double damage) {
+            bool isDead = npc.life <= 0;
+            int dustType = ModContent.DustType<Dusts.MushDust>();
+            for (int m = 0; m < (isDead ? 35 : 6); m++) {
+                Dust.NewDust(npc.position, npc.width, npc.height, dustType, npc.velocity.X * 0.2f, npc.velocity.Y * 0.2f, 100, default, isDead ? 2f : 1.5f);
             }
-		}
+        }
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {

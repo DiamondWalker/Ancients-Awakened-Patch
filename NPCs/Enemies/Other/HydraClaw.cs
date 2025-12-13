@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ID;
 using System;
 using Terraria.ModLoader;
+using AAMod.Util;
 
 namespace AAMod.NPCs.Enemies.Other
 {

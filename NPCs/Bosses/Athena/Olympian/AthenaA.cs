@@ -6,6 +6,7 @@ using Terraria.ModLoader;
 
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
+using AAMod.Util;
 
 namespace AAMod.NPCs.Bosses.Athena.Olympian
 {

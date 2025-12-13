@@ -124,7 +124,7 @@ namespace AAMod.NPCs.Bosses.Zero
                 Main.dust[num813].velocity.Y = -Math.Abs(Main.dust[num813].velocity.Y);
             }
             DelegateMethods.v3_1 = new Vector3(0.3f, 0.65f, 0.7f);
-            Utils.PlotTileLine(projectile.Center, projectile.Center + projectile.velocity * projectile.localAI[1], projectile.width * projectile.scale, new Utils.PerLinePoint(DelegateMethods.CastLight));
+            Terraria.Utils.PlotTileLine(projectile.Center, projectile.Center + projectile.velocity * projectile.localAI[1], projectile.width * projectile.scale, new Terraria.Utils.PerLinePoint(DelegateMethods.CastLight));
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Color lightColor)
@@ -178,7 +178,7 @@ namespace AAMod.NPCs.Bosses.Zero
         {
             DelegateMethods.tilecut_0 = TileCuttingContext.AttackProjectile;
             Vector2 unit = projectile.velocity;
-            Utils.PlotTileLine(projectile.Center, projectile.Center + unit * projectile.localAI[1], projectile.width * projectile.scale, new Utils.PerLinePoint(DelegateMethods.CutTiles));
+            Terraria.Utils.PlotTileLine(projectile.Center, projectile.Center + unit * projectile.localAI[1], projectile.width * projectile.scale, new Terraria.Utils.PerLinePoint(DelegateMethods.CutTiles));
         }
 
         public override bool? Colliding(Rectangle projHitbox, Rectangle targetHitbox)
