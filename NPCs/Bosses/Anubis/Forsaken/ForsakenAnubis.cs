@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 
 using System;
 using System.IO;
+using AAMod.Util;
 
 namespace AAMod.NPCs.Bosses.Anubis.Forsaken
 {

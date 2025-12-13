@@ -205,14 +205,14 @@ namespace AAMod.NPCs.Bosses.Zero
                     {
                         Vector2 start = projectile.oldPos[num292] + new Vector2(projectile.width, projectile.height) / 2f + Vector2.UnitY * projectile.gfxOffY - Main.screenPosition;
                         Vector2 end2 = projectile.oldPos[num292 - 1] + new Vector2(projectile.width, projectile.height) / 2f + Vector2.UnitY * projectile.gfxOffY - Main.screenPosition;
-                        Utils.DrawLaser(Main.spriteBatch, tex3, start, end2, scale16, new Utils.LaserLineFraming(DelegateMethods.LightningLaserDraw));
+                        Terraria.Utils.DrawLaser(Main.spriteBatch, tex3, start, end2, scale16, new Terraria.Utils.LaserLineFraming(DelegateMethods.LightningLaserDraw));
                     }
                 }
                 if (projectile.oldPos[0] != Vector2.Zero)
                 {
                     DelegateMethods.f_1 = 1f;
                     Vector2 start2 = projectile.oldPos[0] + new Vector2(projectile.width, projectile.height) / 2f + Vector2.UnitY * projectile.gfxOffY - Main.screenPosition;
-                    Utils.DrawLaser(Main.spriteBatch, tex3, start2, end, scale16, new Utils.LaserLineFraming(DelegateMethods.LightningLaserDraw));
+                    Terraria.Utils.DrawLaser(Main.spriteBatch, tex3, start2, end, scale16, new Terraria.Utils.LaserLineFraming(DelegateMethods.LightningLaserDraw));
                 }
             }
             return false;

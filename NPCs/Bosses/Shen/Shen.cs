@@ -7,6 +7,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using AAMod.NPCs.Bosses.Shen.Projectiles;
+using AAMod.Util;
 
 namespace AAMod.NPCs.Bosses.Shen
 {

@@ -1,4 +1,5 @@
-﻿using Terraria;
+﻿using AAMod.Util;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 

@@ -22,7 +22,7 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch
             projectile.hostile = true;
             projectile.ignoreWater = true;
             projectile.penetrate = -1;
-            projectile.timeLeft = 14400;
+            projectile.timeLeft = 300;
         }
 
         private bool isGrabbing = false;
@@ -69,7 +69,7 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch
 
             for(int i = 0; i < 200; i++)
             {
-                if(Main.player[i].active && (Main.player[i].Center - projectile.Center).Length() < 88)
+                /*if(Main.player[i].active && (Main.player[i].Center - projectile.Center).Length() < 88)
                 {
                     if (Main.player[i].position.X + Main.player[i].width * 0.5 > projectile.position.X + projectile.width * 0.5)
                     {
@@ -116,7 +116,7 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch
                         }
                     }
                     isGrabbing = true;
-                }
+                }*/
 
                 if(Main.player[i].active && (Main.player[i].Center - projectile.Center).Length() < 10)
                 {

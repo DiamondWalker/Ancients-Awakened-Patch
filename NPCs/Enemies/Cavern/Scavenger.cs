@@ -5,6 +5,7 @@ using Terraria.ModLoader;
 
 using Terraria.Audio;
 using Microsoft.Xna.Framework.Graphics;
+using AAMod.Util;
 
 namespace AAMod.NPCs.Enemies.Cavern
 {

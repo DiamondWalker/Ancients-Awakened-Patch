@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.Audio;
+using AAMod.Util;
 
 namespace AAMod.NPCs.Bosses.Wyrm
 {

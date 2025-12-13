@@ -7,6 +7,7 @@ using Terraria.ModLoader;
 using Terraria.Graphics.Shaders;
 using System;
 using System.IO;
+using AAMod.Util;
 
 namespace AAMod.NPCs.Bosses.AH.Ashe
 {

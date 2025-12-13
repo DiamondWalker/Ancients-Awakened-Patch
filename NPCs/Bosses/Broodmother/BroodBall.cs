@@ -3,6 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System;
+using AAMod.Util;
 
 namespace AAMod.NPCs.Bosses.Broodmother
 {

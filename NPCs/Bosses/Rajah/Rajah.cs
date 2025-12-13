@@ -6,10 +6,10 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 using System.IO;
-using AAMod;
 using AAMod.Items.Boss.Rajah;
 using Terraria.Graphics.Shaders;
 using AAMod.NPCs.Bosses.Rajah.Supreme;
+using AAMod.Util;
 
 namespace AAMod.NPCs.Bosses.Rajah
 {

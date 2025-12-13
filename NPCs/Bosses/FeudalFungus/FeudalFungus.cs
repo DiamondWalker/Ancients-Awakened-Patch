@@ -52,7 +52,7 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
         }
 
         public const int AISTATE_RAIN = 0, AISTATE_CHASE = 1, AISTATE_HORIZONTAL = 2, AISTATE_DROP = 3;
-        private int Stage { get => (int)npc.ai[0]; set => npc.ai[0] = value; }
+        private int State { get => (int)npc.ai[0]; set => npc.ai[0] = value; }
         private int AttackTime { get => (int)npc.ai[1]; set => npc.ai[1] = value; }
         private int AttackParameter { get => (int)npc.ai[2]; set => npc.ai[2] = value; }
 
@@ -105,17 +105,17 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
             // select new attack every 5 seconds
             if (Main.netMode != 1) {
                 if (AttackTime++ > 300) {
-                    int prevStage = Stage;
+                    int prevStage = State;
                     do {
                         // if we're in expert mode he may choose to end the rain attack with a dive
-                        if (Stage == AISTATE_RAIN && Main.expertMode && Main.rand.NextBool()) {
-                            Stage = AISTATE_DROP;
+                        if (State == AISTATE_RAIN && Main.expertMode && Main.rand.NextBool()) {
+                            State = AISTATE_DROP;
                             npc.velocity = new Vector2(0, -8);
                             npc.rotation = 0;
                         } else {
-                            Stage = Main.rand.Next(3);
+                            State = Main.rand.Next(3);
                         }
-                    } while (prevStage == Stage); // loop if we're repeating the same attack because that's boring
+                    } while (prevStage == State); // loop if we're repeating the same attack because that's boring
                     
                     //
                     AttackTime = 0;
@@ -126,7 +126,7 @@ namespace AAMod.NPCs.Bosses.FeudalFungus
 
             // attack AIs
             Vector2 moveVec;
-            switch (Stage) {
+            switch (State) {
                 case AISTATE_RAIN:
                     // move above player
                     moveVec = player.Center + new Vector2(0, -300.0f);

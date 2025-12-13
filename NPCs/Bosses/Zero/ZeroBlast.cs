@@ -193,13 +193,13 @@ namespace AAMod.NPCs.Bosses.Zero
                     end = projectileCentre;
                 }
 
-                Utils.DrawLaser(
+                Terraria.Utils.DrawLaser(
                     spritebatch,
                     mod.GetTexture("NPCs/Bosses/Zero/ZeroBlast_Beam"),
                     start - Main.screenPosition,
                     end - Main.screenPosition,
                     new Vector2(projectile.ai[1]),
-                    new Utils.LaserLineFraming(ZeroLaser)); //uses delegate (see method below)
+                    new Terraria.Utils.LaserLineFraming(ZeroLaser)); //uses delegate (see method below)
             }
             
             
