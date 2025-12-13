@@ -30,20 +30,14 @@ namespace AAMod.NPCs.Enemies.Mushroom
 			bannerItem = mod.ItemType("TinyToadBanner");
         }
 
-        public override void HitEffect(int hitDirection, double damage)
-        {
+        public override void HitEffect(int hitDirection, double damage) {
             bool isDead = npc.life <= 0;
-            if (isDead) 
-            {
-
-            }
-            for (int m = 0; m < (isDead ? 35 : 6); m++)
-            {
-                int dustType = ModContent.DustType<Dusts.ShroomDust>();
+            int dustType = ModContent.DustType<Dusts.MushDust>();
+            for (int m = 0; m < (isDead ? 35 : 6); m++) {
                 Dust.NewDust(npc.position, npc.width, npc.height, dustType, npc.velocity.X * 0.2f, npc.velocity.Y * 0.2f, 100, default, isDead ? 2f : 1.5f);
             }
         }
-        
+
         public override void AI()
         {
             npc.TargetClosest(true);
