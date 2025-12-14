@@ -1066,7 +1066,7 @@ namespace AAMod
                 music = GetSoundSlot(SoundType.Music, "Sounds/Music/Void");
 
 
-                if (NPC.downedMoonlord && !AAWorld.downedZero)
+                if (AAWorld.downedEquinox && !AAWorld.downedZero)
                 {
                     music = GetSoundSlot(SoundType.Music, "Sounds/Music/VoidButNowItsSpooky");
 
@@ -1108,7 +1108,7 @@ namespace AAMod
                         music = GetSoundSlot(SoundType.Music, "Sounds/Music/IN");
                         return;
                     }
-                    if (Ancients.ZoneRisingSunPagoda && NPC.downedMoonlord && !AAWorld.downedAkuma)
+                    if (Ancients.ZoneRisingSunPagoda && AAWorld.downedEquinox && !AAWorld.downedAkuma)
                     {
                         priority = MusicPriority.BiomeHigh;
                         music = GetSoundSlot(SoundType.Music, "Sounds/Music/AkumaShrine");
@@ -1140,7 +1140,7 @@ namespace AAMod
                         return;
                     }
 
-                    if (Ancients.ZoneRisingMoonLake && NPC.downedMoonlord && !AAWorld.downedYamata)
+                    if (Ancients.ZoneRisingMoonLake && AAWorld.downedEquinox && !AAWorld.downedYamata)
                     {
                         priority = MusicPriority.BiomeHigh;
                         music = GetSoundSlot(SoundType.Music, "Sounds/Music/Shrines");

@@ -561,7 +561,7 @@ namespace AAMod.NPCs.Bosses.Athena
         {
             AAWorld.downedAthena = true;
 
-            if (NPC.downedMoonlord)
+            if (AAWorld.downedAnubisA)
             {
                 if (!AAWorld.downedAthenaA)
                 {

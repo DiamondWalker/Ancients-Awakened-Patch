@@ -482,7 +482,7 @@ namespace AAMod.NPCs.Bosses.Greed
         public override void NPCLoot()
         {
             AAWorld.downedGreed = true;
-            if (NPC.downedMoonlord)
+            if (AAWorld.downedAnubisA)
             {
                 int a = NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, ModContent.NPCType<GreedTransition>());
                 Main.npc[a].Center = npc.Center;

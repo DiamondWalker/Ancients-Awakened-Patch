@@ -47,7 +47,7 @@ namespace AAMod.Backgrounds
             {
                 Intensity = Math.Max(0f, Intensity - 0.01f);
             }
-            if (NPC.downedMoonlord) //NPC.downedMoonlord)
+            if (AAWorld.downedEquinox) //NPC.downedMoonlord)
             {
                 if (ticksUntilNextBolt <= 0)
                 {

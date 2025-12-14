@@ -939,7 +939,7 @@ namespace AAMod
                         }
                     }
 
-                    if (NPC.downedMoonlord) {
+                    if (AAWorld.downedEquinox) {
                         pool.Add(mod.NPCType("Lung"), .02f);
                     }
                 }
@@ -994,7 +994,7 @@ namespace AAMod
                         }
                     }
 
-                    if (NPC.downedMoonlord) {
+                    if (AAWorld.downedEquinox) {
                         pool.Add(mod.NPCType("Soulsucker"), .02f);
                     }
                 }
@@ -1017,7 +1017,7 @@ namespace AAMod
                     pool.Add(mod.NPCType("Scout"), .005f);
                 }
 
-                if (NPC.downedMoonlord)
+                if (AAWorld.downedEquinox)
                 {
                     pool.Add(mod.NPCType("Searcher"), .005f);
 
