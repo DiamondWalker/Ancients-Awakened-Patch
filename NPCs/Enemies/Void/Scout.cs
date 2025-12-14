@@ -5,6 +5,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 using AAMod.Dusts;
+using AAMod.NPCs.Bosses.Zero;
+using System;
 
 namespace AAMod.NPCs.Enemies.Void
 {
@@ -24,7 +26,7 @@ namespace AAMod.NPCs.Enemies.Void
             npc.npcSlots = 1;
             npc.aiStyle = -1;
             npc.lifeMax = 1200;
-            npc.defense = 120;
+            npc.defense = 40;
             npc.damage = 80;
 			npc.HitSound = SoundID.NPCHit4;
 			npc.DeathSound = SoundID.NPCDeath14;
@@ -45,10 +47,74 @@ namespace AAMod.NPCs.Enemies.Void
 			}
 		}
 
-		float shootAI = 0;
-		public override void AI()
+        Projectile beam = null;
+        private Vector2 MoveTo { get => new Vector2(npc.ai[0], npc.ai[1]); set {
+				npc.ai[0] = value.X;
+				npc.ai[1] = value.Y;
+			}
+		}
+		private bool IsMoving { get => npc.ai[2] != 0; set => npc.ai[2] = value ? 1 : 0; }
+        private int LaserTime { get => (int)npc.ai[3]; set => npc.ai[3] = value; }
+        public override void AI()
 		{
-		    BaseAI.AISkull(npc, ref npc.ai, false, 6f, 350f, 0.6f, 0.15f);
+            // standard targetting code
+            npc.TargetClosest(true);
+            if (!npc.HasValidTarget) {
+                return;
+            }
+            Player player = Main.player[npc.target];
+
+			if (beam != null) {
+                if (Main.netMode != 1) {
+                    LaserTime++;
+                    if (LaserTime > 150) {
+                        beam.Kill();
+						beam = null;
+						Main.NewText("STOP LASER");
+						return;
+                    }
+                }
+
+                npc.velocity = Vector2.Zero;
+				float angleToPlayer = (float)(Math.Atan2(npc.Center.Y - player.Center.Y, npc.Center.X - player.Center.X) + Math.PI);
+				angleToPlayer -= npc.rotation;
+                if (Math.Abs(angleToPlayer) > Math.PI) {
+					if (angleToPlayer > 0) {
+                        angleToPlayer -= (float)Math.PI * 2;
+                    } else {
+                        angleToPlayer += (float)Math.PI * 2;
+                    }
+				}
+
+				if (angleToPlayer > 0) {
+					npc.rotation += Math.Min(angleToPlayer, 0.025f);
+				} else if (angleToPlayer < 0) {
+					npc.rotation += Math.Max(angleToPlayer, -0.025f);
+				}
+				npc.rotation = npc.rotation % ((float)Math.PI * 2);
+            } else {
+				if (!IsMoving) {
+					MoveTo = player.Center;
+					Main.NewText("MOVE");
+					IsMoving = true;
+				} else {
+					npc.velocity = (MoveTo - npc.Center) / 30;
+					if (Vector2.Distance(MoveTo, npc.Center) < 10 && Main.netMode != 1) {
+						IsMoving = false;
+						beam = Main.projectile[Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, ModContent.ProjectileType<NovaRay>(), (int)(npc.damage * 0.75f), 3f, Main.myPlayer, npc.whoAmI, 420)];
+						if (beam.modProjectile is NovaRay ray) {
+							ray.MoveDistance = 35.0f;
+                            LaserTime = 0;
+							IsMoving = false;
+                            npc.netUpdate = true;
+                        } else {
+							beam = null;
+						}
+                    }
+				}
+			}
+			
+			/*BaseAI.AISkull(npc, ref npc.ai, false, 6f, 350f, 0.6f, 0.15f);
 			Player player = Main.player[npc.target];
 			bool playerActive = player != null && player.active && !player.dead;
             if (shootAI < 60)
@@ -61,7 +127,7 @@ namespace AAMod.NPCs.Enemies.Void
 				if(shootAI >= 90)
 				{
 					shootAI = 0;
-                    int projType = mod.ProjType("NeutralizerP");
+                    int projType = mod.ProjType("Neutralizer");
 
                     if (Collision.CanHit(npc.position, npc.width, npc.height, player.position, player.width, player.height))
                     {
@@ -69,8 +135,8 @@ namespace AAMod.NPCs.Enemies.Void
 
                     }
                 }
-			}
-		}
+			}*/
+        }
 
 		public override void FindFrame(int frameHeight)
 		{
@@ -85,9 +151,8 @@ namespace AAMod.NPCs.Enemies.Void
 			}
 		}
 
-		public override void NPCLoot()
-        {
-            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("VoidEnergy"), Main.rand.Next(1, 4));
+        public override void NPCLoot() {
+            Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Apocalyptite"));
         }
 
         public override bool PreDraw(SpriteBatch spriteBatch, Color drawColor)

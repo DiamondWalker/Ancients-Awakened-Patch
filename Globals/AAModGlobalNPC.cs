@@ -1011,14 +1011,10 @@ namespace AAMod
                     pool.Add(mod.NPCType("SagittariusMini"), .005f);
                 }
 
-                if (NPC.downedPlantBoss)
+                if (AAWorld.downedEquinox)
                 {
                     pool.Add(mod.NPCType("Vortex"), 0.002f);
                     pool.Add(mod.NPCType("Scout"), .005f);
-                }
-
-                if (AAWorld.downedEquinox)
-                {
                     pool.Add(mod.NPCType("Searcher"), .005f);
 
                     if (AAWorld.downedZero)

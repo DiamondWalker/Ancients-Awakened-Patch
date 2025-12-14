@@ -1,6 +1,8 @@
 ﻿
+using AAMod.Util;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
@@ -9,10 +11,7 @@ namespace AAMod.NPCs.Enemies.Void
 {
     public class Searcher : ModNPC
 	{
-		public int timer = 0;
-		public bool start = true;
-
-        public override void SetStaticDefaults()
+		public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Searcher");
         }
@@ -36,6 +35,73 @@ namespace AAMod.NPCs.Enemies.Void
 
         }
 
+        float shootAI = 0;
+        private int moveTime = 0;
+        private int shootTime = 0;
+        private float AttackAngle { get => npc.ai[0]; set => npc.ai[0] = value; }
+        public override void AI() {
+            // standard targetting code
+            npc.TargetClosest(true);
+            if (!npc.HasValidTarget) {
+                return;
+            }
+            Player player = Main.player[npc.target];
+
+            npc.rotation = (float)Math.Atan2(player.Center.Y - npc.Center.Y, player.Center.X - npc.Center.X);
+            if (npc.Center.X > player.Center.X) {
+                npc.spriteDirection = 1;
+                npc.rotation += (float)Math.PI;
+            } else if (npc.Center.X < player.Center.X) {
+                npc.spriteDirection = -1;
+            }
+
+            // pick an angle of attack
+            if (Main.netMode != 1) {
+                int limit = 0;
+                while (moveTime <= 0 || !HasGoodPosition(player)) {
+                    AttackAngle = Main.rand.NextFloat() * MathHelper.Pi * 2;
+                    moveTime = Main.rand.Next(120, 361);
+                    npc.netUpdate = true;
+                    limit++;
+                    if (limit >= 15) break;
+                }
+
+                if (limit == 0) moveTime--;
+            }
+
+            // move to the angle of attack
+            Vector2 moveVec = GetCurrentTargetVec(player) - npc.Center;
+            moveVec.Normalize();
+            npc.velocity += moveVec * 0.35f;
+            if (npc.velocity.Length() > 10) {
+                npc.velocity.Normalize();
+                npc.velocity *= 10;
+            }
+
+            // fire projectile
+            if (Main.netMode != 1) {
+                shootAI++;
+                if (shootAI >= 90 && shootAI % 10 == 0 && Collision.CanHit(npc.position, npc.width, npc.height, player.position, player.width, player.height)) {
+                    if (shootAI >= 110) shootAI = 0;
+                    int projType = mod.ProjType("DeathLaser");
+                    BaseAI.FireProjectile(player.Center, npc, projType, (int)(npc.damage * 0.25f), 0f, 2f);
+                }
+            }
+        }
+
+        private bool HasGoodPosition(Player player) {
+            Vector2 pos = GetCurrentTargetVec(player) - new Vector2(npc.width, npc.height) / 2;
+
+            if (!Collision.CanHit(pos, npc.width, npc.height, player.position, player.width, player.height)) return false;
+            if (!Collision.CanHit(npc.Center, npc.width, npc.height, pos, npc.width, npc.height)) return false;
+
+            return true;
+        }
+
+        private Vector2 GetCurrentTargetVec(Player player) {
+            return player.Center + MathUtil.VectorFromPolar(350, AttackAngle);
+        }
+
         public override void HitEffect(int hitDirection, double damage)
         {
             bool isDead = npc.life <= 0;
@@ -52,25 +118,6 @@ namespace AAMod.NPCs.Enemies.Void
             }
         }
 
-        float shootAI = 0;
-        public override void AI()
-        {
-            BaseAI.AISkull(npc, ref npc.ai, true, 6f, 350f, 0.1f, 0.15f);
-            Player player = Main.player[npc.target];
-            bool playerActive = player != null && player.active && !player.dead;
-            BaseAI.LookAt(playerActive ? player.Center : (npc.Center + npc.velocity), npc, 0);
-            if (Main.netMode != 1 && playerActive)
-            {
-                shootAI++;
-                if (shootAI >= 90)
-                {
-                    shootAI = 0;
-                    int projType = mod.ProjType("DeathLaser");
-                    if (Collision.CanHit(npc.position, npc.width, npc.height, player.position, player.width, player.height))
-                        BaseAI.FireProjectile(player.Center, npc, projType, (int)(npc.damage * 0.25f), 0f, 2f);
-                }
-            }
-        }
         public float auraPercent = 0f;
         public bool auraDirection = true;
 

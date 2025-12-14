@@ -8,7 +8,7 @@ namespace AAMod.NPCs.Bosses.Zero
 {
     public class NovaRay : ModProjectile
     {
-        private const float MoveDistance = 70f;
+        public float MoveDistance = 70f;
         
         public float Distance;
 
