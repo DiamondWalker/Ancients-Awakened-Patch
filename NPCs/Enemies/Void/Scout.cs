@@ -32,7 +32,7 @@ namespace AAMod.NPCs.Enemies.Void
 			npc.DeathSound = SoundID.NPCDeath14;
             npc.knockBackResist = 0.3f;
 			npc.noGravity = true;
-			npc.noTileCollide = true;
+			//npc.noTileCollide = true;
 			banner = npc.type;
 			bannerItem = mod.ItemType("VoidScoutBanner");
 		}
@@ -48,11 +48,6 @@ namespace AAMod.NPCs.Enemies.Void
 		}
 
         Projectile beam = null;
-        private Vector2 MoveTo { get => new Vector2(npc.ai[0], npc.ai[1]); set {
-				npc.ai[0] = value.X;
-				npc.ai[1] = value.Y;
-			}
-		}
 		private bool IsMoving { get => npc.ai[2] != 0; set => npc.ai[2] = value ? 1 : 0; }
         private int LaserTime { get => (int)npc.ai[3]; set => npc.ai[3] = value; }
         public override void AI()
@@ -70,7 +65,6 @@ namespace AAMod.NPCs.Enemies.Void
                     if (LaserTime > 150) {
                         beam.Kill();
 						beam = null;
-						Main.NewText("STOP LASER");
 						return;
                     }
                 }
@@ -93,25 +87,44 @@ namespace AAMod.NPCs.Enemies.Void
 				}
 				npc.rotation = npc.rotation % ((float)Math.PI * 2);
             } else {
-				if (!IsMoving) {
-					MoveTo = player.Center;
-					Main.NewText("MOVE");
-					IsMoving = true;
-				} else {
-					npc.velocity = (MoveTo - npc.Center) / 30;
-					if (Vector2.Distance(MoveTo, npc.Center) < 10 && Main.netMode != 1) {
-						IsMoving = false;
-						beam = Main.projectile[Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, ModContent.ProjectileType<NovaRay>(), (int)(npc.damage * 0.75f), 3f, Main.myPlayer, npc.whoAmI, 420)];
-						if (beam.modProjectile is NovaRay ray) {
-							ray.MoveDistance = 35.0f;
+				LaserTime++;
+				if (LaserTime < 400) {
+                    Vector2 moveVec = player.Center - npc.Center;
+                    moveVec.Normalize();
+                    moveVec *= 0.1f;
+                    npc.velocity += moveVec;
+                    npc.rotation = (float)(Math.Atan2(player.Center.Y - npc.Center.Y, player.Center.X - npc.Center.X) + Math.PI * 2);
+                } else {
+					npc.velocity *= 0.95f;
+
+                    float angleToPlayer = (float)(Math.Atan2(npc.Center.Y - player.Center.Y, npc.Center.X - player.Center.X) + Math.PI);
+                    angleToPlayer -= npc.rotation;
+                    if (Math.Abs(angleToPlayer) > Math.PI) {
+                        if (angleToPlayer > 0) {
+                            angleToPlayer -= (float)Math.PI * 2;
+                        } else {
+                            angleToPlayer += (float)Math.PI * 2;
+                        }
+                    }
+
+                    if (angleToPlayer > 0) {
+                        npc.rotation += Math.Min(angleToPlayer, 0.025f);
+                    } else if (angleToPlayer < 0) {
+                        npc.rotation += Math.Max(angleToPlayer, -0.025f);
+                    }
+                    npc.rotation = npc.rotation % ((float)Math.PI * 2);
+
+                    if (Main.netMode != 1 && LaserTime > 600) {
+                        beam = Main.projectile[Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, ModContent.ProjectileType<NovaRay>(), (int)(npc.damage * 0.75f), 3f, Main.myPlayer, npc.whoAmI, 420)];
+                        if (beam.modProjectile is NovaRay ray) {
+                            ray.MoveDistance = 35.0f;
                             LaserTime = 0;
-							IsMoving = false;
                             npc.netUpdate = true;
                         } else {
-							beam = null;
-						}
+                            beam = null;
+                        }
                     }
-				}
+                }
 			}
 			
 			/*BaseAI.AISkull(npc, ref npc.ai, false, 6f, 350f, 0.6f, 0.15f);
