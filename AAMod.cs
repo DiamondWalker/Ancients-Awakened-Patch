@@ -321,6 +321,7 @@ namespace AAMod
             PremultiplyTexture(GetTexture("Backgrounds/VoidBH"));
             PremultiplyTexture(GetTexture("Backgrounds/Moon"));
             PremultiplyTexture(GetTexture("Backgrounds/Sun"));
+            PremultiplyTexture(GetTexture("Backgrounds/Eclipse"));
             PremultiplyTexture(GetTexture("Backgrounds/FogTex"));
             PremultiplyTexture(GetTexture("Backgrounds/AkumaSun"));
             PremultiplyTexture(GetTexture("Backgrounds/YamataMoon"));

@@ -16,6 +16,22 @@ namespace AAMod.Util {
             npc.frameCounter = 0;
         }
 
+        public static int GetCurrentFrame(NPC npc) {
+            return GetCurrentFrame(npc, npc.height);
+        }
+
+        public static int GetCurrentFrame(NPC npc, int frameHeight) {
+            return npc.frame.Y / frameHeight;
+        }
+
+        public static bool PlayingAnimation(NPC npc, int[] animation) {
+            return PlayingAnimation(npc, animation, npc.height);
+        }
+
+        public static bool PlayingAnimation(NPC npc, int[] animation, int frameHeight) {
+            return Array.IndexOf(animation, GetCurrentFrame(npc, frameHeight)) >= 0;
+        }
+
         public static void UpdateAnimation(NPC npc, int[] animation, int frames) {
             UpdateAnimation(npc, animation, frames, 1);
         }
@@ -28,7 +44,7 @@ namespace AAMod.Util {
             if (animation.Length == 1) {
                 SetFrame(npc, animation[0], frameHeight);
             } else {
-                int currentFrame = Array.IndexOf(animation, npc.frame.Y / frameHeight);
+                int currentFrame = Array.IndexOf(animation, GetCurrentFrame(npc, frameHeight));
                 if (currentFrame < 0) {
                     SetFrame(npc, animation[0], frameHeight);
                 } else {

@@ -7,6 +7,8 @@ using Terraria.ModLoader;
 using AAMod.Dusts;
 using AAMod.NPCs.Bosses.Zero;
 using System;
+using Terraria.Graphics.Shaders;
+using AAMod.Util;
 
 namespace AAMod.NPCs.Enemies.Void
 {
@@ -48,8 +50,9 @@ namespace AAMod.NPCs.Enemies.Void
 		}
 
         Projectile beam = null;
-		private bool IsMoving { get => npc.ai[2] != 0; set => npc.ai[2] = value ? 1 : 0; }
-        private int LaserTime { get => (int)npc.ai[3]; set => npc.ai[3] = value; }
+		private bool BeamFiring { get => npc.ai[0] != 0; set => npc.ai[0] = value ? 1 : 0; }
+        private int LaserTime { get => (int)npc.ai[1]; set => npc.ai[1] = value; }
+        private float RotationSpeed { get => npc.ai[2]; set => npc.ai[2] = value; }
         public override void AI()
 		{
             // standard targetting code
@@ -59,96 +62,76 @@ namespace AAMod.NPCs.Enemies.Void
             }
             Player player = Main.player[npc.target];
 
-			if (beam != null) {
-                if (Main.netMode != 1) {
-                    LaserTime++;
-                    if (LaserTime > 150) {
-                        beam.Kill();
-						beam = null;
-						return;
-                    }
-                }
+            if (BeamFiring != (beam != null)) {
+                BeamFiring = beam != null;
+                npc.netUpdate = true;
+            }
 
-                npc.velocity = Vector2.Zero;
-				float angleToPlayer = (float)(Math.Atan2(npc.Center.Y - player.Center.Y, npc.Center.X - player.Center.X) + Math.PI);
-				angleToPlayer -= npc.rotation;
-                if (Math.Abs(angleToPlayer) > Math.PI) {
-					if (angleToPlayer > 0) {
-                        angleToPlayer -= (float)Math.PI * 2;
-                    } else {
-                        angleToPlayer += (float)Math.PI * 2;
-                    }
-				}
-
-				if (angleToPlayer > 0) {
-					npc.rotation += Math.Min(angleToPlayer, 0.025f);
-				} else if (angleToPlayer < 0) {
-					npc.rotation += Math.Max(angleToPlayer, -0.025f);
-				}
-				npc.rotation = npc.rotation % ((float)Math.PI * 2);
-            } else {
-				LaserTime++;
-				if (LaserTime < 400) {
+            LaserTime++;
+            bool slowRot;
+			if (!BeamFiring) {
+                if (LaserTime < 400) {
                     Vector2 moveVec = player.Center - npc.Center;
                     moveVec.Normalize();
                     moveVec *= 0.1f;
                     npc.velocity += moveVec;
-                    npc.rotation = (float)(Math.Atan2(player.Center.Y - npc.Center.Y, player.Center.X - npc.Center.X) + Math.PI * 2);
+                    slowRot = false;
                 } else {
-					npc.velocity *= 0.95f;
+                    npc.velocity *= 0.95f;
 
-                    float angleToPlayer = (float)(Math.Atan2(npc.Center.Y - player.Center.Y, npc.Center.X - player.Center.X) + Math.PI);
-                    angleToPlayer -= npc.rotation;
-                    if (Math.Abs(angleToPlayer) > Math.PI) {
-                        if (angleToPlayer > 0) {
-                            angleToPlayer -= (float)Math.PI * 2;
-                        } else {
-                            angleToPlayer += (float)Math.PI * 2;
+                    Vector2 pos = npc.Center + new Vector2((float)Math.Cos(npc.rotation), (float)Math.Sin(npc.rotation)) * 20;
+                    int size = 40;
+                    for (int i = 0; i < 3; i++) {
+                        int num86 = Dust.NewDust(pos, size, size, 226, 0f, 0f, 100, default, 1.0f);
+                        Main.dust[num86].shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
+                        Main.dust[num86].position = pos;
+                        Main.dust[num86].noGravity = true;
+                    }
+
+                    if (LaserTime >= 600) {
+                        if (Main.netMode != 1) {
+                            beam = Main.projectile[Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, ModContent.ProjectileType<NovaRay>(), (int)(npc.damage * 0.75f), 3f, Main.myPlayer, npc.whoAmI, 420)];
+                            if (beam.modProjectile is NovaRay ray) {
+                                ray.MoveDistance = 35.0f;
+                                LaserTime = 0;
+                                npc.netUpdate = true;
+                            } else {
+                                beam = null;
+                            }
                         }
                     }
 
-                    if (angleToPlayer > 0) {
-                        npc.rotation += Math.Min(angleToPlayer, 0.025f);
-                    } else if (angleToPlayer < 0) {
-                        npc.rotation += Math.Max(angleToPlayer, -0.025f);
-                    }
-                    npc.rotation = npc.rotation % ((float)Math.PI * 2);
-
-                    if (Main.netMode != 1 && LaserTime > 600) {
-                        beam = Main.projectile[Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, ModContent.ProjectileType<NovaRay>(), (int)(npc.damage * 0.75f), 3f, Main.myPlayer, npc.whoAmI, 420)];
-                        if (beam.modProjectile is NovaRay ray) {
-                            ray.MoveDistance = 35.0f;
-                            LaserTime = 0;
-                            npc.netUpdate = true;
-                        } else {
-                            beam = null;
-                        }
+                    slowRot = true;
+                }
+            } else {
+                if (Main.netMode != 1) {
+                    if (LaserTime > 150) {
+                        beam.Kill();
+                        beam = null;
+                        return;
                     }
                 }
-			}
-			
-			/*BaseAI.AISkull(npc, ref npc.ai, false, 6f, 350f, 0.6f, 0.15f);
-			Player player = Main.player[npc.target];
-			bool playerActive = player != null && player.active && !player.dead;
-            if (shootAI < 60)
-            {
-                BaseAI.LookAt(player.Center, npc, 3, 0, .1f, false);
+
+                slowRot = true;
             }
-            if (Main.netMode != 1 && playerActive)
-			{
-				shootAI++;
-				if(shootAI >= 90)
-				{
-					shootAI = 0;
-                    int projType = mod.ProjType("Neutralizer");
 
-                    if (Collision.CanHit(npc.position, npc.width, npc.height, player.position, player.width, player.height))
-                    {
-                        Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, projType, (int)(npc.damage * 0.25f), 3f, Main.myPlayer, npc.whoAmI);
+            if (npc.collideX) npc.velocity.X = -0.8f * npc.oldVelocity.X;
+            if (npc.collideY) npc.velocity.Y = -0.8f * npc.oldVelocity.Y;
 
-                    }
+            float angleToPlayer = (float)Math.Atan2(player.Center.Y - npc.Center.Y, player.Center.X - npc.Center.X);
+            float relativeAngle = MathUtil.GetRelativeAngle(angleToPlayer, npc.rotation);
+
+            if (slowRot) {
+                float rotationAcc = MathUtil.Signum(relativeAngle) * 0.001f;
+                RotationSpeed += rotationAcc;
+                RotationSpeed = MathHelper.Clamp(RotationSpeed, -0.02f, 0.02f);
+            } else {
+                RotationSpeed = MathUtil.Signum(relativeAngle) * 0.1f;
+                if (Math.Abs(RotationSpeed) > Math.Abs(relativeAngle)) {
+                    RotationSpeed = (RotationSpeed / Math.Abs(RotationSpeed)) * Math.Abs(relativeAngle);
                 }
-			}*/
+            }
+            npc.rotation += RotationSpeed;
         }
 
 		public override void FindFrame(int frameHeight)
