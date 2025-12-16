@@ -398,7 +398,7 @@ namespace AAMod.NPCs.Bosses.Zero
             Player player = Main.player[npc.target];
 
             if (Main.netMode != 1) {
-                Hiding = !Collision.CanHit(npc.position, npc.width, npc.height, player.Center, player.width, player.height);
+                Hiding = !Collision.CanHit(npc.position, npc.width, npc.height, player.position, player.width, player.height);
             }
 
             RingRoatation += 0.03f;

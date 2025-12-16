@@ -63,37 +63,39 @@ namespace AAMod.NPCs.Enemies.Void
                 npc.spriteDirection = -1;
             }
 
-            // pick an angle of attack
-            if (Main.netMode != 1) {
-                int limit = 0;
-                while (moveTime <= 0 || !HasGoodPosition(player)) {
-                    //if (limit == 0) {
-                        //AttackAngle = (float)(Math.Atan2(player.Center.Y - npc.Center.Y, player.Center.X - npc.Center.X)/* + Math.PI * 2*/);
-                    //} else {
-                        AttackAngle = Main.rand.NextFloat() * MathHelper.Pi * 2;
-                    //}
-                    moveTime = Main.rand.Next(120, 361);
-                    npc.netUpdate = true;
-                    limit++;
-                    if (limit >= 15) break;
-                }
-
-                if (limit == 0) moveTime--;
-            }
-
             // move to the angle of attack
             Vector2 moveVec = GetCurrentTargetVec(player) - npc.Center;
+            if (Vector2.Distance(npc.Center, player.Center) < 275) {
+                // too close to player. Back off
+                moveVec = -(player.Center - npc.Center);
+                Main.NewText("BACK OFF");
+            }
             moveVec.Normalize();
             npc.velocity += moveVec * 0.56f;
             npc.velocity = MathUtil.LimitVectorLength(npc.velocity, 16);
 
-            // fire projectile
+            // move and shoot code
             if (Main.netMode != 1) {
                 shootAI++;
-                if (shootAI >= 90 && shootAI % 10 == 0 && canSee) {
-                    if (shootAI >= 110) shootAI = 0;
+                // shoot 3 lasers
+                if (shootAI >= 90 && shootAI <= 110 && shootAI % 10 == 0 && canSee) {
                     int projType = mod.ProjType("DeathLaser");
                     BaseAI.FireProjectile(fireAt, npc, projType, (int)(npc.damage * 0.25f), 0f, 4f);
+                }
+
+                // pick new location
+                if (shootAI >= 140) {
+                    int limit = 0;
+                    do {
+                        AttackAngle = Main.rand.NextFloat() * MathHelper.Pi * 2;
+                        moveTime = Main.rand.Next(120, 361);
+                        npc.netUpdate = true;
+                        limit++;
+                        Main.NewText("MOVE" + Main.rand.Next(10));
+                        if (limit >= 15) break;
+                    } while (!HasGoodPosition(player));
+
+                    shootAI = 0;
                 }
             }
         }
