@@ -37,5 +37,13 @@ namespace AAMod.Util
 
             return relativeAngle;
         }
+
+        public static Vector2 LimitVectorLength(Vector2 vector, float maxLength) {
+            if (vector.Length() > maxLength) {
+                vector.Normalize();
+                vector *= maxLength;
+            }
+            return vector;
+        }
     }
 }

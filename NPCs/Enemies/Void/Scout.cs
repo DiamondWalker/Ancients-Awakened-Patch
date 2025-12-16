@@ -27,9 +27,9 @@ namespace AAMod.NPCs.Enemies.Void
             npc.value = 0;
             npc.npcSlots = 1;
             npc.aiStyle = -1;
-            npc.lifeMax = 1200;
+            npc.lifeMax = 4000;
             npc.defense = 40;
-            npc.damage = 80;
+            npc.damage = 120;
 			npc.HitSound = SoundID.NPCHit4;
 			npc.DeathSound = SoundID.NPCDeath14;
             npc.knockBackResist = 0.3f;
@@ -49,76 +49,82 @@ namespace AAMod.NPCs.Enemies.Void
 			}
 		}
 
+        Vector2 playerPos = Vector2.Zero;
         Projectile beam = null;
 		private bool BeamFiring { get => npc.ai[0] != 0; set => npc.ai[0] = value ? 1 : 0; }
         private int LaserTime { get => (int)npc.ai[1]; set => npc.ai[1] = value; }
         private float RotationSpeed { get => npc.ai[2]; set => npc.ai[2] = value; }
         public override void AI()
 		{
-            // standard targetting code
-            npc.TargetClosest(true);
-            if (!npc.HasValidTarget) {
-                return;
-            }
-            Player player = Main.player[npc.target];
-
             if (BeamFiring != (beam != null)) {
                 BeamFiring = beam != null;
                 npc.netUpdate = true;
             }
 
-            LaserTime++;
-            bool slowRot;
-			if (!BeamFiring) {
-                if (LaserTime < 400) {
-                    Vector2 moveVec = player.Center - npc.Center;
-                    moveVec.Normalize();
-                    moveVec *= 0.1f;
-                    npc.velocity += moveVec;
-                    slowRot = false;
-                } else {
-                    npc.velocity *= 0.95f;
-
-                    Vector2 pos = npc.Center + new Vector2((float)Math.Cos(npc.rotation), (float)Math.Sin(npc.rotation)) * 20;
-                    int size = 40;
-                    for (int i = 0; i < 3; i++) {
-                        int num86 = Dust.NewDust(pos, size, size, 226, 0f, 0f, 100, default, 1.0f);
-                        Main.dust[num86].shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
-                        Main.dust[num86].position = pos;
-                        Main.dust[num86].noGravity = true;
-                    }
-
-                    if (LaserTime >= 600) {
-                        if (Main.netMode != 1) {
-                            beam = Main.projectile[Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, ModContent.ProjectileType<NovaRay>(), (int)(npc.damage * 0.75f), 3f, Main.myPlayer, npc.whoAmI, 420)];
-                            if (beam.modProjectile is NovaRay ray) {
-                                ray.MoveDistance = 35.0f;
-                                LaserTime = 0;
-                                npc.netUpdate = true;
-                            } else {
-                                beam = null;
-                            }
-                        }
-                    }
-
-                    slowRot = true;
-                }
-            } else {
+            bool slowRot = false;
+            if (BeamFiring) {
+                LaserTime++;
                 if (Main.netMode != 1) {
                     if (LaserTime > 150) {
                         beam.Kill();
                         beam = null;
+                        LaserTime = 0;
                         return;
                     }
                 }
 
                 slowRot = true;
             }
+            // standard targetting code
+            npc.TargetClosest(true);
+            
+            if (npc.HasValidTarget) {
+                Player player = Main.player[npc.target];
 
-            if (npc.collideX) npc.velocity.X = -0.8f * npc.oldVelocity.X;
-            if (npc.collideY) npc.velocity.Y = -0.8f * npc.oldVelocity.Y;
+                if (!BeamFiring) {
+                    if (LaserTime < 150) {
+                        if (Collision.CanHit(npc.position, npc.width, npc.height, player.position, player.width, player.height)) LaserTime++;
+                        Vector2 moveVec = player.Center - npc.Center;
+                        moveVec.Normalize();
+                        moveVec *= 0.1f;
+                        npc.velocity += moveVec;
+                    } else {
+                        LaserTime++;
+                        npc.velocity *= 0.95f;
 
-            float angleToPlayer = (float)Math.Atan2(player.Center.Y - npc.Center.Y, player.Center.X - npc.Center.X);
+                        Vector2 pos = npc.Center + new Vector2((float)Math.Cos(npc.rotation), (float)Math.Sin(npc.rotation)) * 20;
+                        int size = 40;
+                        for (int i = 0; i < 3; i++) {
+                            int num86 = Dust.NewDust(pos, size, size, 226, 0f, 0f, 100, default, 1.0f);
+                            Main.dust[num86].shader = GameShaders.Armor.GetSecondaryShader(59, Main.LocalPlayer);
+                            Main.dust[num86].position = pos;
+                            Main.dust[num86].noGravity = true;
+                        }
+
+                        if (LaserTime >= 250) {
+                            if (Main.netMode != 1) {
+                                beam = Main.projectile[Projectile.NewProjectile(npc.Center.X, npc.Center.Y, 0f, 0f, ModContent.ProjectileType<NovaRay>(), (int)(npc.damage * 0.25f), 3f, Main.myPlayer, npc.whoAmI, 420)];
+                                if (beam.modProjectile is NovaRay ray) {
+                                    ray.MoveDistance = 35.0f;
+                                    LaserTime = 0;
+                                    npc.netUpdate = true;
+                                } else {
+                                    beam = null;
+                                }
+                            }
+                        }
+
+                        slowRot = true;
+                    }
+                }
+
+                if (npc.collideX) npc.velocity.X = -0.8f * npc.oldVelocity.X;
+                if (npc.collideY) npc.velocity.Y = -0.8f * npc.oldVelocity.Y;
+
+                playerPos = player.Center;
+            }
+
+            float angleToPlayer = (float)Math.Atan2(playerPos.Y - npc.Center.Y, playerPos.X - npc.Center.X);
             float relativeAngle = MathUtil.GetRelativeAngle(angleToPlayer, npc.rotation);
 
             if (slowRot) {
@@ -131,6 +137,7 @@ namespace AAMod.NPCs.Enemies.Void
                     RotationSpeed = (RotationSpeed / Math.Abs(RotationSpeed)) * Math.Abs(relativeAngle);
                 }
             }
+
             npc.rotation += RotationSpeed;
         }
 

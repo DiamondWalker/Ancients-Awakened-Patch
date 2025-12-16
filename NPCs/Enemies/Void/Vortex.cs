@@ -1,3 +1,4 @@
+using AAMod.Util;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -21,13 +22,13 @@ namespace AAMod.NPCs.Enemies.Void
             npc.width = 84;
             npc.height = 84;
             npc.aiStyle = -1;
-            npc.damage = 60;
+            npc.damage = 120;
             npc.defense = 120;
             npc.lifeMax = 6000;
             npc.value = Item.sellPrice(0, 0, 50, 0);
             npc.HitSound = new LegacySoundStyle(3, 4, Terraria.Audio.SoundType.Sound);
             npc.DeathSound = new LegacySoundStyle(4, 14, Terraria.Audio.SoundType.Sound);
-            npc.knockBackResist = 0f;
+            npc.knockBackResist = 0.12f;
             npc.noGravity = true;
             npc.noTileCollide = true;
             npc.netAlways = true;
@@ -54,7 +55,8 @@ namespace AAMod.NPCs.Enemies.Void
 
             Vector2 moveVec = player.Center - npc.Center;
             moveVec.Normalize();
-            npc.velocity = moveVec * 3.4f;
+            npc.velocity += moveVec * 0.2f;
+            npc.velocity = MathUtil.LimitVectorLength(npc.velocity, 3.4f);
 
             if (Math.Abs(npc.Center.X - player.Center.X) < 150) {
                 if (RotationVel > 0) {
@@ -75,7 +77,7 @@ namespace AAMod.NPCs.Enemies.Void
             float dist = Vector2.Distance(player.Center, npc.Center);
             Vector2 pullVec = npc.Center - player.Center;
             pullVec.Normalize();
-            pullVec = pullVec * Math.Max(0, 900 - dist) / 2160 * Math.Abs(RotationVel) / 0.36f;
+            pullVec = pullVec * Math.Max(0, 900 - dist) / 1060 * Math.Abs(RotationVel) / 0.36f;
             player.velocity += pullVec;
         }
 

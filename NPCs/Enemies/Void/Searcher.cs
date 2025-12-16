@@ -23,12 +23,12 @@ namespace AAMod.NPCs.Enemies.Void
             npc.value = BaseUtility.CalcValue(0, 0, 5, 50);
             npc.npcSlots = 1;
             npc.aiStyle = -1;
-            npc.lifeMax = 250;
+            npc.lifeMax = 2500;
             npc.defense = 30;
-            npc.damage = 65;
+            npc.damage = 98;
             npc.HitSound = new LegacySoundStyle(3, 4, Terraria.Audio.SoundType.Sound);
             npc.DeathSound = new LegacySoundStyle(4, 14, Terraria.Audio.SoundType.Sound);
-            npc.knockBackResist = 0.5f;
+            npc.knockBackResist = 0.0f;
             npc.noGravity = true;
             banner = npc.type;
 			bannerItem = mod.ItemType("SearcherBanner");
@@ -47,7 +47,15 @@ namespace AAMod.NPCs.Enemies.Void
             }
             Player player = Main.player[npc.target];
 
-            npc.rotation = (float)Math.Atan2(player.Center.Y - npc.Center.Y, player.Center.X - npc.Center.X);
+            bool canSee = Collision.CanHit(npc.position, npc.width, npc.height, player.position, player.width, player.height);
+            Vector2 fireAt = player.Center;
+            /*if (canSee) {
+                float timeToGetToPlayerPos = Vector2.Distance(npc.Center, player.Center) / 32;
+                Vector2 expectedPlayerPos = fireAt + player.velocity * timeToGetToPlayerPos;
+                fireAt = expectedPlayerPos;
+            }*/
+
+            npc.rotation = (float)Math.Atan2(fireAt.Y - npc.Center.Y, fireAt.X - npc.Center.X);
             if (npc.Center.X > player.Center.X) {
                 npc.spriteDirection = 1;
                 npc.rotation += (float)Math.PI;
@@ -59,7 +67,11 @@ namespace AAMod.NPCs.Enemies.Void
             if (Main.netMode != 1) {
                 int limit = 0;
                 while (moveTime <= 0 || !HasGoodPosition(player)) {
-                    AttackAngle = Main.rand.NextFloat() * MathHelper.Pi * 2;
+                    //if (limit == 0) {
+                        //AttackAngle = (float)(Math.Atan2(player.Center.Y - npc.Center.Y, player.Center.X - npc.Center.X)/* + Math.PI * 2*/);
+                    //} else {
+                        AttackAngle = Main.rand.NextFloat() * MathHelper.Pi * 2;
+                    //}
                     moveTime = Main.rand.Next(120, 361);
                     npc.netUpdate = true;
                     limit++;
@@ -72,19 +84,16 @@ namespace AAMod.NPCs.Enemies.Void
             // move to the angle of attack
             Vector2 moveVec = GetCurrentTargetVec(player) - npc.Center;
             moveVec.Normalize();
-            npc.velocity += moveVec * 0.35f;
-            if (npc.velocity.Length() > 10) {
-                npc.velocity.Normalize();
-                npc.velocity *= 10;
-            }
+            npc.velocity += moveVec * 0.70f;
+            npc.velocity = MathUtil.LimitVectorLength(npc.velocity, 20);
 
             // fire projectile
             if (Main.netMode != 1) {
                 shootAI++;
-                if (shootAI >= 90 && shootAI % 10 == 0 && Collision.CanHit(npc.position, npc.width, npc.height, player.position, player.width, player.height)) {
+                if (shootAI >= 90 && shootAI % 10 == 0 && canSee) {
                     if (shootAI >= 110) shootAI = 0;
                     int projType = mod.ProjType("DeathLaser");
-                    BaseAI.FireProjectile(player.Center, npc, projType, (int)(npc.damage * 0.25f), 0f, 2f);
+                    BaseAI.FireProjectile(fireAt, npc, projType, (int)(npc.damage * 0.25f), 0f, 4f);
                 }
             }
         }

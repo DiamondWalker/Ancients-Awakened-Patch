@@ -1013,9 +1013,9 @@ namespace AAMod
 
                 if (AAWorld.downedEquinox)
                 {
-                    pool.Add(mod.NPCType("Vortex"), 0.002f);
+                    pool.Add(mod.NPCType("Vortex"), 0.0035f);
                     pool.Add(mod.NPCType("Scout"), .005f);
-                    pool.Add(mod.NPCType("Searcher"), .005f);
+                    pool.Add(mod.NPCType("Searcher"), .007f);
 
                     if (AAWorld.downedZero)
                     {
