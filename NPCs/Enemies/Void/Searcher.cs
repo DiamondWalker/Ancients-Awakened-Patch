@@ -84,8 +84,8 @@ namespace AAMod.NPCs.Enemies.Void
             // move to the angle of attack
             Vector2 moveVec = GetCurrentTargetVec(player) - npc.Center;
             moveVec.Normalize();
-            npc.velocity += moveVec * 0.70f;
-            npc.velocity = MathUtil.LimitVectorLength(npc.velocity, 20);
+            npc.velocity += moveVec * 0.56f;
+            npc.velocity = MathUtil.LimitVectorLength(npc.velocity, 16);
 
             // fire projectile
             if (Main.netMode != 1) {
