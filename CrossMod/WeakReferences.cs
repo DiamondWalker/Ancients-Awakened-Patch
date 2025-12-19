@@ -814,7 +814,7 @@ namespace AAMod.Globals
                 #endregion
 
                 #region Athena
-                bossChecklist.Call("AddBoss", 11.5f, mod.NPCType("Athena"), mod,
+                bossChecklist.Call("AddBoss", 10.5f, mod.NPCType("Athena"), mod,
                     Lang.BossCheck("Athena"),
                     (Func<bool>)(() => AAWorld.downedAthena),
                     ModContent.ItemType<Owl>(),
@@ -841,7 +841,7 @@ namespace AAMod.Globals
                 #endregion
 
                 #region Greed
-                bossChecklist.Call("AddBoss", 11.5f, mod.NPCType("Greed"), mod,
+                bossChecklist.Call("AddBoss", 10.5f, mod.NPCType("Greed"), mod,
                     Lang.BossCheck("Greed"),
                     (Func<bool>)(() => AAWorld.downedGreed),
                     ModContent.ItemType<GoldenGrub>(),
