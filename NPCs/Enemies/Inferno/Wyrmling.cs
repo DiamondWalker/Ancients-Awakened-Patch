@@ -22,8 +22,8 @@ namespace AAMod.NPCs.Bosses.Wyrmling
 		public override void SetDefaults()
 		{
 			npc.noTileCollide = true;
-			npc.height = 16;
-			npc.width = 30;
+			npc.height = 34;
+			npc.width = 20;
 			npc.aiStyle = -1;
 			npc.netAlways = true;
             npc.damage = 18;
@@ -285,6 +285,8 @@ namespace AAMod.NPCs.Bosses.Wyrmling
         public override void SetDefaults()
         {
             base.SetDefaults();
+            npc.height = 32;
+            npc.width = 12;
             npc.dontCountMe = true;
             npc.alpha = 255;
             banner = mod.NPCType("Wyrmling");
@@ -346,33 +348,20 @@ namespace AAMod.NPCs.Bosses.Wyrmling
 
             if (npc.ai[1] < (double)Main.npc.Length)
             {
-                // We're getting the center of this NPC.
-                Vector2 npcCenter = new Vector2(npc.position.X + npc.width * 0.5f, npc.position.Y + npc.height * 0.5f);
-                // Then using that center, we calculate the direction towards the 'parent NPC' of this NPC.
-                float dirX = Main.npc[(int)npc.ai[1]].position.X + Main.npc[(int)npc.ai[1]].width / 2 - npcCenter.X;
-                float dirY = Main.npc[(int)npc.ai[1]].position.Y + Main.npc[(int)npc.ai[1]].height / 2 - npcCenter.Y;
-                // We then use Atan2 to get a correct rotation towards that parent NPC.
-                npc.rotation = (float)Math.Atan2(dirY, dirX) + 1.57f;
-                // We also get the length of the direction vector.
-                float length = (float)Math.Sqrt(dirX * dirX + dirY * dirY);
-                // We calculate a new, correct distance.
-                float dist = (length - npc.width) / length;
-                float posX = dirX * dist;
-                float posY = dirY * dist;
-
-                // Reset the velocity of this NPC, because we don't want it to move on its own
-                if (dirX < 0f)
-                {
+                NPC prev = Main.npc[(int)npc.ai[1]];
+                Vector2 bodyCenter = npc.Center;
+                Vector2 headEnd = prev.Center - new Vector2((float)Math.Cos(prev.rotation - Math.PI / 2), (float)Math.Sin(prev.rotation - Math.PI / 2)) * prev.height / 2;
+                Vector2 offset = headEnd - bodyCenter;
+                float dist = offset.Length() - npc.height / 2;
+                offset.Normalize();
+                npc.rotation = (float)(Math.Atan2(offset.Y, offset.X) + Math.PI / 2);
+                npc.position += offset * dist;
+                if (offset.X < 0f) {
                     npc.spriteDirection = 1;
 
-                }
-                else
-                {
+                } else {
                     npc.spriteDirection = -1;
                 }
-                // And set this NPCs position accordingly to that of this NPCs parent NPC.
-                npc.position.X = npc.position.X + posX;
-                npc.position.Y = npc.position.Y + posY;
             }
             return false;
         }
@@ -392,6 +381,8 @@ namespace AAMod.NPCs.Bosses.Wyrmling
         {
             base.SetDefaults();
             npc.dontCountMe = true;
+            npc.height = 36;
+            npc.width = 12;
 
             npc.alpha = 255;
             banner = mod.NPCType("Wyrmling");
@@ -454,22 +445,15 @@ namespace AAMod.NPCs.Bosses.Wyrmling
 
             if (npc.ai[1] < (double)Main.npc.Length)
             {
-                // We're getting the center of this NPC.
-                Vector2 npcCenter = new Vector2(npc.position.X + npc.width * 0.5f, npc.position.Y + npc.height * 0.5f);
-                // Then using that center, we calculate the direction towards the 'parent NPC' of this NPC.
-                float dirX = Main.npc[(int)npc.ai[1]].position.X + Main.npc[(int)npc.ai[1]].width / 2 - npcCenter.X;
-                float dirY = Main.npc[(int)npc.ai[1]].position.Y + Main.npc[(int)npc.ai[1]].height / 2 - npcCenter.Y;
-                // We then use Atan2 to get a correct rotation towards that parent NPC.
-                npc.rotation = (float)Math.Atan2(dirY, dirX) + 1.57f;
-                // We also get the length of the direction vector.
-                float length = (float)Math.Sqrt(dirX * dirX + dirY * dirY);
-                // We calculate a new, correct distance.
-                float dist = (length - npc.width) / length;
-                float posX = dirX * dist;
-                float posY = dirY * dist;
-
-                // Reset the velocity of this NPC, because we don't want it to move on its own
-                if (dirX < 0f)
+                NPC prev = Main.npc[(int)npc.ai[1]];
+                Vector2 bodyCenter = npc.Center;
+                Vector2 headEnd = prev.Center - new Vector2((float)Math.Cos(prev.rotation - Math.PI / 2), (float)Math.Sin(prev.rotation - Math.PI / 2)) * prev.height / 2;
+                Vector2 offset = headEnd - bodyCenter;
+                float dist = offset.Length() - npc.height / 2;
+                offset.Normalize();
+                npc.rotation = (float)(Math.Atan2(offset.Y, offset.X) + Math.PI / 2);
+                npc.position += offset * dist;
+                if (offset.X < 0f)
                 {
                     npc.spriteDirection = 1;
 
@@ -478,9 +462,6 @@ namespace AAMod.NPCs.Bosses.Wyrmling
                 {
                     npc.spriteDirection = -1;
                 }
-                // And set this NPCs position accordingly to that of this NPCs parent NPC.
-                npc.position.X = npc.position.X + posX;
-                npc.position.Y = npc.position.Y + posY;
             }
             return false;
         }
@@ -499,6 +480,8 @@ namespace AAMod.NPCs.Bosses.Wyrmling
         {
             base.SetDefaults();
             npc.dontCountMe = true;
+            npc.height = 34;
+            npc.width = 8;
 
             npc.alpha = 255;
             banner = mod.NPCType("Wyrmling");
@@ -559,33 +542,20 @@ namespace AAMod.NPCs.Bosses.Wyrmling
 
             if (npc.ai[1] < (double)Main.npc.Length)
             {
-                // We're getting the center of this NPC.
-                Vector2 npcCenter = new Vector2(npc.position.X + npc.width * 0.5f, npc.position.Y + npc.height * 0.5f);
-                // Then using that center, we calculate the direction towards the 'parent NPC' of this NPC.
-                float dirX = Main.npc[(int)npc.ai[1]].position.X + Main.npc[(int)npc.ai[1]].width / 2 - npcCenter.X;
-                float dirY = Main.npc[(int)npc.ai[1]].position.Y + Main.npc[(int)npc.ai[1]].height / 2 - npcCenter.Y;
-                // We then use Atan2 to get a correct rotation towards that parent NPC.
-                npc.rotation = (float)Math.Atan2(dirY, dirX) + 1.57f;
-                // We also get the length of the direction vector.
-                float length = (float)Math.Sqrt(dirX * dirX + dirY * dirY);
-                // We calculate a new, correct distance.
-                float dist = (length - npc.width) / length;
-                float posX = dirX * dist;
-                float posY = dirY * dist;
-
-                // Reset the velocity of this NPC, because we don't want it to move on its own
-                if (dirX < 0f)
-                {
+                NPC prev = Main.npc[(int)npc.ai[1]];
+                Vector2 bodyCenter = npc.Center;
+                Vector2 headEnd = prev.Center - new Vector2((float)Math.Cos(prev.rotation - Math.PI / 2), (float)Math.Sin(prev.rotation - Math.PI / 2)) * prev.height / 2;
+                Vector2 offset = headEnd - bodyCenter;
+                float dist = offset.Length() - npc.height / 2;
+                offset.Normalize();
+                npc.rotation = (float)(Math.Atan2(offset.Y, offset.X) + Math.PI / 2);
+                npc.position += offset * dist;
+                if (offset.X < 0f) {
                     npc.spriteDirection = 1;
 
-                }
-                else
-                {
+                } else {
                     npc.spriteDirection = -1;
                 }
-                // And set this NPCs position accordingly to that of this NPCs parent NPC.
-                npc.position.X = npc.position.X + posX;
-                npc.position.Y = npc.position.Y + posY;
             }
             return false;
         }

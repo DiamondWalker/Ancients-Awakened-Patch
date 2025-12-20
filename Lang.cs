@@ -48,7 +48,7 @@ namespace AAMod
                         return "山洞里一道霹雳轰鸣...";
                         case "hardModeInfo":
                         return "愤怒和怨恨的灵魂被释放了!";
-                        case "downedAllAncientsInfo":
+                        case "shenUnlockInfo":
                         return "真正的冥昧之息在大气中翻涌...";
                     }
                 }
@@ -94,7 +94,7 @@ namespace AAMod
                     return "Хлопок молнии слышен в пещерах.";
                     case "hardModeInfo":
                     return "На волю выпущены духи гнева и ярости!";
-                    case "downedAllAncientsInfo":
+                    case "shenUnlockInfo":
                     return "Хаус начинает шевелиться в атмосфере...";
                 }
             }
@@ -140,7 +140,7 @@ namespace AAMod
                         return "The clap of a thunderbolt roars in the caverns...";
                         case "hardModeInfo":
                         return "The Souls of Fury and Wrath are unleashed upon the world!";
-                        case "downedAllAncientsInfo":
+                        case "shenUnlockInfo":
                         return "Chaos begins to stir in the atmosphere...";
                     }
                 }

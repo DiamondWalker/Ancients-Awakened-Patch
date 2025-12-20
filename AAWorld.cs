@@ -86,6 +86,7 @@ namespace AAMod
         public static bool zeroUS;
         public static bool downedZero;
         public static bool downedAllAncients;
+        public static bool shenUnlocked;
         public static bool ShenSummoned;
         public static bool downedShen;
         public static bool downedToad;
@@ -164,6 +165,7 @@ namespace AAMod
             downedZero = false;
             downedShen = false;
             downedAllAncients = false;
+            shenUnlocked = false;
             ShenSummoned = false;
             downedToad = false;
             downedFungus = false;
@@ -266,6 +268,7 @@ namespace AAMod
             if (downedZero) downed.Add("0");
             if (downedShen) downed.Add("Shen");
             if (downedAllAncients) downed.Add("DAA");
+            if (shenUnlocked) downed.Add("SU");
             if (ShenSummoned) downed.Add("ShenS");
             if (downedSerpent) downed.Add("Serpent");
             if (downedDjinn) downed.Add("JojoReference");
@@ -341,6 +344,7 @@ namespace AAMod
             downedZero = downed.Contains("0");
             downedShen = downed.Contains("Shen");
             downedAllAncients = downed.Contains("DAA");
+            shenUnlocked = downed.Contains("SU");
             Ancients = downed.Contains("AA");
             ShenSummoned = downed.Contains("ShenS");
             downedSerpent = downed.Contains("Serpent");
@@ -476,6 +480,7 @@ namespace AAMod
 
             BitsByte flags6 = new BitsByte();
             flags6[0] = downedLucifer;
+            flags6[1] = shenUnlocked;
             writer.Write(flags6);
 
             writer.WriteVector2(MireCenter);
@@ -555,6 +560,9 @@ namespace AAMod
             WormActive = flags5[5];
             StarActive = flags5[6];
             GravActive = flags5[7];
+
+            BitsByte flag6 = reader.ReadByte();
+            shenUnlocked = flags[1];
 
             MireCenter = reader.ReadVector2();
 			InfernoCenter = reader.ReadVector2();		
@@ -1438,7 +1446,7 @@ namespace AAMod
                 if (!AMessage)
                 {
                     AMessage = true;
-                    if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue(Main.rand.Next(8) == 0 ? "Mods.AAMod.Common.downedMechBossInfoSexy" : "Mods.AAMod.Common.downedMechBossInfo"), Color.Gold.R, Color.Gold.G, Color.Gold.B);
+                    if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue(/*Main.rand.Next(8) == 0 ? "Mods.AAMod.Common.downedMechBossInfoSexy" :*/ "Mods.AAMod.Common.downedMechBossInfo"), Color.Gold.R, Color.Gold.G, Color.Gold.B);
                 }
             }       
 
@@ -1452,11 +1460,17 @@ namespace AAMod
                 downedSAncient = true;
             }
 
+            if (downedAkuma && downedYamata) {
+                if (!shenUnlocked) {
+                    if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.shenUnlockInfo"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
+                    shenUnlocked = true;
+                }
+            }
+
             if (downedAkuma && downedYamata && downedZero)
             {
                 if (downedAllAncients == false)
                 {
-                    if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.downedAllAncientsInfo"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B);
                     downedAllAncients = true;
                 }
             }
