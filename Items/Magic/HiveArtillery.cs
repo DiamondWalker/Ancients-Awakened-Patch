@@ -117,7 +117,7 @@ namespace AAMod.Items.Magic
 			recipe.AddIngredient(ItemID.BeeGun);
 			recipe.AddIngredient(ItemID.ChainGun);
 			recipe.AddIngredient(null, "EXSoul");
-			recipe.AddTile(null, "QuantumFusionAccelerator");
+			recipe.AddTile(null, "ACS");
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

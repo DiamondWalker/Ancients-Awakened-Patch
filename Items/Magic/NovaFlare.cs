@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Magic
@@ -83,9 +84,9 @@ namespace AAMod.Items.Magic
 		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(3570);
+			recipe.AddIngredient(ItemID.LunarFlareBook);
 			recipe.AddIngredient(null, "EXSoul");
-			recipe.AddTile(null, "QuantumFusionAccelerator");
+			recipe.AddTile(null, "ACS");
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

@@ -13,7 +13,7 @@ namespace AAMod.Items.Boss.Shen
 		{
 			DisplayName.SetDefault("Chaos Slayer");
             Tooltip.SetDefault(@"Unleashes blades of chaos to smite your foes
-blades go through tiles
+Blades go through tiles
 'Shatter all sanity'");
         }
 

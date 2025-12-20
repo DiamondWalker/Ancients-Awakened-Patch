@@ -27,7 +27,7 @@ namespace AAMod.Items.Ranged
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(3546);
 			recipe.AddIngredient(null, "EXSoul");
-			recipe.AddTile(null, "QuantumFusionAccelerator");
+			recipe.AddTile(null, "ACS");
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

@@ -57,7 +57,7 @@ namespace AAMod.Items.Boss.Yamata
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "FallingTwilight");
             recipe.AddIngredient(null, "EXSoul");
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddTile(null, "ACS");
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

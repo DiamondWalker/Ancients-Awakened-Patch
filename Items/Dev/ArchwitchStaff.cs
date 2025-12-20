@@ -74,11 +74,12 @@ Right click to fire explosive magic bolts");
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "ArchwitchWand");
             recipe.AddIngredient(null, "EXSoul");
+            recipe.AddTile(null, "ACS");
             recipe.SetResult(this);
             recipe.AddRecipe(); 
             recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "CatsEyeRifleEX");
-            recipe.AddTile(TileID.LunarCraftingStation);
+            recipe.AddTile(null, "ACS");
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

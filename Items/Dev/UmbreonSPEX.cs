@@ -59,7 +59,7 @@ Blade of Night EX");
 		    ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "UmbreonSP", 1);
             recipe.AddIngredient(null, "EXSoul", 1);
-            recipe.AddTile(TileID.LunarCraftingStation); // (null, "ModTileID");
+            recipe.AddTile(null, "ACS"); // (null, "ModTileID");
 		    recipe.SetResult(this);
 		    recipe.AddRecipe();
         }

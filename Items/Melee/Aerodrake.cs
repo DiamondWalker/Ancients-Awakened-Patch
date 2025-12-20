@@ -48,7 +48,7 @@ namespace AAMod.Items.Melee
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.DD2SquireBetsySword, 1);
 			recipe.AddIngredient(mod, "EXSoul", 1);
-			recipe.AddTile(null, "QuantumFusionAccelerator");
+			recipe.AddTile(null, "ACS");
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

@@ -68,7 +68,6 @@ namespace AAMod.NPCs.Enemies.Void
             if (Vector2.Distance(npc.Center, player.Center) < 275) {
                 // too close to player. Back off
                 moveVec = -(player.Center - npc.Center);
-                Main.NewText("BACK OFF");
             }
             moveVec.Normalize();
             npc.velocity += moveVec * 0.56f;
@@ -91,7 +90,6 @@ namespace AAMod.NPCs.Enemies.Void
                         moveTime = Main.rand.Next(120, 361);
                         npc.netUpdate = true;
                         limit++;
-                        Main.NewText("MOVE" + Main.rand.Next(10));
                         if (limit >= 15) break;
                     } while (!HasGoodPosition(player));
 

@@ -57,6 +57,7 @@ Prismeow EX");
                 ModRecipe recipe = new ModRecipe(mod);
                 recipe.AddIngredient(null, "Prismeow");
                 recipe.AddIngredient(null, "EXSoul");
+                recipe.AddTile(null, "ACS");
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }

@@ -29,7 +29,7 @@ namespace AAMod.Items.Ranged
             recipe.AddIngredient(3859);
 			recipe.AddIngredient(ItemID.DaedalusStormbow);
             recipe.AddIngredient(null, "EXSoul");
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddTile(null, "ACS");
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

@@ -56,7 +56,7 @@ Legendary Weapon");
             recipe.AddIngredient(ItemID.IceSickle, 1);
             recipe.AddIngredient(ItemID.Sickle, 1); ;
             recipe.AddIngredient(null, "EXSoul", 1);
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddTile(null, "ACS");
             recipe.SetResult(this);
             recipe.AddRecipe();
 

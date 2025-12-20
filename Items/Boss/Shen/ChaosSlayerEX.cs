@@ -12,7 +12,7 @@ namespace AAMod.Items.Boss.Shen
 		{
 			DisplayName.SetDefault("Ikari");
             Tooltip.SetDefault(@"Unleashes explosive blades of chaos to smite your foes
-blades go through tiles
+Blades go through tiles
 Chaos Slayer EX");
         }
 

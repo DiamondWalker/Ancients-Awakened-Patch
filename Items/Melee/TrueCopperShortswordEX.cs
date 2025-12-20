@@ -50,7 +50,7 @@ namespace AAMod.Items.Melee
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(null, "TrueCopperShortsword", 1);
 			recipe.AddIngredient(null, "EXSoul", 1);
-			recipe.AddTile(null, "QuantumFusionAccelerator");
+			recipe.AddTile(null, "ACS");
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

@@ -100,12 +100,12 @@ namespace AAMod.NPCs.Bosses.Zero
 
             #region Draw laser tail
             spriteBatch.Draw(texture, start + unit * (transDist - step) - Main.screenPosition,
-                new Rectangle(0, 0, 28, 26), AAColor.ZeroShield, r, new Vector2(28 * .5f, 26 * .5f), scale, 0, 0);
+                new Rectangle(0, 0, 28, 26), AAColor.Oblivion, r, new Vector2(28 * .5f, 26 * .5f), scale, 0, 0);
             #endregion
 
             #region Draw laser head
             spriteBatch.Draw(texture, start + (Distance + step) * unit - Main.screenPosition,
-                new Rectangle(0, 52, 28, 26), AAColor.ZeroShield, r, new Vector2(28 * .5f, 26 * .5f), scale, 0, 0);
+                new Rectangle(0, 52, 28, 26), AAColor.Oblivion, r, new Vector2(28 * .5f, 26 * .5f), scale, 0, 0);
             #endregion
         }
 

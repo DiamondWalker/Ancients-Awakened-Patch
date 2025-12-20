@@ -60,11 +60,12 @@ Cat's Eye Rifle EX");
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "CatsEyeRifle");
             recipe.AddIngredient(null, "EXSoul");
+            recipe.AddTile(null, "ACS");
             recipe.SetResult(this);
             recipe.AddRecipe(); 
             recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "ArchwitchStaff");
-            recipe.AddTile(TileID.LunarCraftingStation);
+            recipe.AddTile(null, "ACS");
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

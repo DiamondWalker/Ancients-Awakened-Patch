@@ -37,7 +37,7 @@ namespace AAMod.Items.Melee
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.ScourgeoftheCorruptor);
             recipe.AddIngredient(null, "EXSoul");
-		    recipe.AddTile(null, "QuantumFusionAccelerator");
+		    recipe.AddTile(null, "ACS");
             recipe.SetResult(this);
             recipe.AddRecipe();
 		}

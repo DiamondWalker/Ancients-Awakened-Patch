@@ -57,7 +57,7 @@ Storm Rifle EX");
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "ThunderLord", 1);
             recipe.AddIngredient(null, "EXSoul", 1);
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddTile(null, "ACS");
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
         }

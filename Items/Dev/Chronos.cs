@@ -55,6 +55,7 @@ namespace AAMod.Items.Dev
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "TimeTeller");
             recipe.AddIngredient(null, "EXSoul");
+            recipe.AddTile(null, "ACS");
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

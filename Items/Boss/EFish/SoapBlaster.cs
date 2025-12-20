@@ -66,7 +66,7 @@ namespace AAMod.Items.Boss.EFish
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.BubbleGun);
             recipe.AddIngredient(null, "EXSoul");
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddTile(null, "ACS");
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

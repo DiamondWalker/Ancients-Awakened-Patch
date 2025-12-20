@@ -53,6 +53,7 @@ Fury Forger EX");
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "FuryForger");
             recipe.AddIngredient(null, "EXSoul");
+            recipe.AddTile(null, "ACS");
             recipe.SetResult(this);
             recipe.AddRecipe();
         }
