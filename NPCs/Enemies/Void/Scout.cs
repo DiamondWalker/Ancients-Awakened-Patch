@@ -83,7 +83,7 @@ namespace AAMod.NPCs.Enemies.Void
 
                 if (!BeamFiring) {
                     if (LaserTime < 150) {
-                        if (Collision.CanHit(npc.position, npc.width, npc.height, player.position, player.width, player.height)) LaserTime++;
+                        if (Collision.CanHitLine(npc.position, npc.width, npc.height, player.position, player.width, player.height)) LaserTime++;
                         Vector2 moveVec = player.Center - npc.Center;
                         moveVec.Normalize();
                         moveVec *= 0.1f;
@@ -139,6 +139,8 @@ namespace AAMod.NPCs.Enemies.Void
             }
 
             npc.rotation += RotationSpeed;
+
+            npc.velocity = Vector2.Zero;
         }
 
 		public override void FindFrame(int frameHeight)

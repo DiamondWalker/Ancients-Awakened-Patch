@@ -58,7 +58,7 @@ namespace AAMod.NPCs.Bosses.Zero
             for (Distance = MoveDistance; Distance <= 2200f; Distance += 5f)
             {
                 start = new Vector2(shooter.Center.X, shooter.Center.Y) + projectile.velocity * Distance;
-                if (!Collision.CanHit(new Vector2(shooter.Center.X, shooter.Center.Y), 1, 1, start, 1, 1))
+                if (!Collision.CanHitLine(new Vector2(shooter.Center.X, shooter.Center.Y), 0, 0, start, 0, 0))
                 {
                     Distance -= 5f;
                     break;
