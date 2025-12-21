@@ -5,6 +5,7 @@ using Terraria;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Backgrounds
 {
@@ -44,6 +45,8 @@ namespace AAMod.Backgrounds
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
+            bool shenSky = AAWorld.shenUnlocked && !AAWorld.downedShen;
+            Texture2D ShenTexture = mod.GetTexture("Backgrounds/Eclipse");
             Texture2D PlanetTexture = mod.GetTexture("Backgrounds/Moon");
             Texture2D SkyTexture = mod.GetTexture("Backgrounds/MireSky");
             if (maxDepth >= 3.40282347E+38f && minDepth < 3.40282347E+38f)
@@ -86,7 +89,13 @@ namespace AAMod.Backgrounds
                     white2.G = (byte)(white2.G * num65);
                     white2.B = (byte)(white2.B * num65);
                     white2.A = (byte)(white2.A * num65);
-                    Main.spriteBatch.Draw(PlanetTexture, new Vector2(num23, num24 + Main.moonModY), new Rectangle?(new Rectangle(0, 0, PlanetTexture.Width, PlanetTexture.Width)), white2, rotation2, new Vector2(PlanetTexture.Width / 2, PlanetTexture.Width / 2), num25, SpriteEffects.None, 0f);
+                    if (shenSky) {
+                        Main.spriteBatch.Draw(ShenTexture, new Vector2(num23, num24 + Main.moonModY), new Rectangle?(new Rectangle(0, 0, ShenTexture.Width, ShenTexture.Width)), white2, rotation2, new Vector2(ShenTexture.Width / 2, ShenTexture.Width / 2), num25, SpriteEffects.None, 0f);
+                    }
+                    else {
+                        Main.spriteBatch.Draw(PlanetTexture, new Vector2(num23, num24 + Main.moonModY), new Rectangle?(new Rectangle(0, 0, PlanetTexture.Width, PlanetTexture.Width)), white2, rotation2, new Vector2(PlanetTexture.Width / 2, PlanetTexture.Width / 2), num25, SpriteEffects.None, 0f);
+
+                    }
                 }
             }
         }

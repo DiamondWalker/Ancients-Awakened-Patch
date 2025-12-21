@@ -27,6 +27,7 @@ Non-Consumable");
         {
             AAWorld.downedAkuma = true;
             AAWorld.downedAllAncients = true;
+            AAWorld.shenUnlocked = true;
             AAWorld.downedAshe = true;
             AAWorld.downedBrood = true;
             AAWorld.downedDB = true;

@@ -51,6 +51,8 @@ namespace AAMod.Backgrounds
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
+            bool shenSky = AAWorld.shenUnlocked && !AAWorld.downedShen;
+            Texture2D ShenTexture = mod.GetTexture("Backgrounds/Eclipse");
             Texture2D PlanetTexture = mod.GetTexture("Backgrounds/Sun");
             Texture2D demonSun = mod.GetTexture("Backgrounds/DemonSun");
             Texture2D MeteorTexture = mod.GetTexture("Backgrounds/AkumaMeteor");
@@ -61,7 +63,7 @@ namespace AAMod.Backgrounds
                 if (Main.dayTime)
                 {
                     spriteBatch.Draw(Main.blackTileTexture, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.Black * Intensity);
-                    spriteBatch.Draw(SkyTex, new Rectangle(0, Math.Max(0, (int)((Main.worldSurface * 16.0 - Main.screenPosition.Y - 2400.0) * 0.10000000149011612)), Main.screenWidth, Main.screenHeight), Color.OrangeRed * Math.Min(1f, (Main.screenPosition.Y - 800f) / 1000f * Intensity));
+                    spriteBatch.Draw(SkyTex, new Rectangle(0, Math.Max(0, (int)((Main.worldSurface * 16.0 - Main.screenPosition.Y - 2400.0) * 0.10000000149011612)), Main.screenWidth, Main.screenHeight), (shenSky ? Color.DarkMagenta : Color.OrangeRed) * Math.Min(1f, (Main.screenPosition.Y - 800f) / 1000f * Intensity));
                     float num64 = 1f;
                     num64 -= Main.cloudAlpha * 1.5f;
                     if (num64 < 0f)
@@ -89,7 +91,10 @@ namespace AAMod.Backgrounds
                         num22 = (float)(1.2 - num26 * 0.4);
                     }
                     Color color6 = new Color((byte)(255f * num64), (byte)(Color.White.G * num64), (byte)(Color.White.B * num64), (byte)(255f * num64));
-                    if (BasePlayer.HasAccessory(Main.LocalPlayer, ModContent.ItemType<Items.Vanity.HappySunSticker>(), true, true))
+                    if (shenSky) {
+                        Main.spriteBatch.Draw(ShenTexture, new Vector2(num20, num21 + Main.sunModY), new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, ShenTexture.Width, ShenTexture.Height)), color6, rotation, new Vector2(ShenTexture.Width / 2, ShenTexture.Height / 2), num22, SpriteEffects.None, 0f);
+                    } 
+                    else if (BasePlayer.HasAccessory(Main.LocalPlayer, ModContent.ItemType<Items.Vanity.HappySunSticker>(), true, true))
                     {
                         Main.spriteBatch.Draw(demonSun, new Vector2(num20, num21 + Main.sunModY), new Microsoft.Xna.Framework.Rectangle?(new Rectangle(0, 0, demonSun.Width, demonSun.Height)), color6, rotation, new Vector2(PlanetTexture.Width / 2, PlanetTexture.Height / 2), num22, SpriteEffects.None, 0f);
                     }

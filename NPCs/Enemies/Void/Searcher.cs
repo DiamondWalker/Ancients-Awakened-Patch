@@ -37,7 +37,6 @@ namespace AAMod.NPCs.Enemies.Void
 
         float shootAI = 0;
         private int moveTime = 0;
-        private int shootTime = 0;
         private float AttackAngle { get => npc.ai[0]; set => npc.ai[0] = value; }
         public override void AI() {
             // standard targetting code
@@ -49,11 +48,6 @@ namespace AAMod.NPCs.Enemies.Void
 
             bool canSee = Collision.CanHit(npc.position, npc.width, npc.height, player.position, player.width, player.height);
             Vector2 fireAt = player.Center;
-            /*if (canSee) {
-                float timeToGetToPlayerPos = Vector2.Distance(npc.Center, player.Center) / 32;
-                Vector2 expectedPlayerPos = fireAt + player.velocity * timeToGetToPlayerPos;
-                fireAt = expectedPlayerPos;
-            }*/
 
             npc.rotation = (float)Math.Atan2(fireAt.Y - npc.Center.Y, fireAt.X - npc.Center.X);
             if (npc.Center.X > player.Center.X) {

@@ -54,6 +54,7 @@ Non-Consumable");
             NPC.downedTowerVortex = false;
             AAWorld.downedAkuma = false;
             AAWorld.downedAllAncients = false;
+            AAWorld.shenUnlocked = false;
             AAWorld.downedAshe = false;
             AAWorld.downedBrood = false;
             AAWorld.downedDB = false;

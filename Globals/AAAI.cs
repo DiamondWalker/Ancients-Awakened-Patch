@@ -1018,6 +1018,25 @@ namespace AAMod
             }
         }
 
+        public static void SmoothWormBody(NPC npc, float parent) {
+            if (parent < (double)Main.npc.Length) {
+                NPC prev = Main.npc[(int)parent];
+                Vector2 bodyCenter = npc.Center;
+                Vector2 headEnd = prev.Center - new Vector2((float)Math.Cos(prev.rotation - Math.PI / 2), (float)Math.Sin(prev.rotation - Math.PI / 2)) * prev.height / 2;
+                Vector2 offset = headEnd - bodyCenter;
+                float dist = offset.Length() - npc.height / 2;
+                offset.Normalize();
+                npc.rotation = (float)(Math.Atan2(offset.Y, offset.X) + Math.PI / 2);
+                npc.position += offset * dist;
+                if (offset.X < 0f) {
+                    npc.spriteDirection = 1;
+
+                } else {
+                    npc.spriteDirection = -1;
+                }
+            }
+        }
+
         public static void DrawAura(object sb, Texture2D texture, int shader, Entity codable, float auraPercent, float distanceScalar = 1f, float offsetX = 0f, float offsetY = 0f, Color? overrideColor = null)
         {
             int frameCount = codable is NPC ? Main.npcFrameCount[((NPC)codable).type] : 1;

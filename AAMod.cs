@@ -1031,7 +1031,7 @@ namespace AAMod
 
             bool zoneShen = (Ancients.ZoneRisingSunPagoda || Ancients.ZoneRisingMoonLake) && !AAWorld.downedShen;
 
-            if (zoneShen && AAWorld.downedAkuma && AAWorld.downedYamata/*AAWorld.downedAllAncients*/)
+            if (zoneShen && AAWorld.shenUnlocked)
             {
                 priority = MusicPriority.Event;
                 music = GetSoundSlot(SoundType.Music, "Sounds/Music/SleepingDragon");

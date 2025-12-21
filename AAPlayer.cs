@@ -1709,7 +1709,7 @@ namespace AAMod
 
             if (player.GetModPlayer<AAPlayer>().ZoneRisingMoonLake || player.GetModPlayer<AAPlayer>().ZoneRisingSunPagoda)
             {
-                if (AAWorld.downedAllAncients && !AAWorld.downedShen)
+                if (AAWorld.shenUnlocked && !AAWorld.downedShen)
                 {
                     EmberRain(player);
                 }
@@ -2543,7 +2543,7 @@ namespace AAMod
                 return;
             }
 
-            if ((player.GetModPlayer<AAPlayer>().ZoneRisingSunPagoda || player.GetModPlayer<AAPlayer>().ZoneRisingMoonLake) && AAWorld.downedAllAncients && !AAWorld.downedShen)
+            if ((player.GetModPlayer<AAPlayer>().ZoneRisingSunPagoda || player.GetModPlayer<AAPlayer>().ZoneRisingMoonLake) && AAWorld.shenUnlocked && !AAWorld.downedShen)
             {
                 if (Main.LocalPlayer.position.Y < Main.worldSurface * 16.0)
                 {
@@ -2551,7 +2551,7 @@ namespace AAMod
                     float num = Main.screenWidth / (float)Main.maxScreenW;
                     int num2 = (int)(500f * num);
                     num2 = (int)(num2 * (1f + 2f * Main.cloudAlpha));
-                    float num3 = 1f + 50f * Main.cloudAlpha;
+                    float num3 = 1f + 25f/*Main.cloudAlpha*/;
                     int num4 = 0;
 
                     while (num4 < num3)
@@ -2594,31 +2594,20 @@ namespace AAMod
 
                                 if (Main.tile[num7, num8] != null && Main.tile[num7, num8].wall == 0)
                                 {
-                                    int dust = Dust.NewDust(new Vector2(num5, num6), 10, 10, ModContent.DustType<Dusts.Discord>(), 0f, 0f, 0);
+                                    int dust = Dust.NewDust(new Vector2(num5, num6), 10, 10, ModContent.DustType<Dusts.Discord>(), 0f, 0f, 0, Color.White);
                                     Main.dust[dust].velocity.Y = 3f + Main.rand.Next(30) * 0.1f;
 
                                     Dust expr_292_cp_0 = Main.dust[dust];
                                     expr_292_cp_0.velocity.Y *= Main.dust[dust].scale;
 
-                                    if (!player.GetModPlayer<AAPlayer>().AshCurse)
-                                    {
-                                        Main.dust[dust].velocity.X = Main.rand.Next(-10, 10) * 0.1f;
-
-                                        Dust expr_2EC_cp_0 = Main.dust[dust];
-                                        expr_2EC_cp_0.velocity.X += Main.windSpeed * Main.cloudAlpha * 10f;
-                                    }
-                                    else
-                                    {
-                                        Main.dust[dust].velocity.X = (Main.cloudAlpha + 0.5f) * 25f + Main.rand.NextFloat() * 0.2f - 0.1f;
-
-                                        Dust expr_370_cp_0 = Main.dust[dust];
-                                        expr_370_cp_0.velocity.Y *= 0.5f;
-                                    }
+                                    Main.dust[dust].velocity.X = (Main.cloudAlpha + 0.5f) * 25f + Main.rand.NextFloat() * 0.2f - 0.1f;
+                                    Dust expr_370_cp_0 = Main.dust[dust];
+                                    expr_370_cp_0.velocity.Y *= 0.5f;
 
                                     Dust expr_38E_cp_0 = Main.dust[dust];
                                     expr_38E_cp_0.velocity.Y *= 1f + 0.3f * Main.cloudAlpha;
 
-                                    Main.dust[dust].scale += Main.cloudAlpha * 0.2f;
+                                    Main.dust[dust].scale += /*Main.cloudAlpha **/ 0.1f;
                                     Main.dust[dust].velocity *= 1f + Main.cloudAlpha * 0.5f;
                                 }
                             }

@@ -24,8 +24,8 @@ namespace AAMod.NPCs.Bosses.Wyrm
 		public override void SetDefaults()
 		{
 			npc.noTileCollide = true;
-			npc.height = 32;
-			npc.width = 44;
+            npc.width = 34;
+            npc.height = 94;
 			npc.aiStyle = -1;
 			npc.netAlways = true;
             npc.damage = 20;
@@ -304,6 +304,8 @@ namespace AAMod.NPCs.Bosses.Wyrm
         public override void SetDefaults()
         {
             base.SetDefaults();
+            npc.width = 32;
+            npc.height = 44;
             npc.dontCountMe = true;
             npc.alpha = 255;
             banner = mod.NPCType("Wyrm");
@@ -380,37 +382,8 @@ namespace AAMod.NPCs.Bosses.Wyrm
                 }
             }
 
+            AAAI.SmoothWormBody(npc, npc.ai[1]);
 
-            if (npc.ai[1] < (double)Main.npc.Length)
-            {
-                // We're getting the center of this NPC.
-                Vector2 npcCenter = new Vector2(npc.position.X + npc.width * 0.5f, npc.position.Y + npc.height * 0.5f);
-                // Then using that center, we calculate the direction towards the 'parent NPC' of this NPC.
-                float dirX = Main.npc[(int)npc.ai[1]].position.X + Main.npc[(int)npc.ai[1]].width / 2 - npcCenter.X;
-                float dirY = Main.npc[(int)npc.ai[1]].position.Y + Main.npc[(int)npc.ai[1]].height / 2 - npcCenter.Y;
-                // We then use Atan2 to get a correct rotation towards that parent NPC.
-                npc.rotation = (float)Math.Atan2(dirY, dirX) + 1.57f;
-                // We also get the length of the direction vector.
-                float length = (float)Math.Sqrt(dirX * dirX + dirY * dirY);
-                // We calculate a new, correct distance.
-                float dist = (length - npc.width) / length;
-                float posX = dirX * dist;
-                float posY = dirY * dist;
-
-                // Reset the velocity of this NPC, because we don't want it to move on its own
-                if (dirX < 0f)
-                {
-                    npc.spriteDirection = 1;
-
-                }
-                else
-                {
-                    npc.spriteDirection = -1;
-                }
-                // And set this NPCs position accordingly to that of this NPCs parent NPC.
-                npc.position.X = npc.position.X + posX;
-                npc.position.Y = npc.position.Y + posY;
-            }
             return false;
         }
         
@@ -428,6 +401,8 @@ namespace AAMod.NPCs.Bosses.Wyrm
         public override void SetDefaults()
         {
             base.SetDefaults();
+            npc.width = 32;
+            npc.height = 44;
             npc.dontCountMe = true;
 
             npc.alpha = 255;
@@ -507,36 +482,8 @@ namespace AAMod.NPCs.Bosses.Wyrm
                 }
             }
 
-            if (npc.ai[1] < (double)Main.npc.Length)
-            {
-                // We're getting the center of this NPC.
-                Vector2 npcCenter = new Vector2(npc.position.X + npc.width * 0.5f, npc.position.Y + npc.height * 0.5f);
-                // Then using that center, we calculate the direction towards the 'parent NPC' of this NPC.
-                float dirX = Main.npc[(int)npc.ai[1]].position.X + Main.npc[(int)npc.ai[1]].width / 2 - npcCenter.X;
-                float dirY = Main.npc[(int)npc.ai[1]].position.Y + Main.npc[(int)npc.ai[1]].height / 2 - npcCenter.Y;
-                // We then use Atan2 to get a correct rotation towards that parent NPC.
-                npc.rotation = (float)Math.Atan2(dirY, dirX) + 1.57f;
-                // We also get the length of the direction vector.
-                float length = (float)Math.Sqrt(dirX * dirX + dirY * dirY);
-                // We calculate a new, correct distance.
-                float dist = (length - npc.width) / length;
-                float posX = dirX * dist;
-                float posY = dirY * dist;
+            AAAI.SmoothWormBody(npc, npc.ai[1]);
 
-                // Reset the velocity of this NPC, because we don't want it to move on its own
-                if (dirX < 0f)
-                {
-                    npc.spriteDirection = 1;
-
-                }
-                else
-                {
-                    npc.spriteDirection = -1;
-                }
-                // And set this NPCs position accordingly to that of this NPCs parent NPC.
-                npc.position.X = npc.position.X + posX;
-                npc.position.Y = npc.position.Y + posY;
-            }
             return false;
         }
     }
@@ -553,6 +500,8 @@ namespace AAMod.NPCs.Bosses.Wyrm
         public override void SetDefaults()
         {
             base.SetDefaults();
+            npc.width = 28;
+            npc.height = 44;
             npc.dontCountMe = true;
             npc.alpha = 255;
             banner = mod.NPCType("Wyrm");
@@ -629,37 +578,8 @@ namespace AAMod.NPCs.Bosses.Wyrm
                 }
             }
 
+            AAAI.SmoothWormBody(npc, npc.ai[1]);
 
-            if (npc.ai[1] < (double)Main.npc.Length)
-            {
-                // We're getting the center of this NPC.
-                Vector2 npcCenter = new Vector2(npc.position.X + npc.width * 0.5f, npc.position.Y + npc.height * 0.5f);
-                // Then using that center, we calculate the direction towards the 'parent NPC' of this NPC.
-                float dirX = Main.npc[(int)npc.ai[1]].position.X + Main.npc[(int)npc.ai[1]].width / 2 - npcCenter.X;
-                float dirY = Main.npc[(int)npc.ai[1]].position.Y + Main.npc[(int)npc.ai[1]].height / 2 - npcCenter.Y;
-                // We then use Atan2 to get a correct rotation towards that parent NPC.
-                npc.rotation = (float)Math.Atan2(dirY, dirX) + 1.57f;
-                // We also get the length of the direction vector.
-                float length = (float)Math.Sqrt(dirX * dirX + dirY * dirY);
-                // We calculate a new, correct distance.
-                float dist = (length - npc.width) / length;
-                float posX = dirX * dist;
-                float posY = dirY * dist;
-
-                // Reset the velocity of this NPC, because we don't want it to move on its own
-                if (dirX < 0f)
-                {
-                    npc.spriteDirection = 1;
-
-                }
-                else
-                {
-                    npc.spriteDirection = -1;
-                }
-                // And set this NPCs position accordingly to that of this NPCs parent NPC.
-                npc.position.X = npc.position.X + posX;
-                npc.position.Y = npc.position.Y + posY;
-            }
             return false;
         }
 
@@ -677,6 +597,8 @@ namespace AAMod.NPCs.Bosses.Wyrm
         public override void SetDefaults()
         {
             base.SetDefaults();
+            npc.width = 18;
+            npc.height = 96;
             npc.dontCountMe = true;
 
             npc.alpha = 255;
@@ -754,36 +676,8 @@ namespace AAMod.NPCs.Bosses.Wyrm
                 }
             }
 
-            if (npc.ai[1] < (double)Main.npc.Length)
-            {
-                // We're getting the center of this NPC.
-                Vector2 npcCenter = new Vector2(npc.position.X + npc.width * 0.5f, npc.position.Y + npc.height * 0.5f);
-                // Then using that center, we calculate the direction towards the 'parent NPC' of this NPC.
-                float dirX = Main.npc[(int)npc.ai[1]].position.X + Main.npc[(int)npc.ai[1]].width / 2 - npcCenter.X;
-                float dirY = Main.npc[(int)npc.ai[1]].position.Y + Main.npc[(int)npc.ai[1]].height / 2 - npcCenter.Y;
-                // We then use Atan2 to get a correct rotation towards that parent NPC.
-                npc.rotation = (float)Math.Atan2(dirY, dirX) + 1.57f;
-                // We also get the length of the direction vector.
-                float length = (float)Math.Sqrt(dirX * dirX + dirY * dirY);
-                // We calculate a new, correct distance.
-                float dist = (length - npc.width) / length;
-                float posX = dirX * dist;
-                float posY = dirY * dist;
+            AAAI.SmoothWormBody(npc, npc.ai[1]);
 
-                // Reset the velocity of this NPC, because we don't want it to move on its own
-                if (dirX < 0f)
-                {
-                    npc.spriteDirection = 1;
-
-                }
-                else
-                {
-                    npc.spriteDirection = -1;
-                }
-                // And set this NPCs position accordingly to that of this NPCs parent NPC.
-                npc.position.X = npc.position.X + posX;
-                npc.position.Y = npc.position.Y + posY;
-            }
             return false;
         }
     }
