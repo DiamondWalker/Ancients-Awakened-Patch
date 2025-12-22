@@ -51,7 +51,7 @@ namespace AAMod.Backgrounds
 
         public override void Draw(SpriteBatch spriteBatch, float minDepth, float maxDepth)
         {
-            bool shenSky = AAWorld.shenUnlocked && !AAWorld.downedShen;
+            bool shenSky = AAWorld.shenUnlocked && !AAWorld.downedShen && !Main.gameMenu;
             Texture2D ShenTexture = mod.GetTexture("Backgrounds/Eclipse");
             Texture2D PlanetTexture = mod.GetTexture("Backgrounds/Sun");
             Texture2D demonSun = mod.GetTexture("Backgrounds/DemonSun");

@@ -426,6 +426,8 @@ namespace AAMod
             sunTextureBackup = Main.sunTexture;
             sun3TextureBackup = Main.sun3Texture;
 
+            Main.npcFrameCount[NPCID.SkeletronPrime] = 6; // fix the vanilla skeletron prime spritesheet bug by updating his frame count to the 1.4 value
+
             AddEquipTexture(new InvokedCaligulaHead(), null, EquipType.Head, "InvokedCaligulaHead", "AAMod/Items/Dev/Invoker/InvokedCaligula_Head", "", "");
             AddEquipTexture(new InvokedCaligulaBody(), null, EquipType.Body, "InvokedCaligulaBody", "AAMod/Items/Dev/Invoker/InvokedCaligula_Body", "AAMod/Items/Dev/Invoker/InvokedCaligula_Arms", "");
             AddEquipTexture(new InvokedCaligulaLegs(), null, EquipType.Legs, "InvokedCaligulaLegs", "AAMod/Items/Dev/Invoker/InvokedCaligula_Legs", "", "");
