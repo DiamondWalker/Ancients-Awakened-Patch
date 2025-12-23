@@ -31,6 +31,12 @@ namespace AAMod
 		[Label("$Mods.AAMod.Common.AABossTitle")]
 		[Tooltip("$Mods.AAMod.Common.AABossTitleInfo")]
 		public bool AncientIntroText;
+
+        [DefaultValue(true)]
+        [Label("$Mods.AAMod.Common.PrimeSpriteFix")]
+        [Tooltip("$Mods.AAMod.Common.PrimeSpriteFixInfo")]
+        [ReloadRequired]
+        public bool PrimeSpriteFix;
     }
 
     public static class Config

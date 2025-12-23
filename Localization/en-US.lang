@@ -325,6 +325,8 @@ Common.AAStyleMainPage=AA Style Main Menu
 Common.AAStyleMainPageInfo=Modifies the Main Menu to include some AA biomes. If you wish to play AA and any other large content mod together, you should disable this.
 Common.AABossTitle=Ancient Introduction Text
 Common.AABossTitleInfo=The Ancients and certain other important bosses have Legend of Zelda-style boss introduction text.
+Common.PrimeSpriteFix=Skeletron Prime Rendering Patch
+Common.PrimeSpriteFixInfo=If Skeletron Prime isn't rendering properly, changing this should help.
 
 //GlobalNPCSInfo
 

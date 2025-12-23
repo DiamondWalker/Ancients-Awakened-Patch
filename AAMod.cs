@@ -65,6 +65,8 @@ namespace AAMod
 
         public static SpriteFont fontMouseText;
 
+        private int skeletronPrimeFrames = 0;
+
 
         internal static AAMod instance;
         public static AAMod self = null;
@@ -214,6 +216,11 @@ namespace AAMod
         public override void PostSetupContent()
         {
             WeakReferences.PerformModSupport();
+
+            if (Main.npcFrameCount[NPCID.SkeletronPrime] == 3 && AAConfigClient.Instance != null && AAConfigClient.Instance.PrimeSpriteFix) {
+                skeletronPrimeFrames = Main.npcFrameCount[NPCID.SkeletronPrime];
+                Main.npcFrameCount[NPCID.SkeletronPrime] = 6; // fix the vanilla skeletron prime spritesheet bug by updating his frame count to the 1.4 value
+            }
 
             Array.Resize(ref AASets.Goblins, NPCLoader.NPCCount);
 
@@ -426,8 +433,6 @@ namespace AAMod
             sunTextureBackup = Main.sunTexture;
             sun3TextureBackup = Main.sun3Texture;
 
-            Main.npcFrameCount[NPCID.SkeletronPrime] = 6; // fix the vanilla skeletron prime spritesheet bug by updating his frame count to the 1.4 value
-
             AddEquipTexture(new InvokedCaligulaHead(), null, EquipType.Head, "InvokedCaligulaHead", "AAMod/Items/Dev/Invoker/InvokedCaligula_Head", "", "");
             AddEquipTexture(new InvokedCaligulaBody(), null, EquipType.Body, "InvokedCaligulaBody", "AAMod/Items/Dev/Invoker/InvokedCaligula_Body", "AAMod/Items/Dev/Invoker/InvokedCaligula_Arms", "");
             AddEquipTexture(new InvokedCaligulaLegs(), null, EquipType.Legs, "InvokedCaligulaLegs", "AAMod/Items/Dev/Invoker/InvokedCaligula_Legs", "", "");
@@ -582,6 +587,11 @@ namespace AAMod
         {
             ResetItemTexture(3460);
             ResetItemTexture(512);
+
+            if (skeletronPrimeFrames > 0) {
+                if (Main.npcFrameCount[NPCID.SkeletronPrime] == 6) Main.npcFrameCount[NPCID.SkeletronPrime] = skeletronPrimeFrames;
+                skeletronPrimeFrames = 0;
+            }
 
             if (sunTextureBackup != null)
                 Main.sunTexture = sunTextureBackup;
