@@ -304,7 +304,7 @@ namespace AAMod.NPCs.Bosses.Wyrm
         public override void SetDefaults()
         {
             base.SetDefaults();
-            npc.width = 32;
+            npc.width = 34;
             npc.height = 44;
             npc.dontCountMe = true;
             npc.alpha = 255;
@@ -401,7 +401,7 @@ namespace AAMod.NPCs.Bosses.Wyrm
         public override void SetDefaults()
         {
             base.SetDefaults();
-            npc.width = 32;
+            npc.width = 34;
             npc.height = 44;
             npc.dontCountMe = true;
 
@@ -500,7 +500,7 @@ namespace AAMod.NPCs.Bosses.Wyrm
         public override void SetDefaults()
         {
             base.SetDefaults();
-            npc.width = 28;
+            npc.width = 34;
             npc.height = 44;
             npc.dontCountMe = true;
             npc.alpha = 255;
@@ -597,7 +597,7 @@ namespace AAMod.NPCs.Bosses.Wyrm
         public override void SetDefaults()
         {
             base.SetDefaults();
-            npc.width = 18;
+            npc.width = 26;
             npc.height = 96;
             npc.dontCountMe = true;
 
