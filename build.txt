@@ -6,4 +6,5 @@ buildIgnore = *.csproj, *.user, obj\*, bin\*, lib\*, .vs\*, *.gif, *.piskel, Unu
 hideCode = true
 hideResources = false
 includeSource = false
+modReferences = SubworldLibrary
 homepage = https://discord.gg/MmpCpj4
