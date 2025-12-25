@@ -21,6 +21,7 @@ using Terraria.ModLoader;
 using Terraria.UI;
 using Terraria.Utilities;
 using ReLogic.Graphics;
+using AAMod.Worldgeneration.Dimension.Void;
 
 namespace AAMod
 {
@@ -1039,6 +1040,13 @@ namespace AAMod
             if (!player.active)
                 return;
 
+            if (VoidSubworld.IsInside()) {
+                priority = MusicPriority.Event;
+                music = GetSoundSlot(SoundType.Music, AAWorld.downedZero ? "Sounds/Music/SleepingGiant" : "Sounds/Music/VoidButNowItsSpooky");
+
+                return;
+            }
+
             AAPlayer Ancients = player.GetModPlayer<AAPlayer>();
 
             bool zoneShen = (Ancients.ZoneRisingSunPagoda || Ancients.ZoneRisingMoonLake) && !AAWorld.downedShen;
@@ -1047,14 +1055,6 @@ namespace AAMod
             {
                 priority = MusicPriority.Event;
                 music = GetSoundSlot(SoundType.Music, "Sounds/Music/SleepingDragon");
-
-                return;
-            }
-
-            if (Ancients.ZoneVoid && AAWorld.downedZero && !player.ZoneRockLayerHeight)
-            {
-                priority = MusicPriority.Event;
-                music = GetSoundSlot(SoundType.Music, "Sounds/Music/SleepingGiant");
 
                 return;
             }
@@ -1077,14 +1077,6 @@ namespace AAMod
             {
                 priority = MusicPriority.Event;
                 music = GetSoundSlot(SoundType.Music, "Sounds/Music/Void");
-
-
-                if (AAWorld.downedEquinox && !AAWorld.downedZero)
-                {
-                    music = GetSoundSlot(SoundType.Music, "Sounds/Music/VoidButNowItsSpooky");
-
-                    return;
-                }
 
                 return;
             }

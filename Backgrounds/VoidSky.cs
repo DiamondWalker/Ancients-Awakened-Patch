@@ -5,6 +5,7 @@ using Terraria;
 using Terraria.Graphics.Effects;
 using Terraria.Utilities;
 using Terraria.Graphics.Shaders;
+using AAMod.Worldgeneration.Dimension.Void;
 //using AAMod.NPCs.Bosses.Infinity;
 
 namespace AAMod.Backgrounds
@@ -33,7 +34,7 @@ namespace AAMod.Backgrounds
 
         public override void Update(GameTime gameTime)
         {
-            if (AAWorld.downedZero)
+            if (VoidSubworld.IsInside())
             {
                 Alpha += 0.05f;
                 if (Alpha > 1f) Alpha = 1f;
@@ -47,7 +48,7 @@ namespace AAMod.Backgrounds
             {
                 Intensity = Math.Max(0f, Intensity - 0.01f);
             }
-            if (AAWorld.downedEquinox) //NPC.downedMoonlord)
+            if (AAWorld.downedEquinox && !VoidSubworld.IsInside()) //NPC.downedMoonlord)
             {
                 if (ticksUntilNextBolt <= 0)
                 {
@@ -146,7 +147,7 @@ namespace AAMod.Backgrounds
                 Asteroidpos1.Y += (float)Math.Sin(asteroidPercent1) * 16f;
                 Asteroidpos2.Y += (float)Math.Sin(asteroidPercent2) * -30f;
                 Asteroidpos3.Y += (float)Math.Sin(asteroidPercent3) * 20f;
-                if (!AAWorld.downedZero)
+                if (!VoidSubworld.IsInside())
                 {
                     spriteBatch.Draw(Stars, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White);
                 }
@@ -167,7 +168,7 @@ namespace AAMod.Backgrounds
                 spriteBatch.Draw(Asteroids2, Asteroidpos2, null, NPC.downedMoonlord ? astroGlow : Color.White, 0f, new Vector2(Asteroids2.Width >> 1, Asteroids2.Height >> 1), 1f, SpriteEffects.None, 1f);
                 spriteBatch.Draw(Asteroids3, Asteroidpos3, null, NPC.downedMoonlord ? astroGlow : Color.White, 0f, new Vector2(Asteroids3.Width >> 1, Asteroids3.Height >> 1), 1f, SpriteEffects.None, 1f);
             }
-            float scale = Math.Min(1f, (Main.screenPosition.Y - 1000f) / 1000f);
+            float scale = /*Math.Min(1f, (Main.screenPosition.Y - 1000f) / 1000f)*/ 1f; // TODO: this part should scale with distance to the wormhole instead
             Vector2 value3 = Main.screenPosition + new Vector2(Main.screenWidth >> 1, Main.screenHeight >> 1);
             Rectangle rectangle = new Rectangle(-1000, -1000, 4000, 4000);
             for (int i = 0; i < bolts.Length; i++)

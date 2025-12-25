@@ -18,6 +18,7 @@ using System;
 using Terraria.Localization;
 using log4net;
 using AAMod.Util;
+using AAMod.Worldgeneration.Dimension.Void;
 
 namespace AAMod
 {
@@ -1006,12 +1007,7 @@ namespace AAMod
             {
                 ClearPoolWithExceptions(pool);
 
-                if (AAWorld.downedSag)
-                {
-                    pool.Add(mod.NPCType("SagittariusMini"), .005f);
-                }
-
-                if (AAWorld.downedEquinox)
+                if (/*AAWorld.downedEquinox*/VoidSubworld.IsInside())
                 {
                     pool.Add(mod.NPCType("Vortex"), 0.0035f);
                     pool.Add(mod.NPCType("Scout"), .005f);
@@ -1025,6 +1021,9 @@ namespace AAMod
                 else
                 {
                     pool.Add(mod.NPCType("Searcher1"), .005f);
+                    if (AAWorld.downedSag) {
+                        pool.Add(mod.NPCType("SagittariusMini"), .005f);
+                    }
                 }
             }
 

@@ -10,7 +10,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.World.Generation;
 
-namespace AAMod.Worldgeneration.Subworld.Void {
+namespace AAMod.Worldgeneration.Dimension.Void {
     public class AsteroidsGenPass : GenPass {
         public AsteroidsGenPass() : base("Void Asteroids", 1f) {
         }
@@ -20,7 +20,6 @@ namespace AAMod.Worldgeneration.Subworld.Void {
                 int x = Main.rand.Next(Main.maxTilesX);
                 int y = Main.rand.Next(Main.maxTilesY);
                 WorldGen.TileRunner(x, y, Main.rand.Next(90) + 10, 10, ModContent.TileType<Tiles.Doomstone>(), true, 0, 0);
-                SLWorld.drawUnderworldBackground = false;
             }
         }
     }

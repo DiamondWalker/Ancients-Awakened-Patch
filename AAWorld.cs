@@ -17,6 +17,7 @@ using AAMod.Worldgen;
 using Terraria.Utilities;
 using Terraria.Localization;
 using AAMod.Walls;
+using Terraria.IO;
 
 namespace AAMod
 {
@@ -251,6 +252,47 @@ namespace AAMod
             return valid;
         }
 
+        // When we change subworlds, ModWorlds are reset. We don't want to lose important progression data, so we cache AAWorld data when changing subworlds
+        private static WorldFileData worldFile; // let's make sure we're still in the same world
+        private static TagCompound subworldDataCache; // the actual cache
+
+        // this function caches the data. Call it before changing subworlds
+        public static void CacheDataForSubworlds() {
+            worldFile = Main.ActiveWorldFileData;
+            subworldDataCache = ModContent.GetInstance<AAWorld>().Save();
+            List<string> vanillaDowned = new List<string>();
+            if (Main.hardMode) vanillaDowned.Add("hardMode");
+            if (NPC.downedAncientCultist) vanillaDowned.Add("AncientCultist");
+            if (NPC.downedBoss1) vanillaDowned.Add("Boss1");
+            if (NPC.downedBoss2) vanillaDowned.Add("Boss2");
+            if (NPC.downedBoss3) vanillaDowned.Add("Boss3");
+            if (NPC.downedChristmasIceQueen) vanillaDowned.Add("ChristmasIceQueen");
+            if (NPC.downedChristmasSantank) vanillaDowned.Add("ChristmasSantank");
+            if (NPC.downedChristmasTree) vanillaDowned.Add("ChristmasTree");
+            if (NPC.downedClown) vanillaDowned.Add("Clown");
+            if (NPC.downedFishron) vanillaDowned.Add("Fishron");
+            if (NPC.downedFrost) vanillaDowned.Add("Frost");
+            if (NPC.downedGoblins) vanillaDowned.Add("Goblins");
+            if (NPC.downedGolemBoss) vanillaDowned.Add("GolemBoss");
+            if (NPC.downedHalloweenKing) vanillaDowned.Add("HalloweenKing");
+            if (NPC.downedHalloweenTree) vanillaDowned.Add("HalloweenTree");
+            if (NPC.downedMartians) vanillaDowned.Add("Martians");
+            if (NPC.downedMechBoss1) vanillaDowned.Add("MechBoss1");
+            if (NPC.downedMechBoss2) vanillaDowned.Add("MechBoss2");
+            if (NPC.downedMechBoss3) vanillaDowned.Add("MechBoss3");
+            if (NPC.downedMechBossAny) vanillaDowned.Add("MechBossAny");
+            if (NPC.downedMoonlord) vanillaDowned.Add("Moonlord");
+            if (NPC.downedPirates) vanillaDowned.Add("Pirates");
+            if (NPC.downedPlantBoss) vanillaDowned.Add("PlantBoss");
+            if (NPC.downedQueenBee) vanillaDowned.Add("QueenBee");
+            if (NPC.downedSlimeKing) vanillaDowned.Add("SlimeKing");
+            if (NPC.downedTowerNebula) vanillaDowned.Add("TowerNebula");
+            if (NPC.downedTowerSolar) vanillaDowned.Add("TowerSolar");
+            if (NPC.downedTowerStardust) vanillaDowned.Add("TowerStardust");
+            if (NPC.downedTowerVortex) vanillaDowned.Add("TowerVortex");
+            subworldDataCache.Add("VanillaDowns", vanillaDowned);
+        }
+
         public override TagCompound Save()
         {
             var downed = new List<string>();
@@ -329,6 +371,43 @@ namespace AAMod
 
         public override void Load(TagCompound tag)
         {
+            if (worldFile == Main.ActiveWorldFileData && subworldDataCache != null) {
+                tag = subworldDataCache;
+                worldFile = null;
+                subworldDataCache = null;
+
+                List<string> vanillaDowned = tag.Get<List<string>>("VanillaDowns");
+                Main.hardMode = vanillaDowned.Contains("hardMode");
+                NPC.downedAncientCultist = vanillaDowned.Contains("AncientCultist");
+                NPC.downedBoss1 = vanillaDowned.Contains("Boss1");
+                NPC.downedBoss2 = vanillaDowned.Contains("Boss2");
+                NPC.downedBoss3 = vanillaDowned.Contains("Boss3");
+                NPC.downedChristmasIceQueen = vanillaDowned.Contains("ChristmasIceQueen");
+                NPC.downedChristmasSantank = vanillaDowned.Contains("ChristmasSantank");
+                NPC.downedChristmasTree = vanillaDowned.Contains("ChristmasTree");
+                NPC.downedClown = vanillaDowned.Contains("Clown");
+                NPC.downedFishron = vanillaDowned.Contains("Fishron");
+                NPC.downedFrost = vanillaDowned.Contains("Frost");
+                NPC.downedGoblins = vanillaDowned.Contains("Goblins");
+                NPC.downedGolemBoss = vanillaDowned.Contains("GolemBoss");
+                NPC.downedHalloweenKing = vanillaDowned.Contains("HalloweenKing");
+                NPC.downedHalloweenTree = vanillaDowned.Contains("HalloweenTree");
+                NPC.downedMartians = vanillaDowned.Contains("Martians");
+                NPC.downedMechBoss1 = vanillaDowned.Contains("MechBoss1");
+                NPC.downedMechBoss2 = vanillaDowned.Contains("MechBoss2");
+                NPC.downedMechBoss3 = vanillaDowned.Contains("MechBoss3");
+                NPC.downedMechBossAny = vanillaDowned.Contains("MechBossAny");
+                NPC.downedMoonlord = vanillaDowned.Contains("Moonlord");
+                NPC.downedPirates = vanillaDowned.Contains("Pirates");
+                NPC.downedPlantBoss = vanillaDowned.Contains("PlantBoss");
+                NPC.downedQueenBee = vanillaDowned.Contains("QueenBee");
+                NPC.downedSlimeKing = vanillaDowned.Contains("SlimeKing");
+                NPC.downedTowerNebula = vanillaDowned.Contains("TowerNebula");
+                NPC.downedTowerSolar = vanillaDowned.Contains("TowerSolar");
+                NPC.downedTowerStardust = vanillaDowned.Contains("TowerStardust");
+                NPC.downedTowerVortex = vanillaDowned.Contains("TowerVortex");
+            }
+
             var downed = tag.GetList<string>("downed");
             //bosses
             downedMonarch = downed.Contains("MUSHMAN");
