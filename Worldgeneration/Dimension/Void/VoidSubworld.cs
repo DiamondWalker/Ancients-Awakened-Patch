@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AAMod.Sounds.Sounds;
 using SubworldLibrary;
 using Terraria;
+using Terraria.ModLoader;
 using Terraria.World.Generation;
 
 namespace AAMod.Worldgeneration.Dimension.Void
@@ -39,8 +41,12 @@ namespace AAMod.Worldgeneration.Dimension.Void
 
         public override void Load() {
             base.Load();
+            Main.dayTime = false;
+            Main.time = 15600; // midnight
+            Main.moonPhase = 0;
             SLWorld.drawUnderworldBackground = false;
             Main.worldSurface = Main.rockLayer = Main.maxTilesY - 1;
+            Main.backgroundTexture[126] = ModContent.GetInstance<AAMod>().GetTexture("BlankTex");
             //SLWorld.noReturn = true;
         }
 
