@@ -39,7 +39,8 @@ namespace AAMod.Worldgeneration.Dimension.Void
 
         public override void Load() {
             base.Load();
-            //SLWorld.drawUnderworldBackground = false;
+            SLWorld.drawUnderworldBackground = false;
+            Main.worldSurface = Main.rockLayer = Main.maxTilesY - 1;
             //SLWorld.noReturn = true;
         }
 
