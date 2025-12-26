@@ -29,6 +29,7 @@ namespace AAMod.Backgrounds
         public bool Active;
         public int ticksUntilNextBolt;
         public float Intensity;
+        public bool subworld = false;
         public float Alpha = 0;
 
 
@@ -48,6 +49,20 @@ namespace AAMod.Backgrounds
             {
                 Intensity = Math.Max(0f, Intensity - 0.01f);
             }
+            
+            // so there isn't any weird biome fading when you go to the subworld
+            if (VoidSubworld.IsInside()) {
+                if (!subworld) {
+                    subworld = true;
+                    Intensity = 1f;
+                }
+            } else {
+                if (subworld) {
+                    subworld = false;
+                    Intensity = 0f;
+                }
+            }
+
             if (AAWorld.downedEquinox && !VoidSubworld.IsInside()) //NPC.downedMoonlord)
             {
                 if (ticksUntilNextBolt <= 0)

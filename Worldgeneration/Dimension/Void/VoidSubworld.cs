@@ -47,12 +47,15 @@ namespace AAMod.Worldgeneration.Dimension.Void
             SLWorld.drawUnderworldBackground = false;
             Main.worldSurface = Main.rockLayer = Main.maxTilesY - 1;
             Main.backgroundTexture[126] = ModContent.GetInstance<AAMod>().GetTexture("BlankTex");
+            Main.backgroundTexture[186] = ModContent.GetInstance<AAMod>().GetTexture("BlankTex");
             //SLWorld.noReturn = true;
         }
 
         public override void Unload() {
             base.Unload();
             AAWorld.CacheDataForSubworlds();
+            Main.backgroundTexture[126] = ModContent.GetTexture("Terraria/Background_" + 126);
+            Main.backgroundTexture[186] = ModContent.GetTexture("Terraria/Background_" + 186);
         }
     }
 }
