@@ -17,13 +17,17 @@ namespace AAMod.Worldgeneration.Dimension.Void
 
         public override int height => Main.maxTilesY;
 
-        public override bool saveSubworld => true;
+        public override bool saveSubworld => false;//true;
 
         public override bool saveModData => true;
 
         public override List<GenPass> tasks => new List<GenPass>()
         {
-            new AsteroidsGenPass()
+            new IslandsGenPass(),
+            //new CratersGenPass(),
+            //new CanyonsGenPass(),
+            //new AsteroidsGenPass(),
+            //new ApocalyptiteGenPass()
         };
 
         public static void Enter() {

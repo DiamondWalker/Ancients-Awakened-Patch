@@ -1,18 +1,14 @@
-﻿using AAMod.Items.Blocks;
-using AAMod.Tiles;
-using SubworldLibrary;
+﻿using Terraria.World.Generation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.World.Generation;
 
 namespace AAMod.Worldgeneration.Dimension.Void {
-    public class AsteroidsGenPass : GenPass {
-        public AsteroidsGenPass() : base("Void Asteroids", 1f) {
+    public class ApocalyptiteGenPass : GenPass {
+        public ApocalyptiteGenPass() : base("Apocalyptite", 1f) {
+
         }
 
         public override void Apply(GenerationProgress progress) {
