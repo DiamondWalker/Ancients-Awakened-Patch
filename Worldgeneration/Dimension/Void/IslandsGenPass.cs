@@ -11,6 +11,10 @@ using Terraria.World.Generation;
 
 namespace AAMod.Worldgeneration.Dimension.Void {
     public class IslandsGenPass : GenPass {
+        private const float MAX_SURFACE_JAGGEDNESS = 2.5f;
+        private const float MAX_BOTTOM_JAGGEDNESS = 4.4f;
+
+        public static HashSet<Rectangle> islands = null;
         public IslandsGenPass() : base("Islands", 1f) {
 
         }
@@ -18,35 +22,87 @@ namespace AAMod.Worldgeneration.Dimension.Void {
         public override void Apply(GenerationProgress progress) {
             progress.Message = Language.GetTextValue("Mods.AAMod.Common.AAVoidWorldBuildIslands");
 
+            islands = new HashSet<Rectangle>();
+
             int minX = (int)Math.Ceiling(0.2f * Main.maxTilesX);
             int maxX = (int)Math.Floor(0.8f * Main.maxTilesX);
-            int minY = (int)Math.Ceiling(0.1f * Main.maxTilesY);
-            int maxY = (int)Math.Floor(0.9f * Main.maxTilesY);
+            int minY = (int)Math.Ceiling(0.2f * Main.maxTilesY);
+            int maxY = (int)Math.Floor(0.8f * Main.maxTilesY);
 
-            int count = Main.rand.Next(3, 7);
+            int count = Main.rand.Next(5, 9);
             for (int i = 0; i < count; i++) {
-                GenerateIsland(Main.rand.Next(minX, maxX + 1), Main.rand.Next(minY, maxY + 1));
+                for (int tries = 0; tries < 20; tries++) {
+                    int x = Main.rand.Next(minX, maxX + 1);
+                    int y = Main.rand.Next(minY, maxY + 1);
+                    int width = Main.rand.Next(500, 1400);
+                    int height = (int)(Main.rand.NextFloat(0.2f, 0.5f) * width);
+                    if (AttemptToGenerateIsland(x, y, width, height)) break;
+                }
             }
         }
 
-        private void GenerateIsland(int x, int y) {
-            int width = Main.rand.Next(500, 1400);
-            int height = (int)(Main.rand.NextFloat(0.2f, 0.5f) * width);
-            x -= (width / 2);
+        private bool AttemptToGenerateIsland(int x, int y, int width, int height) {
+            Rectangle newIsland = new Rectangle(x - width, y - height, width * 2, height * 2);
 
-            float slant = Main.rand.NextFloat(-0.5f, 0.5f);
-            float yOffset = 0.0f;
-            for (int i = 0; i < width; i++) {
-                yOffset += Main.rand.NextFloat(-1.0f, 1.0f);
+            foreach (Rectangle island in islands) {
+                if (island.Intersects(newIsland)) return false;
+            }
+
+            float slant = Main.rand.NextFloat(-0.15f, 0.15f);
+
+            x -= (width / 2);
+            y -= (height / 2);
+            float ySurfaceOffset = 0.0f;
+            float yBottomOffset = 0.0f;
+
+            float surfaceJaggedness = Main.rand.NextFloat(-MAX_SURFACE_JAGGEDNESS, MAX_SURFACE_JAGGEDNESS);
+            float bottomJaggedness = Main.rand.NextFloat(-MAX_BOTTOM_JAGGEDNESS, MAX_BOTTOM_JAGGEDNESS);
+
+            int i = 0;
+            while (true) {
                 float prog = (float)i / width;
                 int currX = x + i;
-                float f = 1.0f - (prog - 0.5f) * (prog - 0.5f) * 4;
-                int startY = y + (int)Math.Round(yOffset);
-                int endY = y + (int)(f * height / 2);
-                for (int j = startY; j < endY; j++) {
-                    PlaceTile(ModContent.TileType<Tiles.DoomstoneB>(), currX, y + j + (int)Math.Round(slant * (prog - 0.5f) * width));
+
+                surfaceJaggedness += Main.rand.NextFloat(-0.15f, 0.15f);
+                bottomJaggedness += Main.rand.NextFloat(-0.2f, 0.2f);
+
+                if (surfaceJaggedness > MAX_SURFACE_JAGGEDNESS) {
+                    surfaceJaggedness -= MAX_SURFACE_JAGGEDNESS * 2;
+                } else if (surfaceJaggedness < -MAX_SURFACE_JAGGEDNESS) {
+                    surfaceJaggedness += MAX_SURFACE_JAGGEDNESS * 2;
                 }
+
+                if (bottomJaggedness > MAX_BOTTOM_JAGGEDNESS) {
+                    bottomJaggedness -= MAX_BOTTOM_JAGGEDNESS * 2;
+                } else if (bottomJaggedness < -MAX_BOTTOM_JAGGEDNESS) {
+                    bottomJaggedness += MAX_BOTTOM_JAGGEDNESS * 2;
+                }
+
+                ySurfaceOffset += Main.rand.NextFloat(-surfaceJaggedness, surfaceJaggedness);
+                yBottomOffset += Main.rand.NextFloat(-bottomJaggedness, bottomJaggedness);
+
+                int surfaceY = y - (int)Math.Round(ySurfaceOffset);
+                int bottomY = y + (int)Math.Round(yBottomOffset) + (int)(ShapingFunction(prog) * height);
+
+                int verticalSlantOffset = (int)Math.Round(slant * (prog - 0.5f) * width);
+
+                surfaceY += verticalSlantOffset;
+                bottomY += verticalSlantOffset;
+
+                if (i >= width && surfaceY >= bottomY) break;
+
+                for (int j = surfaceY; j < bottomY; j++) {
+                    float progY = (float)(j - y) / (height * 2);
+                    int horizontalSlantOffset = (int)Math.Round(slant * (progY - 0.5f) * width);
+                    PlaceTile(ModContent.TileType<Tiles.DoomstoneB>(), currX - horizontalSlantOffset, j);
+                }
+
+                i++;
             }
+
+            islands.Add(newIsland);
+
+            return true;
         }
 
         private void PlaceTile(int type, int x, int y) {
@@ -54,6 +110,17 @@ namespace AAMod.Worldgeneration.Dimension.Void {
             if (Main.tile[x, y] == null) Main.tile[x, y] = new Tile();
             Main.tile[x, y].type = (ushort)type;
             Main.tile[x, y].active(true);
+        }
+
+        private float ShapingFunction(float f) {
+            f = (f - 0.5f) * 2; // from -1 to 1
+            f = Math.Abs(f); // from 0 (center) to 1 (edges)
+            f -= 0.5f;
+            f = -8 * f * f * f + 1;
+            f /= 2;
+            f = (float)Math.Pow(f, 1.0);
+            return f;
+            //return (ShapingFunctionInner(f) - ShapingFunctionInner(1.0f)) / ShapingFunctionInner(0.0f);
         }
     }
 }

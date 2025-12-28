@@ -3007,6 +3007,29 @@ namespace AAMod
 
         public override void PreUpdate()
         {
+            if (VoidSubworld.IsInside()) {
+                int leftTile = 41 * 16;
+                int topTile = 41 * 16;
+                int rightTile = (Main.maxTilesX - 42) * 16;
+                int bottomTile = (Main.maxTilesY - 42) * 16;
+
+                if (player.BottomRight.X >= rightTile) {
+                    player.position.X = leftTile;
+                } else if (player.TopLeft.X <= leftTile) {
+                    player.position.X = rightTile - player.width;
+                }
+
+                if (player.BottomRight.Y >= bottomTile) {
+                    player.position.Y = topTile;
+                } else if (player.TopLeft.Y <= topTile) {
+                    player.position.Y = bottomTile - player.height;
+                }
+            }
+
+            /*if (player.Bottom.Y >= (Main.maxTilesY - 42) * 16) {
+                player.KillMe(PlayerDeathReason.ByCustomReason(player.name + " fell out of the world."), Double.MaxValue, 0);
+            }*/
+
             groviteGlow[player.whoAmI] = false;
 
             if (player.GetModPlayer<AAPlayer>().ZoneVoid || player.GetModPlayer<AAPlayer>().ZoneInferno || player.GetModPlayer<AAPlayer>().ZoneRisingSunPagoda)

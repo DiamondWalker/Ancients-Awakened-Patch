@@ -24,7 +24,7 @@ namespace AAMod.Worldgeneration.Dimension.Void
         public override List<GenPass> tasks => new List<GenPass>()
         {
             new IslandsGenPass(),
-            //new CratersGenPass(),
+            new CratersGenPass(),
             //new CanyonsGenPass(),
             //new AsteroidsGenPass(),
             //new ApocalyptiteGenPass()
