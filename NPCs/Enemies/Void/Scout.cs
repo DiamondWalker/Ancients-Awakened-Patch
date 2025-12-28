@@ -139,8 +139,6 @@ namespace AAMod.NPCs.Enemies.Void
             }
 
             npc.rotation += RotationSpeed;
-
-            npc.velocity = Vector2.Zero;
         }
 
 		public override void FindFrame(int frameHeight)

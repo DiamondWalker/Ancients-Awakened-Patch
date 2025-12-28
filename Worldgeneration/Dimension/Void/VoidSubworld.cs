@@ -25,12 +25,14 @@ namespace AAMod.Worldgeneration.Dimension.Void
         {
             new IslandsGenPass(),
             new CratersGenPass(),
-            //new CanyonsGenPass(),
+            new CanyonsGenPass(),
+            new RemoveSpareRocksGenPass(),
             //new AsteroidsGenPass(),
             //new ApocalyptiteGenPass()
         };
 
         public static void Enter() {
+            if (IsInside()) return;
             AAWorld.CacheDataForSubworlds();
             Subworld.Enter<VoidSubworld>();
         }
@@ -40,6 +42,7 @@ namespace AAMod.Worldgeneration.Dimension.Void
         }
 
         public static void Exit() {
+            if (!IsInside()) return;
             Subworld.Exit();
         }
 
@@ -50,16 +53,24 @@ namespace AAMod.Worldgeneration.Dimension.Void
             Main.moonPhase = 0;
             SLWorld.drawUnderworldBackground = false;
             Main.worldSurface = Main.rockLayer = Main.maxTilesY - 1;
-            Main.backgroundTexture[126] = ModContent.GetInstance<AAMod>().GetTexture("BlankTex");
-            Main.backgroundTexture[186] = ModContent.GetInstance<AAMod>().GetTexture("BlankTex");
+            for (int i = 125; i <= 145; i++) {
+                Main.backgroundTexture[i] = ModContent.GetInstance<AAMod>().GetTexture("BlankTex");
+            }
+            for (int i = 185; i <= 187; i++) {
+                Main.backgroundTexture[i] = ModContent.GetInstance<AAMod>().GetTexture("BlankTex");
+            }
             //SLWorld.noReturn = true;
         }
 
         public override void Unload() {
             base.Unload();
             AAWorld.CacheDataForSubworlds();
-            Main.backgroundTexture[126] = ModContent.GetTexture("Terraria/Background_" + 126);
-            Main.backgroundTexture[186] = ModContent.GetTexture("Terraria/Background_" + 186);
+            for (int i = 125; i <= 145; i++) {
+                Main.backgroundTexture[i] = ModContent.GetTexture("Terraria/Background_" + i);
+            }
+            for (int i = 185; i <= 187; i++) {
+                Main.backgroundTexture[i] = ModContent.GetTexture("Terraria/Background_" + i);
+            }
         }
     }
 }

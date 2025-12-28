@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAMod.Util;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,17 +26,7 @@ namespace AAMod.Worldgeneration.Dimension.Void {
                 foreach (Rectangle island in islands) {
                     if (island.Contains(x, y)) {
                         if (Main.tile[x, y] == null || !Main.tile[x, y].active()) {
-                            int radius = Main.rand.Next(25);
-                            for (int x2 = x - radius; x2 <= x + radius; x2++) {
-                                for (int y2 = y - radius; y2 <= y + radius; y2++) {
-                                    int distX = x2 - x;
-                                    int distY = y2 - y;
-                                    if (island.Contains(x2, y2) && Math.Sqrt(distX * distX + distY * distY) <= radius && WorldGen.InWorld(x2, y2) && Main.tile[x2, y2] != null) {
-                                        Main.tile[x2, y2].type = 0;
-                                        Main.tile[x2, y2].active(false);
-                                    }
-                                }
-                            }
+                            WorldGenUtil.ClearCircle(x, y, Main.rand.Next(25), island);
                         }
 
                         break;
