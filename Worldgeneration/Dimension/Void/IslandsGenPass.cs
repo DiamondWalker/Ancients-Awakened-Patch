@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAMod.Util;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -94,7 +95,7 @@ namespace AAMod.Worldgeneration.Dimension.Void {
                 for (int j = surfaceY; j < bottomY; j++) {
                     float progY = (float)(j - y) / (height * 2);
                     int horizontalSlantOffset = (int)Math.Round(slant * (progY - 0.5f) * width);
-                    PlaceTile(ModContent.TileType<Tiles.DoomstoneB>(), currX - horizontalSlantOffset, j);
+                    WorldGenUtil.PlaceTile(ModContent.TileType<Tiles.DoomstoneB>(), currX - horizontalSlantOffset, j);
                 }
 
                 i++;
@@ -103,13 +104,6 @@ namespace AAMod.Worldgeneration.Dimension.Void {
             islands.Add(newIsland);
 
             return true;
-        }
-
-        private void PlaceTile(int type, int x, int y) {
-            if (!WorldGen.InWorld(x, y)) return;
-            if (Main.tile[x, y] == null) Main.tile[x, y] = new Tile();
-            Main.tile[x, y].type = (ushort)type;
-            Main.tile[x, y].active(true);
         }
 
         private float ShapingFunction(float f) {

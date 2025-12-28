@@ -27,7 +27,7 @@ namespace AAMod.Worldgeneration.Dimension.Void
             new CratersGenPass(),
             new CanyonsGenPass(),
             new RemoveSpareRocksGenPass(),
-            //new AsteroidsGenPass(),
+            new AsteroidsGenPass(),
             //new ApocalyptiteGenPass()
         };
 

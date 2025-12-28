@@ -13,11 +13,31 @@ namespace AAMod.Util {
             return WorldGen.InWorld(x, y) && Main.tile[x, y] != null && Main.tile[x, y].active();
         }
 
+        public static void PlaceTile(int type, int x, int y) {
+            if (!WorldGen.InWorld(x, y)) return;
+            if (Main.tile[x, y] == null) Main.tile[x, y] = new Tile();
+            Main.tile[x, y].type = (ushort)type;
+            Main.tile[x, y].active(true);
+        }
+
         public static void DeleteTile(int x, int y) {
             if (!WorldGen.InWorld(x, y) || Main.tile[x, y] == null) return;
             Main.tile[x, y].type = 0;
             Main.tile[x, y].active(false);
         }
+
+        public static void PlaceCircle(int type, int x, int y, int radius) {
+            for (int x2 = x - radius; x2 <= x + radius; x2++) {
+                for (int y2 = y - radius; y2 <= y + radius; y2++) {
+                    int distX = x2 - x;
+                    int distY = y2 - y;
+                    if (Math.Sqrt(distX * distX + distY * distY) <= radius) {
+                        PlaceTile(type, x2, y2);
+                    }
+                }
+            }
+        }
+
         public static void ClearCircle(int x, int y, int radius, Rectangle bounds = default) {
             for (int x2 = x - radius; x2 <= x + radius; x2++) {
                 for (int y2 = y - radius; y2 <= y + radius; y2++) {
