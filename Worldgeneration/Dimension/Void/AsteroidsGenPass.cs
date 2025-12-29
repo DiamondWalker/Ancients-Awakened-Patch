@@ -1,5 +1,8 @@
 ﻿using AAMod.Items.Blocks;
+using AAMod.Items.Usable;
 using AAMod.Tiles;
+using AAMod.Tiles.Chests;
+using AAMod.Tiles.Furniture.Doom;
 using AAMod.Util;
 using Microsoft.Xna.Framework;
 using SubworldLibrary;
@@ -20,6 +23,8 @@ namespace AAMod.Worldgeneration.Dimension.Void {
 
         public override void Apply(GenerationProgress progress) {
             progress.Message = Language.GetTextValue("Mods.AAMod.Common.AAVoidWorldBuildAsteroids");
+            ChestLootTable chestLootTable = new ChestLootTable()
+                .AddRandomEntry(new ChestLootEntry[] { ChestLootEntry.Create<CodeMagnetOff>(), ChestLootEntry.Create<RiftMirror>(), ChestLootEntry.Create<VoidUnit>() });
 
             for (int i = 0; i < 45; i++) {
                 int startX = Main.rand.Next(Main.maxTilesX);
@@ -50,6 +55,44 @@ namespace AAMod.Worldgeneration.Dimension.Void {
                         if (!visited.Contains(right)) positions.Add(right);
                         if (!visited.Contains(up)) positions.Add(up);
                         if (!visited.Contains(down)) positions.Add(down);
+                    }
+
+                    // treasure cache
+                    if (Main.rand.Next(1) == 0) {
+                        if (Main.rand.NextBool()) startX++;
+                        if (Main.rand.NextBool()) startY++;
+                        int minX = startX - 3;
+                        int maxX = startX + 2;
+                        int minY = startY - 3;
+                        int maxY = startY + 3;
+                        bool generate = true;
+                        for (int x = minX - 2; x <= maxX + 2; x++) {
+                            for (int y = minY - 2; y <= maxY + 2; y++) {
+                                if (!WorldGenUtil.IsTileOfType<Tiles.DoomstoneB>(x, y)) {
+                                    generate = false;
+                                }
+                            }
+                        }
+
+                        if (generate) {
+                            for (int x = minX + 1; x <= maxX - 1 ; x++) {
+                                for (int y = minY + 1; y <= maxY - 1; y++) {
+                                    WorldGenUtil.DeleteTile(x, y);
+                                    WorldGenUtil.PlaceWall<Walls.Bricks.DoomiteWall>(x, y);
+                                }
+                            }
+
+                            for (int x = minX; x <= maxX; x++) {
+                                WorldGenUtil.PlaceTile<Tiles.DoomitePlate>(x, maxY);
+                                WorldGenUtil.PlaceTile<Tiles.DoomitePlate>(x, minY);
+                            }
+                            for (int y = minY + 1; y <= maxY - 1 ; y++) {
+                                WorldGenUtil.PlaceTile<Tiles.DoomitePlate>(maxX, y);
+                                WorldGenUtil.PlaceTile<Tiles.DoomitePlate>(minX, y);
+                            }
+
+                            WorldGenUtil.PlaceChest<DoomChest>(startX - 1, maxY - 1, chestLootTable);
+                        }
                     }
                 }
             }
