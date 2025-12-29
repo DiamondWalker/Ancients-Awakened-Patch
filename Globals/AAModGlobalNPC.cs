@@ -112,7 +112,7 @@ namespace AAMod
 
                 npc.lifeRegen -= (int)(HydratoxinTime / 50 + 4) * 13;
             } else if (HydratoxinTime > 0) {
-                HydratoxinTime--;
+                HydratoxinTime = 0;
             }
 
             if (DiscordInferno)
