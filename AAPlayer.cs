@@ -35,6 +35,32 @@ namespace AAMod
 {
     public partial class AAPlayer : ModPlayer
     {
+        // when new broken code gets added. Should go in PreUpdateBuffs
+        /*player.position = player.oldPosition;
+        player.velocity = player.oldVelocity;
+        player.statLife = ;
+        player.direction = player.oldDirection;
+        player.controlLeft = false;
+        player.controlRight = false;
+        player.controlUp = false;
+        player.controlDown = false;
+        player.controlJump = false;
+        player.controlUseItem = false;
+        player.controlUseTile = false;
+        player.controlThrow = false;
+        player.controlInv = false;
+        player.controlHook = false;
+        player.controlTorch = false;
+        player.controlMap = false;
+        player.controlSmart = false;
+        player.controlMount = false;
+        player.controlQuickMana = false;
+        player.controlQuickHeal = false;
+
+        for (int i = 0; i < player.buffTime.Length; i++) {
+            player.buffTime[i]++;
+        }*/
+
         #region Variables
 
         #region Minions
