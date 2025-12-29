@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Yamata   //where is located
 {
@@ -54,6 +55,16 @@ Inflicts Moonrazed");
                 }
             }
             return false;
+        }
+
+        public override void AddRecipes() {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "EventideAbyssium", 5);
+            recipe.AddIngredient(null, "DreadScale", 5);
+            recipe.AddIngredient(ItemID.Seedler);
+            recipe.AddTile(null, "ACS");
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
     }
 }

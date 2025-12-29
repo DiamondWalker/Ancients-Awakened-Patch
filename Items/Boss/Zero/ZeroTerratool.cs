@@ -1,5 +1,6 @@
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Zero
 {
@@ -76,6 +77,17 @@ You may only have a maximum of 2 tool types active");
                 return false;
             }
             return true;
+        }
+
+        public override void AddRecipes() {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "ApocalyptitePlate", 5);
+            recipe.AddIngredient(null, "UnstableSingularity", 5);
+            recipe.AddRecipeGroup("AAMod:LunarPickaxe");
+            recipe.AddRecipeGroup("AAMod:LunarHamaxe");
+            recipe.AddTile(null, "ACS");
+            recipe.SetResult(this);
+            recipe.AddRecipe();
         }
     }
 }

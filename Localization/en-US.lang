@@ -290,30 +290,32 @@ Common.AAWorldBuildEquinoxAlt=Equalizing the Sun and Moon
 
 //AARecipeGroup
 
-Common.darkmatterhelmet= darkmatter helmet
-Common.radiumhelmet= radium helmet
-Common.goldbar= gold bar
-Common.celestialcraftingstation= celestial crafting station
-Common.ancientmaterial= ancient material
-Common.superancientmaterial= superancient material
-Common.worldevilmaterial= world evil material
-Common.hardmodeforge= hardmode forge
-Common.chaosclaw= chaos claw
-Common.ironbar= iron bar
-Common.copperbar= copper bar
-Common.silverbar= silver bar
-Common.evilbar= evil bar
-Common.chaosbar= chaos bar
-Common.EvilorChaosBar= evil/chaos bar
-Common.ancientcraftingstation= ancient crafting station
-Common.evilsummonstaff= evil summon staff
-Common.altar= altar
-Common.ChaosLeggings= Chaos Leggings
-Common.ChaosChestpiece= Chaos Chestpiece
-Common.hardmodeanvil= hardmode anvil
-Common.hardmodeforge= hardmode forge
-Common.ShinyCharm= Shiny Charm
-Common.DevBag= Dev Bag
+Common.darkmatterhelmet=Darkmatter Helmet
+Common.radiumhelmet=Radium Helmet
+Common.goldbar=Gold Bar
+Common.celestialcraftingstation=Celestial Crafting Station
+Common.ancientmaterial=Ancient Material
+Common.superancientmaterial=Superancient Material
+Common.worldevilmaterial=World Evil Material
+Common.hardmodeforge=Hardmode Forge
+Common.chaosclaw=Chaos Claw
+Common.ironbar=Iron Bar
+Common.copperbar=Copper Bar
+Common.silverbar=Silver Bar
+Common.evilbar=Evil Bar
+Common.chaosbar=Chaos Bar
+Common.EvilorChaosBar=Evil or Chaos Bar
+Common.ancientcraftingstation=Ancient Crafting Station
+Common.evilsummonstaff=Evil Summon Staff
+Common.altar=Altar
+Common.ChaosLeggings=Chaos Leggings
+Common.ChaosChestpiece=Chaos Chestpiece
+Common.hardmodeanvil=Hardmode Anvil
+Common.hardmodeforge=Hardmode Forge
+Common.ShinyCharm=Shiny Charm
+Common.DevBag=Dev Bag
+Common.lunarpickaxe=Lunar Pickaxe
+Common.lunarhamaxe=Lunar Hamaxe
 
 //AAConfig
 

@@ -1060,7 +1060,7 @@ namespace AAMod.Globals
                         ModContent.ItemType<Items.Boss.Akuma.YOTD>(),
                         ModContent.ItemType<Items.Boss.Akuma.DaybreakArrow>(),
                         ModContent.ItemType<Items.Boss.Akuma.Dawnstrike>(),
-                        ModContent.ItemType<Items.Boss.Akuma.SunStorm>(),
+                        ModContent.ItemType<Items.Boss.Akuma.Sunstorm>(),
                         ModContent.ItemType<Items.Boss.Akuma.Daystorm>(),
                         ModContent.ItemType<Items.Boss.Akuma.LungStaff>(),
                         ModContent.ItemType<Items.Boss.Akuma.AkumaTerratool>(),
