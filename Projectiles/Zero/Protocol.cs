@@ -238,7 +238,8 @@ namespace AAMod.Projectiles.Zero
                     projectile.velocity.Y = -0.05f;
                 }
             }
-            projectile.rotation = projectile.velocity.ToRotation() + 3.14159274f;
+            projectile.rotation = projectile.velocity.ToRotation();
+            if (projectile.spriteDirection == -1) projectile.rotation += 3.14159274f;
             projectile.frameCounter++;
             if (projectile.frameCounter > 6)
             {

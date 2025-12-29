@@ -104,7 +104,7 @@ Inflicts Discordian Inferno");
         public override void AddRecipes()  //How to craft this sword
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "SunStorm", 1);
+            recipe.AddIngredient(null, "Sunstorm", 1);
             recipe.AddIngredient(null, "Toxibomb", 1);
             recipe.AddIngredient(null, "ChaosScale", 5);
             recipe.AddIngredient(null, "Discordium", 5);

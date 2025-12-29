@@ -50,5 +50,15 @@ namespace AAMod.Items.Boss.Yamata
         {
             return player.ownedProjectileCounts[item.shoot] < 1; // This is to ensure the spear doesn't bug out when using autoReuse = true
         }
+
+        public override void AddRecipes() {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "EventideAbyssium", 5);
+            recipe.AddIngredient(null, "DreadScale", 5);
+            recipe.AddIngredient(null, "DuskBringer");
+            recipe.AddTile(null, "ACS");
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+        }
     }
 }

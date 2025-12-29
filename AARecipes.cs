@@ -1112,6 +1112,24 @@ namespace AAMod
             });
             RecipeGroup.RegisterGroup("AAMod:TerraPlates", group25);
 
+            RecipeGroup group26 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAMod.Common.lunarpickaxe"), new int[]
+            {
+                ItemID.SolarFlarePickaxe,
+                ItemID.VortexPickaxe,
+                ItemID.NebulaPickaxe,
+                ItemID.StardustPickaxe
+            });
+            RecipeGroup.RegisterGroup("AAMod:LunarPickaxe", group26);
+
+            RecipeGroup group = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " + Language.GetTextValue("Mods.AAMod.Common.lunarhamaxe"), new int[]
+            {
+                ItemID.LunarHamaxeSolar,
+                ItemID.LunarHamaxeVortex,
+                ItemID.LunarHamaxeNebula,
+                ItemID.LunarHamaxeStardust
+            });
+            RecipeGroup.RegisterGroup("AAMod:LunarHamaxe", group);
+
             if (RecipeGroup.recipeGroupIDs.ContainsKey("Wood"))
             {
                 int index = RecipeGroup.recipeGroupIDs["Wood"];
