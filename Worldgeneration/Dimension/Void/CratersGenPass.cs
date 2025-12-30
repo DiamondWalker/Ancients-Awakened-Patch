@@ -19,7 +19,8 @@ namespace AAMod.Worldgeneration.Dimension.Void {
             progress.Message = Language.GetTextValue("Mods.AAMod.Common.AAVoidWorldBuildCraters");
 
             Rectangle[] islands = IslandsGenPass.islands.ToArray();
-            for (int i = 0; i < 16000; i++) {
+            int cratersCount = (int)((1.0 + 0.5 * AAWorld.GetWorldSize()) * 8000);
+            for (int i = 0; i < cratersCount; i++) {
                 int x = Main.rand.Next(Main.maxTilesX);
                 int y = Main.rand.Next(Main.maxTilesY);
 

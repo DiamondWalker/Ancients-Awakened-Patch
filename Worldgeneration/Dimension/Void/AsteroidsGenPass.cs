@@ -15,6 +15,10 @@ using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.World.Generation;
+using Terraria.ID;
+using AAMod.Items.Throwing;
+using AAMod.Items.Ranged.Ammo;
+using AAMod.Items.Materials;
 
 namespace AAMod.Worldgeneration.Dimension.Void {
     public class AsteroidsGenPass : GenPass {
@@ -23,10 +27,62 @@ namespace AAMod.Worldgeneration.Dimension.Void {
 
         public override void Apply(GenerationProgress progress) {
             progress.Message = Language.GetTextValue("Mods.AAMod.Common.AAVoidWorldBuildAsteroids");
-            ChestLootTable chestLootTable = new ChestLootTable()
-                .AddRandomEntry(new ChestLootEntry[] { ChestLootEntry.Create<CodeMagnetOff>(), ChestLootEntry.Create<RiftMirror>(), ChestLootEntry.Create<VoidUnit>() });
 
-            for (int i = 0; i < 45; i++) {
+            int chestsGenerated = 0;
+
+            IChestLootComponent chestLootTable = new CombinationLootComponent(
+                new SelectRandomLootComponent(
+                    new SingleItemLootComponent(ModContent.ItemType<CodeMagnetOff>()),
+                    new SingleItemLootComponent(ModContent.ItemType<RiftMirror>()),
+                    new SingleItemLootComponent(ModContent.ItemType<VoidUnit>())
+                ),
+                new CombinationLootComponent(
+                    new ChanceLootComponent(
+                        0.5f,
+                        new ItemStackLootComponent(ItemID.SuperHealingPotion, 3, 5)
+                    ),
+                    new ChanceLootComponent(
+                        0.5f,
+                        new SelectRandomLootComponent(
+                            new ItemStackLootComponent(ItemID.LunarBar, 3, 5),
+                            new ItemStackLootComponent(ModContent.ItemType<RadiumBar>(), 3, 5),
+                            new ItemStackLootComponent(ModContent.ItemType<DarkMatter>(), 3, 5),
+                            new ItemStackLootComponent(ModContent.ItemType<ApocalyptitePlate>(), 3, 5)
+                        )
+                    ),
+                    new ChanceLootComponent(
+                        0.5f,
+                        new SelectRandomLootComponent(
+                            new ItemStackLootComponent(ItemID.FragmentSolar, 5, 10),
+                            new ItemStackLootComponent(ItemID.FragmentVortex, 5, 10),
+                            new ItemStackLootComponent(ItemID.FragmentNebula, 5, 10),
+                            new ItemStackLootComponent(ItemID.FragmentStardust, 5, 10)
+                        )
+                    ),
+                    new ChanceLootComponent(
+                        0.5f,
+                        new SelectRandomLootComponent(
+                            new ItemStackLootComponent(ModContent.ItemType<DarkmatterKunai>(), 50, 99),
+                            new ItemStackLootComponent(ItemID.MoonlordArrow, 50, 99),
+                            new ItemStackLootComponent(ModContent.ItemType<RadiumArrow>(), 50, 99),
+                            new ItemStackLootComponent(ModContent.ItemType<DarkmatterArrow>(), 50, 99)
+                        )
+                    ),
+                    new ChanceLootComponent(
+                        0.8f,
+                        new SelectRandomLootComponent(
+                            // buff potions
+                        )
+                    ),
+                    new ChanceLootComponent(
+                        0.5f,
+                        new ItemStackLootComponent(ItemID.PlatinumCoin, 1, 2)
+                    )
+                )
+            );
+
+            int asteroids = (int)((1.0 + 0.5 * AAWorld.GetWorldSize()) * 60);
+            for (int i = 0; i < asteroids; i++) {
                 int startX = Main.rand.Next(Main.maxTilesX);
                 int startY = Main.rand.Next(Main.maxTilesY);
                 if (!OverlapsIslands(startX, startY)) {
@@ -58,7 +114,7 @@ namespace AAMod.Worldgeneration.Dimension.Void {
                     }
 
                     // treasure cache
-                    if (Main.rand.Next(1) == 0) {
+                    if (Main.rand.Next(5) == 0) {
                         if (Main.rand.NextBool()) startX++;
                         if (Main.rand.NextBool()) startY++;
                         int minX = startX - 3;
@@ -92,10 +148,13 @@ namespace AAMod.Worldgeneration.Dimension.Void {
                             }
 
                             WorldGenUtil.PlaceChest<DoomChest>(startX - 1, maxY - 1, chestLootTable);
+                            chestsGenerated++;
                         }
                     }
                 }
             }
+
+            Main.NewText(chestsGenerated + " chests generated");
         }
 
         private bool OverlapsIslands(int x, int y) {

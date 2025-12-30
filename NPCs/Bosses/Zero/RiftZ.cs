@@ -21,13 +21,13 @@ namespace AAMod.NPCs.Bosses.Zero
             projectile.alpha = 255;
             projectile.tileCollide = false;
             projectile.penetrate = 1;
-            projectile.timeLeft = 180;
+            projectile.timeLeft = 360;
         }
 
         public override void AI()
         {
             projectile.rotation += 0.03f;
-            if (projectile.timeLeft > 40)
+            if (projectile.timeLeft > 80)
             {
                 if (projectile.alpha > 30)
                 {
@@ -41,12 +41,16 @@ namespace AAMod.NPCs.Bosses.Zero
             else
             {
                 projectile.alpha += 3;
+                if (projectile.alpha >= 255) {
+                    projectile.active = false;
+                    return;
+                }
             }
 
             const int aislotHomingCooldown = 0;
             const int homingDelay = 30;
             const float desiredFlySpeedInPixelsPerFrame = 10;
-            const float amountOfFramesToLerpBy = 20; // minimum of 1, please keep in full numbers even though it's a float!
+            const float amountOfFramesToLerpBy = 40; // minimum of 1, please keep in full numbers even though it's a float!
 
             projectile.ai[aislotHomingCooldown]++;
             if (projectile.ai[aislotHomingCooldown] > homingDelay)
@@ -65,19 +69,14 @@ namespace AAMod.NPCs.Bosses.Zero
 
         private int HomeOnTarget()
         {
-            const float homingMaximumRangeInPixels = 400;
-
             int selectedTarget = -1;
-            for (int i = 0; i < Main.maxNPCs; i++)
+            for (int i = 0; i < Main.player.Length; i++)
             {
-                Player n = Main.player[i];
-                float distance = projectile.Distance(n.Center);
-                if (distance <= homingMaximumRangeInPixels &&
-                    (
-                        selectedTarget == -1 || //there is no selected target
-                        projectile.Distance(Main.npc[selectedTarget].Center) > distance)
-                )
+                Player newTarget = Main.player[i];
+                float distanceToNewTarget = projectile.Distance(newTarget.Center);
+                if (selectedTarget == -1 || projectile.Distance(Main.npc[selectedTarget].Center) > distanceToNewTarget) { // no previous target or previous target is further than current
                     selectedTarget = i;
+                }
             }
 
             return selectedTarget;
