@@ -154,9 +154,9 @@ namespace AAMod.NPCs.Enemies.Void
 			}
 		}
 
-        public override void NPCLoot() {
+        /*public override void NPCLoot() {
             Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Apocalyptite"));
-        }
+        }*/
 
         public override bool PreDraw(SpriteBatch spriteBatch, Color drawColor)
         {

@@ -95,7 +95,7 @@ namespace AAMod.Worldgeneration.Dimension.Void {
                 for (int j = surfaceY; j < bottomY; j++) {
                     float progY = (float)(j - y) / (height * 2);
                     int horizontalSlantOffset = (int)Math.Round(slant * (progY - 0.5f) * width);
-                    WorldGenUtil.PlaceTile(ModContent.TileType<Tiles.DoomstoneB>(), currX - horizontalSlantOffset, j);
+                    WorldGenUtil.PlaceTile(ModContent.TileType<Tiles.Doomstone>(), currX - horizontalSlantOffset, j);
                 }
 
                 i++;

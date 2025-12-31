@@ -108,6 +108,25 @@ namespace AAMod.Util {
                 }
             }
         }
+
+        public static void ReplaceTile(int x, int y, int typeToReplace, int replacementType) {
+            if (IsTileOfType(typeToReplace, x, y)) {
+                Main.tile[x, y].type = (ushort)replacementType;
+                //NetMessage.SendObjectPlacment(-1, x, y, (ushort)replacementType, 0, 0, -1, -1);
+            }
+        }
+
+        public static void ReplaceCircle(int x, int y, int radius, int typeToReplace, int replacementType, Rectangle bounds = default) {
+            for (int x2 = x - radius; x2 <= x + radius; x2++) {
+                for (int y2 = y - radius; y2 <= y + radius; y2++) {
+                    int distX = x2 - x;
+                    int distY = y2 - y;
+                    if ((bounds == default || bounds.Contains(x2, y2)) && Math.Sqrt(distX * distX + distY * distY) <= radius) {
+                        ReplaceTile(x2, y2, typeToReplace, replacementType);
+                    }
+                }
+            }
+        }
     }
 
     public interface IChestLootComponent {

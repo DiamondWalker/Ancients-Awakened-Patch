@@ -39,9 +39,9 @@ namespace AAMod.NPCs.Enemies.Void
         public float Rotation = 0;
         public float RotationVel;// { get => npc.ai[0]; set => npc.ai[0] = value; }
 
-        public override void NPCLoot() {
+        /*public override void NPCLoot() {
             Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("Apocalyptite"));
-        }
+        }*/
 
         public override void AI()
         {

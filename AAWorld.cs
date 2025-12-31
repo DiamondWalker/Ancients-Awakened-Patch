@@ -1075,16 +1075,6 @@ namespace AAMod
                 MiniIsland(position, 60);
                 posIslands.Add(position);
                 oldposition = position;
-                for (int k = 0; k < posIslands.Count; ++k)
-                {
-                    for (int FuckWorldGen = 0; FuckWorldGen < 6; ++FuckWorldGen)
-                    {
-                        Point randompoint = new Point(
-                            posIslands[k].X + WorldGen.genRand.Next(-30, 31),
-                            posIslands[k].Y + WorldGen.genRand.Next(7, 42));
-                        WorldGen.TileRunner(randompoint.X, randompoint.Y, WorldGen.genRand.Next(5, 8), WorldGen.genRand.Next(6, 13), mod.TileType("Apocalyptite"), false, 0f, 0f, false, true);
-                    }
-                }
             }
             progress.Set(0.85f);
             for (int j = 0; j < posIslands.Count; ++j)

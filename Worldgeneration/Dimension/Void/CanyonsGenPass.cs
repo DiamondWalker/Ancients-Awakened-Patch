@@ -1,4 +1,6 @@
-﻿using AAMod.Util;
+﻿using AAMod.Tiles;
+using AAMod.Tiles.Ore;
+using AAMod.Util;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -8,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Terraria;
 using Terraria.Localization;
+using Terraria.ModLoader;
 using Terraria.World.Generation;
 
 namespace AAMod.Worldgeneration.Dimension.Void {
@@ -43,6 +46,7 @@ namespace AAMod.Worldgeneration.Dimension.Void {
                 x = (int)Math.Round(pos.X);
                 y = (int)Math.Round(pos.Y);
 
+                //WorldGenUtil.ReplaceCircle(x, y, (int)Math.Round(radius) + 1 + Main.rand.Next(3), ModContent.TileType<Doomstone>(), ModContent.TileType<Apocalyptite>(), bounds);
                 WorldGenUtil.ClearCircle(x, y, (int)Math.Round(radius), bounds);
             }
         }
