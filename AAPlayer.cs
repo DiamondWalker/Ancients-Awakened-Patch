@@ -31,37 +31,12 @@ using Terraria.Localization;
 using Terraria.Audio;
 using AAMod.Util;
 using AAMod.Worldgeneration.Dimension.Void;
+using System.Runtime.CompilerServices;
 
 namespace AAMod
 {
     public partial class AAPlayer : ModPlayer
     {
-        // when new broken code gets added. Should go in PreUpdateBuffs
-        /*player.position = player.oldPosition;
-        player.velocity = player.oldVelocity;
-        player.statLife = ;
-        player.direction = player.oldDirection;
-        player.controlLeft = false;
-        player.controlRight = false;
-        player.controlUp = false;
-        player.controlDown = false;
-        player.controlJump = false;
-        player.controlUseItem = false;
-        player.controlUseTile = false;
-        player.controlThrow = false;
-        player.controlInv = false;
-        player.controlHook = false;
-        player.controlTorch = false;
-        player.controlMap = false;
-        player.controlSmart = false;
-        player.controlMount = false;
-        player.controlQuickMana = false;
-        player.controlQuickHeal = false;
-
-        for (int i = 0; i < player.buffTime.Length; i++) {
-            player.buffTime[i]++;
-        }*/
-
         #region Variables
 
         #region Minions
@@ -248,7 +223,10 @@ namespace AAMod
         public bool HydraPendant;
         public bool demonGauntlet;
         public bool BrokenCode = false;
-        public bool CodeOn = true;
+        public bool CodeOn = false;
+        public Vector2 headOffset = Vector2.Zero;
+        public Vector2 bodyOffset = Vector2.Zero;
+        public Vector2 legOffset = Vector2.Zero;
         public int CodeCD = 0;
         public int AbilityCD = 180;
         public bool AshRemover;
@@ -321,7 +299,7 @@ namespace AAMod
         #region buffs
 
         public bool Ronin = false;
-        public bool Glitched = false;
+        //public bool Glitched = false;
         public bool Greed1 = false;
         public bool Greed2 = false;
         public float GreedyDamage = 0;
@@ -973,12 +951,6 @@ namespace AAMod
             {
                 npc.AddBuff(ModContent.BuffType<DragonFire>(), 180);
                 npc.AddBuff(ModContent.BuffType<HydraToxin>(), 180);
-            }
-
-            if (BrokenCode)
-            {
-                player.AddBuff(BuffID.Panic, 180);
-                player.immuneTime = player.longInvince ? 180 : 120;
             }
 
             if (npc.type == NPCID.GoblinArcher
@@ -2097,6 +2069,39 @@ namespace AAMod
 			}
 		}
 
+        /*public override void PreUpdateBuffs() {
+            foreach (Player p in Main.player) {
+                if (p != null && p.active && p.HasBuff(ModContent.BuffType<Glitched>())) {
+                    p.position = p.oldPosition;
+                    p.velocity = p.oldVelocity;
+                    //p.statLife = ;
+                    p.direction = p.oldDirection;
+                    p.controlLeft = false;
+                    p.controlRight = false;
+                    p.controlUp = false;
+                    p.controlDown = false;
+                    p.controlJump = false;
+                    p.controlUseItem = false;
+                    p.controlUseTile = false;
+                    p.controlThrow = false;
+                    p.controlInv = false;
+                    p.controlHook = false;
+                    p.controlTorch = false;
+                    p.controlMap = false;
+                    p.controlSmart = false;
+                    p.controlMount = false;
+                    p.controlQuickMana = false;
+                    p.controlQuickHeal = false;
+
+                    for (int i = 0; i < p.buffTime.Length; i++) {
+                        p.buffTime[i]++;
+                    }
+                }
+            }
+
+            base.PreUpdateBuffs();
+        }*/
+
         public override void PostUpdateBuffs()
         {
             if (player.mount.Active || player.mount.Cart)
@@ -3195,60 +3200,42 @@ namespace AAMod
             }
 
             if (BrokenCode) {
-                if (AAMod.AccessoryAbilityKey.JustPressed && CodeCD == 0 && Main.myPlayer == player.whoAmI) {
-                    Vector2 vector32;
-                    vector32.X = Main.mouseX + Main.screenPosition.X;
-                    if (player.gravDir == 1f) {
-                        vector32.Y = Main.mouseY + Main.screenPosition.Y - player.height;
-                    } else {
-                        vector32.Y = Main.screenPosition.Y + Main.screenHeight - Main.mouseY;
-                    }
-                    vector32.X -= player.width / 2;
-                    if (vector32.X > 50f && vector32.X < (Main.maxTilesX * 16) - 50 && vector32.Y > 50f && vector32.Y < (Main.maxTilesY * 16) - 50) {
-                        int num246 = (int)(vector32.X / 16f);
-                        int num247 = (int)(vector32.Y / 16f);
-                        if ((Main.tile[num246, num247].wall != 87 || num247 <= Main.worldSurface || NPC.downedPlantBoss) && !Collision.SolidCollision(vector32, player.width, player.height)) {
-                            player.Teleport(vector32, 1, 0);
-                            NetMessage.SendData(65, -1, -1, null, 0, player.whoAmI, vector32.X, vector32.Y, 1, 0, 0);
+                if (AAMod.AccessoryAbilityKey.JustPressed && Main.myPlayer == player.whoAmI) {
+                    if (!player.HasBuff(ModContent.BuffType<Glitched>())) {
+                        // pause time
+                        if (CodeCD <= 0) {
+                            CodeCD = 60 * 20; // 20 seconds
                             Main.PlaySound(AAMod.instance.GetLegacySoundSlot(Terraria.ModLoader.SoundType.Custom, "Sounds/Sounds/Glitch"));
-                            CodeCD = 600;
-                            player.AddBuff(ModContent.BuffType<Buffs.Glitched>(), 300);
+                            player.AddBuff(ModContent.BuffType<Glitched>(), 160);
                         }
                     }
                 }
-                if (CodeCD > 300) {
-                    if (CodeCD > 450) {
-                        player.immuneNoBlink = true;
-                    } else {
-                        player.immuneNoBlink = false;
-                    }
-                    if (CodeOn) {
-                        CodeOn = false;
-                        player.moveSpeed += 5f;
-                        player.headPosition.Y -= 20f;
-                        player.headPosition.X += 15f;
-                        player.bodyPosition.Y += 37f;
-                        player.bodyPosition.X -= 23f;
-                        player.legPosition.Y += 20f;
-                        player.legPosition.X -= 12f;
-                    }
-                } else {
-                    if (!CodeOn) {
-                        CodeOn = true;
-                        player.moveSpeed -= 5f;
-                        player.headPosition.Y += 20f;
-                        player.headPosition.X -= 15f;
-                        player.bodyPosition.Y -= 37f;
-                        player.bodyPosition.X += 23f;
-                        player.legPosition.Y -= 20f;
-                        player.legPosition.X += 12f;
-                    }
-                }
-                if (CodeCD > 0) {
-                    CodeCD--;
-                }
             }
 
+            if (CodeCD > 0) {
+                if (!CodeOn) {
+                    headOffset = new Vector2(Main.rand.NextFloat() * 80 - 40, Main.rand.NextFloat() * 80 - 40);
+                    bodyOffset = new Vector2(Main.rand.NextFloat() * 80 - 40, Main.rand.NextFloat() * 80 - 40);
+                    legOffset = new Vector2(Main.rand.NextFloat() * 80 - 40, Main.rand.NextFloat() * 80 - 40);
+                    player.headPosition += headOffset;
+                    player.bodyPosition += bodyOffset;
+                    player.legPosition += legOffset;
+                    CodeOn = true;
+                }
+
+                CodeCD--;
+            } else {
+                if (CodeOn) {
+                    player.headPosition -= headOffset;
+                    player.bodyPosition -= bodyOffset;
+                    player.legPosition -= legOffset;
+                    headOffset = Vector2.Zero;
+                    bodyOffset = Vector2.Zero;
+                    legOffset = Vector2.Zero;
+                    CodeOn = false;
+                }
+            }
+            
             if (ChaosRa2)
             {
                 if (AAMod.ArmorAbilityKey.JustPressed && AbilityCD == 0)

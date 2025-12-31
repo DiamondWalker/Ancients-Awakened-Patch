@@ -8,18 +8,14 @@ namespace AAMod.Items.Boss.Zero
     public class BrokenCode : BaseAAItem
     {
         
-        public bool on = true;
-
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Broken Code");
-            Tooltip.SetDefault(@"Pressing the accessory ability hotkey allows you to glitch with a 5 second cooldown
-While cooldown is occurring, your speed is increased, you gain invincibility frames
-While cooldown is occurring, your magic/summon weapons require no mana and have 20% increased damage
-Teleportation has 15 second cooldown
-'You don't look so good'
-WARNING: May permanently displace appendages until game restart. This is a feature.");
-            ItemID.Sets.ItemNoGravity[item.type] = true;
+            Tooltip.SetDefault(@"Pressing the accessory ability hotkey allows you to glitch the game with a 20 second cooldown
+Glitching the game causes all entities to freeze for 2.5 seconds and displaces your body parts for the duration of the cooldown
+Pressing the accessory ability hotkey again during the freeze period will fix the freeze and telport the player to the cursor
+'You don't look so good'");
+            //ItemID.Sets.ItemNoGravity[item.type] = true;
         }
 
         // TODO -- Velocity Y smaller, post NewItem?

@@ -9,19 +9,10 @@ namespace AAMod.Buffs
 		{
 			DisplayName.SetDefault("Glitched");
 			Description.SetDefault("Your head is like 10 feet in front of you");
-			Main.persistentBuff[Type] = true;
-			Main.meleeBuff[Type] = true;
+			//Main.persistentBuff[Type] = true;
+			//Main.meleeBuff[Type] = true;
 			canBeCleared = false;
-
+			
 		}
-
-
-        public override void Update(Player player, ref int index)
-        {
-            base.Update(player, ref index);
-            player.manaCost *= 0;
-            player.magicDamage += .2f;
-            player.minionDamage += .2f;
-        }
     }
 }
