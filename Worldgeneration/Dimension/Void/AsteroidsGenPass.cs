@@ -33,9 +33,7 @@ namespace AAMod.Worldgeneration.Dimension.Void {
             IChestLootComponent chestLootTable = new CombinationLootComponent(
                 new SelectRandomLootComponent(
                     new SingleItemLootComponent(ModContent.ItemType<CodeMagnetOff>()),
-                    new SingleItemLootComponent(ModContent.ItemType<RiftMirror>()),
-                    new SingleItemLootComponent(ModContent.ItemType<VoidUnit>()),
-                    new SingleItemLootComponent(ModContent.ItemType<EntropyCrystal>())
+                    new SingleItemLootComponent(ModContent.ItemType<RiftMirror>())
                 ),
                 new CombinationLootComponent(
                     new ChanceLootComponent(
