@@ -19,6 +19,7 @@ using Terraria.ID;
 using AAMod.Items.Throwing;
 using AAMod.Items.Ranged.Ammo;
 using AAMod.Items.Materials;
+using AAMod.Items.Accessories;
 
 namespace AAMod.Worldgeneration.Dimension.Void {
     public class AsteroidsGenPass : GenPass {
@@ -33,7 +34,8 @@ namespace AAMod.Worldgeneration.Dimension.Void {
             IChestLootComponent chestLootTable = new CombinationLootComponent(
                 new SelectRandomLootComponent(
                     new SingleItemLootComponent(ModContent.ItemType<CodeMagnetOff>()),
-                    new SingleItemLootComponent(ModContent.ItemType<RiftMirror>())
+                    new SingleItemLootComponent(ModContent.ItemType<RiftMirror>()),
+                    new SingleItemLootComponent(ModContent.ItemType<Replicator>())
                 ),
                 new CombinationLootComponent(
                     new ChanceLootComponent(

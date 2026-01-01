@@ -253,6 +253,7 @@ namespace AAMod
         public bool RajahCape = false;
         public bool olympianWings = false;
         public bool BlackLotusEmblem = false;
+        public bool Replicator = false;
 
         public bool SagShield = false;
         public bool ShieldUp = false;
@@ -566,6 +567,7 @@ namespace AAMod
             OldOneCharm = false;
             SpellBookofRagnarok = false;
             CursedEyeofSoulBinder = false;
+            Replicator = false;
         }
 
         private void ResetBuffEffect()
@@ -3834,6 +3836,8 @@ namespace AAMod
 
         public override bool ConsumeAmmo(Item weapon, Item ammo)
         {
+            if (Replicator) return false;
+
             if (ammo20percentdown && Main.rand.Next(5) == 0)
             {
                 return false;
