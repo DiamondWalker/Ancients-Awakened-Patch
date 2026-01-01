@@ -34,7 +34,8 @@ namespace AAMod.Worldgeneration.Dimension.Void {
                 new SelectRandomLootComponent(
                     new SingleItemLootComponent(ModContent.ItemType<CodeMagnetOff>()),
                     new SingleItemLootComponent(ModContent.ItemType<RiftMirror>()),
-                    new SingleItemLootComponent(ModContent.ItemType<VoidUnit>())
+                    new SingleItemLootComponent(ModContent.ItemType<VoidUnit>()),
+                    new SingleItemLootComponent(ModContent.ItemType<EntropyCrystal>())
                 ),
                 new CombinationLootComponent(
                     new ChanceLootComponent(

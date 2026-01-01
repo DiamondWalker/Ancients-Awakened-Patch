@@ -60,7 +60,7 @@ namespace AAMod.Worldgeneration.Dimension.Void
             for (int i = 185; i <= 187; i++) {
                 Main.backgroundTexture[i] = ModContent.GetInstance<AAMod>().GetTexture("BlankTex");
             }
-            //SLWorld.noReturn = true;
+            SLWorld.noReturn = true;
         }
 
         public override void Unload() {

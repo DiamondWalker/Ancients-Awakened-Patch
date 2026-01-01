@@ -1071,7 +1071,7 @@ namespace AAMod.Globals
                     "AAMod/CrossMod/BossChecklist/Akuma",
                     "AAMod/NPCs/Bosses/Akuma/Akuma_Head_Boss");
 
-                bossChecklist.Call("AddBoss", 18.05f, mod.NPCType("AkumaA"), mod,
+                /*bossChecklist.Call("AddBoss", 18.05f, mod.NPCType("AkumaA"), mod,
                     Lang.BossCheck("AkumaA"),
                     (Func<bool>)(() => AAWorld.downedAkuma),
                     ModContent.ItemType<DraconianRune>(),
@@ -1090,7 +1090,7 @@ namespace AAMod.Globals
                     null,
                     "AAMod/CrossMod/BossChecklist/AkumaA",
                     "AAMod/NPCs/Bosses/Akuma/Awakened/AkumaA_Head_Boss",
-                    (Func<bool>)(() => AAWorld.downedAkuma && Main.expertMode));
+                    (Func<bool>)(() => AAWorld.downedAkuma && Main.expertMode));*/
                 #endregion
 
                 #region Yamata
@@ -1126,7 +1126,7 @@ namespace AAMod.Globals
                     "AAMod/CrossMod/BossChecklist/Yamata",
                     "AAMod/NPCs/Bosses/Yamata/YamataHead_Head_Boss");
 
-                bossChecklist.Call("AddBoss", 18.15f, mod.NPCType("YamataA"), mod,
+                /*bossChecklist.Call("AddBoss", 18.15f, mod.NPCType("YamataA"), mod,
                     Lang.BossCheck("YamataA"),
                     (Func<bool>)(() => AAWorld.downedYamata),
                     ModContent.ItemType<DreadRune>(),
@@ -1145,7 +1145,7 @@ namespace AAMod.Globals
                     null,
                     "AAMod/CrossMod/BossChecklist/YamataA",
                     "AAMod/NPCs/Bosses/Yamata/Awakened/YamataAHead_Head_Boss",
-                    (Func<bool>)(() => AAWorld.downedYamata && Main.expertMode));
+                    (Func<bool>)(() => AAWorld.downedYamata && Main.expertMode));*/
                 #endregion
                 
                 #region Zero
@@ -1184,7 +1184,7 @@ namespace AAMod.Globals
                     "AAMod/CrossMod/BossChecklist/Zero",
                     "AAMod/NPCs/Bosses/Zero/Zero_Head_Boss");
 
-                bossChecklist.Call("AddBoss", 18.25f, mod.NPCType("ZeroProtocol"), mod,
+                /*bossChecklist.Call("AddBoss", 18.25f, mod.NPCType("ZeroProtocol"), mod,
                     Lang.BossCheck("ZeroP"),
                     (Func<bool>)(() => AAWorld.downedZero),
                     ModContent.ItemType<ZeroRune>(),
@@ -1201,7 +1201,7 @@ namespace AAMod.Globals
                     null,
                     "AAMod/CrossMod/BossChecklist/ZeroProtocol",
                     "AAMod/NPCs/Bosses/Zero/Protocol/ZeroProtocol_Head_Boss",
-                    (Func<bool>)(() => AAWorld.downedZero && Main.expertMode));
+                    (Func<bool>)(() => AAWorld.downedZero && Main.expertMode));*/
                 #endregion
 
                 #region Champion Rajah Rabbit
@@ -1261,7 +1261,7 @@ namespace AAMod.Globals
                     "AAMod/CrossMod/BossChecklist/Shen",
                     "AAMod/NPCs/Bosses/Shen/Shen_Head_Boss");
 
-                bossChecklist.Call("AddBoss", 20.1f, mod.NPCType("ShenA"), mod,
+                /*bossChecklist.Call("AddBoss", 20.1f, mod.NPCType("ShenA"), mod,
                     Lang.BossCheck("ShenDoragonA"),
                     (Func<bool>)(() => AAWorld.downedShen),
                     ModContent.ItemType<ChaosRune>(),
@@ -1280,7 +1280,7 @@ namespace AAMod.Globals
                     null,
                     "AAMod/CrossMod/BossChecklist/ShenA",
                     "AAMod/NPCs/Bosses/Shen/Protocol/ShenA_Head_Boss",
-                    (Func<bool>)(() => AAWorld.downedShen && Main.expertMode));
+                    (Func<bool>)(() => AAWorld.downedShen && Main.expertMode));*/
                 #endregion
 
                 // SlimeKing = 1f;

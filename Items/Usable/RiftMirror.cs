@@ -33,15 +33,5 @@ Returning to your previous rift location will trigger a 10-second cooldown on th
             item.useTime = 15;
             item.consumable = false;
         }
-
-        public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.MagicMirror);
-            recipe.AddIngredient(ItemID.IceMirror);
-            recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
-        }
     }
 }
