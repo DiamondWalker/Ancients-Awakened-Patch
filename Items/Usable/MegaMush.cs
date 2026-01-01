@@ -18,8 +18,9 @@ namespace AAMod.Items.Usable {
             item.maxStack = 1;
             item.potion = false;
             item.healLife = 0;
-            item.width = 32;
-            item.height = 32;
+            item.width = 30;
+            item.height = 28;
+            item.rare = 2;
             item.value = Item.sellPrice(0, 2, 0, 0);
         }
 
