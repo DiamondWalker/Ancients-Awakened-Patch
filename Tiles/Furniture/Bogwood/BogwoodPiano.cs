@@ -1,14 +1,13 @@
-using System;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
-using Terraria.ID;
+using Terraria.DataStructures;
 using Terraria.Enums;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using Terraria.DataStructures;
 
-namespace AAMod.Tiles.Furniture.Bogwood
-{
+namespace AAMod.Tiles.Furniture.Bogwood {
     public class BogwoodPiano : ModTile
 	{
 		public override void SetDefaults()

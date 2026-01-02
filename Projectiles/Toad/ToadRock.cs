@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Toad
-{
+namespace AAMod.Projectiles.Toad {
     public class ToadRock : ModProjectile
     {
         public override void SetDefaults()

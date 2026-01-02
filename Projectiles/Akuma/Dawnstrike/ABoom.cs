@@ -1,10 +1,9 @@
-using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Akuma.Dawnstrike
-{
+namespace AAMod.Projectiles.Akuma.Dawnstrike {
     public class ABoom : ModProjectile
     {
         public override void SetStaticDefaults()

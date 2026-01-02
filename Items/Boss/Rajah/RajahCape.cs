@@ -1,8 +1,10 @@
+using AAMod.Globals.Players;
+using AAMod.Items.Base;
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.Localization;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using System.Collections.Generic;
 
 namespace AAMod.Items.Boss.Rajah
 {

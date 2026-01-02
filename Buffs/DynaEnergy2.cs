@@ -1,8 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Buffs
-{
+namespace AAMod.Buffs {
     public class DynaEnergy2 : ModBuff
 	{
 		public override void SetDefaults()

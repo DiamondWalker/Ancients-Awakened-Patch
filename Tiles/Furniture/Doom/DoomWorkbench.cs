@@ -5,8 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Furniture.Doom
-{
+namespace AAMod.Tiles.Furniture.Doom {
     public class DoomWorkbench : ModTile
 	{
 		public override void SetDefaults()

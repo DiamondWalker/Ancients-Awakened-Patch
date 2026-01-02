@@ -1,10 +1,11 @@
+using AAMod.Items.Base;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Magic
 {
-	public class SludgeShot : BaseAAItem
+    public class SludgeShot : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{

@@ -1,9 +1,10 @@
-using Microsoft.Xna.Framework.Graphics;
-using Terraria;
-using System;
+using AAMod.Items.Base;
 using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using Terraria;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Armor.Darkmatter
 {

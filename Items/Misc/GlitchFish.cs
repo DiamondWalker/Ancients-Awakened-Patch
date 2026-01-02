@@ -1,4 +1,6 @@
-﻿namespace AAMod.Items.Misc
+﻿using AAMod.Items.Base;
+
+namespace AAMod.Items.Misc
 {
     public class GlitchFish : BaseAAItem
     {

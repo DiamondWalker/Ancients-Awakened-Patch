@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using AAMod.Globals.Players;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Summoning.Minions
-{
+namespace AAMod.Items.Summoning.Minions {
     public class DragonTail : ModProjectile
     {
         public override void SetStaticDefaults()

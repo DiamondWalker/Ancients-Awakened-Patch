@@ -1,11 +1,10 @@
+using AAMod.Util;
+using System;
 using Terraria;
 using Terraria.ID;
-using System;
 using Terraria.ModLoader;
-using AAMod.Util;
 
-namespace AAMod.NPCs.Enemies.Other
-{
+namespace AAMod.NPCs.Enemies.Other {
     public class HydraClaw : ModNPC
     {
         public override void SetStaticDefaults()

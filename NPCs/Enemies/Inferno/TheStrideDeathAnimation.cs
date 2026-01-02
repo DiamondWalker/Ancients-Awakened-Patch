@@ -3,8 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Inferno
-{
+namespace AAMod.NPCs.Enemies.Inferno {
     public class TheStrideDeathAnimation : ModNPC
     {
         public override void SetStaticDefaults()

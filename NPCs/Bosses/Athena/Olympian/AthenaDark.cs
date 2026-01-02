@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Athena.Olympian
-{
+namespace AAMod.NPCs.Bosses.Athena.Olympian {
     public class AthenaDark : ModNPC
     {
         public override void SetStaticDefaults()

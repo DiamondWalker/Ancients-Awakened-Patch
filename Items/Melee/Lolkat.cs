@@ -1,8 +1,9 @@
+using AAMod.Items.Base;
+using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Melee   //where is located

@@ -2,8 +2,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Equinox
-{
+namespace AAMod.NPCs.Bosses.Equinox {
     public class DayBringerDarts : ModProjectile
     {
     	public override void SetStaticDefaults()

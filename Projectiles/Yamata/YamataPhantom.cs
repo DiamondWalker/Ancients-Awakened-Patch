@@ -1,11 +1,10 @@
-using System;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Yamata
-{
+namespace AAMod.Projectiles.Yamata {
     class YamataPhantom : ModProjectile
     {
         public override void SetStaticDefaults()

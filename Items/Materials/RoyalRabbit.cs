@@ -1,8 +1,9 @@
-using Terraria.ID;
-using Terraria;
-using Terraria.ModLoader;
+using AAMod.Items.Base;
 using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 
 namespace AAMod.Items.Materials

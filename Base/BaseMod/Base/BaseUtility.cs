@@ -1,18 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Linq;
+using log4net;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
-using log4net;
-
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using Terraria;
 using Terraria.Localization;
-using Terraria.Utilities;
 using Terraria.ModLoader;
+using Terraria.Utilities;
 
-namespace AAMod
-{
+namespace AAMod {
     public class BaseUtility
     {
         //------------------------------------------------------//

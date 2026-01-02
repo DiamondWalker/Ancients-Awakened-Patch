@@ -1,15 +1,13 @@
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
 using Terraria;
 using Terraria.DataStructures;
-using Terraria.ObjectData;
 using Terraria.Enums;
 using Terraria.ModLoader;
+using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Banners
-{
+namespace AAMod.Tiles.Banners {
     public class Banners : ModTile
 	{
         public override void SetDefaults()

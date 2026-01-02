@@ -1,3 +1,4 @@
+using AAMod.Items.Base;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Blocks

@@ -2,8 +2,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Shen
-{
+namespace AAMod.NPCs.Bosses.Shen {
     internal class ShenABreath : ModProjectile
     {
         public override void SetStaticDefaults()

@@ -1,16 +1,14 @@
+using AAMod.Util;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
 using Terraria;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-using Terraria.Graphics.Shaders;
-using System;
-using System.IO;
-using AAMod.Util;
-
-namespace AAMod.NPCs.Bosses.AH.Ashe
-{
+namespace AAMod.NPCs.Bosses.AH.Ashe {
     [AutoloadBossHead]
     public class Ashe : ModNPC
     {

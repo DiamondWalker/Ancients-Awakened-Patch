@@ -1,15 +1,13 @@
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.Utilities;
 
-namespace AAMod
-{
+namespace AAMod {
     public class BaseAI
     {
         //------------------------------------------------------//

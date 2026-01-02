@@ -4,8 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 
 
-namespace AAMod.Projectiles.Greed
-{
+namespace AAMod.Projectiles.Greed {
     public class OreConstruct : AAProjectile
 	{
 		public override void SetStaticDefaults()

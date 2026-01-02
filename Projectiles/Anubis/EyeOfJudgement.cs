@@ -1,10 +1,9 @@
+using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ModLoader;
-using System;
-using Microsoft.Xna.Framework;
 
-namespace AAMod.Projectiles.Anubis
-{
+namespace AAMod.Projectiles.Anubis {
     public class EyeOfJudgement : ModProjectile
 	{
 		public override void SetStaticDefaults()

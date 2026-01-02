@@ -1,9 +1,10 @@
+using AAMod.Items.Base;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using System;
 
 namespace AAMod.Items.Throwing
 {

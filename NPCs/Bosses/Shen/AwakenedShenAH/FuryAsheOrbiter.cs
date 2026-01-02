@@ -1,14 +1,13 @@
-using System;
+using AAMod.Globals.Worlds;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.IO;
 using Terraria;
 using Terraria.ID;
-
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Shen.AwakenedShenAH
-{
+namespace AAMod.NPCs.Bosses.Shen.AwakenedShenAH {
     public class FuryAsheOrbiter : ModNPC
     {
         public override void SetStaticDefaults()

@@ -1,3 +1,4 @@
+using AAMod.Globals.Players;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -6,8 +7,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Decoration
-{
+namespace AAMod.Tiles.Decoration {
     public class SunAltarA : ModTile
     {
         public override void SetDefaults()

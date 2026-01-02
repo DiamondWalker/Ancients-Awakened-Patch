@@ -1,10 +1,9 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
 
-namespace AAMod.Projectiles
-{
+namespace AAMod.Projectiles {
     public class MobianBuster : ModProjectile
     {
         public int counter = 0;

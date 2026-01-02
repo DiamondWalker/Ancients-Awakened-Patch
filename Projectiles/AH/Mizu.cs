@@ -1,10 +1,9 @@
-﻿using Terraria;
-using Terraria.ModLoader;
+﻿using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
+using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.AH
-{
+namespace AAMod.Projectiles.AH {
     public class Mizu : ModProjectile
     {
         public override void SetStaticDefaults()

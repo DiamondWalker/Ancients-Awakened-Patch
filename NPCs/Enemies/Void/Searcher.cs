@@ -7,8 +7,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Void
-{
+namespace AAMod.NPCs.Enemies.Void {
     public class Searcher : ModNPC
 	{
 		public override void SetStaticDefaults()

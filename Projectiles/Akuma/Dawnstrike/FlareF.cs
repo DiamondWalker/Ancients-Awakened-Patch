@@ -1,8 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Akuma.Dawnstrike
-{
+namespace AAMod.Projectiles.Akuma.Dawnstrike {
     public class FlareF : ModProjectile
     {
         public override void SetStaticDefaults()

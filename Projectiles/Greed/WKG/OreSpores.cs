@@ -2,8 +2,7 @@ using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Greed.WKG
-{
+namespace AAMod.Projectiles.Greed.WKG {
     public class OreSpores : ModProjectile
     {
         public override void SetStaticDefaults()

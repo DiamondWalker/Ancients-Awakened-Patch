@@ -1,7 +1,6 @@
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Blocks
-{
+namespace AAMod.Items.Blocks {
     public class GreedLantern : ModItem
 	{
 		public override void SetStaticDefaults()

@@ -1,13 +1,13 @@
-﻿using AAMod.NPCs.Bosses.Yamata.Awakened;
+﻿using AAMod.Globals.Players;
+using AAMod.Globals.Worlds;
+using AAMod.NPCs.Bosses.Yamata.Awakened;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 
-namespace AAMod.Backgrounds
-{
+namespace AAMod.Backgrounds {
     public class ScreenFog
     {
 		public int fogOffsetX = 0;

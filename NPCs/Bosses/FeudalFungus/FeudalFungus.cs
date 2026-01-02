@@ -1,14 +1,13 @@
-using System;
-using System.IO;
+using AAMod.Globals.Worlds;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Bosses.FeudalFungus
-{
+namespace AAMod.NPCs.Bosses.FeudalFungus {
     [AutoloadBossHead]
     public class FeudalFungus : ModNPC
     {

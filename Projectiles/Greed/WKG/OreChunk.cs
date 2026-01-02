@@ -1,13 +1,12 @@
+using AAMod.Dusts;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAMod.Dusts;
-using Microsoft.Xna.Framework.Graphics;
-using System;
 
-namespace AAMod.Projectiles.Greed.WKG
-{
+namespace AAMod.Projectiles.Greed.WKG {
     public class OreChunk : ModProjectile
     {
         public override void SetDefaults()

@@ -1,10 +1,10 @@
+using AAMod.Globals.Worlds;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Grips
-{
+namespace AAMod.NPCs.Bosses.Grips {
     [AutoloadBossHead]
     public class GripOfChaosBlue : BaseGripOfChaos
     {

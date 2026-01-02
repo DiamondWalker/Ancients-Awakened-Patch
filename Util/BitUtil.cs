@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AAMod.Util {
+﻿namespace AAMod.Util {
     public class BitUtil {
         public static long CombineInts(int int1, int int2) {
             return ((long)int1 << 32) | (long)int2;

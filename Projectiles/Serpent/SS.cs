@@ -2,8 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Serpent
-{
+namespace AAMod.Projectiles.Serpent {
     public class SS : ModProjectile
 	{
 		public override void SetStaticDefaults()

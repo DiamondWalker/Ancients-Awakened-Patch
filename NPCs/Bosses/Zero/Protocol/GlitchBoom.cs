@@ -1,8 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Zero.Protocol
-{
+namespace AAMod.NPCs.Bosses.Zero.Protocol {
     public class GlitchBoom : ModProjectile
     {
         public override void SetStaticDefaults()

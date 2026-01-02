@@ -2,8 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles.Trees
-{
+namespace AAMod.Tiles.Trees {
     class MushroomTree : ModTree
     {
         private Mod mod => AAMod.instance;

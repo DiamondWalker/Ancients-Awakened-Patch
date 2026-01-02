@@ -2,8 +2,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.AH
-{
+namespace AAMod.Projectiles.AH {
     internal class Ash : ModProjectile
     {
         public override void SetStaticDefaults()

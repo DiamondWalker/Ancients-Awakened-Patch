@@ -2,8 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
-{
+namespace AAMod.Projectiles {
     public class DragonfireProj : ModProjectile
     {
         public override string Texture => "AAMod/BlankTex";

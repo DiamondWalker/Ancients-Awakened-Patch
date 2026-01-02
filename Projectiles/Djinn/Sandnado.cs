@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Djinn
-{
+namespace AAMod.Projectiles.Djinn {
     public class Sandnado : ModProjectile
     {
         public override string Texture => "AAMod/BlankTex";

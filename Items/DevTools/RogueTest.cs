@@ -1,9 +1,8 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 
-namespace AAMod.Items.DevTools
-{
+namespace AAMod.Items.DevTools {
     public class RogueTest : RogueWeapon
     {
         public override string Texture => "AAMod/Items/DevTools/NoodleSword";

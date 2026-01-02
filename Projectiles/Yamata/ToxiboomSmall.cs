@@ -2,8 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Yamata
-{
+namespace AAMod.Projectiles.Yamata {
     public class ToxiboomSmall : ModProjectile
     {
         public override void SetStaticDefaults()

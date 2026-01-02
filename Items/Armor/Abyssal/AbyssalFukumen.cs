@@ -1,6 +1,8 @@
+using AAMod.Globals.Players;
+using AAMod.Items.Base;
 using Terraria;
-using Terraria.Localization;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Armor.Abyssal

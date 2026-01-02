@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Crates
-{
+namespace AAMod.Tiles.Crates {
     public class IceCrate : ModTile
     {
         public override void SetDefaults()

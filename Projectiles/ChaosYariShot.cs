@@ -1,10 +1,9 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 
-namespace AAMod.Projectiles
-{
+namespace AAMod.Projectiles {
     public class ChaosYariShot : AAProjectile
     {
         public bool spineEnd = false;

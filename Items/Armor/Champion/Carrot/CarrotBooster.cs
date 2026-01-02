@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAMod.Globals.Players;
+using AAMod.Items.Base;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;

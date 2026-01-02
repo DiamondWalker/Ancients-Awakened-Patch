@@ -1,7 +1,6 @@
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Blocks.Doom
-{
+namespace AAMod.Items.Blocks.Doom {
     public class DoomTable : ModItem
     {
         public override void SetStaticDefaults()

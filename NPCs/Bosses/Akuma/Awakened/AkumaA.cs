@@ -1,15 +1,14 @@
-﻿using Terraria;
-using System;
-using Terraria.ID;
+﻿using AAMod.Globals.Worlds;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
+using Terraria;
+using Terraria.Graphics.Shaders;
+using Terraria.ID;
 using Terraria.ModLoader;
 
-using System.IO;
-using Terraria.Graphics.Shaders;
-
-namespace AAMod.NPCs.Bosses.Akuma.Awakened
-{
+namespace AAMod.NPCs.Bosses.Akuma.Awakened {
     [AutoloadBossHead]
     public class AkumaA : ModNPC
     {

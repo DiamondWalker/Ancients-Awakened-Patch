@@ -1,12 +1,10 @@
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.ModLoader;
 
-using System;
-using Microsoft.Xna.Framework.Graphics;
-
-namespace AAMod.NPCs.Enemies.Sky
-{
+namespace AAMod.NPCs.Enemies.Sky {
     public class SeraphFeather : ModProjectile
     {
         public override void SetDefaults()

@@ -1,10 +1,10 @@
-using System.Collections.Generic;
+using AAMod.Items.Base;
 using Microsoft.Xna.Framework;
+using System;
+using System.Collections.Generic;
+using System.Reflection;
 using Terraria;
 using Terraria.ModLoader;
-using AAMod.Items;
-using System;
-using System.Reflection;
 
 namespace AAMod
 {

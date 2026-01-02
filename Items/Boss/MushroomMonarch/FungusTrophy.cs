@@ -1,3 +1,5 @@
+using AAMod.Items.Base;
+
 namespace AAMod.Items.Boss.MushroomMonarch
 {
     public class FungusTrophy : BaseAAItem

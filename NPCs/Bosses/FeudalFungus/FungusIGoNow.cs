@@ -4,8 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.FeudalFungus
-{
+namespace AAMod.NPCs.Bosses.FeudalFungus {
     public class FungusIGoNow: ModProjectile
     {
         public override void SetStaticDefaults()

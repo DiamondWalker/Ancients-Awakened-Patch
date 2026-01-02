@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Broodmother
-{
+namespace AAMod.NPCs.Bosses.Broodmother {
     public class BroodBoom : ModProjectile
     {
         public override void SetStaticDefaults()

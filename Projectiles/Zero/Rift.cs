@@ -6,8 +6,7 @@ using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Zero
-{
+namespace AAMod.Projectiles.Zero {
     // to investigate: Projectile.Damage, (8843)
     class Rift : ModProjectile
     {

@@ -1,8 +1,7 @@
 using Terraria.ModLoader;
 
-namespace AAMod
-{
-	public class Titles : ModPlayer
+namespace AAMod {
+    public class Titles : ModPlayer
 	{
 		public bool text;
 

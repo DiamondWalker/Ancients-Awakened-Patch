@@ -1,3 +1,5 @@
+using AAMod.Items.Base;
+
 namespace AAMod.Items.Blocks
 {
     public class DoomsdayChest : BaseAAItem

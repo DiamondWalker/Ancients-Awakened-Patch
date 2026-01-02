@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
-{
+namespace AAMod.Projectiles {
     public class SparkBoom3 : ModProjectile
     {
         public override void SetStaticDefaults()

@@ -1,5 +1,4 @@
-﻿namespace AAMod.NPCs.Enemies.Inferno.Magmalgam
-{
+﻿namespace AAMod.NPCs.Enemies.Inferno.Magmalgam {
     /*public class Magmalgam : ModNPC
     {
         public override void SetStaticDefaults()

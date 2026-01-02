@@ -1,9 +1,9 @@
+using AAMod.Globals.Worlds;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Zero.Protocol
-{
+namespace AAMod.NPCs.Bosses.Zero.Protocol {
     public class ZeroDeath2 : ModProjectile
     {
         public override void SetStaticDefaults()

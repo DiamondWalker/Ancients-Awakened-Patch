@@ -1,11 +1,10 @@
+using AAMod.Util;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
-using AAMod.Util;
+using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Athena.Olympian
-{
+namespace AAMod.NPCs.Bosses.Athena.Olympian {
     public class SwiftwindStrikeOrb : ModProjectile
     {
         public override void SetStaticDefaults()

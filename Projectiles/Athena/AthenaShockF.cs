@@ -1,13 +1,12 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAMod.Projectiles.Athena
-{
+namespace AAMod.Projectiles.Athena {
     public class AthenaShockF : ModProjectile
     {
     	public override void SetStaticDefaults()

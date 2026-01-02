@@ -1,6 +1,8 @@
+using AAMod.Globals.Players;
+using AAMod.Items.Base;
+using AAMod.Items.Vanity.Alphakip.Shiny;
 using Terraria;
 using Terraria.ModLoader;
-using AAMod.Items.Vanity.Alphakip.Shiny;
 
 namespace AAMod.Items.Vanity.Alphakip
 {

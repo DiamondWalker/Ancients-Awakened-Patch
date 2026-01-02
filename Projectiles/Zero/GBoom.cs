@@ -3,8 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Zero
-{
+namespace AAMod.Projectiles.Zero {
     public class GBoom : ModProjectile
     {
         public override void SetStaticDefaults()

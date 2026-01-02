@@ -4,8 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Akuma
-{
+namespace AAMod.NPCs.Bosses.Akuma {
     public class FireShot : ModProjectile
     {
         public override void SetStaticDefaults()

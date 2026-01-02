@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
-{
+namespace AAMod.Projectiles {
     public class Volley : ModProjectile
     {
         public override void SetStaticDefaults()

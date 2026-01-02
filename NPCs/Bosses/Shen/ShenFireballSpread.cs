@@ -2,8 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Shen
-{
+namespace AAMod.NPCs.Bosses.Shen {
     public class ShenFireballSpread : ModProjectile
     {
         public override void SetStaticDefaults()

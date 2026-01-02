@@ -1,11 +1,11 @@
-using Terraria;
-using Terraria.Localization;
-using Microsoft.Xna.Framework;
+using AAMod.Items.Base;
 using AAMod.NPCs.Bosses.Anubis;
 using AAMod.NPCs.Bosses.Anubis.Forsaken;
-using Terraria.ModLoader;
-
+using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.BossSummons
 {

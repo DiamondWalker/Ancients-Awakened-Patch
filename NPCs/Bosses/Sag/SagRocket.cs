@@ -4,8 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Sag
-{
+namespace AAMod.NPCs.Bosses.Sag {
     public class SagRocket : ModProjectile
     {
         public override void SetStaticDefaults()

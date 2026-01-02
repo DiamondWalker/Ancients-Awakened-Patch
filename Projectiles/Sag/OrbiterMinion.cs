@@ -1,12 +1,11 @@
-using System;
+using AAMod.Globals.Players;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
+using System;
 using Terraria;
 
 
-namespace AAMod.Projectiles.Sag
-{
+namespace AAMod.Projectiles.Sag {
     public class OrbiterMinion : AAProjectile
 	{
 		float rot = 0f;

@@ -1,7 +1,6 @@
 using Terraria.ModLoader;
 
-namespace AAMod.Dusts
-{
+namespace AAMod.Dusts {
     public class InfernoDust : ModDust
     {
         public override void SetDefaults()

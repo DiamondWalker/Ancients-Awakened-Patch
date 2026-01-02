@@ -1,8 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Champion
-{
+namespace AAMod.Items.Armor.Champion {
     public class RageBuff : ModBuff
     {
         public override void SetDefaults()

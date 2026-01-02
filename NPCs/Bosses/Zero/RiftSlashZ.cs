@@ -4,8 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Zero
-{
+namespace AAMod.NPCs.Bosses.Zero {
     class RiftSlashZ : ModProjectile
     {
         public override void SetDefaults()

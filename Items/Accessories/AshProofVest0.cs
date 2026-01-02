@@ -1,3 +1,6 @@
+using AAMod.Globals.Players;
+using AAMod.Globals.Worlds;
+using AAMod.Items.Base;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;

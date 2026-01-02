@@ -1,7 +1,9 @@
 
+using AAMod.Items.Base;
+
 namespace AAMod.Items.Banners
 {
-	public class TerraProbeBanner : BaseAAItem
+    public class TerraProbeBanner : BaseAAItem
 	{
 		public override void SetStaticDefaults()
         {

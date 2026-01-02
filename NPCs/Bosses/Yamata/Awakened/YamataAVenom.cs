@@ -2,8 +2,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Yamata.Awakened
-{
+namespace AAMod.NPCs.Bosses.Yamata.Awakened {
     public class YamataAVenom : ModProjectile
     {
         public override string Texture => "AAMod/BlankTex";

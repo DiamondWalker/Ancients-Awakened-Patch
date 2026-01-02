@@ -1,13 +1,13 @@
 
+using AAMod.Globals.Worlds;
 using Microsoft.Xna.Framework;
 using System;
 using System.IO;
 using Terraria;
-using Terraria.ID;
 using Terraria.GameContent.Events;
+using Terraria.ID;
 
-namespace AAMod
-{
+namespace AAMod {
     public class AANet
     {
         public const byte SummonNPCFromClient = 0;

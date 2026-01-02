@@ -1,13 +1,12 @@
-using System;
-using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Projectiles.Rajah.Supreme
-{
+namespace AAMod.Projectiles.Rajah.Supreme {
     public class Excalihare : ModProjectile
     {
 		public override void SetStaticDefaults()

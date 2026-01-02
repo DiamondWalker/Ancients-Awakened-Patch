@@ -1,10 +1,9 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Mire
-{
+namespace AAMod.NPCs.Enemies.Mire {
     public class Miregron : ModNPC
 	{
 		public override void SetStaticDefaults()

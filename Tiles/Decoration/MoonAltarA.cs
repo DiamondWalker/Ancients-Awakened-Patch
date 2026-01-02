@@ -1,3 +1,4 @@
+using AAMod.Globals.Players;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -5,8 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Decoration
-{
+namespace AAMod.Tiles.Decoration {
     public class MoonAltarA : ModTile
     {
         public override void SetDefaults()

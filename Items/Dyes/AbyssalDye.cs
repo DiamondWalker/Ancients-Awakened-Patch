@@ -1,11 +1,12 @@
 using System.Collections.Generic;
+using AAMod.Items.Base;
 using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
 
 
 namespace AAMod.Items.Dyes
 {
-	public class AbyssalDye : BaseAAItem
+    public class AbyssalDye : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{

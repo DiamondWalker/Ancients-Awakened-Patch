@@ -1,11 +1,10 @@
-using System;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Rajah
-{
+namespace AAMod.NPCs.Bosses.Rajah {
     public class CarrotFarmerR : ModProjectile
     {
         public override void SetStaticDefaults()

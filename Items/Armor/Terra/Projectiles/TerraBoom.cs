@@ -2,8 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Terra.Projectiles
-{
+namespace AAMod.Items.Armor.Terra.Projectiles {
     public class TerraBoom : ModProjectile
     {
         public override void SetStaticDefaults()

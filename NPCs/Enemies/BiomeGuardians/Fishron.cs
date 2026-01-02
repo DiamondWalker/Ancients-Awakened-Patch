@@ -1,12 +1,11 @@
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework.Graphics;
 
 
-namespace AAMod.NPCs.Enemies.BiomeGuardians
-{
+namespace AAMod.NPCs.Enemies.BiomeGuardians {
     public class Fishron : ModNPC
 	{
 		public override void SetStaticDefaults()

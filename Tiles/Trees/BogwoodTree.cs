@@ -1,8 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles
-{
+namespace AAMod.Tiles {
     class BogwoodTree : ModTree
     {
         private Mod Mod => AAMod.instance;

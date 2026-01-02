@@ -1,7 +1,7 @@
+using System.IO;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System.IO;
 
 
 namespace AAMod.Projectiles   //The directory for your .cs and .png; Example: TutorialMOD/Projectiles

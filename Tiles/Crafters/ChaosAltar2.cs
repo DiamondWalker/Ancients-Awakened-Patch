@@ -1,12 +1,12 @@
+using AAMod.Globals.Players;
 using Microsoft.Xna.Framework;
-using Terraria.DataStructures;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Crafters
-{
+namespace AAMod.Tiles.Crafters {
     public class ChaosAltar2 : ModTile
 	{
 		public override void SetDefaults()

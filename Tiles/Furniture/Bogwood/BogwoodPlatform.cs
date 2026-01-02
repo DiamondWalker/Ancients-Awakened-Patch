@@ -4,9 +4,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Furniture.Bogwood
-{
-	public class BogwoodPlatform : ModTile
+namespace AAMod.Tiles.Furniture.Bogwood {
+    public class BogwoodPlatform : ModTile
 	{
 		public override void SetDefaults()
 		{

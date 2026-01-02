@@ -1,12 +1,11 @@
+using AAMod.Util;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System;
-using AAMod.Util;
 
-namespace AAMod.NPCs.Bosses.Broodmother
-{
+namespace AAMod.NPCs.Bosses.Broodmother {
     public class BroodBall : ModProjectile
     {
         public override void SetStaticDefaults()

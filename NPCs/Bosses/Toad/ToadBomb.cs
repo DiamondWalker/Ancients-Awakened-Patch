@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Toad
-{
+namespace AAMod.NPCs.Bosses.Toad {
     public class ToadBomb : ModProjectile
 	{
         

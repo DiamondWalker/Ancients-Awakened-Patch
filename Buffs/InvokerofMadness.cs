@@ -1,10 +1,9 @@
-using Terraria.ModLoader;
-using Terraria;
 using AAMod.Items.Dev.Invoker;
+using Terraria;
+using Terraria.ModLoader;
 
-namespace AAMod.Buffs
-{
-	public class InvokerofMadness : ModBuff
+namespace AAMod.Buffs {
+    public class InvokerofMadness : ModBuff
 	{
 		public override void SetDefaults()
 		{

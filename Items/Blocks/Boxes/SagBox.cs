@@ -1,9 +1,10 @@
-using Terraria.ModLoader;
+using AAMod.Items.Base;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Blocks.Boxes
 {
-	public class SagBox : BaseAAItem
+    public class SagBox : BaseAAItem
 	{
         
 		public override void SetStaticDefaults()

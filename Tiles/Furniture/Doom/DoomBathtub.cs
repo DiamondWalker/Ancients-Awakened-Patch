@@ -4,8 +4,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Furniture.Doom
-{
+namespace AAMod.Tiles.Furniture.Doom {
     public class DoomBathtub : ModTile
 	{
 		public override void SetDefaults()

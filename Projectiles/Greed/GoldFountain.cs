@@ -1,8 +1,7 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Greed
-{
+namespace AAMod.Projectiles.Greed {
     public class GoldFountain : ModProjectile
     {
         public override string Texture => "AAMod/NPCs/Bosses/Greed/GreedSpawn";

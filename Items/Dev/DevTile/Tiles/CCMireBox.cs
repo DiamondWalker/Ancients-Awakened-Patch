@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Items.Dev.DevTile.Tiles
-{
+namespace AAMod.Items.Dev.DevTile.Tiles {
     public class CCMireBox : ModTile
 	{
 		public override void SetDefaults()

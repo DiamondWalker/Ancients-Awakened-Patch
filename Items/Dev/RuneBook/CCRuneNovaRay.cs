@@ -1,11 +1,10 @@
-using Terraria;
-using Terraria.ModLoader;
-using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using Terraria;
+using Terraria.ModLoader;
 
-namespace AAMod.Items.Dev.RuneBook
-{
+namespace AAMod.Items.Dev.RuneBook {
     public class CCRuneNovaRay : ModProjectile
     {
         public override string Texture => "AAMod/NPCs/Bosses/Zero/NovaRay";

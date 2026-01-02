@@ -1,7 +1,9 @@
 
+using AAMod.Items.Base;
+
 namespace AAMod.Items.Banners
 {
-	public class TerraWarlockBanner : BaseAAItem
+    public class TerraWarlockBanner : BaseAAItem
 	{
 		// The tooltip for this item is automatically assigned from .lang files
 		public override void SetDefaults() {

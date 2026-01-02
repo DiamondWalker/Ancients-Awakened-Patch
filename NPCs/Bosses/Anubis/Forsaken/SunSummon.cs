@@ -1,10 +1,9 @@
+using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ModLoader;
-using System;
-using Microsoft.Xna.Framework;
 
-namespace AAMod.NPCs.Bosses.Anubis.Forsaken
-{
+namespace AAMod.NPCs.Bosses.Anubis.Forsaken {
     public class SunSummon : ModProjectile
     {
         public override string Texture => "AAMod/BlankTex";

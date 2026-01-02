@@ -1,8 +1,7 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Equinox
-{
+namespace AAMod.NPCs.Bosses.Equinox {
     [AutoloadBossHead]		
 	public class NightcrawlerHead : DaybringerHead
 	{

@@ -3,8 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Monarch
-{
+namespace AAMod.Projectiles.Monarch {
     public class SporeCloud : ModProjectile
     {
     	

@@ -1,13 +1,12 @@
-﻿using Terraria.ModLoader.Config;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using Terraria;
 using Terraria.IO;
 using Terraria.ModLoader;
-using System.ComponentModel;
-using System.Collections.Generic;
+using Terraria.ModLoader.Config;
 
-namespace AAMod
-{
+namespace AAMod {
     public class AAConfigClient : ModConfig
     {
         public override ConfigScope Mode => ConfigScope.ClientSide;

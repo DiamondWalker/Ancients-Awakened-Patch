@@ -1,4 +1,5 @@
 
+using AAMod.Globals.Players;
 using AAMod.Util;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -8,8 +9,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Terra.Projectiles
-{
+namespace AAMod.Items.Armor.Terra.Projectiles {
     public class TerraCrystal : ModProjectile
 	{
         public override void SetStaticDefaults()

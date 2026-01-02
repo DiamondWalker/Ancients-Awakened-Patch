@@ -1,10 +1,10 @@
+using AAMod.Globals.Worlds;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
-{
+namespace AAMod.Projectiles {
     internal class ForestSolution : ModProjectile
     {
         public override string Texture => "AAMod/BlankTex";

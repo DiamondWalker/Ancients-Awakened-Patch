@@ -1,11 +1,10 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Terrarium.PreHM
-{
+namespace AAMod.NPCs.Enemies.Terrarium.PreHM {
     public class PurityShot : ModProjectile
     {
     	

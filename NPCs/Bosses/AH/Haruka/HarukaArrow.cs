@@ -1,10 +1,9 @@
-using Terraria;
-using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Terraria;
+using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.AH.Haruka
-{
+namespace AAMod.NPCs.Bosses.AH.Haruka {
     public class HarukaArrow : ModProjectile
 	{
 		public override void SetDefaults()

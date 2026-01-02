@@ -2,8 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles.Ore
-{
+namespace AAMod.Tiles.Ore {
     public class RelicOre : ModTile
     {
         public override void SetDefaults()

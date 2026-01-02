@@ -1,12 +1,11 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.Enums;
+using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Zero
-{
+namespace AAMod.NPCs.Bosses.Zero {
     public class ZeroLaser : ModProjectile
     {
         private const float maxTime = 60;

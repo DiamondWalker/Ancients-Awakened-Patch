@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Shen
-{
+namespace AAMod.Projectiles.Shen {
     public class ChaosSlayerSword : ModProjectile
     {
 		public int swordType = 0;

@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Crafters
-{
+namespace AAMod.Tiles.Crafters {
     public class ACS : ModTile
     {
         public override void SetDefaults()

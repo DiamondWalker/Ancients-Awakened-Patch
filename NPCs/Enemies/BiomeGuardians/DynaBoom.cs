@@ -2,8 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.BiomeGuardians
-{
+namespace AAMod.NPCs.Enemies.BiomeGuardians {
     public class DynaBoom : ModProjectile
     {
         public override void SetStaticDefaults()

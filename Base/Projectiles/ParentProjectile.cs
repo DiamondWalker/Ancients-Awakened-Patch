@@ -1,8 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
-namespace AAMod
-{
+namespace AAMod {
     public abstract class ParentProjectile : ModProjectile
 	{
 		public virtual void SetAI(float[] ai, int aiType) { }

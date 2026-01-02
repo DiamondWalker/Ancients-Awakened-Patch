@@ -1,12 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
-using Terraria.DataStructures;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Crafters
-{
+namespace AAMod.Tiles.Crafters {
     public class SharpeningLavaFishTile : ModTile
     {
         public override void SetDefaults()

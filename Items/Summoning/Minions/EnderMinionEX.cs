@@ -1,10 +1,10 @@
+using AAMod.Globals.Players;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Summoning.Minions
-{
+namespace AAMod.Items.Summoning.Minions {
     public class EnderMinionEX : ModProjectile
     {
         public override void SetDefaults()

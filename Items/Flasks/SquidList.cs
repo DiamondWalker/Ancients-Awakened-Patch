@@ -1,3 +1,5 @@
+using AAMod.Items.Base;
+
 namespace AAMod.Items.Flasks
 {
     public class SquidList : BaseAAItem

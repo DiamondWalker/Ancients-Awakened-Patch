@@ -2,8 +2,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Anubis
-{
+namespace AAMod.NPCs.Bosses.Anubis {
     internal class Runefire : ModProjectile
     {
         public override void SetStaticDefaults()

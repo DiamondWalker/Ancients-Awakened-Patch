@@ -1,9 +1,10 @@
+using AAMod.Items.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
-using System.Collections.Generic;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Blocks.Boxes
 {

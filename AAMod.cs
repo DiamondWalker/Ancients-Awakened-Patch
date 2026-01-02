@@ -1,11 +1,16 @@
 using AAMod.Backgrounds;
+using AAMod.Buffs;
 using AAMod.Globals;
+using AAMod.Globals.Players;
+using AAMod.Globals.Worlds;
+using AAMod.Items.Dev.Invoker;
 using AAMod.UI;
 using AAMod.UI.Core;
-using AAMod.Items.Dev.Invoker;
+using AAMod.Worldgeneration.Dimension.Void;
 using log4net;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Graphics;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -20,16 +25,11 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI;
 using Terraria.Utilities;
-using ReLogic.Graphics;
-using AAMod.Worldgeneration.Dimension.Void;
-using AAMod.Buffs;
-using System.Diagnostics;
 
-namespace AAMod
-{
+namespace AAMod {
     public class AAMod : Mod
     {
-        public const bool DEBUG_MODE = true;
+        public const bool DEBUG_MODE = false;
 
         // Miscellaneous
         public static int Coin = -1;
@@ -47,8 +47,6 @@ namespace AAMod
         // Hotkeys
         public static ModHotKey AccessoryAbilityKey;
         public static ModHotKey ArmorAbilityKey;
-        public static ModHotKey Rift;
-        public static ModHotKey RiftReturn;
 
         // Textures
         public static IDictionary<string, Texture2D> Textures = null;
@@ -271,9 +269,6 @@ namespace AAMod
             GameShaders.Armor.BindShader(ItemType("DiscordianInfernoDye"), new ArmorShaderData(Main.PixelShaderRef, "ArmorHades")).UseColor(0.88f, 0f, 1f).UseSecondaryColor(0.66f, 0f, 1f);
             GameShaders.Armor.BindShader(ItemType("AbyssalWrathDye"), new ArmorShaderData(Main.PixelShaderRef, "ArmorHades").UseColor(146f / 255f, 30f / 255f, 68f / 255f).UseSecondaryColor(105f / 255f, 20f / 255f, 50f / 255f));
             GameShaders.Armor.BindShader(ItemType("BlazingFuryDye"), new ArmorShaderData(Main.PixelShaderRef, "ArmorHades")).UseColor(Color.SkyBlue.R / 255f, Color.SkyBlue.G / 255f, Color.SkyBlue.B / 255f).UseSecondaryColor(Color.DeepSkyBlue.R / 255f, Color.DeepSkyBlue.G / 255f, Color.DeepSkyBlue.B / 255f);
-
-            Rift = RegisterHotKey(Lang.Hotkey("Rifthotkey"), "C");
-            RiftReturn = RegisterHotKey(Lang.Hotkey("RiftReturnhotkey"), "X");
 
             AccessoryAbilityKey = RegisterHotKey(Lang.Hotkey("AccessoryAbilityKey"), "U");
             ArmorAbilityKey = RegisterHotKey(Lang.Hotkey("ArmorAbilityKey"), "Y"); 
@@ -586,8 +581,6 @@ namespace AAMod
             CleanupStaticArrays();
 
             instance = null;
-            Rift = null;
-            RiftReturn = null;
             AccessoryAbilityKey = null;
             ArmorAbilityKey = null;
 

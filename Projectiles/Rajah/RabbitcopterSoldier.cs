@@ -1,12 +1,12 @@
 
+using AAMod.Globals.Players;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Rajah
-{
+namespace AAMod.Projectiles.Rajah {
     public class RabbitcopterSoldier : ModProjectile
     {
         public override void SetStaticDefaults()

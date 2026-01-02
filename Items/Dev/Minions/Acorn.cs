@@ -1,11 +1,10 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 
-namespace AAMod.Items.Dev.Minions
-{
+namespace AAMod.Items.Dev.Minions {
     public class Acorn : ModProjectile
     {
         public override void SetStaticDefaults()

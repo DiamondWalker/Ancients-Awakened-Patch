@@ -4,8 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.AH.Haruka
-{
+namespace AAMod.NPCs.Bosses.AH.Haruka {
     public class HarukaProj : ModProjectile
 	{
 		public override void SetDefaults()

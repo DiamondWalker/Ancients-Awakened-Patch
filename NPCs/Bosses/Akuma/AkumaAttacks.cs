@@ -1,10 +1,9 @@
 using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
 using System;
 using Terraria;
+using Terraria.ModLoader;
 
-namespace AAMod
-{
+namespace AAMod {
     public class AkumaAttacks
 	{
         public static void Dragonfire(NPC npc, Mod mod, bool Awakened = false)

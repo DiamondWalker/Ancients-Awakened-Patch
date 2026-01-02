@@ -1,11 +1,11 @@
-﻿using System;
+﻿using AAMod.Globals.Players;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Dev.Minions
-{
+namespace AAMod.Items.Dev.Minions {
     public class SockPuppet : ModProjectile
     {
 

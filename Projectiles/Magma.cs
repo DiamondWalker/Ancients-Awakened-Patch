@@ -2,8 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
-{
+namespace AAMod.Projectiles {
     public class Magma : ModProjectile
     {
         public override void SetDefaults()

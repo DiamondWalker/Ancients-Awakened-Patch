@@ -1,8 +1,7 @@
 using Microsoft.Xna.Framework.Audio;
 using Terraria.ModLoader;
 
-namespace AAMod.Sounds.Custom
-{
+namespace AAMod.Sounds.Custom {
     public class Quake1 : ModSound
     {
         public override SoundEffectInstance PlaySound(ref SoundEffectInstance soundInstance, float volume, float pan, SoundType type)

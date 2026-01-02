@@ -1,8 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Summoning.Minions
-{
+namespace AAMod.Items.Summoning.Minions {
     public class XiaoExplosion : ModProjectile
     {
         public override void SetStaticDefaults()

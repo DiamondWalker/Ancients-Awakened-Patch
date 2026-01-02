@@ -2,8 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Other
-{
+namespace AAMod.NPCs.Enemies.Other {
     public class MadnessSlime : ModNPC
 	{
 		public override void SetStaticDefaults()

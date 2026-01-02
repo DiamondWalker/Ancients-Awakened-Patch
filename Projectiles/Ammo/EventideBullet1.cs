@@ -5,8 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Ammo
-{
+namespace AAMod.Projectiles.Ammo {
     public class EventideBullet1 : ModProjectile
     {
         public override void SetStaticDefaults()

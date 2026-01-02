@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Vanity.CC
-{
-	[AutoloadEquip(EquipType.Body)]
+namespace AAMod.Items.Vanity.CC {
+    [AutoloadEquip(EquipType.Body)]
 	internal class CCRobe : ModItem
 	{
 		public override void SetStaticDefaults()

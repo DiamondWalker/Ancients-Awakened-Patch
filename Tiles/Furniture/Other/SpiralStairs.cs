@@ -4,8 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Furniture.Other
-{
+namespace AAMod.Tiles.Furniture.Other {
     public class SpiralStairs : ModTile
 	{
 		public override void SetDefaults()

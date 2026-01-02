@@ -1,8 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Blocks.BogwoodF
-{
+namespace AAMod.Items.Blocks.BogwoodF {
     public class BogwoodLamp: ModItem
     {
         public override void SetStaticDefaults()

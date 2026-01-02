@@ -1,8 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Dusts
-{
+namespace AAMod.Dusts {
     public class BloodyDust : ModDust
 	{
 		public override void OnSpawn(Dust dust)

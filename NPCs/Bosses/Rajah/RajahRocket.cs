@@ -4,8 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Rajah
-{
+namespace AAMod.NPCs.Bosses.Rajah {
     public class RajahRocket : ModProjectile
 	{
         public override void SetStaticDefaults()

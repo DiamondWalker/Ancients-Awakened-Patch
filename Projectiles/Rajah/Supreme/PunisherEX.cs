@@ -1,11 +1,10 @@
-using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Rajah.Supreme
-{
+namespace AAMod.Projectiles.Rajah.Supreme {
     public class PunisherEX : ModProjectile
     {
 		public override void SetStaticDefaults()

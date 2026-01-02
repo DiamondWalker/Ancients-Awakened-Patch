@@ -1,12 +1,11 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAMod.NPCs.Bosses.Shen
-{
+namespace AAMod.NPCs.Bosses.Shen {
     public class ChaosLightning : ModProjectile
     {
     	public override void SetStaticDefaults()

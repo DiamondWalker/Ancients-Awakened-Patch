@@ -4,8 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Summoning.Minions
-{
+namespace AAMod.Items.Summoning.Minions {
     public class StoneHydra : ModProjectile
     {
         public override void SetDefaults()

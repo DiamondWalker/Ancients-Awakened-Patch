@@ -1,10 +1,9 @@
-using System;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Shen.Projectiles
-{
+namespace AAMod.NPCs.Bosses.Shen.Projectiles {
     public class FireballAccelR : ModProjectile
     {
         public override string Texture => "AAMod/NPCs/Bosses/Shen/Projectiles/FireballAccelR";

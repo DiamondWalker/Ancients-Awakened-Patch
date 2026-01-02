@@ -2,8 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Water
-{
+namespace AAMod.Water {
     public class VoidWaterStyle : ModWaterStyle
 	{
 		public override bool ChooseWaterStyle()

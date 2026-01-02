@@ -1,16 +1,17 @@
+using AAMod.Items.Base;
 using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Terraria;
 using Terraria.ID;
-using System;
-using System.Linq;
-using System.Collections.Generic;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 
 namespace AAMod.Items.Dev.Invoker
 {
-	public class InvokerStaff : BanishDamageItem
+    public class InvokerStaff : BanishDamageItem
 	{
 		public override void SetStaticDefaults()
         {

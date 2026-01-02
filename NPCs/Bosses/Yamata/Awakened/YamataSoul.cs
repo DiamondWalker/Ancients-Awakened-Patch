@@ -1,12 +1,11 @@
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
 
-namespace AAMod.NPCs.Bosses.Yamata.Awakened
-{
+namespace AAMod.NPCs.Bosses.Yamata.Awakened {
     public class YamataSoul : ModNPC
     {
         public override void SetStaticDefaults()

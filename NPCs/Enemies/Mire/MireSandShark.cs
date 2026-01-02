@@ -2,8 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Mire
-{
+namespace AAMod.NPCs.Enemies.Mire {
     public abstract class MireSandShark : ModNPC
 	{
 		public override void SetStaticDefaults()

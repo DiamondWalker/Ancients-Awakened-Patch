@@ -1,11 +1,10 @@
+using AAMod.Projectiles;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
-using AAMod.Projectiles;
 
-namespace AAMod.Items.Armor.Champion.Baron
-{
+namespace AAMod.Items.Armor.Champion.Baron {
     public class BaronSpear : Javelin
     {
         public override void SetStaticDefaults()

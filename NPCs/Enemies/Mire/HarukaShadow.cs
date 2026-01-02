@@ -1,12 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-using Microsoft.Xna.Framework.Graphics;
-
-namespace AAMod.NPCs.Enemies.Mire
-{ 
+namespace AAMod.NPCs.Enemies.Mire {
     public class HarukaShadow : ModNPC
     {
 		public override void SetStaticDefaults()

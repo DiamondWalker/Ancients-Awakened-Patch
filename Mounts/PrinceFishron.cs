@@ -1,11 +1,10 @@
-using System;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Mounts
-{
-	public class PrinceFishron : ModMountData
+namespace AAMod.Mounts {
+    public class PrinceFishron : ModMountData
 	{
 		public override void SetDefaults()
 		{

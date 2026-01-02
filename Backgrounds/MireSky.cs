@@ -1,14 +1,14 @@
-﻿using System;
+﻿using AAMod.Globals.Players;
+using AAMod.Globals.Worlds;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
-using Terraria.ModLoader;
 
-namespace AAMod.Backgrounds
-{
+namespace AAMod.Backgrounds {
     public class MireSky : CustomSky
     {
         public bool Active;

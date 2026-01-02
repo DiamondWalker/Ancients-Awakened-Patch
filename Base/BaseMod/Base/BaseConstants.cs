@@ -1,14 +1,12 @@
-using System.IO;
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-
+using System.Collections.Generic;
+using System.IO;
 using Terraria;
-using Terraria.ID;
 using Terraria.Audio;
+using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod
-{
+namespace AAMod {
     public interface GoreInfo
     {
         //------------------------------------------------------//

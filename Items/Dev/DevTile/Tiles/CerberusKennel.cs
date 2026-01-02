@@ -4,8 +4,7 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 
 
-namespace AAMod.Items.Dev.DevTile.Tiles
-{
+namespace AAMod.Items.Dev.DevTile.Tiles {
     public class CerberusKennel : ModTile
 	{
 		public override void SetDefaults()

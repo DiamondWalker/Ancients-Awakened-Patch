@@ -1,11 +1,11 @@
-﻿using Terraria;
-using Terraria.ModLoader;
+﻿using AAMod.Globals.Players;
+using AAMod.NPCs.Bosses.Yamata.Awakened;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using AAMod.NPCs.Bosses.Yamata.Awakened;
+using Terraria;
+using Terraria.ModLoader;
 
-namespace AAMod.Backgrounds
-{
+namespace AAMod.Backgrounds {
     public class MireSurfaceBgStyle : ModSurfaceBgStyle
     {
         readonly ScreenFog mireBGFog = new ScreenFog(true);

@@ -1,4 +1,7 @@
-﻿namespace AAMod.Items.Misc
+﻿using AAMod.Globals.Worlds;
+using AAMod.Items.Base;
+
+namespace AAMod.Items.Misc
 {
     public class Fishmother : BaseAAItem
     {

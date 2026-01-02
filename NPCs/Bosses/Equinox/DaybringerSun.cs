@@ -1,10 +1,9 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Equinox
-{
+namespace AAMod.NPCs.Bosses.Equinox {
     public class DaybringerSun : ModProjectile
     {
     	public override void SetStaticDefaults()

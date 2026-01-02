@@ -1,3 +1,5 @@
+using AAMod.Globals.Players;
+using AAMod.Items.Base;
 using Terraria;
 
 namespace AAMod.Items.Boss.Athena

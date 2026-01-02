@@ -1,8 +1,10 @@
-using System.Collections.Generic;
+using AAMod.Globals.Players;
+using AAMod.Items.Base;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Anubis.Forsaken
 {

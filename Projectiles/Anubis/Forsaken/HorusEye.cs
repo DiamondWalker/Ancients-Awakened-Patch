@@ -1,11 +1,10 @@
-using System;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Anubis.Forsaken
-{
+namespace AAMod.Projectiles.Anubis.Forsaken {
     public class HorusEye : ModProjectile
     {
         public override void SetDefaults()

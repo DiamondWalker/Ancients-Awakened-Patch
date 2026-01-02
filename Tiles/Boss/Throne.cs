@@ -7,9 +7,8 @@ using Terraria.ModLoader;
 using Terraria.ObjectData;
 
 
-namespace AAMod.Tiles.Boss
-{
-	public class Throne : ModTile
+namespace AAMod.Tiles.Boss {
+    public class Throne : ModTile
 	{
         public override void SetDefaults()
 		{

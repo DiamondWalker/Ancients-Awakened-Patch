@@ -4,8 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Terrarium.Hardmode
-{
+namespace AAMod.NPCs.Enemies.Terrarium.Hardmode {
     public class TerraProbe : ModNPC
 	{
         public override void SetStaticDefaults()

@@ -1,7 +1,9 @@
 
+using AAMod.Items.Base;
+
 namespace AAMod.Items.Banners
 {
-	public class SnakeBanner : BaseAAItem
+    public class SnakeBanner : BaseAAItem
 	{
 		// The tooltip for this item is automatically assigned from .lang files
 		public override void SetDefaults() {

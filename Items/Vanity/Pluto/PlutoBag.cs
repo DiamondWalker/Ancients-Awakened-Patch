@@ -1,6 +1,8 @@
+using AAMod.Globals.Players;
+using AAMod.Items.Base;
+using AAMod.Items.Vanity.Pluto.Shiny;
 using Terraria;
 using Terraria.ModLoader;
-using AAMod.Items.Vanity.Pluto.Shiny;
 
 namespace AAMod.Items.Vanity.Pluto
 {

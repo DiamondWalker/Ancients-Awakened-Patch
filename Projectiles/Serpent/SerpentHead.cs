@@ -1,16 +1,15 @@
-using System;
-using System.Collections.Generic;
+using AAMod.Globals.Players;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
+using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
 
-namespace AAMod.Projectiles.Serpent
-{
+namespace AAMod.Projectiles.Serpent {
     public class SerpentHead : ModProjectile
     {
         public override void SetDefaults()

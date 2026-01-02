@@ -1,4 +1,5 @@
 
+using AAMod.Globals.Worlds;
 using AAMod.Util;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -10,8 +11,7 @@ using Terraria.GameContent.Events;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Djinn
-{
+namespace AAMod.NPCs.Bosses.Djinn {
     [AutoloadBossHead]
     public class Djinn : ModNPC
     {

@@ -4,8 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Crafters
-{
+namespace AAMod.Tiles.Crafters {
     public class QuantumFusionAccelerator : ModTile
     {
         public override void SetDefaults()

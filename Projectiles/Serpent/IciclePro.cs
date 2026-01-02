@@ -1,10 +1,9 @@
-using Terraria.ID;
-using Terraria;
-using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Serpent
-{
+namespace AAMod.Projectiles.Serpent {
     public class IciclePro : ModProjectile
     {
         public override void SetDefaults()

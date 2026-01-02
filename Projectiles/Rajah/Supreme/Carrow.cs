@@ -5,8 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Rajah.Supreme
-{
+namespace AAMod.Projectiles.Rajah.Supreme {
     public class Carrow : ModProjectile
 	{
         public override void SetStaticDefaults()

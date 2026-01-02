@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Akuma.Lung
-{
+namespace AAMod.Projectiles.Akuma.Lung {
     public class LungFireball : ModProjectile
 	{
         public override void SetStaticDefaults()

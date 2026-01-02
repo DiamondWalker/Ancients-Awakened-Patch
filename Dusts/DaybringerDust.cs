@@ -1,10 +1,9 @@
-﻿using Terraria;
+﻿using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
 
 
-namespace AAMod.Dusts
-{
+namespace AAMod.Dusts {
     public class DaybringerDust : ModDust
     {
         public override bool Update(Dust dust)

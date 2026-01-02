@@ -1,10 +1,10 @@
-﻿using System;
+﻿using AAMod.Globals.Players;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Dev.RuneBook
-{
+namespace AAMod.Items.Dev.RuneBook {
     public class BunnyRune : ModProjectile
     {
         public override void SetStaticDefaults()

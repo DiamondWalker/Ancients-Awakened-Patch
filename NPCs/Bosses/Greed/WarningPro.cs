@@ -1,9 +1,8 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
 
-namespace AAMod.NPCs.Bosses.Greed
-{
+namespace AAMod.NPCs.Bosses.Greed {
     public class WarningPro : ModProjectile
     {
         public override void SetStaticDefaults()

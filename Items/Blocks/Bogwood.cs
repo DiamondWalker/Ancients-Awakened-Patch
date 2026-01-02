@@ -1,4 +1,6 @@
-﻿namespace AAMod.Items.Blocks
+﻿using AAMod.Items.Base;
+
+namespace AAMod.Items.Blocks
 {
     class Bogwood : BaseAAItem
     {

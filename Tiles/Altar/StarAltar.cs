@@ -1,4 +1,5 @@
 ﻿
+using AAMod.Globals.Worlds;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -6,8 +7,7 @@ using Terraria.Enums;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Altar
-{
+namespace AAMod.Tiles.Altar {
     public class StarAltar : ModTile
     {
         public override void SetDefaults()

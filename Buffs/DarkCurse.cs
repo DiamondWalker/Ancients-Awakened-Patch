@@ -1,10 +1,9 @@
-﻿using Terraria;
+﻿using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
 
 
-namespace AAMod.Buffs
-{
+namespace AAMod.Buffs {
     public class DarkCurse : ModBuff
     {
         public override void SetDefaults()

@@ -5,8 +5,7 @@ using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.AH.Ashe
-{
+namespace AAMod.NPCs.Bosses.AH.Ashe {
     internal class AsheMagicSpark : ModProjectile
     {
         public override void SetStaticDefaults()

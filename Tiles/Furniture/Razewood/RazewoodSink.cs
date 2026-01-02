@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Furniture.Razewood
-{
+namespace AAMod.Tiles.Furniture.Razewood {
     public class RazewoodSink : ModTile
 	{
 		public override void SetDefaults()

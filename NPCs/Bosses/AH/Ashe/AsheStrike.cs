@@ -2,8 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.AH.Ashe
-{
+namespace AAMod.NPCs.Bosses.AH.Ashe {
     public class AsheStrike : ModProjectile
     {
         public override void SetStaticDefaults()

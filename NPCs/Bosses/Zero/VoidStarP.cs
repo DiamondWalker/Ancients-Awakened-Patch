@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Zero
-{
+namespace AAMod.NPCs.Bosses.Zero {
     class VoidStarP : ModProjectile
     {
         public override void SetStaticDefaults()

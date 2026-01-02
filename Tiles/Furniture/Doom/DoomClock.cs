@@ -1,3 +1,4 @@
+using AAMod.Globals.Worlds;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -5,8 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Furniture.Doom
-{
+namespace AAMod.Tiles.Furniture.Doom {
     public class DoomClock : ModTile
     {
         public override void SetDefaults()

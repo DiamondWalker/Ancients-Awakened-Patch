@@ -1,11 +1,11 @@
 
+using AAMod.Globals.Worlds;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Shen
-{
+namespace AAMod.NPCs.Bosses.Shen {
     public class ShenSpawn : ModNPC
     {
         public override string Texture => "AAMod/NPCs/Bosses/Shen/ShenSpawn";

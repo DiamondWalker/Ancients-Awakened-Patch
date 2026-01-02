@@ -1,12 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Crafters
-{
+namespace AAMod.Tiles.Crafters {
     public class HallowedForge : ModTile
     {
         public override void SetDefaults()

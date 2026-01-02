@@ -1,7 +1,8 @@
+using AAMod.Items.Base;
+using AAMod.Items.DevTools.Cinematic;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using AAMod.Items.DevTools.Cinematic;
 
 namespace AAMod.Items.DevTools
 {

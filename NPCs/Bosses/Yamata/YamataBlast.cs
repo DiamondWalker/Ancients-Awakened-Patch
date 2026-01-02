@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Yamata
-{
+namespace AAMod.NPCs.Bosses.Yamata {
     public class YamataBlast : ModProjectile
 	{
         

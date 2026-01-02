@@ -10,8 +10,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Chests
-{
+namespace AAMod.Tiles.Chests {
     public class DoomsdayChest : ModTile
 	{
         public override void SetDefaults()

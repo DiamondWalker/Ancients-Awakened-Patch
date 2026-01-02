@@ -1,10 +1,11 @@
+using AAMod.Items.Base;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Throwing
 {
-	public class OrderDisc : BaseAAItem
+    public class OrderDisc : BaseAAItem
 	{
 		public override void SetDefaults()
 		{

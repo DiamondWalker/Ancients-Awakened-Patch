@@ -1,9 +1,9 @@
 using System.Collections.Generic;
+using AAMod.Items.Base;
+using Terraria;
+using Terraria.DataStructures;
 using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
-
-using Terraria.DataStructures;
-using Terraria;
 
 namespace AAMod.Items.Dyes
 {

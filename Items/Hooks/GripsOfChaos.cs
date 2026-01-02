@@ -4,9 +4,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Hooks
-{
-	internal class GripsOfChaos : ModItem
+namespace AAMod.Items.Hooks {
+    internal class GripsOfChaos : ModItem
 	{
 		public override void SetStaticDefaults() 
 		{

@@ -1,12 +1,9 @@
-﻿using Terraria;
-using Terraria.ID;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AAMod.Globals.Players;
+using AAMod.Items.Base;
+using Terraria;
 
-namespace AAMod.Items.Usable {
+namespace AAMod.Items.Usable
+{
     public class MegaMush : BaseAAItem {
         public override void SetStaticDefaults() {
             DisplayName.SetDefault("Mega Mushroom");

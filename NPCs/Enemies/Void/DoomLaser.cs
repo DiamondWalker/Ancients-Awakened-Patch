@@ -5,8 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Void
-{
+namespace AAMod.NPCs.Enemies.Void {
     internal class DoomLaser : ModProjectile
     {
         public override void SetStaticDefaults()

@@ -1,14 +1,13 @@
-using System;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
 using AAMod.Dusts;
 using AAMod.Tiles;
 using AAMod.Walls;
+using Microsoft.Xna.Framework;
+using System;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
-{
+namespace AAMod.Projectiles {
     internal class SPORZ : ModProjectile
     {
         public override string Texture => "AAMod/BlankTex";

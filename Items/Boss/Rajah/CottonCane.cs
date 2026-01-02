@@ -1,6 +1,7 @@
+using AAMod.Items.Base;
 using Microsoft.Xna.Framework;
-using Terraria;
 using System;
+using Terraria;
 using Terraria.ID;
 
 namespace AAMod.Items.Boss.Rajah

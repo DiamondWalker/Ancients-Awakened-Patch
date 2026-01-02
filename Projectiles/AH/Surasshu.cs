@@ -1,11 +1,10 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.AH
-{
+namespace AAMod.Projectiles.AH {
     public class Surasshu : ModProjectile
     {
     	public override void SetStaticDefaults()

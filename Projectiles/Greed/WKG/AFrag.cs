@@ -1,12 +1,10 @@
-using Microsoft.Xna.Framework;
-using Terraria;
-
-using Terraria.ModLoader;
 using AAMod.Dusts;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Terraria;
+using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Greed.WKG
-{
+namespace AAMod.Projectiles.Greed.WKG {
     public class AFrag : ModProjectile
     {
         public override void SetDefaults()

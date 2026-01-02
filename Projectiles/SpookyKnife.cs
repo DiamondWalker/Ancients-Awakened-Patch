@@ -3,9 +3,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
-{
-	public class SpookyKnife : ModProjectile
+namespace AAMod.Projectiles {
+    public class SpookyKnife : ModProjectile
 	{
 		public override void SetDefaults()
 		{

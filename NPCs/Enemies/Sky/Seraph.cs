@@ -1,15 +1,15 @@
-using System;
+using AAMod.Globals.Players;
+using AAMod.Globals.Worlds;
+using AAMod.NPCs.Bosses.Athena;
+using AAMod.NPCs.Bosses.Athena.Olympian;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-using AAMod.NPCs.Bosses.Athena;
-using AAMod.NPCs.Bosses.Athena.Olympian;
-
-namespace AAMod.NPCs.Enemies.Sky
-{
-	public class Seraph : ModNPC
+namespace AAMod.NPCs.Enemies.Sky {
+    public class Seraph : ModNPC
 	{
         public override void SetStaticDefaults()
 		{
@@ -140,13 +140,14 @@ namespace AAMod.NPCs.Enemies.Sky
 
         public override void NPCLoot()
         {
-            if (Main.rand.Next(30) <= SeraphChance.SeraphKills && !NPC.AnyNPCs(ModContent.NPCType<SeraphHurt>()))
+            if (Main.rand.Next(30) <= AAWorld.SeraphKills && !NPC.AnyNPCs(ModContent.NPCType<SeraphHurt>()))
             {
-                SeraphChance.SeraphKills = 0;
+                AAWorld.SeraphKills = 0;
                 int a = NPC.NewNPC((int)npc.position.X, (int)npc.position.Y, ModContent.NPCType<SeraphHurt>());
                 Main.npc[a].velocity = npc.velocity;
+            } else {
+                AAWorld.SeraphKills++;
             }
-            SeraphChance.SeraphKills++;
             Item.NewItem((int)npc.position.X, (int)npc.position.Y, npc.width, npc.height, mod.ItemType("SeraphFeather"));
         }
 
@@ -170,24 +171,6 @@ namespace AAMod.NPCs.Enemies.Sky
                 case 2: return Lang.EnemyChat("SeraphKillChat3");
                 case 3: return Lang.EnemyChat("SeraphKillChat4");
                 default: return Lang.EnemyChat("SeraphKillChat5");
-            }
-        }
-    }
-
-    public class SeraphChance : ModWorld
-    {
-        public static int SeraphKills = 0;
-
-        public override void Initialize()
-        {
-            SeraphKills = 0;
-        }
-
-        public override void PostUpdate()
-        {
-            if (SeraphKills > 30)
-            {
-                SeraphKills = 30;
             }
         }
     }

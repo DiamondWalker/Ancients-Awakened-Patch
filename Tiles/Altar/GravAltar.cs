@@ -1,12 +1,12 @@
 ﻿
+using AAMod.Globals.Worlds;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Enums;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Altar
-{
+namespace AAMod.Tiles.Altar {
     public class GravAltar : ModTile
     {
         public override void SetDefaults()

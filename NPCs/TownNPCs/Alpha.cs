@@ -1,11 +1,10 @@
+using AAMod.Items.Dev;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
-using AAMod.Items.Dev;
 
-namespace AAMod.NPCs.TownNPCs
-{
+namespace AAMod.NPCs.TownNPCs {
     [AutoloadHead]
 	public class Alpha : ModNPC
 	{

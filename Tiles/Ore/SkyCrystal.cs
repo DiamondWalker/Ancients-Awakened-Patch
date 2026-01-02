@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles.Ore
-{
+namespace AAMod.Tiles.Ore {
     public class SkyCrystal : ModTile
     {
         public override void SetDefaults()

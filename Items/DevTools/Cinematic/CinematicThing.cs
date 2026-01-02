@@ -1,9 +1,8 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.DevTools.Cinematic
-{
-	public class CinematicThing : ModMountData
+namespace AAMod.Items.DevTools.Cinematic {
+    public class CinematicThing : ModMountData
 	{
 		public const float speed = 1.5f;
 

@@ -1,14 +1,13 @@
-using System;
+using AAMod.Dusts;
+using AAMod.Tiles;
+using AAMod.Walls;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAMod.Walls;
-using AAMod.Dusts;
-using AAMod.Tiles;
 
-namespace AAMod.Projectiles
-{
+namespace AAMod.Projectiles {
     internal class Antifungus : ModProjectile
     {
         public override string Texture => "AAMod/BlankTex";

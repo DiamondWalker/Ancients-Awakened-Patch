@@ -1,15 +1,15 @@
-using Terraria;
-using System;
-using Terraria.ID;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
-using Microsoft.Xna.Framework.Graphics;
-using System.IO;
+using AAMod.Globals.Worlds;
 using AAMod.Util;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Bosses.AH.Haruka
-{
+namespace AAMod.NPCs.Bosses.AH.Haruka {
     [AutoloadBossHead]
     public class Haruka : ModNPC
     {

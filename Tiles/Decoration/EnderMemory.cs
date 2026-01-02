@@ -1,14 +1,13 @@
 ﻿
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
+using Terraria.Enums;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using Terraria.DataStructures;
-using Terraria.Enums;
 
-namespace AAMod.Tiles.Decoration
-{
+namespace AAMod.Tiles.Decoration {
     public class EnderMemory : ModTile
     {
         public override void SetDefaults()

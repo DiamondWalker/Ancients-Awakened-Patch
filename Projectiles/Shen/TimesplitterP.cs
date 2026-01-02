@@ -1,11 +1,10 @@
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System;
 
-namespace AAMod.Projectiles.Shen
-{
+namespace AAMod.Projectiles.Shen {
     public class TimesplitterP : ModProjectile
     {
         public override void SetDefaults()

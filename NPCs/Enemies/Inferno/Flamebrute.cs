@@ -1,12 +1,12 @@
 
+using AAMod.Globals.Players;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Inferno
-{
+namespace AAMod.NPCs.Enemies.Inferno {
     public class Flamebrute : ModNPC
     {
         public override void SetStaticDefaults()

@@ -1,11 +1,10 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAMod.Globals.Worlds;
+using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
 
-using Terraria.Graphics.Shaders;
-
-namespace AAMod.NPCs.Bosses.Zero.Protocol
-{
+namespace AAMod.NPCs.Bosses.Zero.Protocol {
     public class ZeroMini : ModNPC
     {
         public override void SetStaticDefaults()

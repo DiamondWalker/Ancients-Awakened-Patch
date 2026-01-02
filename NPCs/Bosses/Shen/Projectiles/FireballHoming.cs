@@ -1,11 +1,10 @@
-using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Shen.Projectiles
-{
+namespace AAMod.NPCs.Bosses.Shen.Projectiles {
     public class FireballHomingR : ModProjectile
     {
         public override string Texture => "AAMod/NPCs/Bosses/Shen/Projectiles/FireballHomingR";

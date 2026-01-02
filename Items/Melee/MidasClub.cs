@@ -1,10 +1,11 @@
+using AAMod.Items.Base;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Melee
 {
-	public class MidasClub : BaseAAItem
+    public class MidasClub : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{

@@ -2,8 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Rajah.Supreme
-{
+namespace AAMod.NPCs.Bosses.Rajah.Supreme {
     public class CarrowSplitR : ModProjectile
 	{
         public override void SetStaticDefaults()

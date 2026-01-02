@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Witch
-{
+namespace AAMod.Items.Armor.Witch {
     public class FlameSoulShot : ModProjectile
 	{
         public override void SetStaticDefaults()

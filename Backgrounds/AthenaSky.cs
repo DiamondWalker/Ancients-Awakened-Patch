@@ -1,18 +1,16 @@
-﻿using System;
+﻿using AAMod.NPCs.Bosses.Athena;
+using AAMod.NPCs.Bosses.Athena.Olympian;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.Graphics.Effects;
-using Terraria.Utilities;
-
-using AAMod.NPCs.Bosses.Athena;
-using AAMod.NPCs.Bosses.Athena.Olympian;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Utilities;
 
-namespace AAMod.Backgrounds
-{
+namespace AAMod.Backgrounds {
     public class AthenaSky : CustomSky
     {
         private readonly UnifiedRandom random = new UnifiedRandom();

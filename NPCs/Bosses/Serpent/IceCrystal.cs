@@ -2,8 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Serpent
-{
+namespace AAMod.NPCs.Bosses.Serpent {
     public class IceCrystal : ModNPC
     {
         public override void SetDefaults()

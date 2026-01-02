@@ -1,11 +1,11 @@
+using AAMod.Globals.Players;
+using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using System;
 
-namespace AAMod.NPCs.Enemies.Inferno
-{
+namespace AAMod.NPCs.Enemies.Inferno {
     public class ChaoticDawn : ModNPC
 	{
 		public override void SetStaticDefaults()

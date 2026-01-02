@@ -4,9 +4,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Furniture.Oroboros
-{
-	public class OroborosPlatform : ModTile
+namespace AAMod.Tiles.Furniture.Oroboros {
+    public class OroborosPlatform : ModTile
 	{
 		public override void SetDefaults()
 		{

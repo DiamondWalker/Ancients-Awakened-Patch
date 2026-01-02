@@ -1,11 +1,10 @@
-using System;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Thorium
-{
+namespace AAMod.Projectiles.Thorium {
     public class HydrasFury : ModProjectile
 	{
 		public override void SetDefaults()

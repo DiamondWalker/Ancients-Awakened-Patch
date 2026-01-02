@@ -1,8 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod
-{
+namespace AAMod {
     public class CalamityGlobalNPC : GlobalNPC
     {
         public override bool InstancePerEntity => true;

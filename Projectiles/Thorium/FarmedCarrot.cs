@@ -2,8 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Thorium
-{
+namespace AAMod.Projectiles.Thorium {
     public class FarmedCarrot : ModProjectile
 	{
         public override void SetStaticDefaults()

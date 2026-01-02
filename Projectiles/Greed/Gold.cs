@@ -1,10 +1,9 @@
-﻿using Terraria;
+﻿using System;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System;
 
-namespace AAMod.Projectiles.Greed
-{
+namespace AAMod.Projectiles.Greed {
     public class Gold : ModProjectile
     {
         public override void SetStaticDefaults()

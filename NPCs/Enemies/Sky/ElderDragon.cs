@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Sky
-{
+namespace AAMod.NPCs.Enemies.Sky {
     public class ElderDragon : ModNPC
     {
         public override void SetStaticDefaults()

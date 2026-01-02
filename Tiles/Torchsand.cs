@@ -1,12 +1,11 @@
+using AAMod.Tiles.Trees;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System;
-using AAMod.Tiles.Trees;
 
-namespace AAMod.Tiles
-{
+namespace AAMod.Tiles {
     class Torchsand : ModTile
     {
 

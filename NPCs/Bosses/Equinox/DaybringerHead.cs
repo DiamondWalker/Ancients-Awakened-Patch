@@ -1,15 +1,14 @@
-﻿using System;
+﻿using AAMod.Dusts;
+using AAMod.Globals.Worlds;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-using AAMod.Dusts;
-using System.IO;
-
-namespace AAMod.NPCs.Bosses.Equinox
-{
+namespace AAMod.NPCs.Bosses.Equinox {
     [AutoloadBossHead]	
 	public class DaybringerHead : ModNPC
 	{	

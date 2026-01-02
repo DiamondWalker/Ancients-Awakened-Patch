@@ -2,8 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Djinn
-{
+namespace AAMod.Projectiles.Djinn {
     public class Djinnerang : ModProjectile
 	{
         public override void SetStaticDefaults()

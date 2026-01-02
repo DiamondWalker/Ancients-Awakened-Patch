@@ -1,13 +1,11 @@
-using System;
-using System.Collections.Generic;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Shen
-{
+namespace AAMod.Projectiles.Shen {
     public class DiscordBeam : ModProjectile
 	{
 		public override void SetStaticDefaults()

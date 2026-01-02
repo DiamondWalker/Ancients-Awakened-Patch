@@ -4,8 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Equinox
-{
+namespace AAMod.NPCs.Bosses.Equinox {
     public class NightcrawlerNothing : ModProjectile
     {
     	public override void SetStaticDefaults()

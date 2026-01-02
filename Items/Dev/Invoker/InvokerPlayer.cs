@@ -1,16 +1,15 @@
 using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
-using Terraria;
 using System;
-using System.IO;
 using System.Collections.Generic;
-using Terraria.ID;
-using Terraria.ModLoader.IO;
+using System.IO;
+using Terraria;
 using Terraria.GameInput;
+using Terraria.ID;
+using Terraria.ModLoader;
+using Terraria.ModLoader.IO;
 
-namespace AAMod.Items.Dev.Invoker
-{
-	public class InvokerPlayer : ModPlayer
+namespace AAMod.Items.Dev.Invoker {
+    public class InvokerPlayer : ModPlayer
 	{
 		public static InvokerPlayer ModPlayer(Player player)
 		{

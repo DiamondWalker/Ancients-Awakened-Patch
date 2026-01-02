@@ -4,8 +4,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Trophy
-{
+namespace AAMod.Tiles.Trophy {
     public class ZeroTrophy : ModTile
 	{
 		public override void SetDefaults()

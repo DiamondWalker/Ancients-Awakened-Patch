@@ -1,10 +1,9 @@
-using Terraria.ModLoader;
-using Terraria;
 using AAMod.Items.Dev.Invoker;
+using Terraria;
+using Terraria.ModLoader;
 
-namespace AAMod.Buffs
-{
-	public class InvokedCaligulaSafe : ModBuff
+namespace AAMod.Buffs {
+    public class InvokedCaligulaSafe : ModBuff
 	{
 		public override void SetDefaults()
 		{

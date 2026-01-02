@@ -2,8 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Rajah
-{
+namespace AAMod.NPCs.Bosses.Rajah {
     public class RabbitRocketBoomR : ModProjectile
     {
         public override void SetStaticDefaults()

@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Dev.Minions
-{
+namespace AAMod.Items.Dev.Minions {
     class FezShot : ModProjectile
     {
         public override void SetStaticDefaults()

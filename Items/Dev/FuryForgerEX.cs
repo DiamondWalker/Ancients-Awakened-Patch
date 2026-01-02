@@ -1,7 +1,8 @@
+using System;
+using AAMod.Items.Base;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System;
 
 namespace AAMod.Items.Dev
 {

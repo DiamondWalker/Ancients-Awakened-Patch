@@ -1,7 +1,9 @@
 
+using AAMod.Items.Base;
+
 namespace AAMod.Items.Banners
 {
-	public class MagmalgamBanner : BaseAAItem
+    public class MagmalgamBanner : BaseAAItem
 	{
 		// The tooltip for this item is automatically assigned from .lang files
 		public override void SetDefaults() {

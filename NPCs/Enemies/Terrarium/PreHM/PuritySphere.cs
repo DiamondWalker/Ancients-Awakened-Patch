@@ -4,8 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Terrarium.PreHM
-{
+namespace AAMod.NPCs.Enemies.Terrarium.PreHM {
     public class PuritySphere : ModNPC
 	{
 		public override void SetStaticDefaults()

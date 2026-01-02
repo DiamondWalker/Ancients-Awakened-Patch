@@ -1,6 +1,8 @@
-using Terraria;
+using AAMod.Globals.Players;
+using AAMod.Items.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Terraria;
 
 namespace AAMod.Items.Boss.Anubis
 {

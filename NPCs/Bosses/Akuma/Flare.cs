@@ -1,8 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Akuma
-{
+namespace AAMod.NPCs.Bosses.Akuma {
     public class Flare : ModProjectile
     {
         public override void SetStaticDefaults()

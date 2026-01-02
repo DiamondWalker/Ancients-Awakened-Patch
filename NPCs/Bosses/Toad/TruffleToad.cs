@@ -1,17 +1,16 @@
-﻿using System.IO;
+﻿using AAMod.Globals.Worlds;
+using AAMod.Util;
 using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ModLoader;
-
-using Terraria.ID;
-using Terraria.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
-using AAMod.Util;
+using System.IO;
+using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
+using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Toad
-{
+namespace AAMod.NPCs.Bosses.Toad {
     [AutoloadBossHead]
     public class TruffleToad : ModNPC
     {

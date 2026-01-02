@@ -4,8 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.AH
-{
+namespace AAMod.Projectiles.AH {
     public class MasamuneSlash : ModProjectile
 	{
 		public override void SetDefaults()

@@ -1,7 +1,9 @@
 
+using AAMod.Items.Base;
+
 namespace AAMod.Items.Banners
 {
-	public class MiniDjinnBanner : BaseAAItem
+    public class MiniDjinnBanner : BaseAAItem
 	{
 		public override void SetStaticDefaults()
         {

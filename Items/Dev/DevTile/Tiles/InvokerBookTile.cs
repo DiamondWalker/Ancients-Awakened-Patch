@@ -1,10 +1,9 @@
 using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
 using Terraria;
+using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Items.Dev.DevTile.Tiles
-{
+namespace AAMod.Items.Dev.DevTile.Tiles {
     public class InvokerBookTile : ModTile
 	{
 		public override void SetDefaults()

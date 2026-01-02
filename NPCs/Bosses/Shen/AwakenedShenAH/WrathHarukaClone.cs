@@ -1,12 +1,12 @@
+using AAMod.Globals.Worlds;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework.Graphics;
 
 
-namespace AAMod.NPCs.Bosses.Shen.AwakenedShenAH
-{
+namespace AAMod.NPCs.Bosses.Shen.AwakenedShenAH {
     [AutoloadBossHead]
     public class WrathHarukaClone : ModNPC
     {

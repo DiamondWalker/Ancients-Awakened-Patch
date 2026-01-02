@@ -4,8 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Terrarium.PreHM
-{
+namespace AAMod.NPCs.Enemies.Terrarium.PreHM {
     public class PurityCrawler : ModNPC
     {
         public override string Texture => "AAMod/NPCs/Enemies/Terrarium/PreHM/PurityCrawler";

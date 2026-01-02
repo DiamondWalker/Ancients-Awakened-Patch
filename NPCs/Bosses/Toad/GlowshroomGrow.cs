@@ -1,8 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Toad
-{
+namespace AAMod.NPCs.Bosses.Toad {
     public class GlowshroomGrow : ModNPC
     {
         public override void SetStaticDefaults()

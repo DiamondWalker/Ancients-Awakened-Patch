@@ -1,8 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Anubis
-{
+namespace AAMod.Projectiles.Anubis {
     public class AnubisArrow : ModProjectile
 	{
 		public override void SetStaticDefaults()

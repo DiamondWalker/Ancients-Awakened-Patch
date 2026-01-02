@@ -4,8 +4,7 @@ using System;
 using Terraria;
 using Terraria.ID;
 
-namespace AAMod.Projectiles
-{
+namespace AAMod.Projectiles {
     public class DragonSpine : Javelin
     {
         public override void SetStaticDefaults()

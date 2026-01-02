@@ -4,8 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
-{
+namespace AAMod.Projectiles {
     public class ThunderBullet : ModProjectile
 	{
         //Thank you Qwerty3.14 for letting us use his Oricalcum bullet code.

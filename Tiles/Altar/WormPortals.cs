@@ -5,8 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles.Altar
-{
+namespace AAMod.Tiles.Altar {
     public class DBPortal : ModNPC
     {
         public override void SetStaticDefaults()

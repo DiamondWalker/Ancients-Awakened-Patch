@@ -5,8 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Enemies.Hallow
-{
+namespace AAMod.NPCs.Enemies.Hallow {
     public class FatPixie : ModNPC
     {
         public override void SetStaticDefaults()

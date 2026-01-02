@@ -3,8 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles.Bricks
-{
+namespace AAMod.Tiles.Bricks {
     public class DoomstoneBrick : ModTile
     {
         public override void SetDefaults()

@@ -1,5 +1,4 @@
-﻿namespace AAMod.Projectiles
-{
+﻿namespace AAMod.Projectiles {
     public class YamataTooth : ShenTooth
     {
         public override void SetStaticDefaults()

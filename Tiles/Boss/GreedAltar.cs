@@ -1,4 +1,5 @@
-﻿using AAMod.NPCs.Bosses.Greed;
+﻿using AAMod.Globals.Worlds;
+using AAMod.NPCs.Bosses.Greed;
 
 using Microsoft.Xna.Framework;
 using Terraria;
@@ -8,8 +9,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Boss
-{
+namespace AAMod.Tiles.Boss {
     public class GreedAltar : ModTile
     {
         public override void SetDefaults()

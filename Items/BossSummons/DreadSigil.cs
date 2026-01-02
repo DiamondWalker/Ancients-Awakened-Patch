@@ -1,4 +1,7 @@
 
+using AAMod.Globals.Players;
+using AAMod.Globals.Worlds;
+using AAMod.Items.Base;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;

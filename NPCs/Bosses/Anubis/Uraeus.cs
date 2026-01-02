@@ -5,8 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Anubis
-{
+namespace AAMod.NPCs.Bosses.Anubis {
     public class Uraeus : ModNPC
 	{
 		public override void SetDefaults()

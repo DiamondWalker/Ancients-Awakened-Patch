@@ -6,8 +6,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Furniture.Oroboros
-{
+namespace AAMod.Tiles.Furniture.Oroboros {
     public class OroborosClock : ModTile
 	{
 		public override void SetDefaults()

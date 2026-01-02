@@ -1,11 +1,10 @@
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System;
 
-namespace AAMod.NPCs.Bosses.Akuma.Awakened
-{
+namespace AAMod.NPCs.Bosses.Akuma.Awakened {
     [AutoloadBossHead]
     public class AsheA : ModProjectile
     {

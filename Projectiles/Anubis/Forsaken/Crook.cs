@@ -5,8 +5,7 @@ using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Anubis.Forsaken
-{
+namespace AAMod.Projectiles.Anubis.Forsaken {
     public class Crook : ModProjectile
 	{
         public override void SetDefaults()

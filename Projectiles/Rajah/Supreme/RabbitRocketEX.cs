@@ -1,11 +1,9 @@
-using Terraria.ID;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.ID;
 
-namespace AAMod.Projectiles.Rajah.Supreme
-
-{
+namespace AAMod.Projectiles.Rajah.Supreme {
     public class RabbitRocketEX : RabbitRocket3
     {
         public override void SetStaticDefaults()

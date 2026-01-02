@@ -1,16 +1,13 @@
-
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.Localization;
-using Terraria.ID;
-using Terraria.DataStructures;
+using AAMod.Globals.Players;
+using AAMod.Items.Base;
 using AAMod.Worldgeneration.Dimension.Void;
+using Microsoft.Xna.Framework;
+using Terraria;
+using Terraria.DataStructures;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Usable
 {
-    //imported from my tAPI mod because I'm lazy
     public class EntropyCrystal : BaseAAItem
     {
 
@@ -23,29 +20,21 @@ namespace AAMod.Items.Usable
 
         public override void SetDefaults()
         {
+            item.CloneDefaults(50);
             item.width = 32;
             item.height = 32;
             item.rare = 1;
             item.value = Item.sellPrice(0, 20, 0, 0);
-            item.useAnimation = 45;
+            item.UseSound = null;
+            /*item.useAnimation = 45;
             item.useTime = 90;
-            item.useStyle = 4;
+            item.useStyle = 4;*/
             item.noUseGraphic = true;
         }
 
         public override bool UseItem(Player player)
         {
-            if (Main.netMode != 1)
-            {
-                if (!VoidSubworld.IsInside())
-                {
-                    VoidSubworld.Enter();
-                }
-                else
-                {
-                    VoidSubworld.Exit();
-                }
-            }
+            player.GetModPlayer<RiftTeleportPlayer>().ForceTeleport = true;
 
             return true;
         }

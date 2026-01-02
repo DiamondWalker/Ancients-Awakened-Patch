@@ -1,11 +1,11 @@
-﻿using System;
+﻿using AAMod.Globals.Players;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.AH
-{
+namespace AAMod.Projectiles.AH {
     public class AbyssClaw : ModProjectile
     {
     	public override void SetStaticDefaults()

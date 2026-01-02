@@ -6,8 +6,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.AH.Ashe
-{
+namespace AAMod.NPCs.Bosses.AH.Ashe {
     public class AsheDragon : ModNPC
     {
         public override void SetStaticDefaults()

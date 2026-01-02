@@ -1,6 +1,7 @@
-using Terraria;
+using AAMod.Items.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Terraria;
 namespace AAMod.Items.Boss.Broodmother
 {
     public class BroodmotherTrophy : BaseAAItem

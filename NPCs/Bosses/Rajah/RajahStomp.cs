@@ -1,7 +1,6 @@
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Rajah
-{
+namespace AAMod.NPCs.Bosses.Rajah {
     public class RajahStomp: ModProjectile
     {
         public override string Texture => "AAMod/BlankTex";

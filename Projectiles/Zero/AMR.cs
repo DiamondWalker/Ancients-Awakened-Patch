@@ -1,10 +1,9 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
 
-namespace AAMod.Projectiles.Zero
-{
+namespace AAMod.Projectiles.Zero {
     public class AMR : ModProjectile
     {
         public int counter = 0;

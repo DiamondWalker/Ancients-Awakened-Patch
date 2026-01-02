@@ -1,18 +1,17 @@
-using System;
+using AAMod.Globals.Worlds;
+using AAMod.Items.Boss.Rajah;
+using AAMod.NPCs.Bosses.Rajah.Supreme;
+using AAMod.Util;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
 using Terraria;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-using System.IO;
-using AAMod.Items.Boss.Rajah;
-using Terraria.Graphics.Shaders;
-using AAMod.NPCs.Bosses.Rajah.Supreme;
-using AAMod.Util;
-
-namespace AAMod.NPCs.Bosses.Rajah
-{
+namespace AAMod.NPCs.Bosses.Rajah {
     [AutoloadBossHead]
     public class Rajah : ModNPC
     {

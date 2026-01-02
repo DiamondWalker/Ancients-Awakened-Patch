@@ -1,8 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Water
-{
+namespace AAMod.Water {
     public class VoidWaterSplash : ModDust
 	{
 		public override void SetDefaults()

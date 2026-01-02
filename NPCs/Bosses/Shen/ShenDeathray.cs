@@ -1,12 +1,11 @@
-using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.Enums;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Shen
-{
+namespace AAMod.NPCs.Bosses.Shen {
     public class ShenDeathray : ModProjectile
     {
         public override string Texture => "AAMod/NPCs/Bosses/Shen/ShenDeathray";

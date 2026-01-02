@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Walls.Bricks
-{
+namespace AAMod.Walls.Bricks {
     public class RelicWall : ModWall
 	{
 		public override void SetDefaults()

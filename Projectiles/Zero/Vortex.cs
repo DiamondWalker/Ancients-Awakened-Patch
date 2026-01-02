@@ -1,12 +1,10 @@
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 
-using Microsoft.Xna.Framework;
-
-namespace AAMod.Projectiles.Zero
-{
+namespace AAMod.Projectiles.Zero {
     public class Vortex : ModProjectile  
     {
         public override void SetStaticDefaults()

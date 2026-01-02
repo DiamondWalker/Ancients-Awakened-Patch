@@ -1,11 +1,10 @@
-﻿using Terraria;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.IO;
+using Terraria;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
-using System.IO;
 
-namespace AAMod
-{
+namespace AAMod.Globals.World {
     public class DownedBools : ModWorld
     {
         public static bool downedGobSummoner = false;

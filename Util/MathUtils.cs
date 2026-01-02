@@ -1,8 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 
-namespace AAMod.Util
-{
+namespace AAMod.Util {
 
     public static class MathUtil
     {

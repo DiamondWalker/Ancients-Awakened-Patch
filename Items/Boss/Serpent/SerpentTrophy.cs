@@ -1,3 +1,5 @@
+using AAMod.Items.Base;
+
 namespace AAMod.Items.Boss.Serpent
 {
     public class SerpentTrophy : BaseAAItem

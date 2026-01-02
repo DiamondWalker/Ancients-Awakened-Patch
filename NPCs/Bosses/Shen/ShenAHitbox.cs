@@ -2,8 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Bosses.Shen
-{
+namespace AAMod.NPCs.Bosses.Shen {
     public class ShenAHitbox : ModNPC
     {
         public override string Texture => "AAMod/BlankTex";

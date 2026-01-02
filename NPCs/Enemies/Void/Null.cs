@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Void
-{
+namespace AAMod.NPCs.Enemies.Void {
     public class Null : ModNPC
 	{
 		

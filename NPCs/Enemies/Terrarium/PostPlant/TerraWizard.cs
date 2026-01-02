@@ -4,8 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Enemies.Terrarium.PostPlant
-{
+namespace AAMod.NPCs.Enemies.Terrarium.PostPlant {
     public class TerraWizard : ModNPC
 	{
 		public override void SetStaticDefaults()

@@ -2,8 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles.Projectiles
-{
+namespace AAMod.Tiles.Projectiles {
     class TorchsandBall : ModProjectile
     {
         protected bool falling = true;

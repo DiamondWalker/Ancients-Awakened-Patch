@@ -1,13 +1,12 @@
 using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.Audio;
-using System;
-using ReLogic.Utilities;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Utilities;
+using System;
+using Terraria;
+using Terraria.Audio;
+using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Sag
-{
+namespace AAMod.NPCs.Bosses.Sag {
     public class SagRing : ModProjectile
 	{
 		public override void SetDefaults()

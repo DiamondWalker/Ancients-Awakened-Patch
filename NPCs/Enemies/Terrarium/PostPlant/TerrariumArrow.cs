@@ -2,8 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Terrarium.PostPlant
-{
+namespace AAMod.NPCs.Enemies.Terrarium.PostPlant {
     public class TerrariumArrow : ModProjectile
     {
         public override void SetDefaults()

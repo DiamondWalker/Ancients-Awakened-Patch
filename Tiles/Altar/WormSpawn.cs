@@ -1,11 +1,11 @@
 
+using AAMod.Globals.Worlds;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles.Altar
-{
+namespace AAMod.Tiles.Altar {
     public class WormSpawn : ModNPC
     {
         public override string Texture => "AAMod/BlankTex";

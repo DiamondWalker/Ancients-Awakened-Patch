@@ -1,10 +1,9 @@
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework.Graphics;
 
-namespace AAMod.NPCs.Bosses.Athena.Olympian
-{
+namespace AAMod.NPCs.Bosses.Athena.Olympian {
     public class Hurricane : ModProjectile
     {
         public override string Texture => "AAMod/BlankTex";

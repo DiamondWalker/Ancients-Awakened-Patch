@@ -1,10 +1,9 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Zero.Protocol
-{
+namespace AAMod.NPCs.Bosses.Zero.Protocol {
     public class GlitchRocket : ModProjectile
     {
     	public override void SetStaticDefaults()

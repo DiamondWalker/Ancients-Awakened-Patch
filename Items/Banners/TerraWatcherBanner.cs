@@ -1,7 +1,9 @@
 
+using AAMod.Items.Base;
+
 namespace AAMod.Items.Banners
 {
-	public class TerraWatcherBanner : BaseAAItem
+    public class TerraWatcherBanner : BaseAAItem
 	{
 		public override void SetStaticDefaults()
         {

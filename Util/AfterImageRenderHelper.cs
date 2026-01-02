@@ -1,12 +1,4 @@
-﻿using Terraria;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
-
-namespace AAMod.Util {
+﻿namespace AAMod.Util {
     public class AfterImageRenderHelper {
         /*private AfterImage[] afterImages;
 

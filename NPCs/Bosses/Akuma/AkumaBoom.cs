@@ -1,11 +1,9 @@
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-using Microsoft.Xna.Framework;
-
-namespace AAMod.NPCs.Bosses.Akuma
-{
+namespace AAMod.NPCs.Bosses.Akuma {
     public class AkumaBoom : ModProjectile
     {
         public override void SetStaticDefaults()

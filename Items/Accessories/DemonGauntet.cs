@@ -1,8 +1,10 @@
+using AAMod.Globals.Players;
+using AAMod.Items.Base;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 
 namespace AAMod.Items.Accessories

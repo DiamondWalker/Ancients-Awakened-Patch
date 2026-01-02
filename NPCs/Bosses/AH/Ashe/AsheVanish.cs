@@ -6,8 +6,7 @@ using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.AH.Ashe
-{
+namespace AAMod.NPCs.Bosses.AH.Ashe {
     public class AsheVanish : ModNPC
     {
         public override void SetStaticDefaults()

@@ -1,8 +1,8 @@
+using AAMod.Globals.Players;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Champion.Baron
-{
+namespace AAMod.Items.Armor.Champion.Baron {
     public class BaronBuff : ModBuff
     {
         public override void SetDefaults()

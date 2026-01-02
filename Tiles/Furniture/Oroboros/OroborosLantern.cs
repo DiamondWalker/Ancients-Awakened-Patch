@@ -1,13 +1,12 @@
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ID;
 using Terraria.Enums;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using Microsoft.Xna.Framework.Graphics;
 
-namespace AAMod.Tiles.Furniture.Oroboros
-{
+namespace AAMod.Tiles.Furniture.Oroboros {
     public class OroborosLantern : ModTile
 	{
 		public override void SetDefaults()

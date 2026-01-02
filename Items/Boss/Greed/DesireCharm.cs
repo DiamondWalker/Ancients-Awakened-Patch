@@ -1,7 +1,9 @@
-using Terraria.ModLoader;
+using AAMod.Globals.Players;
+using AAMod.Items.Base;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.Localization;
-using System.Collections.Generic;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Greed
 {

@@ -1,10 +1,11 @@
+using AAMod.Items.Base;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Magic
 {
-	public class Fireblast : BaseAAItem
+    public class Fireblast : BaseAAItem
 	{
 		public override void SetDefaults()
 		{

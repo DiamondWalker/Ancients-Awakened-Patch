@@ -2,8 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Walls
-{
+namespace AAMod.Walls {
     public class TorchstoneWall : ModWall
 	{
         public override void SetDefaults()

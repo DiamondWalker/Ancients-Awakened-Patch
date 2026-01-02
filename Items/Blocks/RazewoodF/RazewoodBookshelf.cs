@@ -1,8 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Blocks.RazewoodF
-{
+namespace AAMod.Items.Blocks.RazewoodF {
     public class RazewoodBookshelf : ModItem
     {
         public override void SetStaticDefaults()

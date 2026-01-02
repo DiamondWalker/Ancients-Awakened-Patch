@@ -1,6 +1,7 @@
+using AAMod.Items.Base;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria;
 
 namespace AAMod.Items.Tools
 {

@@ -2,8 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Summoning.Minions
-{
+namespace AAMod.Items.Summoning.Minions {
     public class XiaoFireball : ModProjectile
     {
         public override void SetStaticDefaults()

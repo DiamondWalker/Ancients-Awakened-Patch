@@ -1,11 +1,11 @@
-﻿using System;
+﻿using AAMod.Globals.Players;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Dev.RuneBook
-{
+namespace AAMod.Items.Dev.RuneBook {
     public class TerraRune : ModProjectile
     {
         public override void SetStaticDefaults()

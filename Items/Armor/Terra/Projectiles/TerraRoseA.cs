@@ -1,14 +1,12 @@
-using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Armor.Terra.Projectiles
-{
+namespace AAMod.Items.Armor.Terra.Projectiles {
     public class TerraRoseA : ModProjectile
 	{
 		public static Color lightColor = new Color(0, 150, 50);

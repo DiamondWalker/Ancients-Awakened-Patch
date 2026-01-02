@@ -2,8 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Shen.GripsShen
-{
+namespace AAMod.NPCs.Bosses.Shen.GripsShen {
     public class AbyssBoom : ModProjectile
     {
         public override void SetStaticDefaults()

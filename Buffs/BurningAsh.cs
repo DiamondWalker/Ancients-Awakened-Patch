@@ -1,8 +1,9 @@
+using AAMod.Globals.Players;
+using AAMod.Globals.Worlds;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Buffs
-{
+namespace AAMod.Buffs {
     public class BurningAsh : ModBuff
 	{
 		public override void SetDefaults()

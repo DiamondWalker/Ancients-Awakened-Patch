@@ -1,11 +1,10 @@
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System.Collections.Generic;
 
-namespace AAMod.Projectiles
-{
+namespace AAMod.Projectiles {
     public class DragonP : ModProjectile
     {
         public override void SetDefaults()

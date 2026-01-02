@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Yamata
-{
+namespace AAMod.Projectiles.Yamata {
     public class SmallToxibomb : ModProjectile
 	{
         public override void SetStaticDefaults()

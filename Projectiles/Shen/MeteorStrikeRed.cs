@@ -2,8 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Shen
-{
+namespace AAMod.Projectiles.Shen {
     public class MeteorStrikeRed : ModProjectile
     {
         public override void SetStaticDefaults()

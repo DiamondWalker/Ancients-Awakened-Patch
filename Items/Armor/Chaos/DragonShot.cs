@@ -1,12 +1,11 @@
-﻿using System;
+﻿using AAMod.Dusts;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
-using AAMod.Dusts;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Chaos
-{
+namespace AAMod.Items.Armor.Chaos {
     public class DragonShot : ModProjectile
     {
         public override void SetStaticDefaults()

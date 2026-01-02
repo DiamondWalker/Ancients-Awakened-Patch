@@ -1,12 +1,10 @@
+using AAMod.Util;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-using Microsoft.Xna.Framework.Graphics;
-using AAMod.Util;
-
-namespace AAMod.Projectiles.Athena
-{
+namespace AAMod.Projectiles.Athena {
     public class OwlRuneCharged : ModProjectile
     {
         public override void SetDefaults()

@@ -1,13 +1,11 @@
+using AAMod.Util;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
-using Terraria.ID;
-using Microsoft.Xna.Framework.Graphics;
-using AAMod.Util;
-
-namespace AAMod.NPCs.Bosses.Anubis.Forsaken
-{
+namespace AAMod.NPCs.Bosses.Anubis.Forsaken {
     public class HorusSentry : ModNPC
     {
         public override void SetStaticDefaults()

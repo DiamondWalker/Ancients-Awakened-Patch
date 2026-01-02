@@ -5,8 +5,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Enemies.Desert
-{
+namespace AAMod.NPCs.Enemies.Desert {
     public class MiniDjinn : ModNPC
     {
         private bool Shooty = false;

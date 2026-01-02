@@ -1,8 +1,8 @@
+using AAMod.Globals.Worlds;
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
-namespace AAMod.Walls
-{
+namespace AAMod.Walls {
     public class BurnedDynastyWall : ModWall
 	{
 		public override void SetDefaults()

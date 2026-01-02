@@ -1,3 +1,4 @@
+using AAMod.Items.Base;
 using Terraria.ID;
 
 namespace AAMod.Items.FishingItem

@@ -3,8 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAMod.NPCs.Bosses.Lucifer
-{
+namespace AAMod.NPCs.Bosses.Lucifer {
     public class LuciferSitting : ModNPC
     {
         public override void SetDefaults()

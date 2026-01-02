@@ -1,8 +1,7 @@
 using System;
 using Terraria.Utilities;
 
-namespace AAMod
-{
+namespace AAMod {
     public class AAFakeRand : UnifiedRandom
 	{
 		public AAFakeRand() : this(Environment.TickCount)

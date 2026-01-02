@@ -2,8 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Athena
-{
+namespace AAMod.Projectiles.Athena {
     public class Skyblade : ModProjectile
     {
         public override void SetStaticDefaults()

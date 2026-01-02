@@ -1,4 +1,4 @@
-using AAMod.Items;
+using AAMod.Items.Base;
 
 namespace AAMod.Tiles.Altar
 {

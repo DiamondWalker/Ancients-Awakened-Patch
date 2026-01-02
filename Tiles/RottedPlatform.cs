@@ -4,9 +4,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles
-{
-	public class RottedPlatform : ModTile
+namespace AAMod.Tiles {
+    public class RottedPlatform : ModTile
 	{
 		public override void SetDefaults()
 		{

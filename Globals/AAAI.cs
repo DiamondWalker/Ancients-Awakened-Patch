@@ -1,15 +1,15 @@
 
+using AAMod.Globals.Players;
+using AAMod.Util;
 using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
-using Microsoft.Xna.Framework.Graphics;
-using AAMod.Util;
+using Terraria.ModLoader;
 
-namespace AAMod
-{
+namespace AAMod {
     public class AAAI
 	{
         public static AAPlayer modPlayer = Main.LocalPlayer.GetModPlayer<AAPlayer>();

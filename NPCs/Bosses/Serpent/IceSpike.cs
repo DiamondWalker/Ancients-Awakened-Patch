@@ -1,9 +1,8 @@
-using Terraria.ID;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Serpent
-{
+namespace AAMod.NPCs.Bosses.Serpent {
     public class IceSpike : ModProjectile
     {
         public override void SetDefaults()

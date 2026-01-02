@@ -1,11 +1,10 @@
-using System;
 using AAMod.Util;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Other
-{
+namespace AAMod.NPCs.Enemies.Other {
     public class DragonClaw : ModNPC
     {
         public override void SetStaticDefaults()

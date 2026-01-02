@@ -3,8 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Rajah.Supreme
-{
+namespace AAMod.NPCs.Bosses.Rajah.Supreme {
     public class BaneTEXR : ModProjectile
     {
         public override void SetStaticDefaults()

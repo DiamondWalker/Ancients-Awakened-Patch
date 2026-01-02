@@ -1,3 +1,5 @@
+using AAMod.Items.Base;
+
 namespace AAMod.Items.Usable
 {
     public class MireKey : BaseAAItem

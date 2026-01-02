@@ -1,18 +1,18 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAMod.Globals.Worlds;
+using AAMod.Items.Blocks;
+using AAMod.Items.Blocks.Boxes;
+using AAMod.Items.BossSummons;
+using AAMod.Items.Flasks;
+using AAMod.Items.Materials;
+using AAMod.Items.Usable;
+using AAMod.Items.Vanity.Mask;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
-using Terraria.ModLoader;
-using AAMod.Items.Vanity.Mask;
-using AAMod.Items.BossSummons;
-using AAMod.Items.Blocks.Boxes;
-using AAMod.Items.Blocks;
-using AAMod.Items.Flasks;
-using AAMod.Items.Usable;
-using AAMod.Items.Materials;
 using Terraria;
+using Terraria.ModLoader;
 
-namespace AAMod.Globals
-{
+namespace AAMod.Globals {
     internal class WeakReferences
     {
         public static void PerformModSupport()

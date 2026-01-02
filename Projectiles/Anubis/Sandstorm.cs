@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Anubis
-{
+namespace AAMod.Projectiles.Anubis {
     internal class SandstormFlame : ModProjectile
     {
         public override string Texture => "AAMod/BlankTex";

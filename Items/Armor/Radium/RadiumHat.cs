@@ -1,8 +1,9 @@
+using AAMod.Items.Base;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Armor.Radium
 {

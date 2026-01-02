@@ -4,8 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.AH.Haruka
-{
+namespace AAMod.NPCs.Bosses.AH.Haruka {
     public class HarukaSpawn : ModNPC
     {
         public override void SetStaticDefaults()

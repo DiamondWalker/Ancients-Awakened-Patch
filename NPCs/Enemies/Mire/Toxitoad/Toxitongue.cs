@@ -1,12 +1,11 @@
-using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Mire.Toxitoad
-{
+namespace AAMod.NPCs.Enemies.Mire.Toxitoad {
     public class Toxitongue : ModProjectile
     {
         public override void SetStaticDefaults()

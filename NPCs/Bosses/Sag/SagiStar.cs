@@ -4,8 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Sag
-{
+namespace AAMod.NPCs.Bosses.Sag {
     public class SagiStar : ModProjectile
     {
         public override void SetDefaults()

@@ -7,8 +7,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Greed
-{
+namespace AAMod.NPCs.Bosses.Greed {
     public class GreedTurret : ModNPC
     {
         public override void SetStaticDefaults()

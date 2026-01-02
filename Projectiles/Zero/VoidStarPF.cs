@@ -1,12 +1,11 @@
-﻿using Terraria;
-using Terraria.ModLoader;
+﻿using AAMod.Util;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using AAMod.Util;
+using Terraria;
+using Terraria.ModLoader;
 
 
-namespace AAMod.Projectiles.Zero
-{
+namespace AAMod.Projectiles.Zero {
     public class VoidStarPF : ModProjectile
     {
         public override void SetStaticDefaults()

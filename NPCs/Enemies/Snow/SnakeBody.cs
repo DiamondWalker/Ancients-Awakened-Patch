@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 
-namespace AAMod.NPCs.Enemies.Snow
-{
+namespace AAMod.NPCs.Enemies.Snow {
     public class SnakeBody : SnakeHead
     {
 		public override void SetStaticDefaults()

@@ -4,8 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Bosses.Anubis.Forsaken
-{
+namespace AAMod.NPCs.Bosses.Anubis.Forsaken {
     public class FATransition : ModNPC
     {
 		public override void SetStaticDefaults()

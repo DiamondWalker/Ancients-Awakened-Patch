@@ -1,8 +1,8 @@
-﻿using Terraria;
+﻿using AAMod.Globals.Players;
+using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Backgrounds
-{
+namespace AAMod.Backgrounds {
     class VoidSurfaceBgStyle : ModSurfaceBgStyle
     {
         public override bool ChooseBgStyle()

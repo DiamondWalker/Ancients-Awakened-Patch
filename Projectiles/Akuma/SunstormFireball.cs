@@ -4,8 +4,7 @@ using Terraria;
 
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Akuma
-{
+namespace AAMod.Projectiles.Akuma {
     public class SunstormFireball : AAProjectile
 	{
 		float rot = 0f;

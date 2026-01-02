@@ -2,8 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Yamata
-{
+namespace AAMod.NPCs.Bosses.Yamata {
     public class YamataBoom : ModProjectile
     {
         public override void SetStaticDefaults()

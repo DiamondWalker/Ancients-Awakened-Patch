@@ -1,11 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System;
 
-namespace AAMod.Projectiles.Zero
-{
+namespace AAMod.Projectiles.Zero {
     public class GRocket : ModProjectile
 	{
 		public override void SetStaticDefaults()

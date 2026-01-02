@@ -5,8 +5,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Furniture.Razewood
-{
+namespace AAMod.Tiles.Furniture.Razewood {
     public class RazewoodClock : ModTile
     {
         public override void SetDefaults()

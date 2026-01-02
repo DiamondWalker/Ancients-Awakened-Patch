@@ -1,10 +1,10 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAMod.Globals.Worlds;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Zero.Protocol
-{
+namespace AAMod.NPCs.Bosses.Zero.Protocol {
     public class NullZP : ModNPC
 	{
 		

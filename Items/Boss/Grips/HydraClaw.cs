@@ -1,10 +1,10 @@
+using AAMod.Globals.Players;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Grips
-{
+namespace AAMod.Items.Boss.Grips {
     public class HydraClaw : ModProjectile
     {
         public override void SetStaticDefaults()

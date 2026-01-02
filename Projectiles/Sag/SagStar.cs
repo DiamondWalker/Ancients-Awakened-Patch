@@ -4,8 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Sag
-{
+namespace AAMod.Projectiles.Sag {
     public class SagStar : ModProjectile
     {
         public override void SetDefaults()

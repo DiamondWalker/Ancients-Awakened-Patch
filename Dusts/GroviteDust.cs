@@ -1,11 +1,10 @@
-using System;
+using AAMod.Globals.Players;
 using Microsoft.Xna.Framework;
-
+using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Dusts
-{
+namespace AAMod.Dusts {
     public class GroviteDust : ModDust
     {
 

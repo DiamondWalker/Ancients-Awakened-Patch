@@ -1,9 +1,10 @@
+using AAMod.Items.Base;
+using AAMod.NPCs.Bosses.MushroomMonarch;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
-using AAMod.NPCs.Bosses.MushroomMonarch;
-using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 
 namespace AAMod.Items.BossSummons.Swarm

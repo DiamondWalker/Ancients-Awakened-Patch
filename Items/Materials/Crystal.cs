@@ -1,6 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAMod.Items.Base;
+using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ModLoader;
 
 namespace AAMod.Items.Materials
 {

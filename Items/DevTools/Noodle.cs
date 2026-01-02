@@ -1,11 +1,10 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.DevTools
-{
+namespace AAMod.Items.DevTools {
     public class Noodle : ModProjectile
     {
     	public override void SetStaticDefaults()

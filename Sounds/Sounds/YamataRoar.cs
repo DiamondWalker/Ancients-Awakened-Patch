@@ -1,8 +1,7 @@
 using Microsoft.Xna.Framework.Audio;
 using Terraria.ModLoader;
 
-namespace AAMod.Sounds.Sounds
-{
+namespace AAMod.Sounds.Sounds {
     public class YamataRoar : ModSound
     {
         public override SoundEffectInstance PlaySound(ref SoundEffectInstance soundInstance, float volume, float pan, SoundType type)

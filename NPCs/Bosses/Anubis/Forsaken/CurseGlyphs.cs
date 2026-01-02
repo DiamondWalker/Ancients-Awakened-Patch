@@ -1,13 +1,11 @@
-using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
+using System;
 using Terraria;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Bosses.Anubis.Forsaken
-{
+namespace AAMod.NPCs.Bosses.Anubis.Forsaken {
     public class CurseGlyphs : ModProjectile
 	{				
 		public override void SetStaticDefaults()

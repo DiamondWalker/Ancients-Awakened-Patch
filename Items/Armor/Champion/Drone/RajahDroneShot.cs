@@ -4,8 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Champion.Drone
-{
+namespace AAMod.Items.Armor.Champion.Drone {
     public class RajahDroneShot : ModProjectile
 	{
         public override void SetStaticDefaults()

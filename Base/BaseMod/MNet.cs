@@ -1,8 +1,7 @@
 using Terraria;
 
-namespace AAMod
-{
-	public class MNet
+namespace AAMod {
+    public class MNet
 	{
 		public static void SendBaseNetMessage(int msg, params object[] param)
 		{

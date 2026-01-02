@@ -1,11 +1,10 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Toad
-{
+namespace AAMod.NPCs.Bosses.Toad {
     public class ToadBubble : ModProjectile
     {
         public override void SetStaticDefaults()

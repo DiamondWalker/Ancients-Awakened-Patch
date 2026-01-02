@@ -1,13 +1,12 @@
-﻿using System;
-using Terraria;
-using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using Terraria.ID;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 
-namespace AAMod.Projectiles.Akuma
-{
+namespace AAMod.Projectiles.Akuma {
     public class RadiantDawn : ModProjectile
     {
         public int counter = 0;

@@ -1,8 +1,7 @@
 using AAMod.NPCs.Enemies.Sky;
 
-namespace AAMod.NPCs.Bosses.Athena
-{
-	public class SeraphA : Seraph
+namespace AAMod.NPCs.Bosses.Athena {
+    public class SeraphA : Seraph
 	{
         public override void SetStaticDefaults()
         {

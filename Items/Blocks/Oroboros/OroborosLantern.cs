@@ -1,8 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Blocks.Oroboros
-{
+namespace AAMod.Items.Blocks.Oroboros {
     public class OroborosLantern : ModItem
     {
         public override void SetStaticDefaults()

@@ -1,11 +1,11 @@
-using System;
+using AAMod.Globals.Players;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.EFish
-{
+namespace AAMod.Projectiles.EFish {
     public class Fishnado : ModProjectile
     {
         public override void SetStaticDefaults()

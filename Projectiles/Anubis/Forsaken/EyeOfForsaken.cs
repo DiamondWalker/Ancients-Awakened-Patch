@@ -1,11 +1,10 @@
+using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
 
-namespace AAMod.Projectiles.Anubis.Forsaken
-{
+namespace AAMod.Projectiles.Anubis.Forsaken {
     public class EyeOfForsaken : ModProjectile
     {
         public override void SetDefaults()

@@ -1,9 +1,8 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Buffs
-{
-	public class PrettyPony : ModBuff
+namespace AAMod.Buffs {
+    public class PrettyPony : ModBuff
 	{
 		public override void SetDefaults()
 		{

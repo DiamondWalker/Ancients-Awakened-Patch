@@ -1,8 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
-namespace AAMod.Walls
-{
+namespace AAMod.Walls {
     public class DepthstoneWall : ModWall
 	{
 		public override void SetDefaults()

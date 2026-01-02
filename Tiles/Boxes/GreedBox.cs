@@ -1,12 +1,11 @@
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ModLoader;
-using Terraria.ObjectData;
 using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.ModLoader;
+using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Boxes
-{
+namespace AAMod.Tiles.Boxes {
     class GreedBox : ModTile
 	{
 		public override void SetDefaults()

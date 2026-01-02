@@ -1,11 +1,11 @@
+using AAMod.Globals.Players;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Doomsday
-{
+namespace AAMod.Items.Armor.Doomsday {
     public class ZeroMini : ModProjectile
     {
 

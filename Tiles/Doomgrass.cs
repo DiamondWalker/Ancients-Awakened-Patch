@@ -1,11 +1,10 @@
+using AAMod.Tiles.Trees;
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
-using AAMod.Tiles.Trees;
+using Terraria.ModLoader;
 
-namespace AAMod.Tiles
-{
+namespace AAMod.Tiles {
     public class Doomgrass : ModTile
     {
 

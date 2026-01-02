@@ -1,9 +1,10 @@
+using AAMod.Globals.Players;
+using AAMod.Globals.Worlds;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Water
-{
+namespace AAMod.Water {
     public class MireWaterStyle : ModWaterStyle
 	{
 		public override bool ChooseWaterStyle()

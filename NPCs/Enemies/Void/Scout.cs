@@ -1,17 +1,15 @@
+using AAMod.Dusts;
+using AAMod.NPCs.Bosses.Zero;
+using AAMod.Util;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-using AAMod.Dusts;
-using AAMod.NPCs.Bosses.Zero;
-using System;
-using Terraria.Graphics.Shaders;
-using AAMod.Util;
-
-namespace AAMod.NPCs.Enemies.Void
-{
+namespace AAMod.NPCs.Enemies.Void {
     public class Scout : ModNPC
 	{
 		public override void SetStaticDefaults()

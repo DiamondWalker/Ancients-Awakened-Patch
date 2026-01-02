@@ -1,14 +1,13 @@
-﻿using Terraria;
-using System;
-using Terraria.ID;
+﻿using AAMod.Util;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
+using System;
+using Terraria;
 using Terraria.Audio;
-using AAMod.Util;
+using Terraria.ID;
+using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Wyrm
-{
+namespace AAMod.NPCs.Bosses.Wyrm {
     public class Wyrm : ModNPC
 	{
 

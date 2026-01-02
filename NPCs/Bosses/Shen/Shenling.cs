@@ -1,13 +1,13 @@
-﻿using Terraria;
-using System;
-using Terraria.ID;
+﻿using AAMod.Globals.Worlds;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
+using System;
+using Terraria;
 using Terraria.Audio;
+using Terraria.ID;
+using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Shen
-{
+namespace AAMod.NPCs.Bosses.Shen {
     public class Shenling : ModNPC
 	{
         public override string Texture => "AAMod/NPCs/Bosses/Shen/Shenling";

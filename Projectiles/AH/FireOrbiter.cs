@@ -1,10 +1,10 @@
+using AAMod.Globals.Players;
 using System;
 
 using Terraria;
 
 
-namespace AAMod.Projectiles.AH
-{
+namespace AAMod.Projectiles.AH {
     public class FireOrbiter : AAProjectile
 	{
 		float rot = 0f;

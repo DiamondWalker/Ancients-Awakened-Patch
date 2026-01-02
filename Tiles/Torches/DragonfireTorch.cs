@@ -8,9 +8,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Torches
-{
-	public class DragonfireTorch : ModTile
+namespace AAMod.Tiles.Torches {
+    public class DragonfireTorch : ModTile
 	{
 		public override void SetDefaults()
 		{

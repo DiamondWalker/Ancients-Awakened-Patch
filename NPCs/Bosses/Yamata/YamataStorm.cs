@@ -1,11 +1,10 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Yamata
-{
+namespace AAMod.NPCs.Bosses.Yamata {
     public class YamataStorm : ModProjectile
     {
     	public override void SetStaticDefaults()

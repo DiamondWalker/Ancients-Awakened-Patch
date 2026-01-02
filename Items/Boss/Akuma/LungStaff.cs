@@ -1,9 +1,10 @@
-using System.Collections.Generic;
+using AAMod.Items.Base;
+using AAMod.Projectiles.Akuma.Lung;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAMod.Projectiles.Akuma.Lung;
 
 namespace AAMod.Items.Boss.Akuma
 {

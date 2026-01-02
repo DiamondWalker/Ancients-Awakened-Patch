@@ -1,13 +1,12 @@
+using AAMod.Globals.Players;
+using AAMod.NPCs.Bosses.Athena;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
-using AAMod.NPCs.Bosses.Athena;
-using Terraria.Localization;
-
-namespace AAMod.NPCs.Enemies.Sky
-{
+namespace AAMod.NPCs.Enemies.Sky {
     public class SeraphHurt : ModNPC
 	{
         public override void SetStaticDefaults()

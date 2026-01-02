@@ -1,7 +1,6 @@
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Tools
-{
+namespace AAMod.Projectiles.Tools {
     //ported from my tAPI mod because I don't want to make artwork
     public class HydraTuneller : ModProjectile
 	{

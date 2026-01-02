@@ -6,8 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Enemies.Inferno
-{
+namespace AAMod.NPCs.Enemies.Inferno {
     public class BlazePhoenix : ModNPC
     {
         public override void SetStaticDefaults()

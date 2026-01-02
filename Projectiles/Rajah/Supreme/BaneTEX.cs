@@ -3,8 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 
-namespace AAMod.Projectiles.Rajah.Supreme
-{
+namespace AAMod.Projectiles.Rajah.Supreme {
     public class BaneTEX : Javelin
     {
         public override void SetStaticDefaults()

@@ -5,8 +5,7 @@ using Terraria.Enums;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Banners
-{
+namespace AAMod.Tiles.Banners {
     public class ThixxieBanner : ModTile
 	{
 		public override void SetDefaults() 

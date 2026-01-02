@@ -1,11 +1,10 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.ID;
 
-namespace AAMod
-{
+namespace AAMod {
     /// <summary>
     /// Sabres are, first and foremost, weapons skills
     /// as opposed to actual weapons in their own right.

@@ -1,7 +1,8 @@
-using Terraria;
-using Terraria.ID;
+using AAMod.Items.Base;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using Terraria;
+using Terraria.ID;
 
 namespace AAMod.Items.Boss.AH
 {

@@ -1,11 +1,10 @@
-using System;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Anubis.Forsaken
-{
+namespace AAMod.NPCs.Bosses.Anubis.Forsaken {
     public class AnubisSoul : ModProjectile
     {
         public override void SetStaticDefaults()

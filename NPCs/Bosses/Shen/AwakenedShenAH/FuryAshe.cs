@@ -1,16 +1,15 @@
-using System;
-using System.IO;
+using AAMod.Globals.Worlds;
+using AAMod.NPCs.Bosses.AH.Ashe;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
 using Terraria;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-using Terraria.Graphics.Shaders;
-using AAMod.NPCs.Bosses.AH.Ashe;
-
-namespace AAMod.NPCs.Bosses.Shen.AwakenedShenAH
-{
+namespace AAMod.NPCs.Bosses.Shen.AwakenedShenAH {
     [AutoloadBossHead]
     public class FuryAshe : ModNPC
     {

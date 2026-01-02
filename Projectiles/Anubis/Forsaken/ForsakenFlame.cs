@@ -2,8 +2,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Anubis.Forsaken
-{
+namespace AAMod.Projectiles.Anubis.Forsaken {
     internal class ForsakenFlame : ModProjectile
     {
         public override string Texture => "AAMod/BlankTex";

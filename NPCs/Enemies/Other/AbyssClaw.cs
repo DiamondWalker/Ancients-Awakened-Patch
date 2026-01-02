@@ -1,10 +1,10 @@
+using AAMod.Globals.Worlds;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System;
 
-namespace AAMod.NPCs.Enemies.Other
-{
+namespace AAMod.NPCs.Enemies.Other {
     public class AbyssClaw : ModNPC
     {
         public override void SetStaticDefaults()

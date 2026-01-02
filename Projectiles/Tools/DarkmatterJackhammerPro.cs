@@ -1,8 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Tools
-{
+namespace AAMod.Projectiles.Tools {
 
     public class DarkmatterJackhammerPro : ModProjectile
     {

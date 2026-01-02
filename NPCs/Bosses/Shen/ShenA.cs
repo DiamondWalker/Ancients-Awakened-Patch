@@ -1,4 +1,5 @@
 ﻿
+using AAMod.Globals.Worlds;
 using AAMod.Util;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -9,8 +10,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAMod.NPCs.Bosses.Shen
-{
+namespace AAMod.NPCs.Bosses.Shen {
     [AutoloadBossHead]
     public class ShenA : Shen
     {

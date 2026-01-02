@@ -1,11 +1,9 @@
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 
-using System;
-
-namespace AAMod
-{
-	public static class AAColor
+namespace AAMod {
+    public static class AAColor
     {
         public static Color Rarity12 => new Color(239, 0, 243);
 

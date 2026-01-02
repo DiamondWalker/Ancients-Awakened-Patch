@@ -5,8 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Athena.Olympian
-{
+namespace AAMod.NPCs.Bosses.Athena.Olympian {
     public class RuneSpawn : ModProjectile
 	{
         public override void SetStaticDefaults()

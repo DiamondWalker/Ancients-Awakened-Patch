@@ -7,8 +7,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Trees
-{
+namespace AAMod.Tiles.Trees {
     class RazewoodSapling : ModTile
     {
         public override void SetDefaults()

@@ -1,11 +1,11 @@
+using AAMod.Globals.Players;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Pets
-{
+namespace AAMod.Items.Pets {
     public class Cerberus : ModProjectile
     {
         public override void SetStaticDefaults()

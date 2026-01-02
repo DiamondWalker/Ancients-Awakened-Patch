@@ -3,8 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.DevTools.Cinematic
-{
+namespace AAMod.Items.DevTools.Cinematic {
     public class Feather2 : ModDust
     {
         public override void OnSpawn(Dust dust)

@@ -4,8 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Akuma
-{
+namespace AAMod.NPCs.Bosses.Akuma {
     public class AkumaTransition : ModNPC
     {
         public override void SetStaticDefaults()

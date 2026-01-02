@@ -1,11 +1,10 @@
+using AAMod.Globals.Players;
+using AAMod.Items.Usable;
 using Terraria;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using AAMod.Items.Usable;
 
-namespace AAMod.NPCs.Enemies.Mushroom
-{
+namespace AAMod.NPCs.Enemies.Mushroom {
     public class ShroomJelly : ModNPC
 	{
 		public override void SetStaticDefaults()

@@ -1,25 +1,19 @@
-﻿using AAMod.Items.Blocks;
+﻿using AAMod.Globals.Worlds;
+using AAMod.Items.Accessories;
+using AAMod.Items.Materials;
+using AAMod.Items.Ranged.Ammo;
+using AAMod.Items.Throwing;
 using AAMod.Items.Usable;
-using AAMod.Tiles;
-using AAMod.Tiles.Chests;
 using AAMod.Tiles.Furniture.Doom;
 using AAMod.Util;
 using Microsoft.Xna.Framework;
-using SubworldLibrary;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
+using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.World.Generation;
-using Terraria.ID;
-using AAMod.Items.Throwing;
-using AAMod.Items.Ranged.Ammo;
-using AAMod.Items.Materials;
-using AAMod.Items.Accessories;
 
 namespace AAMod.Worldgeneration.Dimension.Void {
     public class AsteroidsGenPass : GenPass {

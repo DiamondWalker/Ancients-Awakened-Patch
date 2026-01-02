@@ -1,14 +1,12 @@
 using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-
+using Terraria;
 using Terraria.Graphics.Shaders;
+using Terraria.ID;
+using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Shen.GripsShen
-{
+namespace AAMod.NPCs.Bosses.Shen.GripsShen {
     public class BlazeCloneClaw : ModProjectile
     {
         public override void SetStaticDefaults()

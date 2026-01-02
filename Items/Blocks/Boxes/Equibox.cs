@@ -1,10 +1,13 @@
-using Microsoft.Xna.Framework; using Microsoft.Xna.Framework.Graphics; using Terraria.ModLoader;
+using AAMod.Items.Base;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Blocks.Boxes
 {
-	public class Equibox : BaseAAItem
+    public class Equibox : BaseAAItem
 	{
         
 		public override void SetStaticDefaults()

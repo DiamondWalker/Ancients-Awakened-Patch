@@ -5,8 +5,7 @@ using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Shen.AwakenedShenAH
-{
+namespace AAMod.NPCs.Bosses.Shen.AwakenedShenAH {
     internal class FuryAsheMagicSpark : ModProjectile
     {
         public override void SetStaticDefaults()

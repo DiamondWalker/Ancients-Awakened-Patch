@@ -1,14 +1,13 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAMod.Globals.Worlds;
+using AAMod.Util;
+using Microsoft.Xna.Framework;
+using System;
+using System.IO;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-using System;
-using System.IO;
-using AAMod.Util;
-
-namespace AAMod.NPCs.Bosses.Anubis.Forsaken
-{
+namespace AAMod.NPCs.Bosses.Anubis.Forsaken {
     [AutoloadBossHead]
     public class ForsakenAnubis : ModNPC
     {

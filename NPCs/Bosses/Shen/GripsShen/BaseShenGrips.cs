@@ -1,14 +1,12 @@
-using System;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System.IO;
 
-namespace AAMod.NPCs.Bosses.Shen.GripsShen
-{
+namespace AAMod.NPCs.Bosses.Shen.GripsShen {
     public abstract class BaseShenGrips : ModNPC
     {
         public override void SetStaticDefaults()

@@ -1,11 +1,11 @@
-using System;
+using AAMod.Globals.Players;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Pets
-{
+namespace AAMod.Items.Pets {
     /// <summary>
     /// ALPHA THIS IS NOT AN ITEM
     /// </summary>

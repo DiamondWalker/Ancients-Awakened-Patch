@@ -1,12 +1,12 @@
-using Terraria;
-using Terraria.Localization;
-using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
+using AAMod.Items.Base;
 using AAMod.NPCs.Bosses.Shen;
-using System.Collections.Generic;
-
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System.Collections.Generic;
+using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.BossSummons
 {

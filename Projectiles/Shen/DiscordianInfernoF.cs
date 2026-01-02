@@ -4,8 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Shen
-{
+namespace AAMod.Projectiles.Shen {
     public class DiscordianInfernoF : ModProjectile
     {
         public override void SetStaticDefaults()

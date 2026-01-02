@@ -1,12 +1,11 @@
-using System;
-using Terraria.ModLoader;
-using Terraria.ID;
-using Terraria;
-using Microsoft.Xna.Framework;
 using AAMod.Tiles.Trees;
+using Microsoft.Xna.Framework;
+using System;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
-namespace AAMod.Tiles
-{
+namespace AAMod.Tiles {
     class Depthsand : ModTile
     {
         public override void SetDefaults()

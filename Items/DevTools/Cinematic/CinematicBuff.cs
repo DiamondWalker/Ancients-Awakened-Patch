@@ -1,9 +1,8 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.DevTools.Cinematic
-{
-	public class CinematicBuff : ModBuff
+namespace AAMod.Items.DevTools.Cinematic {
+    public class CinematicBuff : ModBuff
 	{
 		public override void SetDefaults()
 		{

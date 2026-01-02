@@ -5,8 +5,7 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace AAMod
-{
+namespace AAMod {
     internal class AARecipes
     {
         private static ModRecipe GetNewRecipe()

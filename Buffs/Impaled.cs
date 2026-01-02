@@ -1,9 +1,8 @@
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 
-namespace AAMod.Buffs
-{
+namespace AAMod.Buffs {
     public class Impaled : ModBuff
     {
         public override void SetDefaults()

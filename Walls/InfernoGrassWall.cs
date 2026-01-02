@@ -1,8 +1,7 @@
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
-namespace AAMod.Walls
-{
+namespace AAMod.Walls {
     public class InfernoGrassWall : ModWall
 	{
 		public override void SetDefaults()

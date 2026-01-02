@@ -1,5 +1,4 @@
-namespace AAMod
-{
+namespace AAMod {
     public class BaseShaderCompiler
 	{
 		/*public static string appDir = null;

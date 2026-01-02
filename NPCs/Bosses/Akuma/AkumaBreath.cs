@@ -2,8 +2,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Akuma
-{
+namespace AAMod.NPCs.Bosses.Akuma {
     internal class AkumaBreath : ModProjectile
     {
         public override string Texture => "AAMod/BlankTex";

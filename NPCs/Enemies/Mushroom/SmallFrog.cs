@@ -1,10 +1,11 @@
+using AAMod.Globals.Players;
+using AAMod.Globals.Worlds;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Enemies.Mushroom
-{
+namespace AAMod.NPCs.Enemies.Mushroom {
     public class SmallFrog : ModNPC
     {
         public override void SetStaticDefaults()

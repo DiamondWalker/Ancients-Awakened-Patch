@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Greed.WKG
-{
+namespace AAMod.Projectiles.Greed.WKG {
     public class Earthquake : ModProjectile
     {
         public override string Texture => "AAMod/BlankTex";

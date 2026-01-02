@@ -6,8 +6,7 @@ using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Zero
-{
+namespace AAMod.NPCs.Bosses.Zero {
     class Cyclone : ModProjectile
     {
         public override void SetStaticDefaults()

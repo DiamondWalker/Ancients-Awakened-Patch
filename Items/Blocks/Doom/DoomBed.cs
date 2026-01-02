@@ -1,8 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Blocks.Doom
-{
+namespace AAMod.Items.Blocks.Doom {
     public class DoomBed : ModItem
     {
         public override void SetStaticDefaults()

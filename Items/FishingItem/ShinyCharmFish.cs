@@ -1,3 +1,5 @@
+using AAMod.Items.Base;
+
 namespace AAMod.Items.FishingItem
 {
     public class ShinyCharmFish : BaseAAItem

@@ -2,8 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Athena
-{
+namespace AAMod.NPCs.Bosses.Athena {
     public class Feather : ModDust
 	{
 		public override void OnSpawn(Dust dust)

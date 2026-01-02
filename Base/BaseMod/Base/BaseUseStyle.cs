@@ -1,11 +1,9 @@
-using System;
 using Microsoft.Xna.Framework;
-
+using System;
 using Terraria;
 using Terraria.Localization;
 
-namespace AAMod
-{
+namespace AAMod {
     public class BaseUseStyle
     {
         //------------------------------------------------------//

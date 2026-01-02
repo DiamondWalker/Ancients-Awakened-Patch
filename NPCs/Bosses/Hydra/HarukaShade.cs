@@ -1,12 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-using Microsoft.Xna.Framework.Graphics;
-
-namespace AAMod.NPCs.Bosses.Hydra
-{ 
+namespace AAMod.NPCs.Bosses.Hydra {
     public class HarukaShade : ModNPC
     {
 		public override void SetStaticDefaults()

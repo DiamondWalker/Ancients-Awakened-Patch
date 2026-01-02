@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Walls
-{
+namespace AAMod.Walls {
     public class PitBarWall : ModWall
 	{
 		public override void SetDefaults()

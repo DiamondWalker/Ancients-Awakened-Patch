@@ -3,8 +3,7 @@ using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Anubis.Forsaken
-{
+namespace AAMod.Projectiles.Anubis.Forsaken {
     class ForsakenStaffBlast : ModProjectile
     {
         public override void SetStaticDefaults()

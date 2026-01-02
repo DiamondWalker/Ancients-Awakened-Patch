@@ -4,8 +4,7 @@ using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.GemShot
-{
+namespace AAMod.Projectiles.GemShot {
     class TopazShot : ModProjectile
     {
         public override void SetStaticDefaults()

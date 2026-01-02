@@ -2,8 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Toad
-{
+namespace AAMod.NPCs.Bosses.Toad {
     public class FungusBubble : ModProjectile
     {
 		public override void SetStaticDefaults()

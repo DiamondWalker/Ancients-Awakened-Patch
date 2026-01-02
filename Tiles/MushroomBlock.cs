@@ -2,8 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles
-{
+namespace AAMod.Tiles {
     public class MushroomBlock : ModTile
 	{
 		public static int _type;

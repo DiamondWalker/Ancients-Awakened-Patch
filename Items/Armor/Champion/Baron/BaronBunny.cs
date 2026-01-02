@@ -1,14 +1,14 @@
-﻿using System;
+﻿using AAMod.Globals.Players;
+using AAMod.Projectiles.Rajah.Supreme;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAMod.Projectiles.Rajah.Supreme;
 
-namespace AAMod.Items.Armor.Champion.Baron
-{
+namespace AAMod.Items.Armor.Champion.Baron {
     public class BaronBunny : ModProjectile
     {
     	public override void SetStaticDefaults()

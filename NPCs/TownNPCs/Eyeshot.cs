@@ -3,9 +3,7 @@ using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.TownNPCs
-
-{
+namespace AAMod.NPCs.TownNPCs {
     public class EyeShot : ModProjectile
 	{
         public override void SetStaticDefaults()

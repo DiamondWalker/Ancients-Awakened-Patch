@@ -2,8 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Dev.Minions
-{
+namespace AAMod.Items.Dev.Minions {
     public class Fezsplosion : ModProjectile
     {
         public override void SetStaticDefaults()

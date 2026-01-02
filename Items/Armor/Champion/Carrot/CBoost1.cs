@@ -1,8 +1,8 @@
+using AAMod.Globals.Players;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Champion.Carrot
-{
+namespace AAMod.Items.Armor.Champion.Carrot {
     public class CBoost1 : ModBuff
     {
         public override void SetDefaults()

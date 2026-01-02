@@ -1,10 +1,10 @@
+using AAMod.Globals.Worlds;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
-{
+namespace AAMod.Projectiles {
     internal class Snowmelt : ModProjectile
     {
         public override string Texture => "AAMod/BlankTex";

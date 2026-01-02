@@ -1,8 +1,8 @@
+using AAMod.Globals.Players;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Buffs
-{
+namespace AAMod.Buffs {
     public class ChaosClaw : ModBuff
 	{
 		public override void SetDefaults()

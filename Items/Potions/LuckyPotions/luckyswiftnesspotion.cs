@@ -1,8 +1,10 @@
+using AAMod.Globals.Players;
+using AAMod.Items.Base;
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using System.Collections.Generic;
 
 namespace AAMod.Items.Potions.LuckyPotions
 {

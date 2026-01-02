@@ -1,9 +1,8 @@
-using Terraria.ModLoader;
-using Terraria.Graphics.Effects;
 using Terraria;
+using Terraria.Graphics.Effects;
+using Terraria.ModLoader;
 
-namespace AAMod
-{
+namespace AAMod {
     public class ShockwaveBoom : ModProjectile
     {
         public override string Texture => "AAMod/BlankTex";

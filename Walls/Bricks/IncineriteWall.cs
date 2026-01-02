@@ -2,8 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Walls.Bricks
-{
+namespace AAMod.Walls.Bricks {
     public class IncineriteWall : ModWall
 	{
         public override void SetDefaults()

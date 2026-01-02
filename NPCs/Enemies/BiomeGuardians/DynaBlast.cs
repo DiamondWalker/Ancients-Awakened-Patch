@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.BiomeGuardians
-{
+namespace AAMod.NPCs.Enemies.BiomeGuardians {
     public class DynaBlast : ModProjectile
 	{
         public override void SetStaticDefaults()

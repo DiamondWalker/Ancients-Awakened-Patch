@@ -1,10 +1,11 @@
+using AAMod.Items.Base;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Throwing
 {
-	public class HydraFang : BaseAAItem
+    public class HydraFang : BaseAAItem
 	{
 		public override void SetDefaults()
 		{

@@ -7,8 +7,7 @@ using Terraria.Audio;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Enemies.Void
-{
+namespace AAMod.NPCs.Enemies.Void {
     public class Vortex : ModNPC
     {
         public override void SetStaticDefaults()

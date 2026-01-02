@@ -4,8 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Rajah
-{
+namespace AAMod.Projectiles.Rajah {
     public class RabbitRocket3 : ModProjectile
     {
         public override void SetStaticDefaults()

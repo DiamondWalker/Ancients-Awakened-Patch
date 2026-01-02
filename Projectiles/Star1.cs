@@ -1,10 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ModLoader;
-using System;
 
-namespace AAMod.Projectiles
-{
+namespace AAMod.Projectiles {
     // to investigate: Projectile.Damage, (8843)
     public class Star1 : ModProjectile
 	{

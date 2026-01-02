@@ -1,11 +1,11 @@
-using System;
+using AAMod.Globals.Players;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Pets
-{
+namespace AAMod.Items.Pets {
     /// <summary>
     /// ALPHA THIS IS NOT AN ITEMS, ALSO WHY THE ITEM HAVE JUST AN EXTRA S, IT WOULDN'T BE CASE IF IT WAS IN THE PROPER PLACE. ALSO WOULD BE BETTER IN POETHIC FRENCH
     /// </summary>

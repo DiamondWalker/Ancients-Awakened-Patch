@@ -1,8 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Blocks.Doom
-{
+namespace AAMod.Items.Blocks.Doom {
     public class DoomChandelier : ModItem
     {
         public override void SetStaticDefaults()

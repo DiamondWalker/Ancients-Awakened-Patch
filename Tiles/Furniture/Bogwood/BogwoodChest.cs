@@ -1,5 +1,5 @@
-using System;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
@@ -8,8 +8,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Furniture.Bogwood
-{
+namespace AAMod.Tiles.Furniture.Bogwood {
     public class BogwoodChest : ModTile
 	{
 		public override void SetDefaults()

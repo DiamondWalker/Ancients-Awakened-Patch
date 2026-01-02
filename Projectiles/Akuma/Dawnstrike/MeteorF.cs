@@ -4,8 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Akuma.Dawnstrike
-{
+namespace AAMod.Projectiles.Akuma.Dawnstrike {
     public class MeteorF : ModProjectile
     {
         public override void SetDefaults()

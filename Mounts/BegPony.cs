@@ -1,12 +1,11 @@
-using System;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Mounts
-{
-	public class BegPony : ModMountData
+namespace AAMod.Mounts {
+    public class BegPony : ModMountData
 	{
 		public override void SetDefaults()
 		{

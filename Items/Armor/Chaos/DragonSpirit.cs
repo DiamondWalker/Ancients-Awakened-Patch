@@ -1,12 +1,11 @@
-﻿using System;
-
+﻿using AAMod.Globals.Players;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Chaos
-{
+namespace AAMod.Items.Armor.Chaos {
     public class DragonSpirit : ModProjectile
     {
         public override void SetStaticDefaults()

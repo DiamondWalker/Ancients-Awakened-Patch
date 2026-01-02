@@ -2,8 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod
-{
+namespace AAMod {
     public class AAModReforgeSouls : GlobalItem
 	{
         public override bool CanRightClick(Item item)

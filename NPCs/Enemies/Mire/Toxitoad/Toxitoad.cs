@@ -1,12 +1,12 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAMod.Globals.Players;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Enemies.Mire.Toxitoad
-{
+namespace AAMod.NPCs.Enemies.Mire.Toxitoad {
     public class Toxitoad : ModNPC
     {
         public override void SetStaticDefaults()

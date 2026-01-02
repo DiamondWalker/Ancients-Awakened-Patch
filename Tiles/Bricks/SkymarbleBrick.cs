@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles.Bricks
-{
+namespace AAMod.Tiles.Bricks {
     class SkymarbleBrick : ModTile
     {
         public override void SetDefaults()

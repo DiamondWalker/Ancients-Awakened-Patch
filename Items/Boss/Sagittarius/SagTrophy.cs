@@ -1,3 +1,5 @@
+using AAMod.Items.Base;
+
 namespace AAMod.Items.Boss.Sagittarius
 {
     public class SagTrophy : BaseAAItem

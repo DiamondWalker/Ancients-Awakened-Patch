@@ -1,5 +1,6 @@
-using Terraria;
+using AAMod.Items.Base;
 using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Zero

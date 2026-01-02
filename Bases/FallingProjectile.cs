@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod
-{
+namespace AAMod {
     abstract class FallingProjectile : ModProjectile
     {
         public abstract string name { get; }

@@ -1,16 +1,16 @@
+using AAMod.Globals.Players;
+using AAMod.Globals.Worlds;
+using AAMod.Util;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.IO;
 using Terraria;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-using System.IO;
-using Terraria.Graphics.Shaders;
-using AAMod.Util;
-
-namespace AAMod.NPCs.Bosses.Sag
-{
+namespace AAMod.NPCs.Bosses.Sag {
     [AutoloadBossHead]
     public class Sag : ModNPC
 	{

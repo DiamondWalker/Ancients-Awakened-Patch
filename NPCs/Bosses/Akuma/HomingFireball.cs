@@ -4,8 +4,7 @@ using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Akuma
-{
+namespace AAMod.NPCs.Bosses.Akuma {
     internal class HomingFireball : ModProjectile
     {
         public override void SetStaticDefaults()

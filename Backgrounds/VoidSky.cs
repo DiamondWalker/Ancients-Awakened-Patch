@@ -1,15 +1,16 @@
-﻿using System;
+﻿using AAMod.Globals.Players;
+using AAMod.Globals.Worlds;
+using AAMod.Worldgeneration.Dimension.Void;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.Graphics.Effects;
-using Terraria.Utilities;
 using Terraria.Graphics.Shaders;
-using AAMod.Worldgeneration.Dimension.Void;
+using Terraria.Utilities;
 //using AAMod.NPCs.Bosses.Infinity;
 
-namespace AAMod.Backgrounds
-{
+namespace AAMod.Backgrounds {
     public class VoidSky : CustomSky
     {
         private readonly UnifiedRandom random = new UnifiedRandom();

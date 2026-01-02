@@ -1,14 +1,13 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Greed
-{
+namespace AAMod.NPCs.Bosses.Greed {
     public class DesireBeam : ModProjectile // Thanks to Dan Yami for the code
     {
         public override void SetStaticDefaults()

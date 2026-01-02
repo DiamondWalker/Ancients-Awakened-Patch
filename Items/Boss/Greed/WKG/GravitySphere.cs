@@ -1,4 +1,5 @@
-﻿using Terraria;
+﻿using AAMod.Items.Base;
+using Terraria;
 using Terraria.DataStructures;
 
 namespace AAMod.Items.Boss.Greed.WKG

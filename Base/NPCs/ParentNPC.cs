@@ -1,9 +1,8 @@
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 
-namespace AAMod
-{
-	public abstract class ParentNPC : ModNPC
+namespace AAMod {
+    public abstract class ParentNPC : ModNPC
 	{	
 		public virtual void SetAI(float[] ai, int aiType)
 		{ 

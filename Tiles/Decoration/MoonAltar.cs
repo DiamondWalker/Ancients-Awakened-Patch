@@ -1,3 +1,4 @@
+using AAMod.Globals.Players;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -5,8 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Decoration
-{
+namespace AAMod.Tiles.Decoration {
     public class MoonAltar : ModTile
     {
         public override void SetDefaults()
@@ -35,6 +35,9 @@ namespace AAMod.Tiles.Decoration
             if (Main.tile[i, j].frameY >= 56)
             {
                 AAPlayer modPlayer = Main.LocalPlayer.GetModPlayer<AAPlayer>();
+                AAPlayer a = Main.LocalPlayer.GetModPlayer<AAPlayer>();
+                AAPlayer b = Main.LocalPlayer.GetModPlayer<AAPlayer>();
+                AAPlayer c = Main.LocalPlayer.GetModPlayer<AAPlayer>();
                 modPlayer.MoonAltar = true;
             }
         }

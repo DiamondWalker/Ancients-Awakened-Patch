@@ -1,3 +1,5 @@
+using AAMod.Items.Base;
+
 namespace AAMod.Items.Boss.AH
 {
     public class HarukaTrophy : BaseAAItem

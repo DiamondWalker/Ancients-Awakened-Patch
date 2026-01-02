@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Crates
-{
+namespace AAMod.Tiles.Crates {
     public class DesertCrate : ModTile
     {
         public override void SetDefaults()

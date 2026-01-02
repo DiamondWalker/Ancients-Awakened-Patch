@@ -5,8 +5,7 @@ using Terraria;
 
 using Terraria.Audio;
 
-namespace AAMod
-{
+namespace AAMod {
     public abstract class AAProjectile : ParentProjectile
     {
         public override bool CloneNewInstances => true;

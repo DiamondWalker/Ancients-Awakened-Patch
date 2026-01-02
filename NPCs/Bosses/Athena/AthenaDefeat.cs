@@ -4,8 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Athena
-{
+namespace AAMod.NPCs.Bosses.Athena {
     public class AthenaDefeat : ModNPC
     {
         public override void SetStaticDefaults()

@@ -1,11 +1,10 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Dev.Minions
-{
+namespace AAMod.Items.Dev.Minions {
     public class Hat : ModProjectile
     {
         public override void SetDefaults()

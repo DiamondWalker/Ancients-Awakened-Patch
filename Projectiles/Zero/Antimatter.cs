@@ -3,8 +3,7 @@ using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Zero
-{
+namespace AAMod.Projectiles.Zero {
     public class Antimatter : ModProjectile
     {
         public override string Texture => "AAMod/BlankTex";

@@ -1,7 +1,6 @@
 ﻿using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
-{
+namespace AAMod.Projectiles {
     public class FreedomBall : ModProjectile
     {
         public override void SetStaticDefaults()

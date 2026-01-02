@@ -3,9 +3,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Anubis.Forsaken
-{
-	public class ForsakenFrag : ModProjectile
+namespace AAMod.Projectiles.Anubis.Forsaken {
+    public class ForsakenFrag : ModProjectile
     {
         public override void SetStaticDefaults()
         {

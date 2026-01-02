@@ -4,8 +4,7 @@ using Terraria.Enums;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Trophy
-{
+namespace AAMod.Tiles.Trophy {
     public class ShenTrophy : ModTile
 	{
 		public override void SetDefaults()

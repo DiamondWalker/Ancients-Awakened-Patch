@@ -2,9 +2,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
-{
-	public class MadnessKnifeP : ModProjectile
+namespace AAMod.Projectiles {
+    public class MadnessKnifeP : ModProjectile
 	{
 		public override void SetDefaults()
 		{

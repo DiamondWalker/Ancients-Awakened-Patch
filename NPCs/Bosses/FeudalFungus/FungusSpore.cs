@@ -4,8 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Bosses.FeudalFungus
-{
+namespace AAMod.NPCs.Bosses.FeudalFungus {
     public class FungusSpore : ModNPC
     {
         public float[] internalAI = new float[4];

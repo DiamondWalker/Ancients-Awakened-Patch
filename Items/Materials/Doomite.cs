@@ -1,3 +1,5 @@
+using AAMod.Items.Base;
+
 namespace AAMod.Items.Materials
 {
     public class Doomite : BaseAAItem

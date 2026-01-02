@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Anubis
-{
+namespace AAMod.NPCs.Bosses.Anubis {
     public class LocusSpit : ModProjectile
     {
         public override void SetStaticDefaults()

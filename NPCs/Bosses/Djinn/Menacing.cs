@@ -1,7 +1,6 @@
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Djinn
-{
+namespace AAMod.NPCs.Bosses.Djinn {
     public class Menacing : ModProjectile
 	{
         public override void SetStaticDefaults()

@@ -1,13 +1,12 @@
+using AAMod.Dusts;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAMod.Dusts;
-using Microsoft.Xna.Framework.Graphics;
 
 
-namespace AAMod.Projectiles.Greed.WKG
-{
+namespace AAMod.Projectiles.Greed.WKG {
     public class OreChunkHM : ModProjectile
     {
         public override string Texture => "AAMod/Projectiles/Greed/WKG/OreChunkM";

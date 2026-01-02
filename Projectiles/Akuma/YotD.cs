@@ -7,8 +7,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Akuma
-{
+namespace AAMod.Projectiles.Akuma {
     public class YotD : ModProjectile
     {
         public override void SetStaticDefaults()

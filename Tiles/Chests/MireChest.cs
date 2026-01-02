@@ -8,8 +8,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Chests
-{
+namespace AAMod.Tiles.Chests {
     public class MireChest : ModTile
 	{
         public override void SetDefaults()

@@ -1,11 +1,9 @@
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-using System;
-
-namespace AAMod.NPCs.Enemies.Mire
-{
+namespace AAMod.NPCs.Enemies.Mire {
     public class FogAngler : ModNPC
 	{
 		public override void SetStaticDefaults()

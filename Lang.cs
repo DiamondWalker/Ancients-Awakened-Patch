@@ -1,7 +1,6 @@
 using Terraria.Localization;
 
-namespace AAMod
-{
+namespace AAMod {
     public class Lang
     {
         public static string Worldtext(string WorldInfo)

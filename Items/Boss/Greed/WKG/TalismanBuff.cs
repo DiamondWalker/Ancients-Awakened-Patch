@@ -1,8 +1,8 @@
+using AAMod.Globals.Players;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Boss.Greed.WKG
-{
+namespace AAMod.Items.Boss.Greed.WKG {
     public class TalismanBuff : ModBuff
 	{
 		public override void SetDefaults()

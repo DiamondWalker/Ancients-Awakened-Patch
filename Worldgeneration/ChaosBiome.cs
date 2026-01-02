@@ -1,23 +1,19 @@
-using System;
-using System.Collections.Generic;
-
+using AAMod.Tiles;
+using AAMod.Tiles.Boss;
+using AAMod.Tiles.Chests;
+using AAMod.Tiles.Crafters;
+using AAMod.Walls;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
+using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.Utilities;
 using Terraria.World.Generation;
 
-using AAMod.Tiles;
-using AAMod.Walls;
-using Terraria.Utilities;
-using AAMod.Tiles.Chests;
-using AAMod.Tiles.Crafters;
-using AAMod.Tiles.Boss;
-
-namespace AAMod.Worldgeneration
-{
+namespace AAMod.Worldgeneration {
     public class MireBiome : MicroBiome
 	{
 		public override bool Place(Point origin, StructureMap structures)

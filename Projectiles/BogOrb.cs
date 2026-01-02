@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAmod.Projectiles
-{
+namespace AAmod.Projectiles {
 
     public class BogOrb : ModProjectile
     {

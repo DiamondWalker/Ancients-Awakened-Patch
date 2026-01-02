@@ -1,11 +1,9 @@
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-using System;
-
-namespace AAMod.NPCs.Enemies.Inferno
-{
+namespace AAMod.NPCs.Enemies.Inferno {
     public class MagmaSwimmer : ModNPC
 	{
 		public override void SetStaticDefaults()

@@ -1,10 +1,10 @@
+using AAMod.Globals.Worlds;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Bosses.Rajah.Supreme
-{
+namespace AAMod.NPCs.Bosses.Rajah.Supreme {
     [AutoloadBossHead]
     public class SupremeRajahDefeat : ModNPC
     {

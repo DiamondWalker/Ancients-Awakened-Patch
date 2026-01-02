@@ -1,5 +1,6 @@
-using Terraria.ModLoader;
+using AAMod.Items.Base;
 using Terraria;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Vanity.Fargo
 {

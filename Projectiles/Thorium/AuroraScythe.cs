@@ -5,8 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Thorium
-{
+namespace AAMod.Projectiles.Thorium {
     public class AuroraScythe : ModProjectile
     { 
 		public override void SetDefaults()

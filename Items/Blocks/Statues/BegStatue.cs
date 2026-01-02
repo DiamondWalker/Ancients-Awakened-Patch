@@ -1,8 +1,10 @@
-using Terraria.ModLoader; using Terraria.ID;
+using AAMod.Items.Base;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Blocks.Statues
 {
-	public class BegStatue : BaseAAItem
+    public class BegStatue : BaseAAItem
     {
         public override void SetStaticDefaults()
         {

@@ -1,8 +1,8 @@
-﻿using Terraria;
+﻿using AAMod.Globals.Players;
+using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Buffs
-{
+namespace AAMod.Buffs {
     public class Hunted : ModBuff
 	{
 		public override void SetDefaults()

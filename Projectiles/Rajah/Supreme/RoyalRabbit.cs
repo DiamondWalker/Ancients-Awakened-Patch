@@ -1,4 +1,5 @@
 
+using AAMod.Globals.Players;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -6,9 +7,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Rajah.Supreme
-{
-	public class RoyalRabbit : ModProjectile
+namespace AAMod.Projectiles.Rajah.Supreme {
+    public class RoyalRabbit : ModProjectile
 	{
         public override void SetStaticDefaults()
         {

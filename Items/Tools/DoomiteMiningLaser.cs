@@ -1,3 +1,4 @@
+using AAMod.Items.Base;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -5,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAMod.Items.Tools
 {
-	public class DoomiteMiningLaser : BaseAAItem
+    public class DoomiteMiningLaser : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{

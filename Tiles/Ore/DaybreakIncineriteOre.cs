@@ -4,8 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles.Ore
-{
+namespace AAMod.Tiles.Ore {
     public class DaybreakIncineriteOre : ModTile
     {
 

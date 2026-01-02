@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Snow
-{
+namespace AAMod.NPCs.Enemies.Snow {
     public class SnakeHead : ModNPC
 	{
 		public override void SetStaticDefaults()

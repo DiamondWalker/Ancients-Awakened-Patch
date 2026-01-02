@@ -1,28 +1,30 @@
-using System.Collections.Generic;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.GameContent.Events;
-using AAMod.NPCs.Bosses.Shen;
+using AAMod.Globals.Players;
+using AAMod.Globals.World;
+using AAMod.Globals.Worlds;
+using AAMod.Items.Currency;
 using AAMod.NPCs.Bosses.Rajah;
-using AAMod.NPCs.Enemies.Terrarium.PreHM;
+using AAMod.NPCs.Bosses.Serpent;
+using AAMod.NPCs.Bosses.Shen;
+using AAMod.NPCs.Enemies.Cavern;
+using AAMod.NPCs.Enemies.Sky;
+using AAMod.NPCs.Enemies.Snow;
 using AAMod.NPCs.Enemies.Terrarium.Hardmode;
 using AAMod.NPCs.Enemies.Terrarium.PostPlant;
-using AAMod.NPCs.Bosses.Serpent;
-using AAMod.NPCs.Enemies.Snow;
-using AAMod.NPCs.Enemies.Sky;
-using AAMod.NPCs.Enemies.Cavern;
-using AAMod.Items.Currency;
-using System;
-using Terraria.Localization;
-using log4net;
+using AAMod.NPCs.Enemies.Terrarium.PreHM;
 using AAMod.Util;
 using AAMod.Worldgeneration.Dimension.Void;
+using log4net;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Collections.Generic;
+using Terraria;
+using Terraria.GameContent.Events;
+using Terraria.ID;
+using Terraria.Localization;
+using Terraria.ModLoader;
 
-namespace AAMod
-{
+namespace AAMod {
     public class AAModGlobalNPC : GlobalNPC
     {
         //debuffs

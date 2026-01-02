@@ -1,12 +1,10 @@
 using Microsoft.Xna.Framework;
 using System.IO;
 using Terraria;
-
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Akuma
-{
+namespace AAMod.Projectiles.Akuma {
     public class Sunstorm : ModProjectile
     {
         public override void SetStaticDefaults()

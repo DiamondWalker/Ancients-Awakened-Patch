@@ -1,13 +1,12 @@
+using AAMod.Globals.Worlds;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System.IO;
 using Terraria;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
-using System.IO;
 
-using Microsoft.Xna.Framework.Graphics;
-
-namespace AAMod.NPCs.Bosses.Rajah
-{
+namespace AAMod.NPCs.Bosses.Rajah {
     public class BunnyBrawler : ModNPC
     {
         public override void SetStaticDefaults()

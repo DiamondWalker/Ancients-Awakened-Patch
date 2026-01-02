@@ -1,9 +1,10 @@
-using Terraria;
+using AAMod.Items.Base;
 using Microsoft.Xna.Framework;
-using Terraria.ID;
-using System;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.Collections.Generic;
+using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Dev

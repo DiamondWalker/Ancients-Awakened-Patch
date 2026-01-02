@@ -1,10 +1,9 @@
+using AAMod.Tiles.Trees;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using AAMod.Tiles.Trees;
 
-namespace AAMod.Tiles
-{
+namespace AAMod.Tiles {
     public class Doomstone : ModTile
     {
         public override void SetDefaults()

@@ -1,9 +1,10 @@
+using AAMod.Items.Base;
 using Terraria;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Banners
 {
-	public class ThixxieBanner : BaseAAItem
+    public class ThixxieBanner : BaseAAItem
 	{
 		// The tooltip for this item is automatically assigned from .lang files
 		public override void SetDefaults() {

@@ -1,7 +1,6 @@
-using System;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.Enums;
@@ -10,8 +9,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Furniture.Doom
-{
+namespace AAMod.Tiles.Furniture.Doom {
     public class DoomChest : ModTile
     {
         public override void SetDefaults()

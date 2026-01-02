@@ -1,14 +1,13 @@
-using System;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using Terraria.DataStructures;
-using Microsoft.Xna.Framework.Graphics;
 
-namespace AAMod.Tiles.Furniture.Doom
-{
+namespace AAMod.Tiles.Furniture.Doom {
     public class DoomCouch : ModTile
 	{
 		public override void SetDefaults()

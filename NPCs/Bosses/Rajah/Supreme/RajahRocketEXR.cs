@@ -3,8 +3,7 @@ using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Rajah.Supreme
-{
+namespace AAMod.NPCs.Bosses.Rajah.Supreme {
     public class RajahRocketEXR : ModProjectile
 	{
         public override void SetStaticDefaults()

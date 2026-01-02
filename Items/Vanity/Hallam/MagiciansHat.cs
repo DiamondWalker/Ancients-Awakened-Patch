@@ -1,7 +1,9 @@
-using Terraria;
-using Terraria.ModLoader;
+using AAMod.Globals.Players;
+using AAMod.Items.Base;
 using AAMod.Items.Vanity.Hallam.Shiny;
+using Terraria;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Vanity.Hallam
 {

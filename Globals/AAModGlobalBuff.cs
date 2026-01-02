@@ -2,8 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod
-{
+namespace AAMod {
     public class AAModGlobalBuff : GlobalBuff
 	{
         public override void Update(int type, NPC npc, ref int buffIndex)

@@ -1,8 +1,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
-{
+namespace AAMod.Projectiles {
     public class CloudEdgeP : ModProjectile
     {
         public override string Texture => "AAMod/Projectiles/Cloud";

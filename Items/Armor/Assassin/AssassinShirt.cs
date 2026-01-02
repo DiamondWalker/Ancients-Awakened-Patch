@@ -1,9 +1,10 @@
-﻿using Terraria;
+﻿using AAMod.Items.Base;
+using Terraria;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Armor.Assassin
 {
-	[AutoloadEquip(EquipType.Body)]
+    [AutoloadEquip(EquipType.Body)]
 	class AssassinShirt : BaseAAItem
 	{
         public override void SetStaticDefaults()

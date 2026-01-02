@@ -2,8 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Desert
-{
+namespace AAMod.NPCs.Enemies.Desert {
     public class DjinnBurst2 : ModProjectile
     {
         public override void SetStaticDefaults()

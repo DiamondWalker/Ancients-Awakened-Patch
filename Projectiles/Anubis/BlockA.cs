@@ -7,8 +7,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Anubis
-{
+namespace AAMod.Projectiles.Anubis {
     public class BlockA : ModProjectile
     {
         public override void SetStaticDefaults()

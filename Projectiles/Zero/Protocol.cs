@@ -1,13 +1,12 @@
-﻿using System;
-
+﻿using AAMod.Globals.Players;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Zero
-{
+namespace AAMod.Projectiles.Zero {
     public class Protocol : ModProjectile
     {
         public override void SetStaticDefaults()

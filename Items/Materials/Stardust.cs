@@ -1,7 +1,8 @@
+using AAMod.Items.Base;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
 
 namespace AAMod.Items.Materials
 {

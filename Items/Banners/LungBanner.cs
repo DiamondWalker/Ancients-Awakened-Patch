@@ -1,7 +1,9 @@
 
+using AAMod.Items.Base;
+
 namespace AAMod.Items.Banners
 {
-	public class LungBanner : BaseAAItem
+    public class LungBanner : BaseAAItem
 	{
 		public override void SetStaticDefaults()
         {

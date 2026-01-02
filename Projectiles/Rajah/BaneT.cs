@@ -3,8 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 
-namespace AAMod.Projectiles.Rajah
-{
+namespace AAMod.Projectiles.Rajah {
     public class BaneT : Javelin
     {
         public override void SetStaticDefaults()

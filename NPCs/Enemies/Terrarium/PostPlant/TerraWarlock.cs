@@ -1,12 +1,12 @@
-using System.IO;
+using AAMod.Globals.Players;
 using Microsoft.Xna.Framework;
+using System.IO;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Enemies.Terrarium.PostPlant
-{
+namespace AAMod.NPCs.Enemies.Terrarium.PostPlant {
     public class TerraWarlock : ModNPC
     {
 		public override void SendExtraAI(BinaryWriter writer)

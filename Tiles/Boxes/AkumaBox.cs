@@ -1,11 +1,10 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using Terraria.DataStructures;
 
-namespace AAMod.Tiles.Boxes
-{
+namespace AAMod.Tiles.Boxes {
     class AkumaBox : ModTile
 	{
 		public override void SetDefaults()

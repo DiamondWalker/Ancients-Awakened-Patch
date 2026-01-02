@@ -1,14 +1,13 @@
-﻿using Terraria;
-using System;
-using Terraria.ID;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Terraria.ModLoader;
+using System;
+using Terraria;
 using Terraria.Audio;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Bosses.Akuma.Awakened
-{
+namespace AAMod.NPCs.Bosses.Akuma.Awakened {
     public class AwakenedLung : ModNPC
 	{
         public override string Texture => "AAMod/NPCs/Bosses/Akuma/Awakened/AwakenedLung";

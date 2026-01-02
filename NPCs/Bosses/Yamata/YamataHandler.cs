@@ -6,8 +6,7 @@ using Terraria;
 using Terraria.GameContent.Events;
 using Terraria.ModLoader;
 
-namespace AAMod
-{
+namespace AAMod {
     public abstract class YamataBoss : ParentNPC
 	{
 		public int frameWidth = 0;

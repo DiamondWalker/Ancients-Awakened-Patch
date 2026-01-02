@@ -5,8 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Athena
-{
+namespace AAMod.Projectiles.Athena {
     public class StormMagic : ModProjectile
 	{
         public override void SetStaticDefaults()

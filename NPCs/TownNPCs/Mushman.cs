@@ -1,12 +1,12 @@
+using AAMod.Globals.Worlds;
+using AAMod.Tiles;
+using AAMod.Tiles.Plants;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
-using AAMod.Tiles;
-using AAMod.Tiles.Plants;
 
-namespace AAMod.NPCs.TownNPCs
-{
+namespace AAMod.NPCs.TownNPCs {
     [AutoloadHead]
     public class Mushman : ModNPC
     {

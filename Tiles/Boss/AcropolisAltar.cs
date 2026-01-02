@@ -10,8 +10,7 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Boss
-{
+namespace AAMod.Tiles.Boss {
     public class AcropolisAltar : ModTile
     {
         public override void SetDefaults()

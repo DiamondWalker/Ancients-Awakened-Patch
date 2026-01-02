@@ -1,5 +1,4 @@
-namespace AAMod.Items.Materials
-{
+namespace AAMod.Items.Materials {
     /*public class Dragon_Scale : BaseAAItem
 	{
 		public override void SetStaticDefaults()

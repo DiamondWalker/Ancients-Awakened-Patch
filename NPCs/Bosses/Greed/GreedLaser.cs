@@ -1,10 +1,9 @@
-using System;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Greed
-{
+namespace AAMod.NPCs.Bosses.Greed {
     public class GreedLaser : ModProjectile
     {
         public override void SetStaticDefaults()

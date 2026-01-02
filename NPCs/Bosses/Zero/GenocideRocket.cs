@@ -4,8 +4,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Zero
-{
+namespace AAMod.NPCs.Bosses.Zero {
     public class GenocideRocket : ModProjectile
     {
         public override void SetStaticDefaults()

@@ -6,8 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Furniture.Bogwood
-{
+namespace AAMod.Tiles.Furniture.Bogwood {
     public class BogwoodDoorClosed : ModTile
     {
         public override void SetDefaults()

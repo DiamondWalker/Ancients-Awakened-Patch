@@ -1,9 +1,8 @@
+using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
 
-namespace AAMod.Items.Vanity.CC.Shiny
-{
+namespace AAMod.Items.Vanity.CC.Shiny {
     [AutoloadEquip(EquipType.Head)]
 	public class ShinyCCHood : ModItem
 	{

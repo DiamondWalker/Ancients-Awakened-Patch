@@ -1,9 +1,10 @@
-﻿using Terraria;
+﻿using AAMod.Items.Base;
+using Terraria;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Armor.Witch
 {
-	[AutoloadEquip(EquipType.Body)]
+    [AutoloadEquip(EquipType.Body)]
 	class WitchRobe : BaseAAItem
 	{
         public override void SetStaticDefaults()

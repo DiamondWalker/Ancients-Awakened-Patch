@@ -3,9 +3,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
-{
-	public class FireballP : ModProjectile
+namespace AAMod.Projectiles {
+    public class FireballP : ModProjectile
 	{
 		public override void SetDefaults()
 		{

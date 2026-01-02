@@ -1,15 +1,14 @@
-﻿using Terraria;
-using System;
-using Terraria.ID;
+﻿using AAMod.Globals.Worlds;
+using AAMod.Util;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
+using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
-using System.IO;
-using AAMod.Util;
-
-namespace AAMod.NPCs.Bosses.Akuma
-{
+namespace AAMod.NPCs.Bosses.Akuma {
     [AutoloadBossHead]
     public class Akuma : ModNPC
     {

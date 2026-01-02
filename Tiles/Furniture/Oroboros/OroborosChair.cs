@@ -6,8 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Furniture.Oroboros
-{
+namespace AAMod.Tiles.Furniture.Oroboros {
     public class OroborosChair : ModTile
 	{
 		public override void SetDefaults()

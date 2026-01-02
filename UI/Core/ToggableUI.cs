@@ -2,8 +2,7 @@
 using Terraria.ID;
 using Terraria.UI;
 
-namespace AAMod.UI.Core
-{
+namespace AAMod.UI.Core {
     // © Even More Modifiers by Jofairden
     internal abstract class ToggableUI : UIState
     {

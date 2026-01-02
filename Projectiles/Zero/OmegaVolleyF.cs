@@ -1,7 +1,6 @@
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Zero
-{
+namespace AAMod.Projectiles.Zero {
     public class OmegaVolleyF : ModProjectile
     {
         public override void SetDefaults()

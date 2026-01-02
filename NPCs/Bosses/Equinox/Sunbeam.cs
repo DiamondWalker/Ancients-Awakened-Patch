@@ -1,7 +1,6 @@
 ﻿using Terraria;
 
-namespace AAMod.NPCs.Bosses.Equinox
-{
+namespace AAMod.NPCs.Bosses.Equinox {
     public class Sunbeam : Moonray
     {
     	public override void SetStaticDefaults()

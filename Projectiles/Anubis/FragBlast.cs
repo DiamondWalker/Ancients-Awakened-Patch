@@ -3,9 +3,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Anubis
-{
-	public class FragBlast : ModProjectile
+namespace AAMod.Projectiles.Anubis {
+    public class FragBlast : ModProjectile
     {
         public override void SetStaticDefaults()
         {

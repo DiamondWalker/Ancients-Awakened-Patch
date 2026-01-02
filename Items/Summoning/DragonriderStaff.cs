@@ -1,5 +1,6 @@
-using System.Linq;
+using AAMod.Items.Base;
 using Microsoft.Xna.Framework;
+using System.Linq;
 using Terraria;
 using Terraria.ID;
 

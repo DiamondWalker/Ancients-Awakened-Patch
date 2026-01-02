@@ -1,8 +1,7 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles.Bricks
-{
+namespace AAMod.Tiles.Bricks {
     class EventideBrick : ModTile
     {
         public override void SetDefaults()

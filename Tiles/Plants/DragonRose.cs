@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Plants
-{
+namespace AAMod.Tiles.Plants {
     public class DragonRose : ModTile
 	{
 		public override void SetDefaults()

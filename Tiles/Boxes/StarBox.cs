@@ -1,13 +1,12 @@
 using Microsoft.Xna.Framework;
-using Terraria;
 using Microsoft.Xna.Framework.Graphics;
+using Terraria;
+using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using Terraria.DataStructures;
 
 
-namespace AAMod.Tiles.Boxes
-{
+namespace AAMod.Tiles.Boxes {
     class StarBox : ModTile
 	{
 		public override void SetDefaults()

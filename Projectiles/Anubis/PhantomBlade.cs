@@ -4,8 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Anubis
-{
+namespace AAMod.Projectiles.Anubis {
     public class PhantomBlade : ModProjectile
 	{
         public override void SetStaticDefaults()

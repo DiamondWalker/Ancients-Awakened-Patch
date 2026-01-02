@@ -1,3 +1,4 @@
+using AAMod.Items.Base;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -5,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Anubis
 {
-	public class Judgment : BaseAAItem
+    public class Judgment : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{

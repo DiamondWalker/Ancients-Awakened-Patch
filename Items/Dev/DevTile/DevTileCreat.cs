@@ -1,15 +1,16 @@
-using Terraria.ModLoader;
+using AAMod.Globals.World;
+using AAMod.Globals.Worlds;
 using Terraria;
+using Terraria.ModLoader;
 
-namespace AAMod.Items.Dev.DevTile
-{
+namespace AAMod.Items.Dev.DevTile {
     public class DevTileCreat : GlobalTile
     {
         public override void RandomUpdate(int i, int j, int type)
 		{
             if (Main.expertMode)
             {
-                if(DevWorld.CCBoxSetOK)
+                if(DevTileWorld.CCBoxSetOK)
                 {
                     if(AAWorld.downedEquinox)
                     {
@@ -17,7 +18,7 @@ namespace AAMod.Items.Dev.DevTile
                         if(canplace)
                         {
                             WorldGen.PlaceTile(i, j - 1, mod.TileType("CCMireBox"), true, false);
-                            DevWorld.CCBoxSetOK = false;
+                            DevTileWorld.CCBoxSetOK = false;
                             if (Main.netMode == 2 && Main.tile[i, j].active())
                             {
                                 NetMessage.SendTileSquare(-1, i, j, 1, 0);
@@ -25,7 +26,7 @@ namespace AAMod.Items.Dev.DevTile
                         }
                     }
                 }
-                if(DevWorld.InvokerBookSetOK)
+                if(DevTileWorld.InvokerBookSetOK)
                 {
                     if(NPC.downedPlantBoss)
                     {
@@ -33,7 +34,7 @@ namespace AAMod.Items.Dev.DevTile
                         if(canplace)
                         {
                             WorldGen.PlaceTile(i, j - 1, mod.TileType("InvokerBookTile"), true, false);
-                            DevWorld.InvokerBookSetOK = false;
+                            DevTileWorld.InvokerBookSetOK = false;
                             if (Main.netMode == 2 && Main.tile[i, j].active())
                             {
                                 NetMessage.SendTileSquare(-1, i, j, 1, 0);

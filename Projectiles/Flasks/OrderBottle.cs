@@ -1,3 +1,4 @@
+using AAMod.Globals.Worlds;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -5,8 +6,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Flasks
-{
+namespace AAMod.Projectiles.Flasks {
     public class OrderBottle : ModProjectile
     {
 

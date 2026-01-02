@@ -2,8 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Anubis
-{
+namespace AAMod.NPCs.Bosses.Anubis {
     public class Rune : ModDust
     {
         public override void OnSpawn(Dust dust)

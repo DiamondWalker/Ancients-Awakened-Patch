@@ -4,8 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Furniture.Razewood
-{
+namespace AAMod.Tiles.Furniture.Razewood {
     public class RazewoodWorkbench : ModTile
 	{
 		public override void SetDefaults()

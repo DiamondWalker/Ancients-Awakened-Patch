@@ -1,10 +1,11 @@
+using AAMod.Items.Base;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Melee
 {
-	public class SlapBone : BaseAAItem
+    public class SlapBone : BaseAAItem
 	{
 		public override void SetDefaults()
 		{

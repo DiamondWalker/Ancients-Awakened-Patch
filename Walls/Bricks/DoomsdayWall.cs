@@ -3,8 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Walls.Bricks
-{
+namespace AAMod.Walls.Bricks {
     public class DoomsdayWall : ModWall
 	{
 		public override void SetDefaults()

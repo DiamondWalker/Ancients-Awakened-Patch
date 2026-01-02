@@ -4,9 +4,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles
-{
-	public class ScorchedPlatform : ModTile
+namespace AAMod.Tiles {
+    public class ScorchedPlatform : ModTile
 	{
 		public override void SetDefaults()
 		{

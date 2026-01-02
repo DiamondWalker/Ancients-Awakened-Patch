@@ -1,10 +1,9 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
 
 
-namespace AAMod.Items.Armor.Champion.Drone
-{
+namespace AAMod.Items.Armor.Champion.Drone {
     public class RajahDrone : ModProjectile
     {
         public override void SetStaticDefaults()

@@ -1,16 +1,15 @@
-using System;
-using System.Collections.Generic;
+using AAMod.Globals.Players;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
+using System;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
 
-namespace AAMod.Projectiles.Akuma.Lung
-{
+namespace AAMod.Projectiles.Akuma.Lung {
     public class LungHead : ModProjectile
     {
         public override void SetDefaults()

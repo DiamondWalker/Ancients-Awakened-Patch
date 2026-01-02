@@ -2,8 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Rajah.Supreme
-{
+namespace AAMod.NPCs.Bosses.Rajah.Supreme {
     public class ExcalihareBoomR : ModProjectile
     {
         public override void SetStaticDefaults()

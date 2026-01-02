@@ -7,8 +7,7 @@ using Terraria;
 using Terraria.GameInput;
 using Terraria.UI;
 
-namespace AAMod.UI
-{
+namespace AAMod.UI {
     internal abstract class TerratoolUI : ToggableUI
     {
         private static bool onTerratoolMenu = false;

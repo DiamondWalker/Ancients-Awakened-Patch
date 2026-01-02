@@ -5,8 +5,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Trophy
-{
+namespace AAMod.Tiles.Trophy {
     public class SagTrophy : ModTile
 	{
 		public override void SetDefaults()

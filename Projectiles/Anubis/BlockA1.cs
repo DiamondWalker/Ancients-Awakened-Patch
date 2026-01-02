@@ -1,14 +1,13 @@
 ﻿
 using Microsoft.Xna.Framework;
-using Terraria;
-using System.IO;
-using Terraria.ID;
-using Terraria.ModLoader;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.IO;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Anubis
-{
+namespace AAMod.Projectiles.Anubis {
     public class BlockA1 : ModProjectile
     {
         public override void SetStaticDefaults()

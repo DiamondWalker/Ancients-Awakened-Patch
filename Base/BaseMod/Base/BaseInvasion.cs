@@ -1,5 +1,4 @@
-namespace AAMod
-{
+namespace AAMod {
     /*public class BaseInvasion
 	{
 		public static List<int> net = new List<int>();

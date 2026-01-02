@@ -1,7 +1,6 @@
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Blocks.BogwoodF
-{
+namespace AAMod.Items.Blocks.BogwoodF {
     public class BogwoodPlatform : ModItem
 	{
 		public override void SetStaticDefaults()

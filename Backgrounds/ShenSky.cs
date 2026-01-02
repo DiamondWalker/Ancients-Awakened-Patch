@@ -1,13 +1,12 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.Graphics.Effects;
 using Terraria.Graphics.Shaders;
 using Terraria.Utilities;
 
-namespace AAMod.Backgrounds
-{
+namespace AAMod.Backgrounds {
     public class ShenSky : CustomSky
     {
         public bool Active;

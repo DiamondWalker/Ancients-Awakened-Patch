@@ -1,11 +1,10 @@
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Critters
-{
+namespace AAMod.NPCs.Critters {
     public class RoyalRabbit : ModNPC
     {
         public override void SetStaticDefaults()

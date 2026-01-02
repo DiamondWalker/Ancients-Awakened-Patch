@@ -1,3 +1,4 @@
+using AAMod.Items.Base;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -5,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace AAMod.Items.Blocks
 {
-	public class HydratoxinTorch : BaseAAItem
+    public class HydratoxinTorch : BaseAAItem
     {
 		public override void SetStaticDefaults()
 		{

@@ -1,8 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Terraria.UI;
 
-namespace AAMod.UI
-{
+namespace AAMod.UI {
     internal sealed class TerratoolYUI : TerratoolUI
     {
         public static int Pick = 300;

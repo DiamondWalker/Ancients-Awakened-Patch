@@ -1,7 +1,6 @@
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Blocks.RazewoodF
-{
+namespace AAMod.Items.Blocks.RazewoodF {
     public class RazewoodPlatform : ModItem
 	{
 		public override void SetStaticDefaults()

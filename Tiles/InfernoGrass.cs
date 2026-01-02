@@ -1,12 +1,11 @@
+using AAMod.Tiles.Plants;
+using AAMod.Tiles.Trees;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAMod.Tiles.Plants;
-using AAMod.Tiles.Trees;
 
-namespace AAMod.Tiles
-{
+namespace AAMod.Tiles {
     public class InfernoGrass : ModTile
     {
         public static int _type;

@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Sag
-{
+namespace AAMod.NPCs.Bosses.Sag {
     public class SagVortex : ModProjectile
 	{
 		public override void SetStaticDefaults()

@@ -3,8 +3,7 @@ using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Yamata
-{
+namespace AAMod.Projectiles.Yamata {
     class Masamune : ModProjectile
     {
         public override void SetStaticDefaults()

@@ -1,12 +1,12 @@
 ﻿
+using AAMod.Globals.Players;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 
 using Terraria.ID;
 
-namespace AAMod.Backgrounds
-{
+namespace AAMod.Backgrounds {
     public class ScreenClouds
     {
 		public int fogOffsetX = 0;

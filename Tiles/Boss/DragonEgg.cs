@@ -1,13 +1,13 @@
+using AAMod.Globals.Worlds;
 using AAMod.Items.Melee;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using Terraria.Localization;
-using Terraria.ID;
 
-namespace AAMod.Tiles.Boss
-{
+namespace AAMod.Tiles.Boss {
     public class DragonEgg : ModTile
     {
         public int drop1;

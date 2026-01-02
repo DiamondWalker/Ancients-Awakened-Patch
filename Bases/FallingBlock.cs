@@ -4,8 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod
-{
+namespace AAMod {
     internal abstract class FallingBlock : ModTile
     {
         public abstract int ItemDropID { get; }

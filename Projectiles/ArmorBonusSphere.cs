@@ -5,8 +5,7 @@ using Terraria;
 using Terraria.Graphics.Shaders;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
-{
+namespace AAMod.Projectiles {
     public abstract class ArmorBonusSphere : ModProjectile
     {
         protected int useDust = 0;

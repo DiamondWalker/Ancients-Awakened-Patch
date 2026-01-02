@@ -2,8 +2,7 @@
 using Terraria.ModLoader;
 
 
-namespace AAMod.Tiles.Trees
-{
+namespace AAMod.Tiles.Trees {
     class RazewoodTree : ModTree
     {
         private Mod mod => AAMod.instance;

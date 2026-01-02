@@ -1,18 +1,16 @@
-using System;
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
+using System;
+using System.Collections.Generic;
 using Terraria;
-using Terraria.UI.Chat;
-using Terraria.ObjectData;
 using Terraria.DataStructures;
-using Terraria.UI;
-using Terraria.ModLoader;
 using Terraria.Graphics.Shaders;
+using Terraria.ModLoader;
+using Terraria.ObjectData;
+using Terraria.UI;
+using Terraria.UI.Chat;
 
-namespace AAMod
-{
+namespace AAMod {
     public class DrawAnimationPrecise : DrawAnimation
 	{
 		int Width = 0, Height = 0, offsetX = 0, offsetY = 2;

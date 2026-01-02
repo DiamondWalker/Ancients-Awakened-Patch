@@ -4,8 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Yamata
-{
+namespace AAMod.NPCs.Bosses.Yamata {
     internal class YamataBomb : ModProjectile
     {
         public override void SetStaticDefaults()

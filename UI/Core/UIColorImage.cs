@@ -4,8 +4,7 @@ using Terraria;
 using Terraria.GameContent.UI.Elements;
 using Terraria.UI;
 
-namespace AAMod.UI.Core
-{
+namespace AAMod.UI.Core {
     internal sealed class UIColorImage : UIImage
     {
         private Texture2D texture;

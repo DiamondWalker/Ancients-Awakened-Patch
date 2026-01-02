@@ -1,10 +1,10 @@
-﻿using System;
+﻿using AAMod.Globals.Players;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Doomite
-{
+namespace AAMod.Items.Armor.Doomite {
     public class Searcher : ModProjectile
     {
     	public override void SetStaticDefaults()

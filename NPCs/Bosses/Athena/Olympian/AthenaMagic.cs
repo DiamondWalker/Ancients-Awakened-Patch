@@ -6,8 +6,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Athena.Olympian
-{
+namespace AAMod.NPCs.Bosses.Athena.Olympian {
     public class AthenaMagic : ModProjectile
 	{
         public override void SetStaticDefaults()

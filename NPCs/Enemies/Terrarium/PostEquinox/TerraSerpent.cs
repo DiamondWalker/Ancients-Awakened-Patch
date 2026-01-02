@@ -1,14 +1,12 @@
-﻿using Terraria;
-using System;
-using Terraria.ID;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using Terraria;
+using Terraria.Graphics.Shaders;
+using Terraria.ID;
 using Terraria.ModLoader;
 
-using Terraria.Graphics.Shaders;
-
-namespace AAMod.NPCs.Enemies.Terrarium.PostEquinox
-{
+namespace AAMod.NPCs.Enemies.Terrarium.PostEquinox {
     public class TerraSerpent : ModNPC
 	{
 

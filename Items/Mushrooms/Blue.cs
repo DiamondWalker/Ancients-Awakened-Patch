@@ -1,3 +1,5 @@
+using AAMod.Items.Base;
+
 namespace AAMod.Items.Mushrooms
 {
     public class Blue : BaseAAItem

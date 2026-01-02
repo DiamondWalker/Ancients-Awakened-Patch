@@ -1,11 +1,10 @@
-﻿using Terraria.ID;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using System;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Akuma.Dawnstrike
-{
+namespace AAMod.Projectiles.Akuma.Dawnstrike {
     internal class FireA : ModProjectile
     {
         public override void SetStaticDefaults()

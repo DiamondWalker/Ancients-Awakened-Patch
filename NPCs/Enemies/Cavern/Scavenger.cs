@@ -1,14 +1,11 @@
+using AAMod.Util;
 using Microsoft.Xna.Framework;
-
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ModLoader;
 
-using Terraria.Audio;
-using Microsoft.Xna.Framework.Graphics;
-using AAMod.Util;
-
-namespace AAMod.NPCs.Enemies.Cavern
-{
+namespace AAMod.NPCs.Enemies.Cavern {
     public class Scavenger : ModNPC
     {
         public override void SetStaticDefaults()

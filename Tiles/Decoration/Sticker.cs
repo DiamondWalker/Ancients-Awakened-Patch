@@ -4,8 +4,7 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Decoration
-{
+namespace AAMod.Tiles.Decoration {
     public class Sticker : ModTile
 	{
 		public override void SetDefaults()

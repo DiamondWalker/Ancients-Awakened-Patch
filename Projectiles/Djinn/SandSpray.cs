@@ -2,8 +2,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Djinn
-{
+namespace AAMod.Projectiles.Djinn {
     public class SandSpray : ModProjectile
     {
         public override string Texture => "AAMod/BlankTex";

@@ -1,5 +1,6 @@
-using Terraria.ModLoader;
 using System.Collections.Generic;
+using AAMod.Items.Base;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Akuma
 {

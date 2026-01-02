@@ -1,10 +1,9 @@
-using System;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Akuma.Awakened
-{
+namespace AAMod.NPCs.Bosses.Akuma.Awakened {
     public class AkumaAFireballFrag : ModProjectile
     {
         public override void SetStaticDefaults()

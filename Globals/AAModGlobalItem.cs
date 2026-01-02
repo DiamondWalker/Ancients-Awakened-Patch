@@ -1,13 +1,14 @@
+using AAMod.Globals.Players;
+using AAMod.Items.Base;
+using AAMod.Items.Boss.Akuma;
+using AAMod.Items.Boss.Grips;
+using AAMod.Items.Dev.Invoker;
+using AAMod.Items.Usable;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System.Collections.Generic;
-using AAMod.Items.Boss.Akuma;
-using AAMod.Items.Boss.Grips;
-using AAMod.Items;
-using AAMod.Items.Dev.Invoker;
-using AAMod.Items.Usable;
 
 namespace AAMod
 {

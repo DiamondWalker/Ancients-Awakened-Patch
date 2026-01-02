@@ -5,8 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Flasks
-{
+namespace AAMod.Projectiles.Flasks {
     public class CrimsonFlask : ModProjectile
     {
 

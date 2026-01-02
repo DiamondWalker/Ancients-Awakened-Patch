@@ -4,8 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Other
-{
+namespace AAMod.NPCs.Enemies.Other {
     public class ChaosDragon : ModNPC
 	{
 		public override void SetStaticDefaults()

@@ -1,10 +1,12 @@
 
+using AAMod.Globals.Worlds;
+using AAMod.Items.Base;
+using AAMod.NPCs.Bosses.Grips;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
-using AAMod.NPCs.Bosses.Grips;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.BossSummons
 {

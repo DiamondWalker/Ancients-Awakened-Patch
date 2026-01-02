@@ -1,12 +1,10 @@
+using AAMod.Dusts;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-using AAMod.Dusts;
-
-namespace AAMod.NPCs.Bosses.Equinox
-{
+namespace AAMod.NPCs.Bosses.Equinox {
     public class Equiprobe : ModNPC
 	{
 		public override void SetStaticDefaults()

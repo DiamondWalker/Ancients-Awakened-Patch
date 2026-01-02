@@ -1,12 +1,11 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
 
-namespace AAMod.Projectiles.Akuma.Dawnstrike
-{
+namespace AAMod.Projectiles.Akuma.Dawnstrike {
     public class Dawnstrike : ModProjectile
     {
         public int counter = 0;

@@ -1,11 +1,10 @@
-using System;
 using Microsoft.Xna.Framework;
-using Terraria;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Zero
-{
+namespace AAMod.Projectiles.Zero {
     public class Teslashock : ModProjectile
     {
         public short customGlowMask = 0;

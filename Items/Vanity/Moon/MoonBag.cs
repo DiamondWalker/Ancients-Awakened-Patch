@@ -1,6 +1,8 @@
+using AAMod.Globals.Players;
+using AAMod.Items.Base;
+using AAMod.Items.Vanity.Moon.Shiny;
 using Terraria;
 using Terraria.ModLoader;
-using AAMod.Items.Vanity.Moon.Shiny;
 
 namespace AAMod.Items.Vanity.Moon
 {

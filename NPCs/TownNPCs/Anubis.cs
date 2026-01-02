@@ -1,4 +1,7 @@
 
+using AAMod.Globals.Players;
+using AAMod.Globals.Worlds;
+using AAMod.NPCs.Bosses.Anubis.Forsaken;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.IO;
@@ -7,10 +10,8 @@ using Terraria.GameContent.Events;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
-using AAMod.NPCs.Bosses.Anubis.Forsaken;
 
-namespace AAMod.NPCs.TownNPCs
-{
+namespace AAMod.NPCs.TownNPCs {
     [AutoloadHead]
 	public class Anubis : ModNPC
 	{

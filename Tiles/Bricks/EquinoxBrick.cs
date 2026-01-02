@@ -4,8 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles.Bricks
-{
+namespace AAMod.Tiles.Bricks {
     class EquinoxBrick : ModTile
     {
         public override void SetDefaults()

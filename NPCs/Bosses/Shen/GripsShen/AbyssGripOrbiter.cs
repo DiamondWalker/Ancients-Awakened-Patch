@@ -1,14 +1,12 @@
-using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
-using Terraria.ID;
-
-using Terraria.ModLoader;
 using Terraria.Graphics.Shaders;
+using Terraria.ID;
+using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Shen.GripsShen
-{
+namespace AAMod.NPCs.Bosses.Shen.GripsShen {
     public class AbyssGripOrbiter : ModProjectile
     {
         public override void SetStaticDefaults()

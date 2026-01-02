@@ -1,9 +1,10 @@
+using AAMod.Items.Base;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
-using Terraria.ModLoader;
 
-namespace AAMod.Items.Accessories {
+namespace AAMod.Items.Accessories
+{
     public class RealityStone : BaseAAItem {
         public override void SetDefaults() {
             item.width = 38;

@@ -1,11 +1,10 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Akuma
-{
+namespace AAMod.Projectiles.Akuma {
     public class FireTentacle : ModProjectile
     {
     	public override void SetStaticDefaults()

@@ -1,6 +1,7 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAMod.Globals.Players;
+using AAMod.Items.Base;
+using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace AAMod.Items.Boss.Zero

@@ -6,8 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAMod.Projectiles
-{
+namespace AAMod.Projectiles {
     public class Thunder : ModProjectile
     {
         public override void SetStaticDefaults()

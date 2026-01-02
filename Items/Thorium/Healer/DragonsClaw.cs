@@ -1,13 +1,11 @@
-using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.Items.Thorium.Healer
-{
+namespace AAMod.Items.Thorium.Healer {
     public class DragonsClaw : CrossoverItem
 	{
 		public override void SetStaticDefaults()

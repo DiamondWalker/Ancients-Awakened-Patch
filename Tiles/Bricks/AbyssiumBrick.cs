@@ -2,8 +2,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles.Bricks
-{
+namespace AAMod.Tiles.Bricks {
     class AbyssiumBrick : ModTile
     {
         public override void SetDefaults()

@@ -1,3 +1,4 @@
+using AAMod.Items.Base;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -6,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace AAMod.Items.Magic
 {
-	public class AtlanteanTrident : BaseAAItem
+    public class AtlanteanTrident : BaseAAItem
 	{
 		public override void SetStaticDefaults()
 		{

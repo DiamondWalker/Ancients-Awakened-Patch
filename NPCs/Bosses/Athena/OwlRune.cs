@@ -1,14 +1,12 @@
-using System;
+using AAMod.NPCs.Enemies.Sky;
+using AAMod.Util;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.ModLoader;
 
-using Microsoft.Xna.Framework.Graphics;
-using AAMod.NPCs.Enemies.Sky;
-using AAMod.Util;
-
-namespace AAMod.NPCs.Bosses.Athena
-{
+namespace AAMod.NPCs.Bosses.Athena {
     public class OwlRune : ModNPC
     {
         public override void SetDefaults()

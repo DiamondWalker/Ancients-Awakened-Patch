@@ -4,8 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Terra.Projectiles
-{
+namespace AAMod.Items.Armor.Terra.Projectiles {
     public class TerraBullet : ModProjectile
 	{
         public override void SetStaticDefaults()

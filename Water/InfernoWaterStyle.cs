@@ -1,9 +1,9 @@
+using AAMod.Globals.Players;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Water
-{
+namespace AAMod.Water {
     public class InfernoWaterStyle : ModWaterStyle
 	{
 		public override bool ChooseWaterStyle()

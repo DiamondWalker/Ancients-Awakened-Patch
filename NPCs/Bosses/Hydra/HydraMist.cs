@@ -1,10 +1,9 @@
-﻿using Terraria;
-using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Terraria;
+using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Hydra
-{
+namespace AAMod.NPCs.Bosses.Hydra {
     internal class HydraMist : ModProjectile
     {
         public override void SetStaticDefaults()

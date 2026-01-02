@@ -1,8 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles.Trees
-{
+namespace AAMod.Tiles.Trees {
     class RazePalmTree : ModPalmTree
     {
         private Mod mod => AAMod.instance;

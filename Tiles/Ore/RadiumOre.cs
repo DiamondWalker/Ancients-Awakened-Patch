@@ -4,8 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Tiles.Ore
-{
+namespace AAMod.Tiles.Ore {
     public class RadiumOre : ModTile
     {
         public override void SetDefaults()

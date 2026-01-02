@@ -1,23 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AAMod.Sounds.Sounds;
+﻿using AAMod.Globals.Worlds;
 using SubworldLibrary;
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.World.Generation;
 
-namespace AAMod.Worldgeneration.Dimension.Void
-{
+namespace AAMod.Worldgeneration.Dimension.Void {
     public class VoidSubworld : Subworld
     {
         public override int width => Main.maxTilesX;
 
         public override int height => Main.maxTilesY;
 
-        public override bool saveSubworld => false;//true;
+        public override bool saveSubworld => true;
 
         public override bool saveModData => true;
 

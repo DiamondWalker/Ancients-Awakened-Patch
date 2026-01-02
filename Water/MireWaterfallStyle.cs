@@ -1,7 +1,6 @@
 using Terraria.ModLoader;
 
-namespace AAMod.Water
-{
+namespace AAMod.Water {
     public class MireWaterfallStyle : ModWaterfallStyle
 	{
 		

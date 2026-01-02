@@ -3,8 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Djinn
-{
+namespace AAMod.Projectiles.Djinn {
     public class DesertGust : ModProjectile
     {
     	

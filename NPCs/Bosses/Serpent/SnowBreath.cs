@@ -3,8 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Serpent
-{
+namespace AAMod.NPCs.Bosses.Serpent {
     internal class SnowBreath : ModProjectile
     {
         public override void SetStaticDefaults()

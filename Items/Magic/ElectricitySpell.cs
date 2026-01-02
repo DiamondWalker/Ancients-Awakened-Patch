@@ -1,5 +1,6 @@
-using System;
+using AAMod.Items.Base;
 using AAMod.Util;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;

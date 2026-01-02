@@ -1,13 +1,12 @@
+using AAMod.Dusts;
+using AAMod.Globals.Worlds;
+using AAMod.Util;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-using AAMod.Dusts;
-using AAMod.Util;
-
-namespace AAMod.NPCs.Enemies.Other
-{
+namespace AAMod.NPCs.Enemies.Other {
     public class Sunwatcher : ModNPC
 	{
 		public override void SetStaticDefaults()

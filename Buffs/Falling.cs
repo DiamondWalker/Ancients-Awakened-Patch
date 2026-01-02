@@ -1,10 +1,9 @@
+using AAMod.Projectiles.Greed.WKG;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using AAMod.Projectiles.Greed.WKG;
 
-namespace AAMod.Buffs
-{
+namespace AAMod.Buffs {
     public class Falling : ModBuff
 	{
 		public override void SetDefaults()

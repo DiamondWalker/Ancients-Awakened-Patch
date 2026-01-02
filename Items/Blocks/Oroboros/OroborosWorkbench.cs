@@ -1,7 +1,6 @@
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Blocks.Oroboros
-{
+namespace AAMod.Items.Blocks.Oroboros {
     public class OroborosWorkbench : ModItem
     {
         public override void SetStaticDefaults()

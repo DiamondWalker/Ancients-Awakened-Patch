@@ -1,7 +1,9 @@
+using AAMod.Globals.Players;
+using AAMod.Items.Base;
 using Terraria;
 using Terraria.ID;
-using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 
 namespace AAMod.Items.Armor.Terra

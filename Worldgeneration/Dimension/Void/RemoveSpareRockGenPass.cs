@@ -1,12 +1,9 @@
-﻿using Terraria;
-using System;
+﻿using AAMod.Util;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Terraria;
 using Terraria.Localization;
 using Terraria.World.Generation;
-using AAMod.Util;
 
 namespace AAMod.Worldgeneration.Dimension.Void {
     public class RemoveSpareRocksGenPass : GenPass {

@@ -1,9 +1,9 @@
+using AAMod.Items.Base;
 using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
 using System.Collections.Generic;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Vanity.Beg
-
 {
     [AutoloadEquip(EquipType.Body)]
     public class PonyBody : BaseAAItem

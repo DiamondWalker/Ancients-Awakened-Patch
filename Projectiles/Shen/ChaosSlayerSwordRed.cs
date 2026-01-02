@@ -1,5 +1,4 @@
-﻿namespace AAMod.Projectiles.Shen
-{
+﻿namespace AAMod.Projectiles.Shen {
     public class ChaosSlayerSwordRed : ChaosSlayerSword
     {
     	public override void SetStaticDefaults()

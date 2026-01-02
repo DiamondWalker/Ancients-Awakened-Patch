@@ -1,7 +1,8 @@
+using AAMod.Items.Base;
+using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria;
-using Microsoft.Xna.Framework;
 
 namespace AAMod.Items.Melee
 {

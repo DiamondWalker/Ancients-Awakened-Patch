@@ -4,8 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod
-{
+namespace AAMod {
     public class MNPC : GlobalNPC
 	{
 		public override bool PreDraw(NPC npc, SpriteBatch spriteBatch, Color drawColor)

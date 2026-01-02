@@ -1,7 +1,7 @@
+using AAMod.Items.Base;
 using Terraria.ID;
 
 namespace AAMod.Items.Boss.Djinn
-
 {
     public class SultanScimitar : BaseAAItem
     {

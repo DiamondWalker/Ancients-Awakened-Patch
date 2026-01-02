@@ -6,8 +6,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Enemies.Terrarium.Hardmode
-{
+namespace AAMod.NPCs.Enemies.Terrarium.Hardmode {
     public class TerraSquire : ModNPC
     {
         public override void SetStaticDefaults()

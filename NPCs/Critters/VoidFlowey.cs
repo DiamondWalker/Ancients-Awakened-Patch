@@ -1,8 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Critters
-{
+namespace AAMod.NPCs.Critters {
     public class VoidFlowey : ModNPC
     {
         public override void SetStaticDefaults()

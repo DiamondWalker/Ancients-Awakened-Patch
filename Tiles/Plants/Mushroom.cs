@@ -1,10 +1,9 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using Terraria.ID;
 
-namespace AAMod.Tiles.Plants
-{
+namespace AAMod.Tiles.Plants {
     public class Mushroom : ModTile
 	{
         public override void SetDefaults()

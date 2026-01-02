@@ -1,3 +1,5 @@
+using AAMod.Items.Base;
+
 namespace AAMod.Items.Boss.Athena
 {
     public class GoddessFeather : BaseAAItem

@@ -1,13 +1,13 @@
-﻿using System;
-using System.IO;
+﻿using AAMod.Globals.Worlds;
 using AAMod.Util;
 using Microsoft.Xna.Framework;
+using System;
+using System.IO;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Serpent
-{
+namespace AAMod.NPCs.Bosses.Serpent {
     [AutoloadBossHead]	
 	public class SerpentHead : ModNPC
 	{

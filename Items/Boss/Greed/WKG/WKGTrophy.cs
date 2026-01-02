@@ -1,3 +1,5 @@
+using AAMod.Items.Base;
+
 namespace AAMod.Items.Boss.Greed.WKG
 {
     public class WKGTrophy : BaseAAItem

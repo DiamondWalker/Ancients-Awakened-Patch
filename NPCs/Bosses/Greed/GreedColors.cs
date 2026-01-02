@@ -1,7 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 
-namespace AAMod
-{
+namespace AAMod {
     class GreedColors
     {
         public static Color Copper => new Color(150, 67, 22); public static Color CopperGlow => new Color(255, 229, 183);

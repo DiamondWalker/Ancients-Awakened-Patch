@@ -1,11 +1,11 @@
+using AAMod.Globals.World;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.Utilities;
 
-namespace AAMod.NPCs.TownNPCs
-{
+namespace AAMod.NPCs.TownNPCs {
     [AutoloadHead]
 	public class GoblinSlayer : ModNPC
     {

@@ -1,9 +1,8 @@
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod
-{
-	public class Title : ModProjectile
+namespace AAMod {
+    public class Title : ModProjectile
 	{
 		public override string Texture => "AAMod/BlankTex";
 

@@ -1,5 +1,4 @@
-namespace AAMod.Projectiles
-{
+namespace AAMod.Projectiles {
     public class ChaosShot3 : ChaosShot1
     {
         public override string Texture => "AAMod/BlankTex";

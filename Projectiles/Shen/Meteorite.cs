@@ -4,8 +4,7 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Shen
-{
+namespace AAMod.Projectiles.Shen {
     public class Meteorite : ModProjectile
     {
         public int noTileHitCounter = 120;

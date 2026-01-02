@@ -1,3 +1,5 @@
+using AAMod.Items.Base;
+
 namespace AAMod.Items.Boss.Grips
 {
     public class GripTrophyBlue : BaseAAItem

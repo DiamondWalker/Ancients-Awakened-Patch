@@ -1,9 +1,8 @@
-﻿using Terraria;
+﻿using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
 
-namespace AAMod.Projectiles.Greed
-{
+namespace AAMod.Projectiles.Greed {
     public class Dig : ModProjectile
     {
 

@@ -1,10 +1,9 @@
-using Terraria.ID;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Ammo
-{
+namespace AAMod.Projectiles.Ammo {
     public class DaybreakBullet : ModProjectile
     {
         

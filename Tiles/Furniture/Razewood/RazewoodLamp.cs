@@ -1,14 +1,13 @@
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.ID;
+using Terraria.DataStructures;
 using Terraria.Enums;
+using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using Terraria.DataStructures;
-using Microsoft.Xna.Framework.Graphics;
 
-namespace AAMod.Tiles.Furniture.Razewood
-{
+namespace AAMod.Tiles.Furniture.Razewood {
     public class RazewoodLamp : ModTile
 	{
 		public override void SetDefaults()

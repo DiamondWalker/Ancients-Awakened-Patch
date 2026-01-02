@@ -4,8 +4,7 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
-{
+namespace AAMod.Projectiles {
     public class ChaosScythe : ModProjectile
     {
     	public override void SetStaticDefaults()

@@ -1,7 +1,8 @@
+using AAMod.Items.Base;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Armor.Raider
 {

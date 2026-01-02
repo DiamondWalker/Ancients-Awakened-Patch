@@ -1,16 +1,15 @@
-using Terraria;
-using Terraria.ModLoader;
-using System;
+using AAMod.Globals.Players;
+using AAMod.NPCs.Enemies.Mire;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
-using Terraria.ID;
-using Terraria.Audio;
+using System;
 using System.IO;
-using AAMod.NPCs.Enemies.Mire;
+using Terraria;
+using Terraria.Audio;
+using Terraria.ID;
+using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Bosses.Hydra
-{
+namespace AAMod.NPCs.Bosses.Hydra {
     [AutoloadBossHead]
     public class HydraHead1 : ModNPC
     {

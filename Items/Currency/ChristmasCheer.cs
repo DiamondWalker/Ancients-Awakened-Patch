@@ -1,9 +1,10 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.ID;
-using Terraria.GameContent.UI;
-using Terraria.Localization;
+﻿using AAMod.Items.Base;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Terraria;
+using Terraria.GameContent.UI;
+using Terraria.ID;
+using Terraria.Localization;
 
 namespace AAMod.Items.Currency
 {

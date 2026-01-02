@@ -1,7 +1,6 @@
 using Terraria.ModLoader;
 
-namespace AAMod
-{
+namespace AAMod {
     public class MPlayer : ModPlayer
     {
 		public static bool useItem = false;

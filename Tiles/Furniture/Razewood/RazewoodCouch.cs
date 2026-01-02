@@ -1,13 +1,12 @@
-using System;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.Enums;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
-using Terraria.DataStructures;
 
-namespace AAMod.Tiles.Furniture.Razewood
-{
+namespace AAMod.Tiles.Furniture.Razewood {
     public class RazewoodCouch : ModTile
 	{
 		public override void SetDefaults()

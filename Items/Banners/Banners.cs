@@ -1,4 +1,5 @@
 using System.Text.RegularExpressions;
+using AAMod.Items.Base;
 
 namespace AAMod.Items.Banners
 {

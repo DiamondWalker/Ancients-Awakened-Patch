@@ -3,8 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Bosses.FeudalFungus
-{
+namespace AAMod.NPCs.Bosses.FeudalFungus {
     public class FungusFlier : ModNPC
     {
 

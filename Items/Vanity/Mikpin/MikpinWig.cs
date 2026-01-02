@@ -1,6 +1,7 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
+﻿using AAMod.Items.Base;
+using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using Terraria.ModLoader;
 
 namespace AAMod.Items.Vanity.Mikpin
 {

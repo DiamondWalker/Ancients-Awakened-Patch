@@ -1,9 +1,10 @@
+using AAMod.Items.Base;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Magic       
+namespace AAMod.Items.Magic
 {
     public class CrystalTome : BaseAAItem
     {

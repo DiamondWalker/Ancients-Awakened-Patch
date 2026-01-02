@@ -1,14 +1,13 @@
-using System;
 using AAMod.Util;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Bosses.Broodmother
-{
+namespace AAMod.NPCs.Bosses.Broodmother {
     [AutoloadBossHead]
     public class BroodEgg : ModNPC
     {

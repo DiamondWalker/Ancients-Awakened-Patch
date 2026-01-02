@@ -8,8 +8,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Torches
-{
+namespace AAMod.Tiles.Torches {
     public class DiscordianTorch : ModTile
 	{
 		public override void SetDefaults()

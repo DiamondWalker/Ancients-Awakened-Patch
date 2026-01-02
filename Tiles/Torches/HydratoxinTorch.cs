@@ -8,9 +8,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Torches
-{
-	public class HydratoxinTorch : ModTile
+namespace AAMod.Tiles.Torches {
+    public class HydratoxinTorch : ModTile
 	{
 		public override void SetDefaults()
 		{

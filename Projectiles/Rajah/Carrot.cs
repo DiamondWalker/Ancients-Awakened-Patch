@@ -2,8 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Rajah
-{
+namespace AAMod.Projectiles.Rajah {
     public class Carrot : ModProjectile
 	{
         public override void SetStaticDefaults()

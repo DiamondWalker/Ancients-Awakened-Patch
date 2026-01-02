@@ -2,8 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Armor.Assassin
-{
+namespace AAMod.Items.Armor.Assassin {
     public class AssassinArrow : ModProjectile
 	{
         public override void SetStaticDefaults()

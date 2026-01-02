@@ -1,13 +1,12 @@
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ModLoader;
-using Terraria.ObjectData;
 using Terraria.DataStructures;
 using Terraria.ID;
+using Terraria.ModLoader;
+using Terraria.ObjectData;
 
-namespace AAMod.Tiles.Boxes
-{
-	class AthenaABox : ModTile
+namespace AAMod.Tiles.Boxes {
+    class AthenaABox : ModTile
 	{
 		public override void SetDefaults()
 		{

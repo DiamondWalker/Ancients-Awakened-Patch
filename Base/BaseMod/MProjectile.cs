@@ -3,8 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod
-{
+namespace AAMod {
     public class MProjectile : GlobalProjectile
 	{
 		public override bool PreDrawExtras(Projectile projectile, SpriteBatch spriteBatch)

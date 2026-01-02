@@ -1,3 +1,4 @@
+using AAMod.Globals.Players;
 using AAMod.Util;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -6,8 +7,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 
 
-namespace AAMod.NPCs.Bosses.Broodmother
-{
+namespace AAMod.NPCs.Bosses.Broodmother {
     public class Broodmini : ModNPC
     {
         public override void SetStaticDefaults()

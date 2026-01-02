@@ -1,13 +1,11 @@
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
 using Terraria;
 using Terraria.ModLoader;
 
-using System;
-using Microsoft.Xna.Framework.Graphics;
-
-namespace AAMod.Projectiles.Athena
-{
-	public class Feather : ModProjectile
+namespace AAMod.Projectiles.Athena {
+    public class Feather : ModProjectile
     {
         public override void SetDefaults()
         {

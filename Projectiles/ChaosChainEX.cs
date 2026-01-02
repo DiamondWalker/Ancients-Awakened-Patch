@@ -1,14 +1,12 @@
-using System;
-using System.IO;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
-{
+namespace AAMod.Projectiles {
     public class ChaosChainEX : ModProjectile
     {
 		public override void SetStaticDefaults()

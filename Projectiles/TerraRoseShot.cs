@@ -1,11 +1,9 @@
 using Microsoft.Xna.Framework;
-using Terraria;
-
 using Microsoft.Xna.Framework.Graphics;
+using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles
-{
+namespace AAMod.Projectiles {
     public class TerraRoseShot : ModProjectile
     {
         public override void SetDefaults()

@@ -1,13 +1,14 @@
-using AAMod.Tiles.Plants;
-using AAMod.Tiles.Crafters;
+using AAMod.Globals.Players;
+using AAMod.Globals.Worlds;
 using AAMod.Tiles;
+using AAMod.Tiles.Crafters;
+using AAMod.Tiles.Plants;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod
-{
+namespace AAMod {
     public class AAGlobalTile : GlobalTile
     {
         public static int glowTick = 0;

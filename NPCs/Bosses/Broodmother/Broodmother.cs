@@ -1,16 +1,16 @@
-﻿using System;
+﻿using AAMod.Globals.Players;
+using AAMod.Globals.Worlds;
+using AAMod.Util;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.IO;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-using System.IO;
-using AAMod.Util;
-
-namespace AAMod.NPCs.Bosses.Broodmother
-{
+namespace AAMod.NPCs.Bosses.Broodmother {
     [AutoloadBossHead]
     public class Broodmother : ModNPC
     {

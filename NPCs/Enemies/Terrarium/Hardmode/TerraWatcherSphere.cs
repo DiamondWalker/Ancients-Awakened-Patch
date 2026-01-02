@@ -2,8 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.NPCs.Enemies.Terrarium.Hardmode
-{
+namespace AAMod.NPCs.Enemies.Terrarium.Hardmode {
     public class TerraWatcherSphere : ModProjectile
     {
         public override void SetDefaults()

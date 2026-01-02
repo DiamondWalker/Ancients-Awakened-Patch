@@ -1,12 +1,12 @@
 
+using AAMod.Globals.Players;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace AAMod.Items.Summoning.Minions.Terra
-{
+namespace AAMod.Items.Summoning.Minions.Terra {
     public class Minion2 : ModProjectile
 	{
 		public override void SetStaticDefaults()

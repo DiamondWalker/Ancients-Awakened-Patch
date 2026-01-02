@@ -1,8 +1,9 @@
+using AAMod.Items.Base;
+using AAMod.Projectiles.Anubis;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using AAMod.Projectiles.Anubis;
 
 namespace AAMod.Items.Magic
 {

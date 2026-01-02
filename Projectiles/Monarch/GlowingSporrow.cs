@@ -5,8 +5,7 @@ using System;
 using Terraria;
 using Terraria.ModLoader;
 
-namespace AAMod.Projectiles.Monarch
-{
+namespace AAMod.Projectiles.Monarch {
     public class GlowingSporrow : ModProjectile
     {
         public override void SetStaticDefaults()

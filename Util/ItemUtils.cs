@@ -1,7 +1,6 @@
 ﻿using Terraria;
 
-namespace AAMod.Util
-{
+namespace AAMod.Util {
     public static class ItemUtil
     {
         public static void DropLoot(this Entity ent, int type, int stack = 1)
