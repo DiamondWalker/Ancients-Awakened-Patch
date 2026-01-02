@@ -19,6 +19,7 @@ using Terraria.Localization;
 using log4net;
 using AAMod.Util;
 using AAMod.Worldgeneration.Dimension.Void;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace AAMod
 {
@@ -77,6 +78,12 @@ namespace AAMod
             Spear = false;
             AssassinHurt = false;
             FFlames = false;
+        }
+
+        public override void PostDraw(NPC npc, SpriteBatch spriteBatch, Color drawColor) {
+            if (AAMod.DEBUG_MODE) BaseDrawing.DrawHitbox(spriteBatch, npc.Hitbox, new Color(50, 0, 0, 1));
+
+            base.PostDraw(npc, spriteBatch, drawColor);
         }
 
         public override void SetDefaults(NPC npc)

@@ -4,6 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using AAMod.Tiles;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace AAMod
 {
@@ -38,7 +39,13 @@ namespace AAMod
 
             return false;
         }
-        
+
+        public override void PostDraw(Projectile projectile, SpriteBatch spriteBatch, Color lightColor) {
+            if (AAMod.DEBUG_MODE) BaseDrawing.DrawHitbox(spriteBatch, projectile.Hitbox, new Color(50, 0, 0, 1));
+
+            base.PostDraw(projectile, spriteBatch, lightColor);
+        }
+
         public override void PostAI(Projectile projectile)
         {
             if (isReflecting && projectile.hostile && !projectile.friendly)

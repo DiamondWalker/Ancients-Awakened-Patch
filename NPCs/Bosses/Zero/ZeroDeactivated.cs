@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAMod.Worldgeneration.Dimension.Void;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
@@ -137,14 +138,14 @@ namespace AAMod.NPCs.Bosses.Zero
             {
                 ZX = tag.GetInt("ZX");
                 ZY = tag.GetInt("ZY");
-				if(!AAWorld.downedZero)			
+				if(!AAWorld.downedZero && VoidSubworld.IsInside())			
 					NPC.NewNPC(ZX, ZY, mod.NPCType("ZeroDeactivated"));
             }
         }
 
         public override void PostUpdate()
         {
-            if (Main.netMode != 1 && !AAWorld.downedZero)
+            if (Main.netMode != 1 && !AAWorld.downedZero && VoidSubworld.IsInside())
             {
                 SpawnDeactivatedZero();
             }

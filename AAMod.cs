@@ -23,11 +23,14 @@ using Terraria.Utilities;
 using ReLogic.Graphics;
 using AAMod.Worldgeneration.Dimension.Void;
 using AAMod.Buffs;
+using System.Diagnostics;
 
 namespace AAMod
 {
     public class AAMod : Mod
     {
+        public const bool DEBUG_MODE = true;
+
         // Miscellaneous
         public static int Coin = -1;
         public static int GoblinSoul = -1;
@@ -351,6 +354,7 @@ namespace AAMod
             PremultiplyTexture(GetTexture("Projectiles/Stars"));
             PremultiplyTexture(GetTexture("NPCs/Bosses/Toad/ToadBubble"));
             PremultiplyTexture(GetTexture("NPCs/Bosses/Zero/Protocol/ProtoStar"));
+            PremultiplyTexture(GetTexture("NPCs/Other/VoidRift/VoidRift"));
             PremultiplyTexture(GetTexture("Textures/SagittariusShield"));
 
             if (GetSoundSlot(SoundType.Music, "Sounds/Music/Monarch") != 0) //ensure music was loaded!

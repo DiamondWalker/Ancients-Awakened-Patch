@@ -1,5 +1,10 @@
 ﻿
-/*namespace AAMod.Items.Materials
+
+using Terraria;
+using Terraria.DataStructures;
+using Terraria.ID;
+
+namespace AAMod.Items.Materials
 {
     public class VoidEnergy : BaseAAItem
 	{
@@ -30,4 +35,4 @@
 			Lighting.AddLight(item.Center, AAColor.ZeroShield.ToVector3() * 0.55f * Main.essScale);
 		}
 	}
-}*/
+}
