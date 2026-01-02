@@ -18,12 +18,7 @@ namespace AAMod.Tiles
             drop = mod.ItemType("Doomstone");   
             dustType = mod.DustType("DoomDust");
             AddMapEntry(new Color(21, 21, 31));
-			minPick = 225;
-        }
-
-        public override bool CanKillTile(int i, int j, ref bool blockDamaged)
-        {
-            return AAWorld.downedZero;
+			minPick = 235;
         }
 
         public static bool PlaceObject(int x, int y, int type, bool mute = false, int style = 0, int random = -1, int direction = -1)

@@ -107,11 +107,11 @@ namespace AAMod.NPCs.Bosses.Zero.Protocol
         {
             if (Main.expertMode)
             {
-                if (!AAWorld.downedZero)
+                /*if (!AAWorld.downedZero)
                 {
                     if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("ZeroAwakened1"), Color.PaleVioletRed);
                     //Item.NewItem((int)npc.Center.X, (int)npc.Center.Y, npc.width, npc.height, mod.ItemType("ZeroRune"));
-                }
+                }*/
 
                 AAWorld.downedZero = true;
                 AAWorld.downAncient(EnumAncients.Zero);

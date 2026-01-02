@@ -165,10 +165,10 @@ namespace AAMod.NPCs.Bosses.Zero
             }
             else
             {
-                if (!AAWorld.downedZero)
+                /*if (!AAWorld.downedZero)
                 {
                     if (Main.netMode != 1) BaseUtility.Chat(Lang.BossChat("ZeroBoss3"), Color.PaleVioletRed);
-                }
+                }*/
                 AAWorld.downedZero = true;
                 AAWorld.downAncient(EnumAncients.Zero);
                 npc.DropLoot(mod.ItemType("ApocalyptitePlate"), 2, 4);

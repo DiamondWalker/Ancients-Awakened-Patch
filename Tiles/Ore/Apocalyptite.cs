@@ -24,7 +24,7 @@ namespace AAMod.Tiles.Ore
             ModTranslation name = CreateMapEntryName();
             name.SetDefault("Apocalyptite Ore");
             AddMapEntry(new Color(70, 20, 20), name);
-			minPick = 225;
+			minPick = 235;
         }
 
         public override void ModifyLight(int x, int y, ref float r, ref float g, ref float b)

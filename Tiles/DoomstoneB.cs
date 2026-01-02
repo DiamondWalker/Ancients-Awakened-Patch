@@ -21,7 +21,7 @@ namespace AAMod.Tiles
             drop = mod.ItemType("DoomstoneB");   
             dustType = mod.DustType("DoomDust");
             AddMapEntry(new Color(40, 20, 20));
-			minPick = 60;
+			minPick = 235;
         }
 
         public static bool PlaceObject(int x, int y, int type, bool mute = false, int style = 0, int alternate = 0, int random = -1, int direction = -1)
