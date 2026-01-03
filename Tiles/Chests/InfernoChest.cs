@@ -61,6 +61,7 @@ namespace AAMod.Tiles.Chests {
             int left = i;
             int top = j;
             Tile tile = Main.tile[i, j];
+            if (tile == null) return name;
             if (tile.frameX % 36 != 0)
             {
                 left--;
