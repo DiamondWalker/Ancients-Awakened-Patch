@@ -3,11 +3,10 @@ using AAMod.Items.Base;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
-using Terraria.DataStructures;
 
 namespace AAMod.Items.Accessories
 {
-    public class RealityStone : BaseAAItem {
+    public class VoidCore : BaseAAItem {
         public override void SetDefaults() {
             item.width = 38;
             item.height = 42;
@@ -17,20 +16,13 @@ namespace AAMod.Items.Accessories
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual) {
-            player.GetModPlayer<AAPlayer>().RealityStone = true;
-            player.gravControl = true;
-            player.noFallDmg = true;
+            player.gravity = Math.Max(player.gravity, Player.defaultGravity);
 
         }
 
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Reality Stone");
-            Tooltip.SetDefault(@"Allows the holder to reverse gravity
-Press Up to change gravity
-Gravity change does not flip the screen
-Negates fall damage");
-            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4, 13));
+            DisplayName.SetDefault("Void Core");
+            Tooltip.SetDefault(@"Provides artificial gravity");
         }
-
     }
 }
