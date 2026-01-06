@@ -1,3 +1,4 @@
+using AAMod.Globals.Players;
 using AAMod.Items.Base;
 using Microsoft.Xna.Framework;
 using System;
@@ -14,8 +15,6 @@ namespace AAMod.Items.Accessories
             item.accessory = true;
         }
 
-        private static float grav = 0.0f;
-
         public override void UpdateAccessory(Player player, bool hideVisual) {
             /*if (player.controlUp) {
                 player.gravity = 0;
@@ -27,23 +26,27 @@ namespace AAMod.Items.Accessories
                 player.maxFallSpeed *= 1.4f;
             }*/
 
+            AAPlayer p = player.GetModPlayer<AAPlayer>();
+            
+            p.RealityStone = true;
+
             if (player.controlUp) {
-                grav -= 0.09f;
+                p.RealityGrav -= 0.09f;
             }
             if (player.controlDown) {
-                grav += 0.09f;
+                p.RealityGrav += 0.09f;
             }
-            grav = MathHelper.Clamp(grav, -1.0f, 1.0f);
-            Main.NewText(grav);
-            if (grav < 0.0f) {
+            p.RealityGrav = MathHelper.Clamp(p.RealityGrav, -1.0f, 1.0f);
+            if (p.RealityGrav < 0.0f) {
                 player.gravDir = -1;
             } else {
                 player.gravDir = 1;
             }
-            player.gravity = MathHelper.Clamp(player.gravity, -0.4f, 0.4f);
-            player.gravity = player.gravity * 1.8f * Math.Abs(grav);
-            player.maxFallSpeed = player.maxFallSpeed * 1.2f * Math.Abs(grav);
-            player.gravControl2 = true;
+            player.gravity = Math.Abs(p.RealityGrav) * 0.6f;
+            //player.gravity = player.gravity * 1.8f * Math.Abs(p.RealityGrav);
+            player.maxFallSpeed = Math.Abs(p.RealityGrav) * 15;
+            player.gravControl2 = true; // this is the gravity globe one. It cannot change gravity in midair
+            player.gravControl = false; // this is the gravitation potion one; they cause weird conflicts if both are active
             player.noFallDmg = true;
 
         }

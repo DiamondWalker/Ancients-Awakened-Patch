@@ -3,6 +3,7 @@ using AAMod.Buffs;
 using AAMod.Globals;
 using AAMod.Globals.Players;
 using AAMod.Globals.Worlds;
+using AAMod.ILEdits;
 using AAMod.Items.Dev.Invoker;
 using AAMod.UI;
 using AAMod.UI.Core;
@@ -10,6 +11,8 @@ using AAMod.Worldgeneration.Dimension.Void;
 using log4net;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Mono.Cecil.Cil;
+using MonoMod.Cil;
 using ReLogic.Graphics;
 using System;
 using System.Collections.Generic;
@@ -281,6 +284,9 @@ namespace AAMod {
             On.Terraria.Projectile.Update += UpdateProj;
             On.Terraria.Dust.UpdateDust += UpdateDust;
 
+            PlayerGravityEdits.ApplyEdits();
+
+
             if (!Main.dedServ)
             {
                 Config.Load();
@@ -463,6 +469,7 @@ namespace AAMod {
         public Dictionary<int, Texture2D> vanillaTextureBackups = new Dictionary<int, Texture2D>();
         public Dictionary<int, Texture2D> vanillaBGBackups = new Dictionary<int, Texture2D>();
 
+        public static bool AAloaded = false;
         public static bool AAloadedOnly = true;
 
         public override void PostAddRecipes()

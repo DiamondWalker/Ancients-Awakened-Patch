@@ -250,7 +250,6 @@ namespace AAMod.Globals.Players {
         public bool RajahCape = false;
         public bool olympianWings = false;
         public bool BlackLotusEmblem = false;
-        public bool Replicator = false;
 
         public bool SagShield = false;
         public bool ShieldUp = false;
@@ -261,6 +260,11 @@ namespace AAMod.Globals.Players {
         public bool OldOneCharm = false;
         public bool SpellBookofRagnarok;
         public bool CursedEyeofSoulBinder;
+
+        public bool RealityStone = false;
+        public float RealityGrav = 1.0f;
+
+        public bool Replicator = false;
 
         public bool MegaMush = false;
         #endregion
@@ -557,6 +561,7 @@ namespace AAMod.Globals.Players {
             SpellBookofRagnarok = false;
             CursedEyeofSoulBinder = false;
             Replicator = false;
+            RealityStone = false;
         }
 
         private void ResetBuffEffect() {
@@ -1649,6 +1654,8 @@ namespace AAMod.Globals.Players {
                     Projectile.NewProjectile(new Vector2(player.Center.X + 64, playerY), new Vector2(0, -10), ModContent.ProjectileType<Items.Armor.Terra.Projectiles.TerraRoseA>(), (int)(50 * player.magicDamage), 4, Main.myPlayer);
                 }
             }
+
+            if (!RealityStone) RealityGrav = 1.0f;
         }
 
         public void CarrotLevelup() {
