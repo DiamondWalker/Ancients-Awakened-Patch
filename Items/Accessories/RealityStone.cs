@@ -29,7 +29,7 @@ namespace AAMod.Items.Accessories
 Press Up to change gravity
 Gravity change does not flip the screen
 Negates fall damage");
-            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(4, 13));
+            Main.RegisterItemAnimation(item.type, new DrawAnimationVertical(6, 13));
         }
 
     }
