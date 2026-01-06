@@ -29,7 +29,9 @@ namespace AAMod.Worldgeneration.Dimension.Void {
                 new SelectRandomLootComponent(
                     new SingleItemLootComponent(ModContent.ItemType<CodeMagnetOff>()),
                     new SingleItemLootComponent(ModContent.ItemType<RiftMirror>()),
-                    new SingleItemLootComponent(ModContent.ItemType<Replicator>())
+                    new SingleItemLootComponent(ModContent.ItemType<Replicator>()),
+                    new SingleItemLootComponent(ModContent.ItemType<VoidCore>()),
+                    new SingleItemLootComponent(ModContent.ItemType<RealityStone>())
                 ),
                 new CombinationLootComponent(
                     new ChanceLootComponent(
