@@ -1,0 +1,59 @@
+using AAMod.Globals.Players;
+using AAMod.Items.Base;
+using System;
+using Terraria;
+using Terraria.ID;
+using Terraria.ModLoader;
+
+namespace AAMod.Items.Accessories
+{
+    [AutoloadEquip(EquipType.Shoes)]
+    public class DoomstrideBoots : BaseAAItem
+    {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Doomstride Boots");
+            Tooltip.SetDefault(@"Allows flight, super fast running, and extra mobility on ice
+12% increased movement speed
+Provides the ability to walk on water and lava
+Grants immunity to fire blocks and 10 seconds of immunity to lava
+Grants the ability to swim
+Allows the ability to climb walls
+Provides artificial gravity");
+        }
+
+        public override void SetDefaults()
+        {
+            item.width = 34;
+            item.height = 32;
+            item.value = Item.sellPrice(0, 20, 0, 0);
+            item.rare = 8;
+            item.accessory = true;
+        }
+
+        public override void UpdateAccessory(Player player, bool hideVisual)
+        {
+            player.moveSpeed += .12f;
+            player.GetModPlayer<AAPlayer>().MaxMovespeedboost += .12f;
+            player.waterWalk = true;
+            player.fireWalk = true;
+            player.lavaMax += 600;
+            player.spikedBoots = Math.Max(player.spikedBoots, 1);
+            player.rocketBoots = Math.Max(player.rocketBoots, 3);
+            player.accRunSpeed = Math.Max(player.accRunSpeed, 9f);
+            player.iceSkate = true;
+            player.accFlipper = true;
+            player.gravity = Math.Max(player.gravity, Player.defaultGravity);
+        }
+
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "DragonstrideBoots", 1);
+            recipe.AddIngredient(null, "VoidCore", 1);
+            recipe.AddTile(TileID.TinkerersWorkbench);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+        }
+    }
+}
