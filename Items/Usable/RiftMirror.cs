@@ -3,6 +3,7 @@ using AAMod.Globals.Players;
 using AAMod.Items.Base;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -20,12 +21,21 @@ Right click to return to your previous location");
 		public override void SetDefaults()
         {
             item.CloneDefaults(ItemID.MagicMirror);
+            item.useTime = 135;
+            item.useAnimation = 135;
+            item.UseSound = null;
         }
 
         public override bool AltFunctionUse(Player player) {
             if (player.GetModPlayer<AAPlayer>().RiftMirrorReturnPos != Vector2.Zero) return true;
 
             return base.AltFunctionUse(player);
+        }
+
+        public override bool UseItem(Player player) {
+            LegacySoundStyle sound = mod.GetLegacySoundSlot(Terraria.ModLoader.SoundType.Custom, "Sounds/Sounds/Rift" + (player.altFunctionUse == 2 ? "Reverse" : "Teleport"));
+            Main.PlaySound(sound, player.position);
+            return true;
         }
 
         public void UpdateItemUse(Player player) {
