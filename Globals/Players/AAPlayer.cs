@@ -2,6 +2,7 @@
 using AAMod.Globals.Worlds;
 using AAMod.Items;
 using AAMod.Items.Base;
+using AAMod.Items.Boss.Shen;
 using AAMod.Items.FishingItem;
 using AAMod.NPCs.Bosses.Akuma;
 using AAMod.NPCs.Bosses.Akuma.Awakened;
@@ -161,6 +162,7 @@ namespace AAMod.Globals.Players {
         public bool dreadSet;
         public bool zeroSet1;
         public bool zeroSet;
+        public bool entropySet;
         public bool valkyrieSet;
         public bool infinitySet;
         public bool Alpha;
@@ -209,6 +211,8 @@ namespace AAMod.Globals.Players {
         public bool AsheFlame;
         public float AsheFlameScale = 0f;
         public int AsheCooldown = 0;
+
+        public int EntropyCooldown = 0;
         #endregion
 
         #region Accessory bools
@@ -482,6 +486,8 @@ namespace AAMod.Globals.Players {
             chaosSet = false;
             DynaskullSet = false;
             zeroSet = false;
+            zeroSet1 = false;
+            entropySet = false;
             dracoSet = false;
             dreadSet = false;
             darkmatterSetMe = false;
@@ -1376,6 +1382,10 @@ namespace AAMod.Globals.Players {
             }
 
             #endregion
+
+            if (EntropyCooldown > 0) {
+                EntropyCooldown--;
+            }
 
             if (NPC.AnyNPCs(ModContent.NPCType<NPCs.Bosses.Equinox.DaybringerHead>()) || NPC.AnyNPCs(ModContent.NPCType<NPCs.Bosses.Equinox.NightcrawlerHead>())) {
                 TimeScale = 0;
@@ -2599,16 +2609,26 @@ namespace AAMod.Globals.Players {
                 int rightTile = (Main.maxTilesX - 42) * 16;
                 int bottomTile = (Main.maxTilesY - 42) * 16;
 
+                Vector2 relativePos = Main.screenPosition - player.Center;
+                bool looped = false;
                 if (player.BottomRight.X >= rightTile) {
                     player.position.X = leftTile;
+                    looped = true;
                 } else if (player.TopLeft.X <= leftTile) {
                     player.position.X = rightTile - player.width;
+                    looped = true;
                 }
 
                 if (player.BottomRight.Y >= bottomTile) {
                     player.position.Y = topTile;
+                    looped = true;
                 } else if (player.TopLeft.Y <= topTile) {
                     player.position.Y = bottomTile - player.height;
+                    looped = true;
+                }
+
+                if (looped) {
+                    Main.screenPosition = player.Center + relativePos;
                 }
             }
 
@@ -2690,6 +2710,29 @@ namespace AAMod.Globals.Players {
                     }
                     player.AddBuff(ModContent.BuffType<AsheFlame>(), 900);
                     AsheCooldown = 5400;
+                }
+            }
+
+            if (entropySet) {
+                if (AAMod.ArmorAbilityKey.JustPressed && EntropyCooldown <= 0) {
+                    Vector2 newPos = default(Vector2);
+                    newPos.X = (float)Main.mouseX + Main.screenPosition.X;
+                    if (player.gravDir == 1f || RealityStone) {
+                        newPos.Y = (float)Main.mouseY + Main.screenPosition.Y - (float)player.height;
+                    } else {
+                        newPos.Y = Main.screenPosition.Y + (float)Main.screenHeight - (float)Main.mouseY;
+                    }
+
+                    newPos.X -= player.width / 2;
+                    if (newPos.X > 50f && newPos.X < (float)(Main.maxTilesX * 16 - 50) && newPos.Y > 50f && newPos.Y < (float)(Main.maxTilesY * 16 - 50)) {
+                        int num265 = (int)(newPos.X / 16f);
+                        int num266 = (int)(newPos.Y / 16f);
+                        if ((Main.tile[num265, num266].wall != 87 || !((double)num266 > Main.worldSurface) || NPC.downedPlantBoss) && !Collision.SolidCollision(newPos, player.width, player.height)) {
+                            player.Teleport(newPos, 1);
+                            EntropyCooldown = 180;
+                            NetMessage.SendData(65, -1, -1, null, 0, player.whoAmI, newPos.X, newPos.Y, 1);
+                        }
+                    }
                 }
             }
 
