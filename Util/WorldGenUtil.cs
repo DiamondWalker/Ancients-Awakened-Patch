@@ -201,16 +201,22 @@ namespace AAMod.Util {
 
     public class SelectRandomLootComponent : IChestLootComponent {
         private readonly IChestLootComponent[] nested;
-        private readonly int draws;
+        private readonly int minDraws;
+        private readonly int maxDraws;
         private readonly bool allowDuplicates;
 
-        public SelectRandomLootComponent(int draws, bool allowDuplicates, params IChestLootComponent[] nested) {
+        public SelectRandomLootComponent(int minDraws, int maxDraws, bool allowDuplicates, params IChestLootComponent[] nested) {
             this.nested = nested;
-            this.draws = draws;
+            this.minDraws = minDraws;
+            this.maxDraws = maxDraws;
             this.allowDuplicates = allowDuplicates;
         }
 
-        public SelectRandomLootComponent(int draws, params IChestLootComponent[] nested) : this(draws, false, nested) {}
+        public SelectRandomLootComponent(int draws, bool allowDuplicates, params IChestLootComponent[] nested) : this(draws, draws, allowDuplicates, nested) {}
+
+        public SelectRandomLootComponent(int minDraws, int maxDraws, params IChestLootComponent[] nested) : this(minDraws, maxDraws, false, nested) { }
+
+        public SelectRandomLootComponent(int draws, params IChestLootComponent[] nested) : this(draws, draws, nested) {}
 
         public SelectRandomLootComponent(params IChestLootComponent[] nested) : this(1, nested) {}
 
@@ -220,6 +226,7 @@ namespace AAMod.Util {
 
         private List<ChestLootEntry> ProvideWithDuplicates() {
             var list = new List<ChestLootEntry>();
+            int draws = Main.rand.Next(minDraws, maxDraws + 1);
             for (int i = 0; i < draws; i++) {
                 list.AddRange(nested[Main.rand.Next(nested.Length)].Provide());
             }
@@ -230,6 +237,7 @@ namespace AAMod.Util {
             var pool = nested.ToList();
             var list = new List<ChestLootEntry>();
 
+            int draws = Main.rand.Next(minDraws, maxDraws + 1);
             for (int i = 0; i < draws; i++) {
                 if (pool.Count() <= 0) break;
                 int selection = Main.rand.Next(pool.Count);

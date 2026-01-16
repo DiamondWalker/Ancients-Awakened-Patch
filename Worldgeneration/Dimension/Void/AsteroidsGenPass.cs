@@ -36,10 +36,6 @@ namespace AAMod.Worldgeneration.Dimension.Void {
                 new CombinationLootComponent(
                     new ChanceLootComponent(
                         0.5f,
-                        new ItemStackLootComponent(ItemID.SuperHealingPotion, 3, 5)
-                    ),
-                    new ChanceLootComponent(
-                        0.5f,
                         new SelectRandomLootComponent(
                             new ItemStackLootComponent(ItemID.LunarBar, 3, 5),
                             new ItemStackLootComponent(ModContent.ItemType<RadiumBar>(), 3, 5),
@@ -66,10 +62,34 @@ namespace AAMod.Worldgeneration.Dimension.Void {
                         )
                     ),
                     new ChanceLootComponent(
-                        0.8f,
-                        new SelectRandomLootComponent(
-                            // buff potions
-                        )
+                        0.5f,
+                        new ItemStackLootComponent(ItemID.SuperHealingPotion, 3, 5)
+                    ),
+                    new SelectRandomLootComponent(3,
+                        new ChanceLootComponent(0.6f, new ItemStackLootComponent(ItemID.ArcheryPotion, 1, 4)),
+                        new ChanceLootComponent(0.6f, new ItemStackLootComponent(ItemID.EndurancePotion, 1, 4)),
+                        new ChanceLootComponent(0.6f, new ItemStackLootComponent(ItemID.LifeforcePotion, 1, 4)),
+                        new ChanceLootComponent(0.6f, new ItemStackLootComponent(ItemID.MagicPowerPotion, 1, 4)),
+                        new ChanceLootComponent(0.6f, new ItemStackLootComponent(ItemID.ManaRegenerationPotion, 1, 4)),
+                        new ChanceLootComponent(0.6f, new ItemStackLootComponent(ItemID.RagePotion, 1, 4)),
+                        new ChanceLootComponent(0.6f, new ItemStackLootComponent(ItemID.RegenerationPotion, 1, 4)),
+                        new ChanceLootComponent(0.6f, new ItemStackLootComponent(ItemID.SpelunkerPotion, 1, 4)),
+                        new ChanceLootComponent(0.6f, new ItemStackLootComponent(ItemID.SummoningPotion, 1, 4)),
+                        new ChanceLootComponent(0.6f, new ItemStackLootComponent(ItemID.WrathPotion, 1, 4)),
+                        new ChanceLootComponent(0.6f, new ItemStackLootComponent(ItemID.ThornsPotion, 1, 4))
+                    ),
+                    new SelectRandomLootComponent(3,   
+                        new ChanceLootComponent(0.3f, new ItemStackLootComponent(ItemID.AmmoReservationPotion, 1, 4)),
+                        new ChanceLootComponent(0.3f, new ItemStackLootComponent(ItemID.BuilderPotion, 1, 4)),
+                        new ChanceLootComponent(0.3f, new ItemStackLootComponent(ItemID.CalmingPotion, 1, 4)),
+                        new ChanceLootComponent(0.3f, new ItemStackLootComponent(ItemID.HunterPotion, 1, 4)),
+                        new ChanceLootComponent(0.3f, new ItemStackLootComponent(ItemID.InvisibilityPotion, 1, 4)),
+                        new ChanceLootComponent(0.3f, new ItemStackLootComponent(ItemID.MiningPotion, 1, 4)),
+                        new ChanceLootComponent(0.3f, new ItemStackLootComponent(ItemID.ShinePotion, 1, 4)),
+                        new ChanceLootComponent(0.3f, new ItemStackLootComponent(ItemID.GravitationPotion, 1, 4)),
+                        new ChanceLootComponent(0.3f, new ItemStackLootComponent(ItemID.ObsidianSkinPotion, 1, 4)),
+                        new ChanceLootComponent(0.3f, new ItemStackLootComponent(ItemID.InfernoPotion, 1, 4)),
+                        new ChanceLootComponent(0.3f, new ItemStackLootComponent(ItemID.TitanPotion, 1, 4))
                     ),
                     new ChanceLootComponent(
                         0.5f,
