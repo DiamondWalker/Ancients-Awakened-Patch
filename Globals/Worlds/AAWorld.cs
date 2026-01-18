@@ -1665,186 +1665,138 @@ namespace AAMod.Globals.Worlds {
 
         private const ushort MIN_MUSH_SIZE = 120;
 
-        private void RedMush(GenerationProgress progress)
-        {
+        private void RedMush(GenerationProgress progress) {
             progress.Message = Language.GetTextValue("Mods.AAMod.Common.AAWorldBuildRedMush");
 
-            ushort[] mushMask = new ushort[Main.maxTilesX]; // an array that gives us info about where mush biomes can be placed. Value of 2 means mush tiles can be placed, values of 1 means there's a negligible gap, and values of 0 mean no mush possible
-            int leftSide = Main.maxTilesX / 3;
-            int rightSide = Main.maxTilesX - 1 - leftSide;
+            int biomesToGenerate = Main.rand.Next(GetWorldSize(), GetWorldSize() * 2);
+            int biomesGenerated = 0;
+            while (biomesGenerated < biomesToGenerate) {
+                ushort[] mushMask = new ushort[Main.maxTilesX]; // an array that gives us info about where mush biomes can be placed. Value of 2 means mush tiles can be placed, values of 1 means there's a negligible gap, and values of 0 mean no mush possible
+                int leftSide = Main.maxTilesX / 3;
+                int rightSide = Main.maxTilesX - 1 - leftSide;
 
-            for (int x = 0; x < Main.maxTilesX; x++)
-            {
-                bool validX = false;
+                for (int x = 0; x < Main.maxTilesX; x++) {
+                    bool validX = false;
 
-                // first we determine if this location could be a mushroom biome (is there any grass?)
-                for (int y = 0; y < Main.worldSurface; y++)
-                {
-                    if (Main.tile[x, y] != null && Main.tile[x, y].active() && Main.tile[x, y].type == TileID.Grass)
-                    {
-                        validX = true;
-                        break;
-                    }
-                }
+                    // first we determine if this location could be a mushroom biome (is there any grass?)
+                    for (int y = 0; y < Main.worldSurface; y++) {
 
-                if (validX)
-                {
-                    mushMask[x] = 2;
-
-                    // if there wasn't any grass, but there's just a very small gap in the mush biome, we'll jump over the gap. A value of 1 denotes a gap we can jump over
-                    for (int offset = 0; offset < 5; offset++)
-                    {
-                        int leftOffset = x - offset;
-                        int rightOffset = x + offset;
-
-                        if (leftOffset >= 0 && mushMask[leftOffset] == 0)
-                        {
-                            mushMask[leftOffset] = 1;
-                        }
-                        if (rightOffset < mushMask.Length && mushMask[rightOffset] == 0)
-                        {
-                            mushMask[rightOffset] = 1;
-                        }
-                    }
-                }
-            }
-
-            // now we will do another pass. This pass will change the mask so it instead tells us the max possible size of each mush biome
-            ushort mushBiomeSize = 0;
-            int lastMushStart = 0;
-            List<int> possiblePositions = new List<int>();
-            for (int x = 0; x < mushMask.Length; x++)
-            {
-                ushort currMask = mushMask[x];
-                mushMask[x] = 0; // we reset the value because after this it'll represent potential biome size
-
-                if (currMask == 2)
-                {
-                    if (mushBiomeSize == 0)
-                    {
-                        lastMushStart = x;
-                    }
-                    mushBiomeSize++;
-                }
-                else if (currMask == 0)
-                {
-                    if (mushBiomeSize >= MIN_MUSH_SIZE)
-                    { // we want mush biomes to be at least 30 tiles wide
-                        for (int x2 = lastMushStart; x2 < x; x2++)
-                        {
-                            mushMask[x2] = mushBiomeSize;
-
-                            possiblePositions.Add(x2);
-                            if (x <= leftSide || x >= rightSide)
-                            {
-                                // add the value 2 more times to imfluence the chances
-                                possiblePositions.Add(x2);
-                                possiblePositions.Add(x2);
+                        Tile tile = Main.tile[x, y];
+                        if (tile != null) {
+                            ushort[] walls = { WallID.Grass, WallID.GrassUnsafe, WallID.Flower, WallID.FlowerUnsafe };
+                            if (walls.Contains(tile.wall)) {
+                                validX = true;
+                            } else if (tile.active() && tile.type == TileID.Grass) {
+                                validX = true;
                             }
                         }
                     }
-                    mushBiomeSize = 0;
+
+                    if (validX) {
+                        mushMask[x] = 2;
+
+                        // if there wasn't any grass, but there's just a very small gap in the mush biome, we'll jump over the gap. A value of 1 denotes a gap we can jump over
+                        for (int offset = 1; offset <= 5; offset++) {
+                            int leftOffset = x - offset;
+                            int rightOffset = x + offset;
+
+                            if (leftOffset >= 0 && mushMask[leftOffset] == 0) {
+                                mushMask[leftOffset] = 1;
+                            }
+                            if (rightOffset < mushMask.Length && mushMask[rightOffset] == 0) {
+                                mushMask[rightOffset] = 1;
+                            }
+                        }
+                    }
                 }
-            }
 
-            int biomesToGenerate = Main.rand.Next(GetWorldSize(), GetWorldSize() * 2);
-            for (int i = 0; i < biomesToGenerate; i++)
-            {
-                if (possiblePositions.Count == 0) break;
+                // now we will determine the possible regions
+                List<MushlandRegion> mushRegions = new List<MushlandRegion>();
 
-                // we will randomly pick the properties of the mush biome to place here
-                int origin = possiblePositions[Main.rand.Next(possiblePositions.Count)];
-                ushort biomeSize = (ushort)Main.rand.Next(MIN_MUSH_SIZE, mushMask[origin] + 1);
+                int lastMushStart = -1;
+                int lastMushEnd = -1;
+                ushort mushTileCount = 0;
+                for (int x = 0; x < mushMask.Length; x++) {
+                    ushort currMask = mushMask[x];
+                    //mushMask[x] = 0; // we reset the value because after this it'll represent potential biome size
 
-                // a chunk of the "potential" mush land will be turned into actual mush land, so we need to update the surrounding area accordingly
-                List<int> positionsToUpdate = new List<int>();
-                ushort remainingBiomeSize = (ushort)(mushMask[origin] - biomeSize);
-                int xLeft = origin - 1;
-                int xRight = origin + 1;
-                while (mushMask[xLeft] == mushMask[origin])
-                {
-                    positionsToUpdate.Add(xLeft);
-                    xLeft--;
-                }
-                while (mushMask[xRight] == mushMask[origin])
-                {
-                    positionsToUpdate.Add(xRight);
-                    xRight++;
-                }
-                positionsToUpdate.Add(origin);
-
-                // here we actually place the biome
-                int placed = 0;
-                xLeft = origin;
-                xRight = origin;
-                while (placed < biomeSize)
-                {
-                    if (xLeft > 0 && mushMask[xLeft] > 0)
-                    {
-                        if (AttemptToPlaceMushlandStrip(xLeft)) placed++;
-                        mushMask[xLeft] = 0;
-
-                        if (xLeft == xRight)
-                        {
-                            xLeft--;
-                            xRight++;
-                            continue;
+                    if (currMask == 2) {
+                        if (lastMushStart < 0) {
+                            lastMushStart = x;
+                        }
+                        lastMushEnd = x;
+                        mushTileCount++;
+                    } else if (currMask == 0) {
+                        if (lastMushStart >= 0 && lastMushEnd >= 0) { // are we actually in a biome?
+                            if (mushTileCount >= MIN_MUSH_SIZE) { // we want mush biomes to be at least 30 tiles wide
+                                MushlandRegion region = new MushlandRegion(lastMushStart, lastMushEnd, mushTileCount);
+                                mushRegions.Add(region);
+                                int midPoint = (region.startX + region.endX);
+                                if (midPoint < leftSide || midPoint > rightSide) mushRegions.Add(region);
+                            }
                         }
 
-                        xLeft--;
-                    }
-                    if (xRight < mushMask.Length && mushMask[xRight] > 0)
-                    {
-                        if (AttemptToPlaceMushlandStrip(xRight)) placed++;
-                        mushMask[xRight] = 0;
-                        xRight++;
+                        lastMushStart = -1;
+                        lastMushEnd = -1;
+                        mushTileCount = 0;
                     }
                 }
 
-                // now we actually update the remaining positions
-                if (remainingBiomeSize < MIN_MUSH_SIZE) remainingBiomeSize = 0;
-                foreach (int pos in positionsToUpdate)
-                {
-                    if (mushMask[pos] > 0) mushMask[pos] = remainingBiomeSize;
+                if (mushRegions.Count <= 0) {
+                    AAMod.instance.Logging.Info("No space left to generate Red Mushroom biomes. Generated " + biomesGenerated + " out of " + biomesToGenerate + ".");
+                    break;
+                }
+                MushlandRegion selectedRegion = mushRegions[Main.rand.Next(mushRegions.Count)];
+                int size = Main.rand.Next(MIN_MUSH_SIZE, selectedRegion.size + 1);
+                int endX = selectedRegion.endX + 1; // ranges for random and loops have an exclusive upper bound, so we want it to be the tile after
+
+                int startX = Main.rand.Next(selectedRegion.startX, endX - size + 1);
+                endX = startX + size;
+
+                for (int x = startX; x < endX; x++) {
+                    // convert the tiles at this x value
+                    for (int y = 0; y < Main.worldSurface; y++) {
+                        if (Main.tile[x, y] != null) {
+                            ushort type = Main.tile[x, y].type;
+                            ushort wall = Main.tile[x, y].wall;
+
+                            ushort[] walls = { WallID.Grass, WallID.GrassUnsafe, WallID.Flower, WallID.FlowerUnsafe };
+                            if (walls.Contains(wall)) {
+                                Main.tile[x, y].wall = (ushort)ModContent.WallType<Mushwall>();
+                                WorldGen.SquareWallFrame(x, y);
+                                NetMessage.SendTileSquare(-1, x, y, 1);
+                                //NetMessage.SendTileSquare(-1, k, l, 1);
+                            }
+
+                            if (Main.tile[x, y].active() && type == TileID.Grass) {
+                                Main.tile[x, y].type = (ushort)ModContent.TileType<Mycelium>();
+                                WorldGen.SquareTileFrame(x, y, true);
+                                //NetMessage.SendTileSquare(-1, k, l, 1);
+                            }
+                        }
+                    }
                 }
 
-                // finally we want to make sure any invalidated positions can no longer be chosen
-                possiblePositions.RemoveAll(k => mushMask[k] == 0);
+                biomesGenerated++;
             }
+
+            AAMod.instance.Logging.Info("Generated " + biomesGenerated + " Red Mushroom biomes");
         }
 
-        private bool AttemptToPlaceMushlandStrip(int x)
-        {
-            bool placed = false;
+        private struct MushlandRegion {
+            public int startX;
+            public int endX;
+            public int convertibleTiles;
 
-            for (int y = 0; y < Main.worldSurface; y++)
-            {
-                if (Main.tile[x, y] != null)
-                {
-                    ushort type = Main.tile[x, y].type;
-                    ushort wall = Main.tile[x, y].wall;
-
-                    ushort[] walls = { WallID.Grass, WallID.GrassUnsafe, WallID.Flower, WallID.FlowerUnsafe };
-                    if (walls.Contains(wall))
-                    {
-                        Main.tile[x, y].wall = (ushort)ModContent.WallType<Mushwall>();
-                        WorldGen.SquareWallFrame(x, y);
-                        NetMessage.SendTileSquare(-1, x, y, 1);
-                        placed = true;
-                        //NetMessage.SendTileSquare(-1, k, l, 1);
-                    }
-
-                    if (Main.tile[x, y].active() && TileID.Sets.Conversion.Grass[type] && type != TileID.JungleGrass)
-                    {
-                        Main.tile[x, y].type = (ushort)ModContent.TileType<Mycelium>();
-                        WorldGen.SquareTileFrame(x, y, true);
-                        placed = true;
-                        //NetMessage.SendTileSquare(-1, k, l, 1);
-                    }
-                }
+            public int size {
+                get { return endX - startX + 1; }
             }
 
-            return placed;
+            public MushlandRegion(int start, int end, int tiles) {
+                this.startX = start;
+                this.endX = end;
+                this.convertibleTiles = tiles;
+            }
         }
 
         private void BogwoodConvert(GenerationProgress progress)

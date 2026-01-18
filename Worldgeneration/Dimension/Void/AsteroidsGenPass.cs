@@ -1,6 +1,7 @@
 ﻿using AAMod.Globals.Worlds;
 using AAMod.Items.Accessories;
 using AAMod.Items.Materials;
+using AAMod.Items.Potions;
 using AAMod.Items.Ranged.Ammo;
 using AAMod.Items.Throwing;
 using AAMod.Items.Usable;
@@ -90,6 +91,19 @@ namespace AAMod.Worldgeneration.Dimension.Void {
                         new ChanceLootComponent(0.3f, new ItemStackLootComponent(ItemID.ObsidianSkinPotion, 1, 4)),
                         new ChanceLootComponent(0.3f, new ItemStackLootComponent(ItemID.InfernoPotion, 1, 4)),
                         new ChanceLootComponent(0.3f, new ItemStackLootComponent(ItemID.TitanPotion, 1, 4))
+                    ),
+                    new ChanceLootComponent(
+                        1.0f / 3, 
+                        new SelectRandomLootComponent(
+                            new SingleItemLootComponent(ItemID.FlaskofCursedFlames),
+                            new SingleItemLootComponent(ItemID.FlaskofFire),
+                            new SingleItemLootComponent(ItemID.FlaskofIchor),
+                            new SingleItemLootComponent(ItemID.FlaskofNanites),
+                            new SingleItemLootComponent(ItemID.FlaskofPoison),
+                            new SingleItemLootComponent(ItemID.FlaskofVenom),
+                            new SingleItemLootComponent(ModContent.ItemType<DragonfireFlask>()),
+                            new SingleItemLootComponent(ModContent.ItemType<HydratoxinFlask>())
+                        )
                     ),
                     new ChanceLootComponent(
                         0.5f,
