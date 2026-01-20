@@ -9,7 +9,6 @@ namespace AAMod.NPCs.Bosses.Equinox {
 		{
             base.SetDefaults();
             npc.dontCountMe = true;
-			nightcrawler = true;
             npc.npcSlots = 0;
         }
 

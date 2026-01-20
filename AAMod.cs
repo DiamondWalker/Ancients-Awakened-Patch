@@ -32,7 +32,7 @@ using Terraria.Utilities;
 namespace AAMod {
     public class AAMod : Mod
     {
-        public const bool DEBUG_MODE = false;
+        public static bool DEBUG_MODE { get => false; }
 
         // Miscellaneous
         public static int Coin = -1;

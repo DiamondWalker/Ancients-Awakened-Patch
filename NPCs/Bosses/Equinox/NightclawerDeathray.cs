@@ -54,7 +54,8 @@ namespace AAMod.NPCs.Bosses.Equinox {
                     projectile.velocity = (Main.npc[(int)projectile.ai[1]].rotation + (float)Math.PI / 2).ToRotationVector2();
                     projectile.velocity = projectile.velocity.RotatedBy(projectile.ai[0]);
                 }
-                projectile.Center = Main.npc[(int)projectile.ai[1]].Center;
+                NPC npc = Main.npc[(int)projectile.ai[1]];
+                projectile.Center = npc.position + new Vector2(npc.width / 4, npc.height / 4);
             }
             else
             {
@@ -140,11 +141,11 @@ namespace AAMod.NPCs.Bosses.Equinox {
             Color color44 = new Color(255, 255, 255, 0) * 0.5f;
             SpriteBatch arg_ABD8_0 = Main.spriteBatch;
             Texture2D arg_ABD8_1 = texture2D19;
-            Vector2 arg_ABD8_2 = projectile.Center - Main.screenPosition;
+            Vector2 arg_ABD8_2 = new Vector2(projectile.position.X + (float)(projectile.width / 4), projectile.position.Y + (float)(projectile.height / 4)) - Main.screenPosition;
             Rectangle? sourceRectangle2 = null;
             arg_ABD8_0.Draw(arg_ABD8_1, arg_ABD8_2, sourceRectangle2, color44, projectile.rotation, texture2D19.Size() / 2f, projectile.scale, SpriteEffects.None, 0f);
             num223 -= (texture2D19.Height / 2 + texture2D21.Height) * projectile.scale;
-            Vector2 value20 = projectile.Center;
+            Vector2 value20 = new Vector2(projectile.position.X + (float)(projectile.width / 4), projectile.position.Y + (float)(projectile.height / 4));
             value20 += projectile.velocity * projectile.scale * texture2D19.Height / 2f;
             if (num223 > 0f)
             {

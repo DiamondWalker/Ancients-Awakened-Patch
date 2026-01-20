@@ -28,6 +28,8 @@ namespace AAMod.NPCs.Bosses.Equinox {
             npc.aiStyle = -1;
             npc.timeLeft = 10;
             npc.alpha = 255;
+            npc.noTileCollide = true;
+            npc.knockBackResist = 0;
             for (int k = 0; k < npc.buffImmune.Length; k++)
             {
                 npc.buffImmune[k] = true;
@@ -101,7 +103,8 @@ namespace AAMod.NPCs.Bosses.Equinox {
             if (rotValue == -1f) rotValue = npc.ai[3];
             rotValue += 0.05f;
             while (rotValue > (float)Math.PI * 2f) rotValue -= (float)Math.PI * 2f;
-            npc.Center = BaseUtility.RotateVector(NC.position, NC.position + new Vector2(140f, 0f), rotValue);
+            Vector2 origin = NC.position + new Vector2(NC.width, NC.height) / 4;
+            npc.Center = BaseUtility.RotateVector(origin, origin + new Vector2(140f, 0f), rotValue);
 
             int aiTimerFire = 0;
 
