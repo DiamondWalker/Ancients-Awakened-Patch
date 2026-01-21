@@ -22,6 +22,8 @@ namespace AAMod.NPCs.Bosses.Equinox {
         public abstract int WormLength { get; }
         public abstract float EmpoweredMoveSpeed { get; }
         public abstract int EmpoweredDefense { get; }
+
+        public bool IsHead { get => npc.type == mod.NPCType("DaybringerHead") || npc.type == mod.NPCType("NightcrawlerHead"); }
         public abstract void SpawnGore();
 
         private bool title;
@@ -55,7 +57,7 @@ namespace AAMod.NPCs.Bosses.Equinox {
         public override void SendExtraAI(BinaryWriter writer) {
             base.SendExtraAI(writer);
             if (Main.netMode == NetmodeID.Server || Main.dedServ) {
-                if (npc.type == mod.NPCType("DaybringerHead") || npc.type == mod.NPCType("NightcrawlerHead")) {
+                if (IsHead) {
                     writer.Write(internalAI[0]);
                     writer.Write(internalAI[1]);
                     writer.Write(internalAI[2]);
@@ -65,7 +67,6 @@ namespace AAMod.NPCs.Bosses.Equinox {
                     writer.Write(internalAI[6]);
                     writer.Write(internalAI[7]);
 
-                    writer.Write(preShootingSun);
                     writer.Write(preDeathRay);
                     writer.Write(isDeathRay);
                     writer.Write(CloudCooldown);
@@ -78,7 +79,7 @@ namespace AAMod.NPCs.Bosses.Equinox {
         public override void ReceiveExtraAI(BinaryReader reader) {
             base.ReceiveExtraAI(reader);
             if (Main.netMode == NetmodeID.MultiplayerClient) {
-                if (npc.type == mod.NPCType("DaybringerHead") || npc.type == mod.NPCType("NightcrawlerHead")) {
+                if (IsHead) {
                     internalAI[0] = reader.ReadFloat(); //DaybringerCounter
                     internalAI[1] = reader.ReadFloat(); //NightclawerCounter
                     internalAI[2] = reader.ReadFloat();
@@ -112,51 +113,10 @@ namespace AAMod.NPCs.Bosses.Equinox {
             return npc.timeLeft < 50;
         }
 
-        public void HandleDayNightCycle() {
-            bool daybringerExists = NPC.AnyNPCs(ModContent.NPCType<DaybringerHead>());
-            bool nightcrawlerExists = NPC.AnyNPCs(ModContent.NPCType<NightcrawlerHead>());
-            if (daybringerExists && nightcrawlerExists) {
-                if ((npc.type == mod.NPCType("DaybringerHead") && Main.dayTime && !preShootingSun) || (npc.type == mod.NPCType("NightcrawlerHead") && !Main.dayTime && !preDeathRay)) {
-                    if (Main.expertMode) {
-                        Main.fastForwardTime = true;
-                        Main.dayRate = 20;
-                    } else {
-                        Main.fastForwardTime = true;
-                        Main.dayRate = 15;
-                    }
-                } else if ((npc.type == mod.NPCType("DaybringerHead") && preShootingSun) || (npc.type == mod.NPCType("NightcrawlerHead") && (preDeathRay || isDeathRay))) {
-                    Main.dayRate = 0;
-                    Main.fastForwardTime = false;
-                    Main.time--;
-                }
-            } else
-            if ((daybringerExists && !nightcrawlerExists)) {
-                Main.fastForwardTime = true;
-                Main.dayTime = true;
-                Main.dayRate = 0;
-                if (preShootingSun) {
-                    Main.fastForwardTime = false;
-                    Main.time--;
-                }
-            } else
-            if ((!daybringerExists && nightcrawlerExists)) {
-                Main.fastForwardTime = true;
-                Main.dayTime = false;
-                Main.dayRate = 0;
-                if (preDeathRay || isDeathRay) {
-                    Main.fastForwardTime = false;
-                    Main.time--;
-                }
-            } else {
-                Main.dayRate = 1;
-                Main.fastForwardTime = false;
-            }
-        }
-        bool preDeathRay = false;
-        bool isDeathRay = false;
-        bool preShootingSun = false;
-        bool prevWormStronger = false;
-        bool initCustom = false;
+        public abstract void HandleDayNightCycle();
+
+        public bool prevWormStronger = false;
+        public bool initCustom = false;
         public int CloudCount = Main.expertMode ? 8 : 6;
         public int CloudCooldown = 400;
 
@@ -165,14 +125,13 @@ namespace AAMod.NPCs.Bosses.Equinox {
                 AAMod.ShowTitle(base.npc, 17);
                 this.title = true;
             }
-            bool isHead = npc.type == mod.NPCType("DaybringerHead") || npc.type == mod.NPCType("NightcrawlerHead");
             if (Main.netMode != 1 && !initCustom) {
                 initCustom = true;
                 internalAI[7] += npc.whoAmI % 7 * 12; //so it doesn't pew all at once
                 npc.velocity.X += 0.1f;
                 npc.velocity.Y -= 4f;
             }
-            if (isHead) {
+            if (IsHead) {
                 HandleDayNightCycle();
             }
 
@@ -211,7 +170,7 @@ namespace AAMod.NPCs.Bosses.Equinox {
                 AAAI.AIWorm(npc, wormTypes, Length, wormDistance, moveSpeedMax, 0.07f, true, false, false, false, false, false);
             }
 
-            if (isHead) //prevents despawn and allows them to run away
+            if (IsHead) //prevents despawn and allows them to run away
             {
                 bool foundTarget = TargetClosest();
                 if (foundTarget) {
@@ -228,307 +187,18 @@ namespace AAMod.NPCs.Bosses.Equinox {
 
             Player target = Main.player[npc.target];
 
-            if (npc.type == mod.NPCType("NightcrawlerHead")) {
-                if (isDeathRay) {
-                    goto ExtraAI;
-                }
-                if (preDeathRay) {
-                    npc.defense = 9999;
-                    if ((npc.Center - target.Center).Length() < 300f) {
-                        isDeathRay = true;
-                        npc.netUpdate = true;
-                    }
+            if (IsHead && !DoWormAI(target)) return false;
 
-                    if (npc.Center.X < target.Center.X) {
-                        npc.velocity.X += 0.5f;
-                        if (npc.velocity.X < 0)
-                            npc.velocity.X += 0.5f * 2;
-                    } else {
-                        npc.velocity.X -= 0.5f;
-                        if (npc.velocity.X > 0)
-                            npc.velocity.X -= 0.5f * 2;
-                    }
-                    if (npc.Center.Y < target.Center.Y) {
-                        npc.velocity.Y += 0.5f;
-                        if (npc.velocity.Y < 0)
-                            npc.velocity.Y += 0.5f * 2;
-                    } else {
-                        npc.velocity.Y -= 0.5f;
-                        if (npc.velocity.Y > 0)
-                            npc.velocity.Y -= 0.5f * 2;
-                    }
-
-                    if (npc.velocity.X > 30f) npc.velocity.X = 30f;
-                    if (npc.velocity.Y > 30f) npc.velocity.Y = 30f;
-
-                    internalAI[5] = npc.velocity.X;
-                    internalAI[6] = npc.velocity.Y;
-                }
-            }
-            if (npc.type == mod.NPCType("DaybringerHead")) {
-                if (preShootingSun) {
-                    npc.defense = 9999;
-                    npc.TargetClosest(false);
-                    goto ExtraAI;
-                }
-            }
-
-            if (!isHead) {
+            if (!IsHead) {
                 npc.defense = Main.npc[npc.realLife].defense;
             }
-            goto Normal;
-
-        ExtraAI:
-            if (npc.type == mod.NPCType("NightcrawlerHead")) {
-                npc.defense = 9999;
-                npc.TargetClosest(false);
-                npc.velocity = new Vector2(internalAI[5], internalAI[6]);
-
-                if (internalAI[2] < 120) {
-                    Vector2 newvelocity = npc.velocity + Vector2.Normalize(npc.velocity.RotatedBy((float)Math.PI/2)) * 0.58f;
-                    npc.rotation = (float)Math.Atan2(npc.velocity.Y, npc.velocity.X) + 1.57f;
-                    npc.velocity = Vector2.Normalize(newvelocity) * 16f;
-                } else {
-                    Vector2 newvelocity = npc.velocity + Vector2.Normalize(npc.velocity.RotatedBy((float)Math.PI/2)) * 0.03625f;
-                    npc.rotation = (float)Math.Atan2(npc.velocity.Y, npc.velocity.X) + 1.57f;
-                    npc.velocity = Vector2.Normalize(newvelocity) * 4f;
-                }
-
-                if (internalAI[2]++ == 90) {
-                    for (int i = 0; i < Main.maxNPCs; i+=2) {
-                        if (Main.npc[i].active && Main.npc[i].type == mod.NPCType("NightcrawlerBody") && Main.npc[i].realLife == npc.whoAmI) {
-                            if (Main.netMode != 1) {
-                                Vector2 speed = Vector2.Normalize(new Vector2(1f, 0f).RotatedBy(Main.npc[i].rotation + 3.1415f)) * 8f;
-                                Projectile.NewProjectile(Main.npc[i].Center.X, Main.npc[i].Center.Y, speed.X, speed.Y, mod.ProjectileType("NightclawerDeathraySmall"), npc.damage / 2, 0, Main.myPlayer, 0, i);
-                            }
-                        }
-                    }
-                }
-                if (internalAI[2] >= 90) {
-                    for (int deathRay = 0; deathRay < Main.maxProjectiles; deathRay++) {
-                        if (Main.projectile[deathRay].active && Main.projectile[deathRay].type == mod.ProjectileType("NightclawerDeathraySmall") || Main.projectile[deathRay].type == mod.ProjectileType("NightclawerDeathray") && Main.projectile[deathRay].ai[1] == npc.whoAmI) {
-                            return false;
-                        }
-                    }
-                }
-
-                internalAI[5] = npc.velocity.X;
-                internalAI[6] = npc.velocity.Y;
-
-                if (internalAI[2] > 400) {
-                    internalAI[2] = 0;
-                    isDeathRay = false;
-                    preDeathRay = false;
-                    npc.netUpdate = true;
-                }
-            }
-            if (npc.type == mod.NPCType("DaybringerHead")) {
-                npc.defense = 9999;
-                npc.TargetClosest(false);
-                npc.velocity = new Vector2(internalAI[5], internalAI[6]);
-                Vector2 targetpos = target.Center - new Vector2(0, 2000f);
-                Vector2 targetpos2 = target.Center - new Vector2(1000f, 1000f);
-                Vector2 targetpos3 = target.Center - new Vector2(-1000f, 1000f);
-
-                if (internalAI[4] == 0) {
-                    if (Math.Abs(npc.Center.X - targetpos.X) + Math.Abs(npc.Center.Y - targetpos.Y) < 100f) {
-                        internalAI[4] = 1f;
-                    }
-                } else if (internalAI[4] == 1) {
-                    targetpos = targetpos2;
-                    if (Math.Abs(npc.Center.X - targetpos.X) + Math.Abs(npc.Center.Y - targetpos.Y) < 100f) {
-                        internalAI[4] = 2f;
-                        if (Main.netMode != 1) {
-                            for (int i = 0; i < Main.maxNPCs; i+= 3) {
-                                if (Main.npc[i].active && Main.npc[i].type == mod.NPCType("DaybringerBody") && Main.npc[i].realLife == npc.whoAmI && AAGlobalProjectile.CountProjectiles(mod.ProjectileType("DaybringerSun")) < 3) {
-                                    Vector2 speed = Vector2.Normalize(new Vector2(1f, 0f).RotatedBy(Main.npc[i].rotation + 3.1415f)) * 8f;
-                                    Projectile.NewProjectile(Main.npc[i].Center.X, Main.npc[i].Center.Y, -speed.X, -speed.Y, mod.ProjectileType("DaybringerSun"), npc.damage / 3, 1, 255);
-                                }
-                            }
-                        }
-                    }
-                } else if (internalAI[4] == 2) {
-                    targetpos = targetpos3;
-                    if (Math.Abs(npc.Center.X - targetpos.X) + Math.Abs(npc.Center.Y - targetpos.Y) < 100f) {
-                        internalAI[4] = 1f;
-                        if (Main.netMode != 1) {
-                            for (int i = 0; i < Main.maxNPCs; i+= 3) {
-                                if (Main.npc[i].active && Main.npc[i].type == mod.NPCType("DaybringerBody") && Main.npc[i].realLife == npc.whoAmI && AAGlobalProjectile.CountProjectiles(mod.ProjectileType("DaybringerSun")) < 3) {
-                                    Vector2 speed = Vector2.Normalize(new Vector2(1f, 0f).RotatedBy(Main.npc[i].rotation + 3.1415f)) * 8f;
-                                    Projectile.NewProjectile(Main.npc[i].Center.X, Main.npc[i].Center.Y, -speed.X, -speed.Y, mod.ProjectileType("DaybringerSun"), npc.damage / 3, 1, 255);
-                                }
-                            }
-                        }
-                    }
-                }
-                if (internalAI[3] % 200 == 60 && Main.netMode != 1) {
-                    Vector2 speed = Vector2.Normalize(npc.velocity) * 8f;
-                    Projectile.NewProjectile(npc.Center.X, npc.Center.Y, speed.X, speed.Y, mod.ProjectileType("DaybringerSun"), npc.damage / 2, 1, 255);
-                }
-                if (npc.Center.X < targetpos.X) {
-                    npc.velocity.X += 0.5f;
-                    if (npc.velocity.X < 0)
-                        npc.velocity.X += 0.5f * 2;
-                } else {
-                    npc.velocity.X -= 0.5f;
-                    if (npc.velocity.X > 0)
-                        npc.velocity.X -= 0.5f * 2;
-                }
-                if (npc.Center.Y < targetpos.Y) {
-                    npc.velocity.Y += 0.5f;
-                    if (npc.velocity.Y < 0)
-                        npc.velocity.Y += 0.5f * 2;
-                } else {
-                    npc.velocity.Y -= 0.5f;
-                    if (npc.velocity.Y > 0)
-                        npc.velocity.Y -= 0.5f * 2;
-                }
-
-                if (npc.velocity.X > 30f) npc.velocity.X = 30f;
-                if (npc.velocity.Y > 30f) npc.velocity.Y = 30f;
-
-                npc.rotation = (float)Math.Atan2(npc.velocity.Y, npc.velocity.X) + 1.57f;
-
-                internalAI[5] = npc.velocity.X;
-                internalAI[6] = npc.velocity.Y;
-
-                if (internalAI[3]++ > 700) {
-                    internalAI[3] = 0;
-                    internalAI[5] = 0;
-                    internalAI[6] = 0;
-                    preShootingSun = false;
-                    npc.netUpdate = true;
-                }
-            }
-            return false;
-
-        Normal:
-
-            npc.spriteDirection = 1;
-            prevWormStronger = wormStronger;
-
-            if (npc.type == ModContent.NPCType<NightcrawlerHead>() && NPC.CountNPCS(ModContent.NPCType<NCCloud>()) < CloudCount && CloudCooldown > 0 && Main.netMode != 1) {
-                CloudCooldown--;
-
-                if (CloudCooldown <= 0) {
-                    CloudCooldown = 0;
-                }
-            }
-
-            if (isDay && !preShootingSun) {
-                if (isHead && npc.type == mod.NPCType("DaybringerHead")) {
-                    internalAI[0] += 1f;
-                    if (internalAI[0] % 360 == 0) {
-                        for (int playerid = 0; playerid < 255; playerid++) {
-                            if (Main.player[playerid].active && !Main.player[playerid].dead && Main.player[playerid] != null && Main.player[playerid].ownedProjectileCounts[mod.ProjectileType("DaybringerStars")] <= 0) {
-                                if (npc.life > npc.lifeMax / 2) {
-                                    if (Main.rand.Next(2) == 0) {
-                                        Projectile.NewProjectile(Main.player[playerid].Center.X - 200f, Main.player[playerid].Center.Y + 200f, 0, 0, mod.ProjectileType("DaybringerStars"), npc.damage / 3, 5, playerid, -200f, playerid);
-                                        Projectile.NewProjectile(Main.player[playerid].Center.X, Main.player[playerid].Center.Y - 300f, 0, 0, mod.ProjectileType("DaybringerStars"), npc.damage / 3, 5, playerid, 0, playerid);
-                                        Projectile.NewProjectile(Main.player[playerid].Center.X + 200f, Main.player[playerid].Center.Y + 200f, 0, 0, mod.ProjectileType("DaybringerStars"), npc.damage / 3, 5, playerid, 200f, playerid);
-                                    } else {
-                                        Projectile.NewProjectile(Main.player[playerid].Center.X + 200f, Main.player[playerid].Center.Y - 200f, 0, 0, mod.ProjectileType("DaybringerStars"), npc.damage / 3, 5, playerid, -200f, playerid);
-                                        Projectile.NewProjectile(Main.player[playerid].Center.X, Main.player[playerid].Center.Y + 300f, 0, 0, mod.ProjectileType("DaybringerStars"), npc.damage / 3, 5, playerid, 0, playerid);
-                                        Projectile.NewProjectile(Main.player[playerid].Center.X - 200f, Main.player[playerid].Center.Y - 200f, 0, 0, mod.ProjectileType("DaybringerStars"), npc.damage / 3, 5, playerid, 200f, playerid);
-                                    }
-                                } else {
-                                    if (Main.rand.Next(2) == 0) {
-                                        Projectile.NewProjectile(Main.player[playerid].Center.X - 200f, Main.player[playerid].Center.Y + 200f, 0, 0, mod.ProjectileType("DaybringerStars"), npc.damage / 3, 5, playerid, -200f, playerid);
-                                        Projectile.NewProjectile(Main.player[playerid].Center.X + 200f, Main.player[playerid].Center.Y + 200f, 0, 0, mod.ProjectileType("DaybringerStars"), npc.damage / 3, 5, playerid, 200f, playerid);
-                                        Projectile.NewProjectile(Main.player[playerid].Center.X - 200f, Main.player[playerid].Center.Y - 200f, 0, 0, mod.ProjectileType("DaybringerStars"), npc.damage / 3, 5, playerid, -200f, playerid);
-                                        Projectile.NewProjectile(Main.player[playerid].Center.X + 200f, Main.player[playerid].Center.Y - 200f, 0, 0, mod.ProjectileType("DaybringerStars"), npc.damage / 3, 5, playerid, 200f, playerid);
-                                    } else {
-                                        Projectile.NewProjectile(Main.player[playerid].Center.X, Main.player[playerid].Center.Y + 300f, 0, 0, mod.ProjectileType("DaybringerStars"), npc.damage / 3, 5, playerid, 0, playerid);
-                                        Projectile.NewProjectile(Main.player[playerid].Center.X, Main.player[playerid].Center.Y - 300f, 0, 0, mod.ProjectileType("DaybringerStars"), npc.damage / 3, 5, playerid, 0, playerid);
-                                        Projectile.NewProjectile(Main.player[playerid].Center.X + 300f, Main.player[playerid].Center.Y, 0, 0, mod.ProjectileType("DaybringerStars"), npc.damage / 3, 5, playerid, 0, playerid);
-                                        Projectile.NewProjectile(Main.player[playerid].Center.X - 300f, Main.player[playerid].Center.Y, 0, 0, mod.ProjectileType("DaybringerStars"), npc.damage / 3, 5, playerid, 0, playerid);
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    if (internalAI[0] % 120 == 30 && Main.netMode != 1) {
-                        for (int i = 0; i < Main.maxNPCs; i += 2) {
-                            if (Main.npc[i].active && Main.npc[i].type == mod.NPCType("DaybringerBody") && Main.npc[i].realLife == npc.whoAmI) {
-                                Vector2 speed = Vector2.Normalize(new Vector2(1f, 0f).RotatedBy(Main.npc[i].rotation + 3.1415f)) * 12f;
-                                Projectile.NewProjectile(Main.npc[i].Center.X, Main.npc[i].Center.Y, speed.X, speed.Y, mod.ProjectileType("DayBringerDarts"), npc.damage / 3, 0, Main.myPlayer);
-                                speed = -speed;
-                                Projectile.NewProjectile(Main.npc[i].Center.X, Main.npc[i].Center.Y, speed.X, speed.Y, mod.ProjectileType("DayBringerDarts"), npc.damage / 3, 0, Main.myPlayer);
-                            }
-                        }
-                    }
-                    if (internalAI[0] % 120 == 60 && Main.netMode != 1) {
-                        for (int i = 0; i < Main.maxNPCs; i+=4) {
-                            if (Main.npc[i].active && Main.npc[i].type == mod.NPCType("DaybringerBody") && Main.npc[i].realLife == npc.whoAmI && Main.rand.Next(15) == 0) {
-                                Vector2 speed = Vector2.Normalize(new Vector2(1f, 0f).RotatedBy(Main.npc[i].rotation + 3.1415f)) * 8f;
-                                Projectile.NewProjectile(Main.npc[i].Center.X, Main.npc[i].Center.Y, speed.X, speed.Y, mod.ProjectileType("DaybringerOrb"), npc.damage / 3, 0, Main.myPlayer, 0, npc.whoAmI);
-                                speed = -speed;
-                                Projectile.NewProjectile(Main.npc[i].Center.X, Main.npc[i].Center.Y, speed.X, speed.Y, mod.ProjectileType("DaybringerOrb"), npc.damage / 3, 0, Main.myPlayer, 0, npc.whoAmI);
-                            }
-                        }
-                    }
-
-
-                    if (internalAI[0] > 1200) {
-                        if (Main.expertMode) preShootingSun = true;
-                        internalAI[0] = 0f;
-                        npc.netUpdate = true;
-                    }
-                }
-            }
-            if (!isDay && !preDeathRay) {
-                if (isHead && npc.type == mod.NPCType("NightcrawlerHead")) {
-                    internalAI[1] += 1f;
-                    if (Main.netMode != 1 && CloudCooldown <= 0) {
-                        for (int i = 0; i < 200; i++) {
-                            if (Main.npc[i].type == mod.NPCType("NCCloud")) {
-                                Main.npc[i].life = 0;
-                                Main.npc[i].NPCLoot();
-                                Main.npc[i].active = false;
-                            }
-                        }
-                        CloudCooldown = 400;
-                        float rotation = 2f * (float)Math.PI / CloudCount;
-                        for (int m = 0; m < CloudCount; m++) {
-                            int n = NPC.NewNPC((int)npc.Center.X, (int)npc.Center.Y, mod.NPCType("NCCloud"), 0, 0, 0, 0, rotation * m);
-                            if (Main.netMode == 2 && n < 200)
-                                NetMessage.SendData(23, -1, -1, null, n);
-                        }
-                    }
-
-                    if (internalAI[1] % 380 == 90 && Main.netMode != 1) {
-                        for (int i = 0; i < Main.maxNPCs; i+= 4) {
-                            if (Main.npc[i].active && Main.npc[i].type == mod.NPCType("NightcrawlerBody") && Main.npc[i].realLife == npc.whoAmI) {
-                                Vector2 speed = Vector2.Normalize(new Vector2(1f, 0f).RotatedBy(Main.npc[i].rotation + 3.1415f)) * .5f;
-                                Projectile.NewProjectile(Main.npc[i].Center.X, Main.npc[i].Center.Y, speed.X, speed.Y, mod.ProjectileType("NightclawerScythe"), npc.damage / 3, 0, Main.myPlayer, npc.rotation, npc.spriteDirection);
-                                speed = -speed;
-                                Projectile.NewProjectile(Main.npc[i].Center.X, Main.npc[i].Center.Y, speed.X, speed.Y, mod.ProjectileType("NightclawerScythe"), npc.damage / 3, 0, Main.myPlayer, npc.rotation, npc.spriteDirection);
-                            }
-                        }
-                    }
-
-
-                    if (internalAI[1] % 120 == 90 && Main.netMode != 1) {
-                        for (int i = 0; i < Main.maxNPCs; i++) {
-                            if (Main.npc[i].active && Main.npc[i].type == mod.NPCType("NightcrawlerBody") && Main.npc[i].realLife == npc.whoAmI && Main.rand.Next(10) == 0) {
-                                Vector2 speed = Vector2.Normalize(new Vector2(1f, 0f).RotatedBy(Main.npc[i].rotation + 3.1415f));
-                                speed = (Main.rand.Next(2) == 0 ? 1 : -1) * speed;
-                                float ai = Main.rand.Next(120);
-                                Vector2 speedR = Vector2.Normalize(speed.RotatedByRandom(0.6)) * 20f;
-                                Projectile.NewProjectile(Main.npc[i].Center.X, Main.npc[i].Center.Y, speedR.X, speedR.Y, mod.ProjectileType("NightclawerLaser"), npc.damage / 3, 0, Main.myPlayer, speed.ToRotation() + 1000f, ai);
-                            }
-                        }
-                    }
-
-                    if (internalAI[1] > 1200) {
-                        internalAI[1] = 0f;
-                        if (Main.expertMode) preDeathRay = true;
-                        npc.netUpdate = true;
-                    }
-                }
-            }
+            NormalAI(wormStronger, isDay);
             return false;
         }
+
+        public abstract bool DoWormAI(Player target);
+
+        public abstract void NormalAI(bool wormStronger, bool isDay);
 
         public int playerTooFarDist = 16000; //1000 tile radius, these worms move fast!		
         public bool TargetClosest() {
@@ -633,7 +303,7 @@ namespace AAMod.NPCs.Bosses.Equinox {
                 }
                 damage = (int)(damage * .44f);
             }
-            if (npc.type != mod.NPCType("DaybringerHead") && npc.type != mod.NPCType("NightcrawlerHead")) {
+            if (!IsHead) {
                 damage = (int)(damage * .76f);
             }
         }
