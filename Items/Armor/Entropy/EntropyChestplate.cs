@@ -14,19 +14,18 @@ namespace AAMod.Items.Armor.Entropy
 		{
 			base.SetStaticDefaults();
 			DisplayName.SetDefault("Entropy Chestplate");
-			Tooltip.SetDefault(@"22% decreased mana usage
-+50 Max Life
+			Tooltip.SetDefault(@"13% increased damage
 The power to destroy entire planets rests in this armor");
 		}
 
 		public override void SetDefaults()
 		{
-			item.width = 30;
-			item.height = 20;
-			item.value = 3000000;
-			item.defense = 38;
+			item.width = 40;
+			item.height = 24;
+			item.value = 300000;
+			item.defense = 16;
             item.rare = 9;
-            AARarity = 13;
+            AARarity = 12;
         }
 
         public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
@@ -35,7 +34,7 @@ The power to destroy entire planets rests in this armor");
             {
                 if (line2.mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.overrideColor = AAColor.Rarity12;
                 }
             }
         }
@@ -61,11 +60,10 @@ The power to destroy entire planets rests in this armor");
             );
         }
 
-        /*public override void UpdateEquip(Player player)
+        public override void UpdateEquip(Player player)
 		{
-			player.manaCost *= .78f;
-            player.statLifeMax2 += 50;
-        }*/
+            player.allDamage += 0.13f;
+        }
 
 		/*public override void AddRecipes()
 		{

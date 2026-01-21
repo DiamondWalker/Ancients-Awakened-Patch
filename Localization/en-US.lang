@@ -91,6 +91,8 @@ Common.DreadHelmBonus='Abyssal Wrath enrages you'\nYou are immune to all fire-re
 
 Common.DynaskullBonus=Your ranged projectiles have so much power behind them, they confuse the target due to concussive force
 
+Common.EntropyHelmetBonus=Press the Armor Ability Key to teleport to the cursor\n3 second cooldown
+
 Common.FleshrendHelmBonus=Being hit by enemies triggers a bloodsplosion that damages all enemies around you\nIncreased life regen
 
 Common.ShroomHatBonus=You are immune to Mana Sickness

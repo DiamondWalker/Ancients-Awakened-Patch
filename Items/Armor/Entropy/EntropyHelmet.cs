@@ -16,7 +16,7 @@ namespace AAMod.Items.Armor.Entropy
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Entropy Helmet");
-            Tooltip.SetDefault(@"50% increased minion damage
+            Tooltip.SetDefault(@"12% increased damage
 The power to destroy entire planets rests in this armor");
         }
 
@@ -43,12 +43,12 @@ The power to destroy entire planets rests in this armor");
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.value = 3000000;
-            item.defense = 28;
+            item.width = 20;
+            item.height = 22;
+            item.value = 300000;
+            item.defense = 14;
             item.rare = 9;
-            AARarity = 13;
+            AARarity = 12;
         }
 
         public override void ModifyTooltips(System.Collections.Generic.List<TooltipLine> list)
@@ -57,15 +57,15 @@ The power to destroy entire planets rests in this armor");
             {
                 if (line2.mod == "Terraria" && line2.Name == "ItemName")
                 {
-                    line2.overrideColor = AAColor.Rarity13;
+                    line2.overrideColor = AAColor.Rarity12;
                 }
             }
         }
 
-        /*public override void UpdateEquip(Player player)
+        public override void UpdateEquip(Player player)
         {
-            player.minionDamage += .5f;
-        }*/
+            player.allDamage += 0.12f;
+        }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
 		{

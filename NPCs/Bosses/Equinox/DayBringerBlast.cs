@@ -71,7 +71,7 @@ namespace AAMod.NPCs.Bosses.Equinox {
                 for (int i = 0; i < projectile.timeLeft; i++) //roughly 1024 ft.
                 {
                     //custom collision to match laser size, once per frame
-                    Vector2 halfVelo = projectile.velocity * 0.5f;
+                    /*Vector2 halfVelo = projectile.velocity * 0.5f;
                     Vector2 alteredVelo = Collision.TileCollision(new Vector2(endPos.X - hitboxHalfSize + projectile.width / 2, endPos.Y - hitboxHalfSize + projectile.height / 2), halfVelo, hitboxSize, hitboxSize, true, true);
                     if (halfVelo != alteredVelo)
                     {
@@ -83,7 +83,7 @@ namespace AAMod.NPCs.Bosses.Equinox {
                     {
                         endPos += halfVelo + alteredVelo;
                         break;
-                    }
+                    }*/
                     endPos += projectile.velocity;
                 }
 
@@ -132,7 +132,7 @@ namespace AAMod.NPCs.Bosses.Equinox {
             Main.dust[d1].velocity *= 0.5f;
 
             //custom collision to match laser size, once per frame
-            Vector2 halfVelo = projectile.velocity * 0.5f;
+            /*Vector2 halfVelo = projectile.velocity * 0.5f;
             Vector2 alteredVelo = Collision.TileCollision(new Vector2(projectile.position.X - hitboxHalfSize + projectile.width / 2, projectile.position.Y - hitboxHalfSize + projectile.height / 2), halfVelo, hitboxSize, hitboxSize, true, true);
             if (halfVelo != alteredVelo)
             {
@@ -142,7 +142,7 @@ namespace AAMod.NPCs.Bosses.Equinox {
             if (halfVelo != alteredVelo)
             {
                 projectile.Kill();
-            }
+            }*/
         }
 
         public override void Kill(int timeLeft)

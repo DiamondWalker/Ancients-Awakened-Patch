@@ -47,7 +47,9 @@ The power to destroy entire planets rests in this armor");
 			item.width = 26;
 			item.height = 18;
 			item.value = 3000000;
+            item.rare = 9;
 			item.defense = 28;
+            AARarity = 13;
 		}
 
 		public override void UpdateEquip(Player player)

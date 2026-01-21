@@ -67,8 +67,6 @@ namespace AAMod.NPCs.Bosses.Equinox {
                     writer.Write(internalAI[6]);
                     writer.Write(internalAI[7]);
 
-                    writer.Write(preDeathRay);
-                    writer.Write(isDeathRay);
                     writer.Write(CloudCooldown);
                 }
 
@@ -89,9 +87,6 @@ namespace AAMod.NPCs.Bosses.Equinox {
                     internalAI[6] = reader.ReadFloat(); //VelocitySave
                     internalAI[7] = reader.ReadFloat();
 
-                    preShootingSun = reader.ReadBoolean();
-                    preDeathRay = reader.ReadBoolean();
-                    isDeathRay = reader.ReadBoolean();
                     CloudCooldown = reader.ReadInt();
                 }
 
