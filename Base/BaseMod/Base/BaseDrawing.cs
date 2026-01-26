@@ -1468,14 +1468,14 @@ namespace AAMod {
 				if (applyDye)
 				{
 					((SpriteBatch)sb).End();
-					((SpriteBatch)sb).Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
+					((SpriteBatch)sb).Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, null, null, null, null, Main.GameViewMatrix.TransformationMatrix);
 					GameShaders.Armor.ApplySecondary(shader, Main.player[Main.myPlayer], null);				
 				}
 				((SpriteBatch)sb).Draw(texture, GetDrawPosition(position, origin, width, height, texture.Width, texture.Height, frame, framecount, framecountX, scale, drawCentered), frame, lightColor, rotation, origin, scale, direction == 1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);				
 				if (applyDye)
 				{
 					((SpriteBatch)sb).End();
-					((SpriteBatch)sb).Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend);
+					((SpriteBatch)sb).Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, null, null, null, null, Main.GameViewMatrix.TransformationMatrix);
 				}
 			}
         }
