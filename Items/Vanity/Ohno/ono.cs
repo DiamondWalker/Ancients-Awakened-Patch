@@ -26,34 +26,6 @@ namespace AAMod.Items.Vanity.Ohno
 		{
 			AAPlayer p = player.GetModPlayer<AAPlayer>();
 			p.ono = true;
-			if (hideVisual) 
-			{
-				p.onoHideVanity = true;
-			}
-		}
-	}
-
-	public class onoHead : EquipTexture
-	{
-		public override bool DrawHead() 
-		{
-			return false;
-		}
-	}
-
-	public class onoBody : EquipTexture
-	{
-		public override bool DrawBody() 
-		{
-			return false;
-		}
-	}
-
-	public class onoLegs : EquipTexture
-	{
-		public override bool DrawLegs() 
-		{
-			return false;
 		}
 	}
 }

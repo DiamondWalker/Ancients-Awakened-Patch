@@ -203,10 +203,7 @@ namespace AAMod.Globals.Players {
         public bool TerraMa = false;
         public int RoseCooldown = 0;
 
-        public bool onoPrevious;
         public bool ono;
-        public bool onoHideVanity;
-        public bool onoForceVanity;
 
         public bool AsheFlame;
         public float AsheFlameScale = 0f;
@@ -409,8 +406,6 @@ namespace AAMod.Globals.Players {
         private void ResetMiscEffect() {
             Compass = false;
             DemonSun = false;
-            onoPrevious = ono;
-            ono = onoHideVanity = onoForceVanity = false;
         }
 
         private void ResetMinionEffect() {
@@ -567,6 +562,7 @@ namespace AAMod.Globals.Players {
             CursedEyeofSoulBinder = false;
             Replicator = false;
             RealityStone = false;
+            ono = false;
         }
 
         private void ResetBuffEffect() {
@@ -3346,15 +3342,6 @@ namespace AAMod.Globals.Players {
 
         #endregion
 
-
-        public override void FrameEffects() {
-            if (onoForceVanity && !onoHideVanity) {
-                player.legs = mod.GetEquipSlot("onoLeg", EquipType.Legs);
-                player.body = mod.GetEquipSlot("onoBody", EquipType.Body);
-                player.head = mod.GetEquipSlot("onoHead", EquipType.Head);
-            }
-        }
-
         public override void UpdateVanityAccessories() {
             for (int n = 10; n < 18 + player.extraAccessorySlots; n++) {
                 Item item = player.armor[n];
@@ -3371,10 +3358,6 @@ namespace AAMod.Globals.Players {
                     player.accStopwatch = true;
                     player.accOreFinder = true;
                     player.accDreamCatcher = true;
-                }
-                if (item.type == ModContent.ItemType<Items.Vanity.Ohno.ono>()) {
-                    onoHideVanity = false;
-                    onoForceVanity = true;
                 }
                 if (item.type == mod.ItemType("Equinox")) {
                     player.hideWolf = false;

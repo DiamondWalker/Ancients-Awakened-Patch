@@ -41,7 +41,7 @@ namespace AAMod {
         }
 
         public override void PostDraw(Projectile projectile, SpriteBatch spriteBatch, Color lightColor) {
-            if (AAMod.DEBUG_MODE) BaseDrawing.DrawHitbox(spriteBatch, projectile.Hitbox, new Color(50, 0, 0, 1));
+            if (Main.player[Main.myPlayer].GetModPlayer<AAPlayer>().ono) BaseDrawing.DrawHitbox(Main.spriteBatch, projectile.Hitbox, new Color(150, 0, 0, 50));
 
             base.PostDraw(projectile, spriteBatch, lightColor);
         }

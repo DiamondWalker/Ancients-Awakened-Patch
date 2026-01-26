@@ -83,7 +83,7 @@ namespace AAMod {
         }
 
         public override void PostDraw(NPC npc, SpriteBatch spriteBatch, Color drawColor) {
-            if (AAMod.DEBUG_MODE) BaseDrawing.DrawHitbox(spriteBatch, npc.Hitbox, new Color(50, 0, 0, 1));
+            if (Main.player[Main.myPlayer].GetModPlayer<AAPlayer>().ono) BaseDrawing.DrawHitbox(Main.spriteBatch, npc.Hitbox, new Color(150, 0, 0, 50));
 
             base.PostDraw(npc, spriteBatch, drawColor);
         }

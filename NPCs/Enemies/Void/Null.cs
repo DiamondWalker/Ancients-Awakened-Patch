@@ -1,6 +1,7 @@
 ﻿using AAMod.NPCs.TownNPCs;
 using AAMod.Util;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.ID;
@@ -23,7 +24,7 @@ namespace AAMod.NPCs.Enemies.Void {
 			npc.aiStyle = -1;
             npc.width = 24;
             npc.height = 40;
-            npc.damage = 50;
+            npc.damage = 85;
             npc.defense = 9999999;
             npc.lifeMax = 20;
             npc.HitSound = SoundID.NPCHit7;
@@ -125,6 +126,14 @@ namespace AAMod.NPCs.Enemies.Void {
         }
 
         private bool IsFadingInOrTeleporting { get => staticCount > 0 || npc.alpha > 0; }
+
+        public override bool PreDraw(SpriteBatch spriteBatch, Color drawColor) {
+            if (staticCount > 0) {
+                BaseDrawing.DrawTexture(spriteBatch, Main.npcTexture[npc.type], 0, npc, new Color(1.0f, 1.0f, 1.0f, MathHelper.Clamp(255 - npc.alpha, 0.0f, 255.0f) / 255), false);
+                return false;
+            }
+            return base.PreDraw(spriteBatch, drawColor);
+        }
 
         public override void NPCLoot()
         {
