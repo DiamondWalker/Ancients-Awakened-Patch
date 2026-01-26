@@ -65,14 +65,14 @@ The power to destroy entire planets rests in this armor");
             player.allDamage += 0.13f;
         }
 
-		/*public override void AddRecipes()
+		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(null, "ApocalyptitePlate", 20);
-			recipe.AddIngredient(null, "UnstableSingularity", 5);
-			recipe.AddTile(null, "ACS");
+			recipe.AddIngredient(null, "ApocalyptitePlate", 14);
+			recipe.AddIngredient(null, "VoidEnergy", 30);
+			recipe.AddTile(null, "BinaryReassembler");
 			recipe.SetResult(this);
 			recipe.AddRecipe();
-		}*/
+		}
 	}
 }

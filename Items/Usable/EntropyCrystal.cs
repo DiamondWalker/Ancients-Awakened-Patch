@@ -38,5 +38,13 @@ namespace AAMod.Items.Usable
 
             return true;
         }
+
+        public override void AddRecipes() {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddIngredient(null, "VoidEnergy", 85);
+            recipe.AddTile(null, "BinaryReassembler");
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+        }
     }
 }

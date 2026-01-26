@@ -125,8 +125,8 @@ N0N-C0NSUMABLE");
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "ApocalyptitePlate", 15);
-            recipe.AddIngredient(null, "DarkMatter", 20);
-            recipe.AddTile(null, "QuantumFusionAccelerator");
+            recipe.AddIngredient(null, "VoidEnergy", 50);
+            recipe.AddTile(null, "BinaryReassembler");
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
         }

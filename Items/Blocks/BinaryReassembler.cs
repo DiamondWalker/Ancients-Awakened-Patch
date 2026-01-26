@@ -64,13 +64,5 @@ namespace AAMod.Items.Blocks
                 0f
             );
         }
-
-        public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "ApocalyptitePlate", 30);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
-        }
     }
 }

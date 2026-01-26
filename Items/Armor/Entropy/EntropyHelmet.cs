@@ -79,14 +79,14 @@ The power to destroy entire planets rests in this armor");
             player.GetModPlayer<AAPlayer>().entropySet = true;
 		}
 
-		/*public override void AddRecipes()
+		public override void AddRecipes()
 		{
 			ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(null, "ApocalyptitePlate", 15);
-            recipe.AddIngredient(null, "UnstableSingularity", 5);
-            recipe.AddTile(null, "ACS");
+            recipe.AddIngredient(null, "ApocalyptitePlate", 10);
+            recipe.AddIngredient(null, "VoidEnergy", 20);
+            recipe.AddTile(null, "BinaryReassembler");
             recipe.SetResult(this);
 			recipe.AddRecipe();
-		}*/
+		}
 	}
 }
