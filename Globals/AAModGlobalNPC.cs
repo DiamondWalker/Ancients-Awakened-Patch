@@ -1022,10 +1022,10 @@ namespace AAMod {
                     pool.Add(mod.NPCType("Scout"), .005f);
                     pool.Add(mod.NPCType("Searcher"), .007f);
 
-                    if (AAWorld.downedZero)
+                    /*if (AAWorld.downedZero)
                     {
                         pool.Add(mod.NPCType("Null"), .005f);
-                    }
+                    }*/
                 }
                 else
                 {

@@ -17,7 +17,7 @@ namespace AAMod.NPCs.Enemies.Void {
 
         public override void SetDefaults()
         {
-            npc.npcSlots = 100;
+            npc.npcSlots = 1;
             npc.width = 84;
             npc.height = 84;
             npc.aiStyle = -1;
