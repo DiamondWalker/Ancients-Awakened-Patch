@@ -115,7 +115,7 @@ Every ten shots, it can shoot two extra bullets.
 			recipe.AddIngredient(null, "ApocalyptitePlate", 5);
 			recipe.AddIngredient(null, "UnstableSingularity", 5);
 			recipe.AddIngredient(ItemID.ChainGun);
-            recipe.AddTile(mod.TileType("ACS"));
+            recipe.AddTile(mod.TileType("BinaryReassembler"));
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

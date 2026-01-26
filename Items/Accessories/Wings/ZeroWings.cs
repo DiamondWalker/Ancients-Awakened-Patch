@@ -79,7 +79,7 @@ namespace AAMod.Items.Accessories.Wings
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "ApocalyptitePlate", 15);
             recipe.AddIngredient(null, "UnstableSingularity", 5);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "BinaryReassembler");
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

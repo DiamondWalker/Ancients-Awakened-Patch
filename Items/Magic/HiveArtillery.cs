@@ -118,7 +118,7 @@ namespace AAMod.Items.Magic
 			recipe.AddIngredient(ItemID.BeeGun);
 			recipe.AddIngredient(ItemID.ChainGun);
 			recipe.AddIngredient(null, "EXSoul");
-			recipe.AddTile(null, "ACS");
+			recipe.AddTile(null, "ChaosCrucible");
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

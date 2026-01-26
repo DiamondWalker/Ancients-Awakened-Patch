@@ -81,7 +81,7 @@ Gives immensely increased stats
             recipe.AddIngredient(null, "DarkVoid", 1);
             recipe.AddIngredient(null, "Stardust", 20);
             recipe.AddIngredient(null, "DarkEnergy", 20);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "ChaosCrucible");
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

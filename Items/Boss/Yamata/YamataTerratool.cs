@@ -86,7 +86,7 @@ You may only have a maximum of 2 tool types active");
             recipe.AddIngredient(null, "CrucibleScale", 5);
             recipe.AddRecipeGroup("AAMod:LunarPickaxe");
             recipe.AddRecipeGroup("AAMod:LunarHamaxe");
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "ChaosCrucible");
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

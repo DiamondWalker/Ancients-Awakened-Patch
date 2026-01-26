@@ -110,7 +110,7 @@ Super Skullshot EX");
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "Skullshot", 1);
             recipe.AddIngredient(null, "EXSoul", 1);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "ChaosCrucible");
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
         }

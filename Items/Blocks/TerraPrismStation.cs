@@ -34,7 +34,8 @@ Combiles all vanilla and Ancients Awakened crafting stations together");
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "FurnitureDynamo", 1);
             recipe.AddIngredient(null, "TerraCore", 1);
-            recipe.AddRecipeGroup("AAMod:ACS");
+            recipe.AddIngredient(null, "ChaosCrucible", 1);
+            recipe.AddIngredient(null, "BinaryReassembler", 1);
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

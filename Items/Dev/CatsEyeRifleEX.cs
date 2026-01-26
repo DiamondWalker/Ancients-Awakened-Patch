@@ -60,12 +60,12 @@ Cat's Eye Rifle EX");
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "CatsEyeRifle");
             recipe.AddIngredient(null, "EXSoul");
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "ChaosCrucible");
             recipe.SetResult(this);
             recipe.AddRecipe(); 
             recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "ArchwitchStaff");
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "ChaosCrucible");
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

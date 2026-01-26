@@ -51,7 +51,7 @@ The abyssal wrath of the Mire rests in this armor");
             recipe.AddIngredient(null, "EventideAbyssium", 18);
             recipe.AddIngredient(null, "DreadScale", 5);
             recipe.AddIngredient(null, "DepthHakama", 1);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "ChaosCrucible");
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

@@ -52,7 +52,7 @@ namespace AAMod.Items.Blocks.Bricks
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "ApocalyptitePlate", 2);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "BinaryReassembler");
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

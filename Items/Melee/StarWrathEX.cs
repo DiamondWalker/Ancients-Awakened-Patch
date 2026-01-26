@@ -63,7 +63,7 @@ namespace AAMod.Items.Melee
             ModRecipe recipe = new ModRecipe(mod);      
             recipe.AddIngredient(ItemID.StarWrath);
 			recipe.AddIngredient(mod.ItemType("EXSoul"));
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "ChaosCrucible");
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

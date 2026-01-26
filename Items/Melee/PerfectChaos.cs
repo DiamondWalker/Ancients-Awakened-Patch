@@ -47,7 +47,7 @@ namespace AAMod.Items.Melee
             recipe.AddIngredient(mod, "Chaos", 1);
             recipe.AddIngredient(mod, "EXSoul", 1);
             recipe.AddIngredient(mod, "ChaosCrystal", 1);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "ChaosCrucible");
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

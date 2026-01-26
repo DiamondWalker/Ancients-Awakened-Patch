@@ -34,7 +34,7 @@ namespace AAMod.Items.Materials
         {                                                   
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "Apocalyptite", 5);              //example of how to craft with a modded item
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "BinaryReassembler");
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

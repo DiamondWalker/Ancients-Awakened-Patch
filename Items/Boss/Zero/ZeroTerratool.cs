@@ -86,7 +86,7 @@ You may only have a maximum of 2 tool types active");
             recipe.AddIngredient(null, "UnstableSingularity", 5);
             recipe.AddRecipeGroup("AAMod:LunarPickaxe");
             recipe.AddRecipeGroup("AAMod:LunarHamaxe");
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "BinaryReassembler");
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

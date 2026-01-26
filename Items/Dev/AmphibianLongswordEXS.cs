@@ -48,7 +48,7 @@ namespace AAMod.Items.Dev
                 ModRecipe recipe = new ModRecipe(mod);
                 recipe.AddIngredient(null, "AmphibianLongswordS");
                 recipe.AddIngredient(null, "EXSoul");
-                recipe.AddTile(null, "ACS");
+                recipe.AddTile(null, "ChaosCrucible");
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }

@@ -141,7 +141,7 @@ namespace AAMod.Items.Boss.Shen
             recipe.AddIngredient(null, "FallingTwilight", 1);
             recipe.AddIngredient(null, "ChaosScale", 5);
             recipe.AddIngredient(null, "Discordium", 5);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "ChaosCrucible");
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

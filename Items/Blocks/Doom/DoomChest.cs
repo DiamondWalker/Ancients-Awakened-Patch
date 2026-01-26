@@ -33,7 +33,7 @@ namespace AAMod.Items.Blocks.Doom
                 ModRecipe recipe = new ModRecipe(mod);
                 recipe.AddIngredient(ItemID.IronBar, 2);
                 recipe.AddIngredient(null, "ApocalyptitePlate", 12);
-                recipe.AddTile(null, "ACS");
+                recipe.AddTile(null, "BinaryReassembler");
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }
@@ -41,7 +41,7 @@ namespace AAMod.Items.Blocks.Doom
                 ModRecipe recipe = new ModRecipe(mod);
                 recipe.AddIngredient(ItemID.LeadBar, 2);
                 recipe.AddIngredient(null, "ApocalyptitePlate", 12);
-                recipe.AddTile(null, "ACS");
+                recipe.AddTile(null, "BinaryReassembler");
                 recipe.SetResult(this);
                 recipe.AddRecipe();
             }

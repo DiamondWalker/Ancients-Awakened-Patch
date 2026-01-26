@@ -106,7 +106,7 @@ Right click and hold to release and aim manually");
             recipe.AddIngredient(null, "DaybreakIncinerite", 5);
             recipe.AddIngredient(null, "CrucibleScale", 5);
             recipe.AddIngredient(ItemID.LunarFlareBook, 1);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "ChaosCrucible");
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
         }

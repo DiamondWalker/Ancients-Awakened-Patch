@@ -112,7 +112,7 @@ Non-Consumable");
             recipe.AddIngredient(null, "CrucibleScale", 5);
             recipe.AddIngredient(null, "DreadScale", 5);
             recipe.AddIngredient(null, "Discordium", 10);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "ChaosCrucible");
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
         }

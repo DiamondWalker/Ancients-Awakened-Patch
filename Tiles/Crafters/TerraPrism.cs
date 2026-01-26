@@ -63,7 +63,8 @@ namespace AAMod.Tiles.Crafters {
                 mod.TileType("HallowedAnvil"),
                 mod.TileType("HallowedForge"),
                 mod.TileType("QuantumFusionAccelerator"),
-                mod.TileType("ACS"),
+                mod.TileType("ChaosCrucible"),
+                mod.TileType("BinaryReassembler")
             };
             disableSmartCursor = true;
             animationFrameHeight = 54;

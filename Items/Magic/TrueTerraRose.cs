@@ -70,7 +70,7 @@ Terra Rose EX");
             ModRecipe recipe = new ModRecipe(mod);      
             recipe.AddIngredient(mod.ItemType("TerraRose"));
 			recipe.AddIngredient(mod.ItemType("EXSoul"));
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "ChaosCrucible");
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

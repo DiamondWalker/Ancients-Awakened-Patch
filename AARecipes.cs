@@ -998,12 +998,12 @@ namespace AAMod {
             });
             RecipeGroup.RegisterGroup("AAMod:EvilorChaosBar", group14);
 
-            RecipeGroup group15 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " +  Language.GetTextValue("Mods.AAMod.Common.ancientcraftingstation"), new int[]
+            /*RecipeGroup group15 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " +  Language.GetTextValue("Mods.AAMod.Common.ancientcraftingstation"), new int[]
             {
                 AAMod.instance.ItemType("BinaryReassembler"),
                 AAMod.instance.ItemType("ChaosCrucible")
             });
-            RecipeGroup.RegisterGroup("AAMod:ACS", group15);
+            RecipeGroup.RegisterGroup("AAMod:ACS", group15);*/
 
             RecipeGroup group16 = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " " +  Language.GetTextValue("Mods.AAMod.Common.evilsummonstaff"), new int[]
             {

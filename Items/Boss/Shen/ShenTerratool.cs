@@ -87,7 +87,7 @@ You may only have a maximum of 2 tool types active");
             recipe.AddIngredient(null, "YamataTerratool", 1);
             recipe.AddIngredient(null, "ChaosScale", 5);
             recipe.AddIngredient(null, "Discordium", 5);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "ChaosCrucible");
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

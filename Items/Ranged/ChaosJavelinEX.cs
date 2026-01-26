@@ -40,7 +40,7 @@ Chaos Javelin EX");
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "ChaosJavelin");
             recipe.AddIngredient(null, "EXSoul");
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "ChaosCrucible");
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
         }

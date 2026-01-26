@@ -70,7 +70,7 @@ The power of discordian rage radiates from this hood");
             recipe.AddIngredient(null, "DreadHelm", 1);
             recipe.AddIngredient(null, "Discordium", 6);
             recipe.AddIngredient(null, "ChaosScale", 6);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "ChaosCrucible");
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

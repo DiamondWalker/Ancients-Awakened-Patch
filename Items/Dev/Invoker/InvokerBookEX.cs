@@ -93,7 +93,7 @@ Includes the effects of all the pieces used to make this.
             recipe.AddIngredient(ItemID.PaladinsShield, 1);
             recipe.AddIngredient(ItemID.SpectreBar, 60);
             recipe.AddIngredient(mod, "EXSoul", 1);
-			recipe.AddTile(mod, "ACS");
+			recipe.AddTile(mod, "ChaosCrucible");
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

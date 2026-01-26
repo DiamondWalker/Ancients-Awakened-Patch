@@ -63,7 +63,7 @@ Meowmere EX");
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Meowmere);
             recipe.AddIngredient(null, "EXSoul");
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "ChaosCrucible");
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

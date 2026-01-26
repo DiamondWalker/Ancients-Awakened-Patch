@@ -43,7 +43,7 @@ Horseman's Blade EX");
 			ModRecipe recipe = new ModRecipe(mod);
 			recipe.AddIngredient(ItemID.TheHorsemansBlade);
 			recipe.AddIngredient(mod, "EXSoul", 1);
-			recipe.AddTile(null, "ACS");
+			recipe.AddTile(null, "ChaosCrucible");
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

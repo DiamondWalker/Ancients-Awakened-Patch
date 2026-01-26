@@ -196,7 +196,7 @@ OreCannonEX");
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "OreCannon", 1);
             recipe.AddIngredient(null, "EXSoul", 1);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "ChaosCrucible");
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

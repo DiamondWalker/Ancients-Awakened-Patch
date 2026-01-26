@@ -73,7 +73,7 @@ Terratool EX");
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(mod, "Terratool");
             recipe.AddIngredient(mod, "EXSoul");
-            recipe.AddTile(mod, "ACS");
+            recipe.AddTile(mod, "ChaosCrucible");
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

@@ -50,7 +50,7 @@ Terra Blade EX");
             recipe.AddIngredient(ItemID.TerraBlade);
             recipe.AddIngredient(null, "EXSoul");
             recipe.AddIngredient(mod, "TerraCrystal", 1);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "ChaosCrucible");
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

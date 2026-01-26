@@ -85,7 +85,7 @@ Small chance to fire an awakened bomb that explodes into abyss souls");
             recipe.AddIngredient(null, "EventideAbyssium", 5);
             recipe.AddIngredient(null, "DreadScale", 5);
             recipe.AddIngredient(null, "BogBomb", 1);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "ChaosCrucible");
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
         }

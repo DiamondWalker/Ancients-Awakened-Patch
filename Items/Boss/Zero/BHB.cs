@@ -78,7 +78,7 @@ namespace AAMod.Items.Boss.Zero
             recipe.AddIngredient(ItemID.VortexBeater, 1);
             recipe.AddIngredient(null, "ApocalyptitePlate", 5);
             recipe.AddIngredient(null, "UnstableSingularity", 5);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "BinaryReassembler");
             recipe.SetResult(this, 1);
             recipe.AddRecipe();
         }

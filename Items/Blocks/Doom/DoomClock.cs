@@ -29,7 +29,7 @@ namespace AAMod.Items.Blocks.Doom {
             recipe.AddIngredient(ItemID.Glass, 6);
             recipe.AddRecipeGroup("IronBar", 3);
             recipe.AddIngredient(mod.ItemType("ApcalyptitePlate"), 10);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "BinaryReassembler");
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

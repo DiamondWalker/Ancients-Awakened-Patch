@@ -79,7 +79,7 @@ namespace AAMod.Items.Boss.Akuma
             recipe.AddIngredient(null, "CrucibleScale", 5);
             recipe.AddIngredient(null, "TheVulcano");
             recipe.AddIngredient(ItemID.Flamethrower);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "ChaosCrucible");
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

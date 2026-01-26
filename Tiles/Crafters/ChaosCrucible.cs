@@ -26,10 +26,6 @@ namespace AAMod.Tiles.Crafters {
             name.SetDefault("ChaosCrucible");
             AddMapEntry(new Color(40, 0, 0), name);
             disableSmartCursor = true;
-            adjTiles = new int[]
-            {
-                mod.TileType("ACS"),
-            };
             animationFrameHeight = 54;
         }
 

@@ -62,7 +62,7 @@ namespace AAMod.Items.Accessories.Wings
             recipe.AddIngredient(null, "DraconianWings", 1);
             recipe.AddIngredient(null, "DreadWings", 1);
             recipe.AddIngredient(null, "ChaosScale", 5);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "ChaosCrucible");
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

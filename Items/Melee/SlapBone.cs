@@ -30,7 +30,7 @@ Slap Hand EX");
 			ModRecipe recipe = new ModRecipe(mod);      
 			recipe.AddIngredient(ItemID.SlapHand);
 			recipe.AddIngredient(mod.ItemType("EXSoul"));
-			recipe.AddTile(null, "ACS");
+			recipe.AddTile(null, "ChaosCrucible");
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 

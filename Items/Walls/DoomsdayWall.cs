@@ -29,7 +29,7 @@ namespace AAMod.Items.Walls
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "DoomsdayPlating");
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "BinaryReassembler");
             recipe.SetResult(this, 4);
             recipe.AddRecipe();
         }

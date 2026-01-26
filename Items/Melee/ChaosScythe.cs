@@ -57,7 +57,7 @@ Legendary Weapon");
             recipe.AddIngredient(ItemID.IceSickle, 1);
             recipe.AddIngredient(ItemID.Sickle, 1); ;
             recipe.AddIngredient(null, "EXSoul", 1);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "ChaosCrucible");
             recipe.SetResult(this);
             recipe.AddRecipe();
 

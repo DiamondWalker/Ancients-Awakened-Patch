@@ -72,7 +72,7 @@ Non-consumable");
 			recipe.AddIngredient(ItemID.MoonlordArrow, 999);
             recipe.AddIngredient(null, "DaybreakIncinerite", 1);
             recipe.AddIngredient(null, "CrucibleScale", 1);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "ChaosCrucible");
 			recipe.SetResult(this, 1);
 			recipe.AddRecipe();
 		}

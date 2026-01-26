@@ -47,7 +47,7 @@ The armor of a champion feared across the land");
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(null, "HoodlumShirt", 1);
             recipe.AddIngredient(null, "ChampionPlate", 10);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "ChaosCrucible");
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

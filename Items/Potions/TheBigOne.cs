@@ -48,7 +48,7 @@ namespace AAMod.Items.Potions
 			recipe.AddIngredient(null, "GrandHealingPotion");
             recipe.AddIngredient(null, "GrandManaPotion");
             recipe.AddRecipeGroup("AAMod:SuperAncientMaterials");
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "ChaosCrucible");
 			recipe.SetResult(this);
 			recipe.AddRecipe();
 		}

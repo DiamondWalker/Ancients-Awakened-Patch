@@ -28,7 +28,7 @@ namespace AAMod.Items.Blocks.Doom {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(mod.ItemType("ApocalyptitePlate"), 15);
             recipe.AddIngredient(ItemID.Silk, 5);
-            recipe.AddTile(null, "ACS");
+            recipe.AddTile(null, "BinaryReassembler");
             recipe.SetResult(this);
             recipe.AddRecipe();
 
