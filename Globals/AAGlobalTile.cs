@@ -25,7 +25,7 @@ namespace AAMod {
 
         #region Tile Colors
 
-        public static Color GetIncineriteColor(Color color, float min, float max, bool clamp) => GetTimedColor(AAPlayer.IncineriteColor, color, min, max, clamp);
+        public static Color GetIncineriteColor(Color color, float min, float max, bool clamp) => GetTimedColor(AAColor.IncineriteColor, color, min, max, clamp);
         public static Color GetIncineriteColorDim(Color color) => GetIncineriteColor(color, 0.4f, 1f, false);
         public static Color GetIncineriteColorBright(Color color) => GetIncineriteColor(color, 0.6f, 1f, false);
         public static Color GetIncineriteColorBrightInvert(Color color) => GetIncineriteColor(color, 1f, 0.6f, true);

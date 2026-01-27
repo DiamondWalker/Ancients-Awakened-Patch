@@ -362,7 +362,7 @@ namespace AAMod.NPCs.Bosses.Sag {
 
         public bool DeathCheck()
         {
-            AAPlayer modPlayer = Main.player[npc.target].GetModPlayer<AAPlayer>();
+            AABiomesPlayer modPlayer = Main.player[npc.target].GetModPlayer<AABiomesPlayer>();
             if (Main.player[npc.target].dead || Vector2.Distance(Main.player[npc.target].Center, npc.Center) > 5000 || !modPlayer.ZoneVoid)
             {
                 npc.TargetClosest(true);

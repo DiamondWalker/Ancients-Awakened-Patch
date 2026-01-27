@@ -102,7 +102,7 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch {
                 }
             }
 
-            if (Main.netMode != 1 && !despawn && !player.GetModPlayer<AAPlayer>().ZoneMush) {
+            if (Main.netMode != 1 && !despawn && !player.GetModPlayer<AABiomesPlayer>().ZoneMush) {
                 if (despawnTimer++ > 300) {
                     despawn = true;
                 } 

@@ -56,22 +56,22 @@ namespace AAMod.Items.Armor.Biomite
 				player.statManaMax2 += 20;
 				set += Lang.BiomiteArmor("BiomiteArmor3");
 			}
-			if (player.GetModPlayer<AAPlayer>().ZoneVoid)
+			if (player.GetModPlayer<AABiomesPlayer>().ZoneVoid)
 			{
 				player.detectCreature = true;
 				set += Lang.BiomiteArmor("BiomiteArmor4");
 			}
-			if (player.GetModPlayer<AAPlayer>().ZoneInferno)
+			if (player.GetModPlayer<AABiomesPlayer>().ZoneInferno)
 			{
 				player.buffImmune[BuffID.OnFire] = true;
 				set += Lang.BiomiteArmor("BiomiteArmor5");
 			}
-			if (player.GetModPlayer<AAPlayer>().ZoneMire)
+			if (player.GetModPlayer<AABiomesPlayer>().ZoneMire)
 			{
 				player.buffImmune[BuffID.Poisoned] = true;
 				set += Lang.BiomiteArmor("BiomiteArmor6");
 			}
-			if (player.GetModPlayer<AAPlayer>().Terrarium)
+			if (player.GetModPlayer<AABiomesPlayer>().Terrarium)
 			{
 				player.statDefense += 5;
 				set += Lang.BiomiteArmor("BiomiteArmor7");

@@ -29,7 +29,7 @@ namespace AAMod.Globals.Players
             AddPlayerLayer(list, glAfterNeck, PlayerLayer.NeckAcc);
             AddPlayerLayer(list, glAfterFace, PlayerLayer.FaceAcc);
 
-            if (!player.merman && !player.wereWolf && AAPlayer.groviteGlow[player.whoAmI]) {
+            if (!player.merman && !player.wereWolf /*&& AAPlayer.groviteGlow[player.whoAmI]*/) {
                 BaseDrawing.AddPlayerLayer(list, glGroviteHead, PlayerLayer.Head, false);
                 BaseDrawing.AddPlayerLayer(list, glGroviteBody, PlayerLayer.Body, false);
                 BaseDrawing.AddPlayerLayer(list, glGroviteLegs, PlayerLayer.Legs, false);

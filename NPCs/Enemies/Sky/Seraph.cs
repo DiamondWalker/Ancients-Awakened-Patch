@@ -90,12 +90,12 @@ namespace AAMod.NPCs.Enemies.Sky {
                 npc.netUpdate = true;
             }
 
-            if (!player.GetModPlayer<AAPlayer>().ZoneAcropolis || player.dead)
+            if (!player.GetModPlayer<AABiomesPlayer>().ZoneAcropolis || player.dead)
             {
                 npc.TargetClosest();
-                if (!player.GetModPlayer<AAPlayer>().ZoneAcropolis || player.dead)
+                if (!player.GetModPlayer<AABiomesPlayer>().ZoneAcropolis || player.dead)
                 {
-                    if (!player.GetModPlayer<AAPlayer>().ZoneAcropolis)
+                    if (!player.GetModPlayer<AABiomesPlayer>().ZoneAcropolis)
                     {
                         CombatText.NewText(npc.Hitbox, Color.CadetBlue, SeraphBitching(), true);
                     }

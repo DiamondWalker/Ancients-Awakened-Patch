@@ -12,7 +12,7 @@ namespace AAMod.Backgrounds {
 
         public override bool ChooseBgStyle()
         {
-            return !Main.gameMenu && Main.LocalPlayer.GetModPlayer<AAPlayer>().ZoneMire && !Main.LocalPlayer.ZoneSnow && !Main.LocalPlayer.ZoneDesert;
+            return !Main.gameMenu && Main.LocalPlayer.GetModPlayer<AABiomesPlayer>().ZoneMire && !Main.LocalPlayer.ZoneSnow && !Main.LocalPlayer.ZoneDesert;
         }
 
         public override void ModifyFarFades(float[] fades, float transitionSpeed)
@@ -68,7 +68,7 @@ namespace AAMod.Backgrounds {
     {
         public override bool ChooseBgStyle()
         {
-            return !Main.gameMenu && Main.LocalPlayer.GetModPlayer<AAPlayer>().ZoneMire;
+            return !Main.gameMenu && Main.LocalPlayer.GetModPlayer<AABiomesPlayer>().ZoneMire;
         }
 
         public override void FillTextureArray(int[] textureSlots)
@@ -86,7 +86,7 @@ namespace AAMod.Backgrounds {
 
         public override bool ChooseBgStyle()
         {
-            return !Main.gameMenu && Main.LocalPlayer.GetModPlayer<AAPlayer>().ZoneMire && Main.LocalPlayer.ZoneDesert;
+            return !Main.gameMenu && Main.LocalPlayer.GetModPlayer<AABiomesPlayer>().ZoneMire && Main.LocalPlayer.ZoneDesert;
         }
 
         public override void ModifyFarFades(float[] fades, float transitionSpeed)

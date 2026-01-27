@@ -48,7 +48,7 @@ Only useable during the day");
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.DragonBellDayTimeFalse"), Color.DarkOrange.R, Color.DarkOrange.G, Color.DarkOrange.B, false);
                 return false;
             }
-            if (player.GetModPlayer<AAPlayer>().ZoneInferno)
+            if (player.GetModPlayer<AABiomesPlayer>().ZoneInferno)
             {
                 if (NPC.AnyNPCs(mod.NPCType("Broodmother")))
                 {

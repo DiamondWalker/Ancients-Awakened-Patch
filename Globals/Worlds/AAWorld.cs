@@ -1884,7 +1884,7 @@ namespace AAMod.Globals.Worlds {
 
         public override void ResetNearbyTileEffects()
         {
-            AAPlayer modPlayer = Main.LocalPlayer.GetModPlayer<AAPlayer>();
+            AABiomesPlayer modPlayer = Main.LocalPlayer.GetModPlayer<AABiomesPlayer>();
             modPlayer.VoidUnit = false;
             modPlayer.SunAltar = false;
             modPlayer.MoonAltar = false;

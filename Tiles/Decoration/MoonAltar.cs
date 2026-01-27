@@ -34,10 +34,7 @@ namespace AAMod.Tiles.Decoration {
         {
             if (Main.tile[i, j].frameY >= 56)
             {
-                AAPlayer modPlayer = Main.LocalPlayer.GetModPlayer<AAPlayer>();
-                AAPlayer a = Main.LocalPlayer.GetModPlayer<AAPlayer>();
-                AAPlayer b = Main.LocalPlayer.GetModPlayer<AAPlayer>();
-                AAPlayer c = Main.LocalPlayer.GetModPlayer<AAPlayer>();
+                AABiomesPlayer modPlayer = Main.LocalPlayer.GetModPlayer<AABiomesPlayer>();
                 modPlayer.MoonAltar = true;
             }
         }

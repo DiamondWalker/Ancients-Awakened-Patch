@@ -95,7 +95,7 @@ namespace AAMod.NPCs.Enemies.Sky {
                     {
                         Dust.NewDust(npc.Center, 60, 40, ModContent.DustType<Feather>(), Main.rand.Next(-1, 2), 1, 0);
                     }
-                    if (player.GetModPlayer<AAPlayer>().ZoneAcropolis)
+                    if (player.GetModPlayer<AABiomesPlayer>().ZoneAcropolis)
                     {
                         Tiles.Boss.AcropolisAltar.SpawnBoss(player, ModContent.NPCType<Athena>(), player.Center, Language.GetTextValue("Mods.AAMod.Common.Athena"), false);
                     }

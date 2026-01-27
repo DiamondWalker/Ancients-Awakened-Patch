@@ -1045,7 +1045,7 @@ namespace AAMod {
                 return;
             }
 
-            AAPlayer Ancients = player.GetModPlayer<AAPlayer>();
+            AABiomesPlayer Ancients = player.GetModPlayer<AABiomesPlayer>();
 
             bool zoneShen = (Ancients.ZoneRisingSunPagoda || Ancients.ZoneRisingMoonLake) && !AAWorld.downedShen;
 
@@ -1239,7 +1239,7 @@ namespace AAMod {
                 Func<Player, string, bool> inZone = (p, name) =>
                 {
                     name = name.ToLower();
-                    AAPlayer aap = p.GetModPlayer<AAPlayer>();
+                    AABiomesPlayer aap = p.GetModPlayer<AABiomesPlayer>();
                     switch (name)
                     {
                         default: return false;

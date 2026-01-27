@@ -28,7 +28,7 @@ namespace AAMod.Dusts {
                 {
                     strength = 1f;
                 }
-                Lighting.AddLight(dust.position, AAPlayer.groviteColor.R / 255 * 0.3f * strength, AAPlayer.groviteColor.G / 255 * 0.3f * strength, AAPlayer.groviteColor.B / 255 * 0.3f * strength);
+                Lighting.AddLight(dust.position, AAColor.groviteColor.R / 255 * 0.3f * strength, AAColor.groviteColor.G / 255 * 0.3f * strength, AAColor.groviteColor.B / 255 * 0.3f * strength);
             }
             return false;
         }

@@ -35,7 +35,7 @@ namespace AAMod.NPCs.Enemies.Mire.Toxitoad {
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (Main.hardMode && spawnInfo.player.GetModPlayer<AAPlayer>().ZoneMire)
+            if (Main.hardMode && spawnInfo.player.GetModPlayer<AABiomesPlayer>().ZoneMire)
             {
                 return SpawnCondition.OverworldNightMonster.Chance * 0.25f;
             }

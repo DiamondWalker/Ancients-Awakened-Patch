@@ -41,7 +41,7 @@ namespace AAMod.NPCs.Bosses.MushroomMonarch {
             {
                 return 0f;
             }
-            if (spawnInfo.player.GetModPlayer<AAPlayer>().ZoneMush && Main.dayTime)
+            if (spawnInfo.player.GetModPlayer<AABiomesPlayer>().ZoneMush && Main.dayTime)
             {
                 return SpawnCondition.OverworldDaySlime.Chance * 0.001f;
             }

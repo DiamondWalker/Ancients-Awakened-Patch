@@ -81,6 +81,12 @@ namespace AAMod {
 
         public static Color Nightcrawler => new Color(42, 7, 74);
 
+        public static Color IncineriteColor => new Color((int)(242 * 0.7f), (int)(107 * 0.7f), 0);
+
+        public static Color ZeroColor => new Color((int)(233 * 0.7f), (int)(53 * 0.7f), (int)(53 * 0.7f));
+
+        public static Color groviteColor => new Color(138, (int)(39 * 0.7f), (int)(196 * 0.7f));
+
         public static Color Storm => BaseUtility.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, Color.DarkViolet, Color.DarkViolet, Color.DarkViolet, Color.DarkViolet, Color.DarkViolet, Color.Violet, Color.DarkViolet, Color.Violet, Color.DarkViolet);
 
         public static Color Djinn => BaseUtility.MultiLerpColor(Main.LocalPlayer.miscCounter % 100 / 100f, Color.SandyBrown, Color.Sienna, Color.SandyBrown);

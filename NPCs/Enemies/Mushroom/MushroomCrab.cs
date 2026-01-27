@@ -47,7 +47,7 @@ namespace AAMod.NPCs.Enemies.Mushroom {
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            return spawnInfo.player.GetModPlayer<AAPlayer>().ZoneMush ? .4f : 0f;
+            return spawnInfo.player.GetModPlayer<AABiomesPlayer>().ZoneMush ? .4f : 0f;
         }
 
         public override void NPCLoot()

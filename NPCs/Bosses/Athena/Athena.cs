@@ -93,7 +93,7 @@ namespace AAMod.NPCs.Bosses.Athena {
         {
             npc.TargetClosest();
             Player player = Main.player[npc.target];
-            AAPlayer modPlayer = player.GetModPlayer<AAPlayer>();
+            AABiomesPlayer modPlayer = player.GetModPlayer<AABiomesPlayer>();
 
             Vector2 Acropolis = new Vector2(Origin.X + (80 * 16), Origin.Y + (79 * 16));
 

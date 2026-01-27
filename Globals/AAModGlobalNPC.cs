@@ -512,7 +512,7 @@ namespace AAMod {
             if (Main.hardMode)
             {
                 Player player = Main.player[Player.FindClosest(npc.position, npc.width, npc.height)];
-                if (player.GetModPlayer<AAPlayer>().ZoneMire && player.position.Y > (Main.worldSurface * 16.0))
+                if (player.GetModPlayer<AABiomesPlayer>().ZoneMire && player.position.Y > (Main.worldSurface * 16.0))
                 {
                     if (Main.rand.NextBool(5))
                     {
@@ -520,35 +520,35 @@ namespace AAMod {
                     }
                 }
 
-                if (player.GetModPlayer<AAPlayer>().ZoneInferno && player.position.Y > (Main.worldSurface * 16.0))
+                if (player.GetModPlayer<AABiomesPlayer>().ZoneInferno && player.position.Y > (Main.worldSurface * 16.0))
                 {
                     if (Main.rand.NextBool(5))
                     {
                         npc.DropLoot(mod.ItemType("SoulOfSmite"));
                     }
                 }
-                if (player.GetModPlayer<AAPlayer>().ZoneMire)
+                if (player.GetModPlayer<AABiomesPlayer>().ZoneMire)
                 {
                     if (Main.rand.NextBool(2500))
                     {
                         npc.DropLoot(mod.ItemType("MireKey"));
                     }
                 }
-                if (player.GetModPlayer<AAPlayer>().ZoneInferno)
+                if (player.GetModPlayer<AABiomesPlayer>().ZoneInferno)
                 {
                     if (Main.rand.NextBool(2500))
                     {
                         npc.DropLoot(mod.ItemType("InfernoKey"));
                     }
                 }
-                if (player.GetModPlayer<AAPlayer>().ZoneVoid)
+                if (player.GetModPlayer<AABiomesPlayer>().ZoneVoid)
                 {
                     if (Main.rand.NextBool(1250))
                     {
                         npc.DropLoot(mod.ItemType("DoomstopperKey"));
                     }
                 }
-                if (player.GetModPlayer<AAPlayer>().Terrarium && NPC.downedPlantBoss)
+                if (player.GetModPlayer<AABiomesPlayer>().Terrarium && NPC.downedPlantBoss)
                 {
                     if (Main.rand.NextBool(100))
                     {
@@ -556,7 +556,7 @@ namespace AAMod {
                     }
                 }
 
-                if ((player.GetModPlayer<AAPlayer>().ZoneInferno || player.GetModPlayer<AAPlayer>().ZoneMire) && NPC.downedPlantBoss)
+                if ((player.GetModPlayer<AABiomesPlayer>().ZoneInferno || player.GetModPlayer<AABiomesPlayer>().ZoneMire) && NPC.downedPlantBoss)
                 {
                     if (Main.rand.NextBool(100))
                     {
@@ -898,12 +898,12 @@ namespace AAMod {
             {
                 return;
             }
-            if (spawnInfo.player.GetModPlayer<AAPlayer>().ZoneStars)
+            if (spawnInfo.player.GetModPlayer<AABiomesPlayer>().ZoneStars)
             {
                 pool.Add(Main.dayTime ? mod.NPCType("Sunwatcher") : mod.NPCType("Nightguard"), .2f);
             }
 
-            if (spawnInfo.player.GetModPlayer<AAPlayer>().ZoneInferno)
+            if (spawnInfo.player.GetModPlayer<AABiomesPlayer>().ZoneInferno)
             {
                 ClearPoolWithExceptions(pool);
                 if ((spawnInfo.player.position.Y < (Main.worldSurface * 16.0)) && (Main.dayTime || AAWorld.downedAkuma))
@@ -955,7 +955,7 @@ namespace AAMod {
                 }
             }
 
-            if (spawnInfo.player.GetModPlayer<AAPlayer>().ZoneMire)
+            if (spawnInfo.player.GetModPlayer<AABiomesPlayer>().ZoneMire)
             {
                 ClearPoolWithExceptions(pool);
                 if ((spawnInfo.player.position.Y < (Main.worldSurface * 16.0)) && (!Main.dayTime || AAWorld.downedYamata))
@@ -1012,7 +1012,7 @@ namespace AAMod {
                 
             }
 
-            if (spawnInfo.player.GetModPlayer<AAPlayer>().ZoneVoid)
+            if (spawnInfo.player.GetModPlayer<AABiomesPlayer>().ZoneVoid)
             {
                 ClearPoolWithExceptions(pool);
 
@@ -1036,7 +1036,7 @@ namespace AAMod {
                 }
             }
 
-            if (spawnInfo.player.GetModPlayer<AAPlayer>().Terrarium)
+            if (spawnInfo.player.GetModPlayer<AABiomesPlayer>().Terrarium)
             {
                 ClearPoolWithExceptions(pool);
 
@@ -1071,7 +1071,7 @@ namespace AAMod {
                 }
             }
 
-            if (spawnInfo.player.GetModPlayer<AAPlayer>().ZoneAcropolis)
+            if (spawnInfo.player.GetModPlayer<AABiomesPlayer>().ZoneAcropolis)
             {
                 ClearPoolWithExceptions(pool);
                 pool.Add(NPCID.Harpy, .06f);
@@ -1081,7 +1081,7 @@ namespace AAMod {
                 }
             }
 
-            if (spawnInfo.player.GetModPlayer<AAPlayer>().ZoneHoard)
+            if (spawnInfo.player.GetModPlayer<AABiomesPlayer>().ZoneHoard)
             {
                 ClearPoolWithExceptions(pool);
 
@@ -1297,7 +1297,7 @@ namespace AAMod {
 
             if (type == NPCID.Dryad)
             {
-                if (Main.LocalPlayer.GetModPlayer<AAPlayer>().ZoneMush)
+                if (Main.LocalPlayer.GetModPlayer<AABiomesPlayer>().ZoneMush)
                 {
                     shop.item[nextSlot].SetDefaults(mod.ItemType("MyceliumSeeds"));
                     nextSlot++;

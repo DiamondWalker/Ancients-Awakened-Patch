@@ -34,7 +34,7 @@ namespace AAMod.Tiles.Decoration {
         {
             if (Main.tile[i, j].frameY >= 56)
             {
-                AAPlayer modPlayer = Main.LocalPlayer.GetModPlayer<AAPlayer>();
+                AABiomesPlayer modPlayer = Main.LocalPlayer.GetModPlayer<AABiomesPlayer>();
                 modPlayer.YamataAltar = true;
             }
         }

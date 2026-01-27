@@ -42,7 +42,7 @@ namespace AAMod.Items.Accessories
             if (item.accessory)
             {
                 player.buffImmune[mod.BuffType("BurningAsh")] = true;
-                if (player.GetModPlayer<AAPlayer>().ZoneInferno && !Main.dayTime && !AAWorld.downedAkuma)
+                if (player.GetModPlayer<AABiomesPlayer>().ZoneInferno && !Main.dayTime && !AAWorld.downedAkuma)
                 {
                     if (Main.rand.Next(3600) == 0)
                     {

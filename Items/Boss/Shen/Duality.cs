@@ -83,10 +83,10 @@ Grants a strong dash that shreds through enemies in a fiery blaze of glory");
             player.moveSpeed += 2f;
             player.endurance += 0.06f;
             player.dash = 3;
-            player.moveSpeed += player.GetModPlayer<AAPlayer>().ZoneMire ? .5f : 0f;
-            item.defense = player.GetModPlayer<AAPlayer>().ZoneInferno ? 18 : 8;
+            player.moveSpeed += player.GetModPlayer<AABiomesPlayer>().ZoneMire ? .5f : 0f;
+            item.defense = player.GetModPlayer<AABiomesPlayer>().ZoneInferno ? 18 : 8;
 
-            if (player.GetModPlayer<AAPlayer>().ZoneInferno || player.GetModPlayer<AAPlayer>().ZoneMire)
+            if (player.GetModPlayer<AABiomesPlayer>().ZoneInferno || player.GetModPlayer<AABiomesPlayer>().ZoneMire)
             {
                 player.allDamage += .3f;
             }

@@ -22,7 +22,7 @@ namespace AAMod.Dusts {
         {
             if (!Main.dayTime && !AAWorld.downedAkuma)
             {
-                AAPlayer.Ashes = 0;
+                AABiomesPlayer.Ashes = 0;
                 if (!dust.noGravity)
                 {
                     dust.velocity.Y += 0.2f;
@@ -36,7 +36,7 @@ namespace AAMod.Dusts {
                     }
                     Lighting.AddLight(dust.position, 0.5f * strength, 0.2f * strength, 0.2f * strength);
                 }
-                AAPlayer.Ashes++;
+                AABiomesPlayer.Ashes++;
                 dust.scale += 0.009f;
                 float y = Main.LocalPlayer.velocity.Y;
                 if (y > 0f && dust.fadeIn == 0f && dust.velocity.Y < y)

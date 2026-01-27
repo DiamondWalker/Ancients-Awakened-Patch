@@ -7,7 +7,7 @@ namespace AAMod.Backgrounds {
     {
         public override bool ChooseBgStyle()
         {
-            return !Main.gameMenu && Main.LocalPlayer.GetModPlayer<AAPlayer>().ZoneMush;
+            return !Main.gameMenu && Main.LocalPlayer.GetModPlayer<AABiomesPlayer>().ZoneMush;
         }
 
         public override void ModifyFarFades(float[] fades, float transitionSpeed)
@@ -53,7 +53,7 @@ namespace AAMod.Backgrounds {
     {
         public override bool ChooseBgStyle()
         {
-            return !Main.gameMenu && Main.LocalPlayer.GetModPlayer<AAPlayer>().ZoneMush;
+            return !Main.gameMenu && Main.LocalPlayer.GetModPlayer<AABiomesPlayer>().ZoneMush;
         }
 
         public override void FillTextureArray(int[] textureSlots)

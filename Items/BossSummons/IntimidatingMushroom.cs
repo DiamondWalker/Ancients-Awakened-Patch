@@ -43,7 +43,7 @@ Can only be used in a red mushroom biome");
 
         public override bool CanUseItem(Player player)
         {
-            if (!player.GetModPlayer<AAPlayer>().ZoneMush) {
+            if (!player.GetModPlayer<AABiomesPlayer>().ZoneMush) {
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.IntimidatingMushroomFalse1"), new Color(216, 110, 40), false);
                 return false;
             }

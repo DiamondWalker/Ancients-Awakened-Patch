@@ -40,7 +40,7 @@ Can only be used in the Void");
 
         public override bool CanUseItem(Player player)
         {
-            if (!player.GetModPlayer<AAPlayer>().ZoneVoid)
+            if (!player.GetModPlayer<AABiomesPlayer>().ZoneVoid)
             {
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.LifescannerFalse"), new Color(216, 60, 0), false);
                 return false;

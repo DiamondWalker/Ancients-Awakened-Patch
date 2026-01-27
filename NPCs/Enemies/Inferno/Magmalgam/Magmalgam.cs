@@ -24,7 +24,7 @@
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
         {
-            if (Main.hardMode && spawnInfo.player.GetModPlayer<AAPlayer>().ZoneInferno)
+            if (Main.hardMode && spawnInfo.player.GetModPlayer<AABiomesPlayer>().ZoneInferno)
             {
                 return SpawnCondition.OverworldNightMonster.Chance * 0.25f;
             }

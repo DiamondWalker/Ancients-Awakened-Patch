@@ -74,7 +74,7 @@ Non-Consumable");
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.ChaosSigilFalse3"), Color.DarkMagenta.R, Color.DarkMagenta.G, Color.DarkMagenta.B, false);
                 return false;
             }
-            if (!AAWorld.downedShen && !player.GetModPlayer<AAPlayer>().ZoneRisingSunPagoda && !player.GetModPlayer<AAPlayer>().ZoneRisingMoonLake)
+            if (!AAWorld.downedShen && !player.GetModPlayer<AABiomesPlayer>().ZoneRisingSunPagoda && !player.GetModPlayer<AABiomesPlayer>().ZoneRisingMoonLake)
             {
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.ChaosSigilFalse4"), Color.DarkMagenta, false);
                 return false;

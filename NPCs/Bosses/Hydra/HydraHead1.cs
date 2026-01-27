@@ -143,7 +143,7 @@ namespace AAMod.NPCs.Bosses.Hydra {
 
             if (targetPlayer == null || !targetPlayer.active || targetPlayer.dead) targetPlayer = null; //deliberately set to null
             
-            if (!targetPlayer.GetModPlayer<AAPlayer>().ZoneMire)
+            if (!targetPlayer.GetModPlayer<AABiomesPlayer>().ZoneMire)
             {
                 npc.damage = 80;
                 npc.defense = 100;

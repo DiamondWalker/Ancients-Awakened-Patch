@@ -159,7 +159,7 @@ namespace AAMod.NPCs.Bosses.Hydra {
             if (playerTarget != null)
             {
                 float dist = npc.Distance(playerTarget.Center);
-                if (!playerTarget.GetModPlayer<AAPlayer>().ZoneMire)
+                if (!playerTarget.GetModPlayer<AABiomesPlayer>().ZoneMire)
                 {
                     npc.alpha += 3;
                     if (npc.alpha >= 255)

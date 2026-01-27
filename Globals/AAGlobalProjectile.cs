@@ -181,19 +181,19 @@ namespace AAMod {
                             {
                                 itemtype = mod.ItemType("DesertCrate");
                             }
-                            else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].GetModPlayer<AAPlayer>().ZoneInferno)
+                            else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].GetModPlayer<AABiomesPlayer>().ZoneInferno)
                             {
                                 itemtype = mod.ItemType("InfernoCrate");
                             }
-                            else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].GetModPlayer<AAPlayer>().ZoneMire)
+                            else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].GetModPlayer<AABiomesPlayer>().ZoneMire)
                             {
                                 itemtype = mod.ItemType("MireCrate");
                             }
-                            else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].GetModPlayer<AAPlayer>().ZoneVoid)
+                            else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].GetModPlayer<AABiomesPlayer>().ZoneVoid)
                             {
                                 itemtype = mod.ItemType("VoidCrate");
                             }
-                            else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].GetModPlayer<AAPlayer>().ZoneHoard)
+                            else if (Main.rand.Next(3) == 0 && Main.player[projectile.owner].GetModPlayer<AABiomesPlayer>().ZoneHoard)
                             {
                                 itemtype = ItemID.GoldenCrate;
                             }

@@ -55,7 +55,7 @@ Can only be used at night");
                 if (player.whoAmI == Main.myPlayer && player.itemTime == 0 && player.controlUseItem && player.releaseUseItem) if (Main.netMode != 1) BaseUtility.Chat(Language.GetTextValue("Mods.AAMod.Common.HydraChowTimeFalse"), Color.Indigo.R, Color.Indigo.G, Color.Indigo.B, false);
                 return false;
             }
-            if (player.GetModPlayer<AAPlayer>().ZoneMire)
+            if (player.GetModPlayer<AABiomesPlayer>().ZoneMire)
 			{
 				if (NPC.AnyNPCs(mod.NPCType("Hydra")))
 				{

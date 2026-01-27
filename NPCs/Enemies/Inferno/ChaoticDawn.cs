@@ -131,7 +131,7 @@ namespace AAMod.NPCs.Enemies.Inferno {
 
         public override float SpawnChance(NPCSpawnInfo spawnInfo)
 		{
-            return spawnInfo.player.GetModPlayer<AAPlayer>().ZoneInferno && spawnInfo.spawnTileY > Main.worldSurface && Main.hardMode ? .1f : 0f;
+            return spawnInfo.player.GetModPlayer<AABiomesPlayer>().ZoneInferno && spawnInfo.spawnTileY > Main.worldSurface && Main.hardMode ? .1f : 0f;
         }
 
 		public override void HitEffect(int hitDirection, double damage)
