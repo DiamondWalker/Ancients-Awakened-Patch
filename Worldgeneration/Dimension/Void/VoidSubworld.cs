@@ -12,7 +12,7 @@ namespace AAMod.Worldgeneration.Dimension.Void {
 
         public override int height => Main.maxTilesY;
 
-        public override bool saveSubworld => true;
+        public override bool saveSubworld => false; // TODO: change me back!!!
 
         public override bool saveModData => true;
 

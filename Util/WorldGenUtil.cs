@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using AAMod.Sounds.Sounds;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace AAMod.Util {
             if (!WorldGen.InWorld(x, y)) return;
             if (Main.tile[x, y] == null) Main.tile[x, y] = new Tile();
             Main.tile[x, y].type = (ushort)type;
+            SetSlope(TileSlope.Full, x, y);
             Main.tile[x, y].active(true);
         }
 
@@ -35,6 +37,34 @@ namespace AAMod.Util {
 
         public static void PlaceWall<T>(int x, int y) where T : ModWall {
             PlaceWall(ModContent.WallType<T>(), x, y);
+        }
+
+        public static void SetSlope(TileSlope slope, int x, int y) {
+            if (!TileAt(x, y)) return;
+
+            if (slope == TileSlope.Half) {
+                Main.tile[x, y].slope(0);
+                Main.tile[x, y].halfBrick(true);
+            } else {
+                Main.tile[x, y].slope((byte)slope);
+                Main.tile[x, y].halfBrick(false);
+            }
+        }
+
+        public static void Actuate(int x, int y) {
+            if (!TileAt(x, y)) return;
+
+            Main.tile[x, y].inActive(true);
+        }
+
+        public static void PlaceFurniture(int type, int x, int y) {
+            if (!WorldGen.InWorld(x, y)) return;
+            WorldGen.PlaceObject(x, y, type);
+            NetMessage.SendObjectPlacment(-1, x, y, type, 0, 0, -1, -1);
+        }
+
+        public static void PlaceFurniture<T>(int x, int y) where T : ModTile {
+            PlaceFurniture(ModContent.TileType<T>(), x, y);
         }
 
         public static void PlaceChest(int type, int x, int y, IChestLootComponent lootTable) {
@@ -124,6 +154,15 @@ namespace AAMod.Util {
                 }
             }
         }
+    }
+
+    public enum TileSlope : byte {
+        Full = 0,
+        Half = 255, // dummy variable so it's not equal to Full
+        DownLeft = 1,
+        DownRight = 2,
+        UpLeft = 3,
+        UpRight = 4
     }
 
     public interface IChestLootComponent {

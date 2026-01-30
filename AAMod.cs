@@ -69,8 +69,6 @@ namespace AAMod {
 
         public static SpriteFont fontMouseText;
 
-        private bool skeletronPrimeFrameReset = false;
-
 
         internal static AAMod instance;
         public static AAMod self = null;
@@ -220,11 +218,6 @@ namespace AAMod {
         public override void PostSetupContent()
         {
             WeakReferences.PerformModSupport();
-
-            if (Main.npcFrameCount[NPCID.SkeletronPrime] == 3 && AAConfigClient.Instance != null && AAConfigClient.Instance.PrimeSpriteFix) {
-                Main.npcFrameCount[NPCID.SkeletronPrime] = 6; // fix the vanilla skeletron prime spritesheet bug by updating his frame count to the 1.4 value
-                skeletronPrimeFrameReset = true;
-            }
 
             Array.Resize(ref AASets.Goblins, NPCLoader.NPCCount);
 
@@ -586,11 +579,6 @@ namespace AAMod {
         {
             ResetItemTexture(3460);
             ResetItemTexture(512);
-
-            if (skeletronPrimeFrameReset) {
-                if (Main.npcFrameCount[NPCID.SkeletronPrime] == 6) Main.npcFrameCount[NPCID.SkeletronPrime] = 3;
-                skeletronPrimeFrameReset = false;
-            }
 
             if (sunTextureBackup != null)
                 Main.sunTexture = sunTextureBackup;
