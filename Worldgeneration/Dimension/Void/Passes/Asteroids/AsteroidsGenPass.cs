@@ -7,6 +7,7 @@ using AAMod.Items.Throwing;
 using AAMod.Items.Usable;
 using AAMod.Tiles.Furniture.Doom;
 using AAMod.Util;
+using AAMod.Worldgeneration.Dimension.Void.Passes.Islands;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,12 +17,16 @@ using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.World.Generation;
 
-namespace AAMod.Worldgeneration.Dimension.Void {
-    public class AsteroidsGenPass : GenPass {
-        public AsteroidsGenPass() : base("Void Asteroids", 1f) {
+namespace AAMod.Worldgeneration.Dimension.Void.Passes.Asteroids
+{
+    public class AsteroidsGenPass : GenPass
+    {
+        public AsteroidsGenPass() : base("Void Asteroids", 1f)
+        {
         }
 
-        public override void Apply(GenerationProgress progress) {
+        public override void Apply(GenerationProgress progress)
+        {
             progress.Message = Language.GetTextValue("Mods.AAMod.Common.AAVoidWorldBuildAsteroids");
 
             int chestsGenerated = 0;
@@ -79,7 +84,7 @@ namespace AAMod.Worldgeneration.Dimension.Void {
                         new ChanceLootComponent(0.6f, new ItemStackLootComponent(ItemID.WrathPotion, 1, 4)),
                         new ChanceLootComponent(0.6f, new ItemStackLootComponent(ItemID.ThornsPotion, 1, 4))
                     ),
-                    new SelectRandomLootComponent(3,   
+                    new SelectRandomLootComponent(3,
                         new ChanceLootComponent(0.3f, new ItemStackLootComponent(ItemID.AmmoReservationPotion, 1, 4)),
                         new ChanceLootComponent(0.3f, new ItemStackLootComponent(ItemID.BuilderPotion, 1, 4)),
                         new ChanceLootComponent(0.3f, new ItemStackLootComponent(ItemID.CalmingPotion, 1, 4)),
@@ -93,7 +98,7 @@ namespace AAMod.Worldgeneration.Dimension.Void {
                         new ChanceLootComponent(0.3f, new ItemStackLootComponent(ItemID.TitanPotion, 1, 4))
                     ),
                     new ChanceLootComponent(
-                        1.0f / 3, 
+                        1.0f / 3,
                         new SelectRandomLootComponent(
                             new SingleItemLootComponent(ItemID.FlaskofCursedFlames),
                             new SingleItemLootComponent(ItemID.FlaskofFire),
@@ -113,16 +118,19 @@ namespace AAMod.Worldgeneration.Dimension.Void {
             );
 
             int asteroids = (int)((1.0 + 0.5 * AAWorld.GetWorldSize()) * 60);
-            for (int i = 0; i < asteroids; i++) {
+            for (int i = 0; i < asteroids; i++)
+            {
                 int startX = Main.rand.Next(Main.maxTilesX);
                 int startY = Main.rand.Next(Main.maxTilesY);
-                if (!OverlapsIslands(startX, startY)) {
+                if (!OverlapsIslands(startX, startY))
+                {
                     int tiles = Main.rand.Next(200, 3600);
                     HashSet<long> positions = new HashSet<long>();
                     HashSet<long> visited = new HashSet<long>();
                     positions.Add(BitUtil.CombineInts(startX, startY));
 
-                    while (tiles > 0) {
+                    while (tiles > 0)
+                    {
                         long selection = positions.ToArray()[Main.rand.Next(positions.Count)];
                         positions.Remove(selection);
                         visited.Add(selection);
@@ -145,7 +153,8 @@ namespace AAMod.Worldgeneration.Dimension.Void {
                     }
 
                     // treasure cache
-                    if (Main.rand.Next(5) == 0) {
+                    if (Main.rand.Next(5) == 0)
+                    {
                         if (Main.rand.NextBool()) startX++;
                         if (Main.rand.NextBool()) startY++;
                         int minX = startX - 3;
@@ -153,27 +162,35 @@ namespace AAMod.Worldgeneration.Dimension.Void {
                         int minY = startY - 3;
                         int maxY = startY + 3;
                         bool generate = true;
-                        for (int x = minX - 2; x <= maxX + 2; x++) {
-                            for (int y = minY - 2; y <= maxY + 2; y++) {
-                                if (!WorldGenUtil.IsTileOfType<Tiles.DoomstoneB>(x, y)) {
+                        for (int x = minX - 2; x <= maxX + 2; x++)
+                        {
+                            for (int y = minY - 2; y <= maxY + 2; y++)
+                            {
+                                if (!WorldGenUtil.IsTileOfType<Tiles.DoomstoneB>(x, y))
+                                {
                                     generate = false;
                                 }
                             }
                         }
 
-                        if (generate) {
-                            for (int x = minX + 1; x <= maxX - 1 ; x++) {
-                                for (int y = minY + 1; y <= maxY - 1; y++) {
+                        if (generate)
+                        {
+                            for (int x = minX + 1; x <= maxX - 1; x++)
+                            {
+                                for (int y = minY + 1; y <= maxY - 1; y++)
+                                {
                                     WorldGenUtil.DeleteTile(x, y);
                                     WorldGenUtil.PlaceWall<Walls.Bricks.DoomiteWall>(x, y);
                                 }
                             }
 
-                            for (int x = minX; x <= maxX; x++) {
+                            for (int x = minX; x <= maxX; x++)
+                            {
                                 WorldGenUtil.PlaceTile<Tiles.DoomitePlate>(x, maxY);
                                 WorldGenUtil.PlaceTile<Tiles.DoomitePlate>(x, minY);
                             }
-                            for (int y = minY + 1; y <= maxY - 1 ; y++) {
+                            for (int y = minY + 1; y <= maxY - 1; y++)
+                            {
                                 WorldGenUtil.PlaceTile<Tiles.DoomitePlate>(maxX, y);
                                 WorldGenUtil.PlaceTile<Tiles.DoomitePlate>(minX, y);
                             }
@@ -188,8 +205,10 @@ namespace AAMod.Worldgeneration.Dimension.Void {
             Main.NewText(chestsGenerated + " chests generated");
         }
 
-        private bool OverlapsIslands(int x, int y) {
-            foreach (Rectangle island in IslandsGenPass.islands) {
+        private bool OverlapsIslands(int x, int y)
+        {
+            foreach (Rectangle island in IslandsGenPass.islands)
+            {
                 if (island.Contains(x, y)) return true;
             }
             return false;

@@ -1,4 +1,8 @@
 ﻿using AAMod.Globals.Worlds;
+using AAMod.Worldgeneration.Dimension.Void.Passes.Asteroids;
+using AAMod.Worldgeneration.Dimension.Void.Passes.Islands;
+using AAMod.Worldgeneration.Dimension.Void.Passes.Misc;
+using AAMod.Worldgeneration.Dimension.Void.Passes.Structures;
 using SubworldLibrary;
 using System.Collections.Generic;
 using Terraria;
@@ -30,7 +34,10 @@ namespace AAMod.Worldgeneration.Dimension.Void {
 
             // asteroid field
             new AsteroidsGenPass(),
-            //new ApocalyptiteGenPass()
+            
+            // misc
+            new FindEntryPointGenPass(),
+            new CleanupGenPass()
         };
 
         public static void Enter() {
