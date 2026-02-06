@@ -269,8 +269,9 @@ namespace AAMod {
 
             ActuationEdits.ApplyEdits();
             GlitchedEdits.ApplyEdits();
-            PlayerGravityEdits.ApplyEdits();
+            RealityStoneEdits.ApplyEdits();
             OnoEdits.ApplyEdits();
+            ReplicatorEdits.ApplyEdits();
 
             if (!Main.dedServ)
             {

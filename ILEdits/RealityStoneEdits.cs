@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using Terraria;
 
 namespace AAMod.ILEdits {
-    public class PlayerGravityEdits {
+    public class RealityStoneEdits {
         public static void ApplyEdits() {
             IL.Terraria.Player.Update += PlayerUpdate;
             On.Terraria.Player.SmartInteractLookup += SmartInteractLookup;
